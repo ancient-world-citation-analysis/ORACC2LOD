@@ -1,0 +1,3026 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Separating ORRAC Projects by their Language &#8212; ORACC2LoD</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '8 - ORACC Projects by Language';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="README.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">ORACC2LoD</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="README.html">
+                    Oracc2LoD
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="1-ORACC_ZIPS.html">Download ORACC Directory ZIP Files (Google Colab version)</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="2-DataFrame%20Extraction.html">Extract words_df and df_cat DataFrames from ZIP files</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="3-Large%20DF%20of%20Unique%20Words.html">Large DataFrame of Unique Words</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="4-Megacatalogue.html">Mount Google Drive folder + imports + steps</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="4.1%20-%20Counts%20for%20Megacatalogue.html">Counts for Megacatalogue</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="5-Translations%20Extraction.html">Mount Google Drive folder + imports + steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5.1-Counts%20for%20Transliterations%20and%20Translations.html">Counts for Transliterations and Translations</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="7.1%20-%20Metacatalogue.html">Mount Google Drive folder + imports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7.2%20-%20Fitting%20Headers.html">Mount Google Drive folder + imports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7.3%20-%20Factgrid%20Quickstatement%20Processing.html">Mount Google Drive folder + imports</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/austin-pereira/Oracc2LoD/blob/main/./8 - ORACC Projects by Language.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/8 - ORACC Projects by Language.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Separating ORRAC Projects by their Language</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Separating ORRAC Projects by their Language</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mount-google-drive-folder">Mount Google Drive folder</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#merging-the-raw-dfs-into-larger-language-dfs">Merging the Raw dfs into Larger Language dfs</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="separating-orrac-projects-by-their-language">
+<h1>Separating ORRAC Projects by their Language<a class="headerlink" href="#separating-orrac-projects-by-their-language" title="Link to this heading">#</a></h1>
+<p>Notebook by Melinee Her</p>
+<p>This notebook is split into two different parts:</p>
+<ol class="arabic simple">
+<li><p>Splitting the megacatalogue into separate language dataframes and identifying the projects that fall into these languages.</p></li>
+<li><p>Splitting the finaldf (final wordsdf) into separate language dataframes. This will capture all of the words identified for a specific language/dialect.</p></li>
+</ol>
+<p>The goal of this notebook is to categorize the ORACC projects by their different lanugages to assist the machine learning translation project.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="mount-google-drive-folder">
+<h1>Mount Google Drive folder<a class="headerlink" href="#mount-google-drive-folder" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+<span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mounted at /content/drive
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#any necessary imports</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">zipfile</span>
+<span class="kn">from</span> <span class="nn">zipfile</span> <span class="kn">import</span> <span class="n">ZipFile</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">errno</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
+
+<span class="c1">#Set folder for remote drive</span>
+<span class="c1">#folder = &#39;/content/drive/My Drive/FactGrid Cuneiform (AWCA)/people/Melinee&#39;</span>
+<span class="n">folder</span> <span class="o">=</span> <span class="s1">&#39;/content/drive/MyDrive/Melinee/&#39;</span>
+
+<span class="c1">#importing utils for the method which downloads the current text json files</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">folder</span> <span class="o">+</span> <span class="s1">&#39;network/utils/&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">utils</span> <span class="kn">import</span> <span class="n">oracc_download</span>
+
+<span class="c1"># This is a user defined module that searches through the texts to find the entities in the text that</span>
+<span class="c1"># are people and places, to be imported as nodes into the network</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">folder</span> <span class="o">+</span> <span class="s1">&#39;network/&#39;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">rank_parser4</span> <span class="k">as</span> <span class="nn">rp</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>#Splitting the Megacatalogue by Language and Text</p>
+<p>Retrieving the megacatalogue from drive</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;/content/drive/MyDrive/Melinee/ORACC_DFS/megacatalogue.csv&#39;</span>
+<span class="n">megacatalogue</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">low_memory</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#These two lines of code are for viewing unique projects and their corresponding texts</span>
+
+<span class="n">fix_atae</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;tilbarsip&#39;</span><span class="p">,</span><span class="s1">&#39;assurmisc&#39;</span><span class="p">,</span> <span class="s1">&#39;stat2&#39;</span><span class="p">,</span> <span class="s1">&#39;stat1&#39;</span><span class="p">,</span> <span class="s1">&#39;wvdog152&#39;</span><span class="p">,</span> <span class="s1">&#39;stat3&#39;</span><span class="p">,</span> <span class="s1">&#39;rfdn17&#39;</span><span class="p">,</span><span class="s1">&#39;saab0509&#39;</span><span class="p">,</span> <span class="s1">&#39;tuszhan&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;szibaniba&#39;</span><span class="p">,</span> <span class="s1">&#39;marqasu&#39;</span><span class="p">,</span> <span class="s1">&#39;guzana&#39;</span><span class="p">,</span><span class="s1">&#39;imgurenlil&#39;</span><span class="p">,</span> <span class="s1">&#39;durkatlimmu&#39;</span><span class="p">,</span> <span class="s1">&#39;mallanate&#39;</span><span class="p">,</span> <span class="s1">&#39;huzirina&#39;</span><span class="p">,</span> <span class="s1">&#39;burmarina&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;ctn2&#39;</span><span class="p">,</span> <span class="s1">&#39;ctn3&#39;</span><span class="p">,</span> <span class="s1">&#39;ctn1&#39;</span><span class="p">,</span>  <span class="s1">&#39;ctn6&#39;</span><span class="p">,</span> <span class="s1">&#39;edubba10&#39;</span><span class="p">,</span> <span class="s1">&#39;samal&#39;</span><span class="p">]</span>
+
+<span class="n">fix_saao</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;saa03&#39;</span><span class="p">,</span><span class="s1">&#39;saa20&#39;</span><span class="p">,</span> <span class="s1">&#39;saas2&#39;</span><span class="p">,</span> <span class="s1">&#39;saa12&#39;</span><span class="p">,</span> <span class="s1">&#39;saa13&#39;</span><span class="p">,</span> <span class="s1">&#39;saa02&#39;</span><span class="p">,</span> <span class="s1">&#39;saa14&#39;</span><span class="p">,</span> <span class="s1">&#39;saa18&#39;</span><span class="p">,</span> <span class="s1">&#39;saa21&#39;</span><span class="p">,</span> <span class="s1">&#39;saa08&#39;</span><span class="p">,</span> <span class="s1">&#39;saa17&#39;</span><span class="p">,</span> <span class="s1">&#39;saa04&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;saa10&#39;</span><span class="p">,</span> <span class="s1">&#39;saa15&#39;</span><span class="p">,</span><span class="s1">&#39;saa06&#39;</span><span class="p">,</span> <span class="s1">&#39;saa11&#39;</span><span class="p">,</span> <span class="s1">&#39;saa16&#39;</span><span class="p">,</span> <span class="s1">&#39;saa07&#39;</span><span class="p">,</span> <span class="s1">&#39;saa01&#39;</span><span class="p">,</span> <span class="s1">&#39;saa05&#39;</span><span class="p">,</span> <span class="s1">&#39;saa09&#39;</span><span class="p">,</span><span class="s1">&#39;saa19&#39;</span><span class="p">]</span>
+
+<span class="c1">#add new column &#39;project_name&#39; that duplicates &#39;project&#39;</span>
+<span class="n">megacatalogue</span><span class="p">[</span><span class="s1">&#39;project_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">megacatalogue</span><span class="p">[</span><span class="s1">&#39;project&#39;</span><span class="p">]</span>
+
+<span class="c1">#replace all in atae and saao list as main+sub</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">fix_atae</span><span class="p">:</span>
+  <span class="n">megacatalogue</span><span class="p">[</span><span class="s1">&#39;project_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">megacatalogue</span><span class="p">[</span><span class="s1">&#39;project_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;atae/&#39;</span><span class="o">+</span><span class="n">i</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">fix_saao</span><span class="p">:</span>
+  <span class="n">megacatalogue</span><span class="p">[</span><span class="s1">&#39;project_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">megacatalogue</span><span class="p">[</span><span class="s1">&#39;project_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;saao/&#39;</span><span class="o">+</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#drops columns that are all null + any unwanted columns</span>
+<span class="n">megacatalogue</span> <span class="o">=</span> <span class="n">megacatalogue</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+<span class="n">megacatalogue</span> <span class="o">=</span> <span class="n">megacatalogue</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">])</span>
+<span class="n">megacatalogue</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(171145, 339)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">megacatalogue</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-5fb64570-f717-46e4-98fa-fc3563f9bc16" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id_text</th>
+      <th>langs</th>
+      <th>project</th>
+      <th>id_text.1</th>
+      <th>primary_publication</th>
+      <th>provenience</th>
+      <th>pleiades_id</th>
+      <th>pleiades_coord</th>
+      <th>excavation_no</th>
+      <th>archive</th>
+      <th>...</th>
+      <th>deity</th>
+      <th>museum_URL</th>
+      <th>Delnero_remarks</th>
+      <th>Cohen_balag</th>
+      <th>external_URL_name</th>
+      <th>external_URL</th>
+      <th>google_earth_provenience</th>
+      <th>alternative_years</th>
+      <th>oracc_id</th>
+      <th>project_name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>P522592</td>
+      <td>0x08000000</td>
+      <td>tilbarsip</td>
+      <td>P522592</td>
+      <td>Til-Barsip 01</td>
+      <td>Tell Ahmar (Til Barsip)</td>
+      <td>658410.0</td>
+      <td>[38.1191944, 36.6749623]</td>
+      <td>T 01</td>
+      <td>001 -  Hanni Archive (House C1)</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>atae/tilbarsip</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>P522593</td>
+      <td>0x08000000</td>
+      <td>tilbarsip</td>
+      <td>P522593</td>
+      <td>Til-Barsip 02</td>
+      <td>Tell Ahmar (Til Barsip)</td>
+      <td>658410.0</td>
+      <td>[38.1191944, 36.6749623]</td>
+      <td>T 02</td>
+      <td>001 -  Hanni Archive (House C1)</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>atae/tilbarsip</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>P522594</td>
+      <td>0x08000000</td>
+      <td>tilbarsip</td>
+      <td>P522594</td>
+      <td>Til-Barsip 03</td>
+      <td>Tell Ahmar (Til Barsip)</td>
+      <td>658410.0</td>
+      <td>[38.1191944, 36.6749623]</td>
+      <td>T 03</td>
+      <td>001 -  Hanni Archive (House C1)</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>atae/tilbarsip</td>
+    </tr>
+  </tbody>
+</table>
+<p>3 rows × 339 columns</p>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-5fb64570-f717-46e4-98fa-fc3563f9bc16')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-5fb64570-f717-46e4-98fa-fc3563f9bc16 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-5fb64570-f717-46e4-98fa-fc3563f9bc16');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+    </div>
+  </div>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#The list of unique documented languages in the megacatalogue</span>
+<span class="n">languages</span> <span class="o">=</span> <span class="n">megacatalogue</span><span class="p">[</span><span class="s1">&#39;Language&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="n">languages</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([nan, &#39;Akkadian&#39;, &#39;Bilingual&#39;, &#39;bilingual&#39;, &#39;Bilingual?&#39;,
+       &#39;Sumerian&#39;, &#39;;&#39;, &#39;Sumerian; Akkadian&#39;, &#39;Assyrian;Assyrian&#39;,
+       &#39;Aramaic&#39;, &#39;Sumerian?&#39;, &#39;Luwian&#39;, &#39;Akkadian;Aramaic&#39;,
+       &#39;Sumerian;Akkadian&#39;, &#39;;;&#39;], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#getting 15 dfs for each group</span>
+
+<span class="n">nans</span> <span class="o">=</span> <span class="n">megacatalogue</span><span class="p">[</span><span class="n">megacatalogue</span><span class="p">[</span><span class="s1">&#39;Language&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()]</span>
+<span class="n">semicolon</span> <span class="o">=</span> <span class="n">megacatalogue</span><span class="p">[</span><span class="n">megacatalogue</span><span class="p">[</span><span class="s1">&#39;Language&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;;&#39;</span><span class="p">]</span>
+<span class="n">semicolon2</span> <span class="o">=</span> <span class="n">aramaic</span> <span class="o">=</span> <span class="n">megacatalogue</span><span class="p">[</span><span class="n">megacatalogue</span><span class="p">[</span><span class="s1">&#39;Language&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;;;&#39;</span><span class="p">]</span>
+
+<span class="n">bil</span> <span class="o">=</span> <span class="n">megacatalogue</span><span class="p">[</span><span class="n">megacatalogue</span><span class="p">[</span><span class="s1">&#39;Language&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Bilingual&#39;</span><span class="p">]</span>
+<span class="n">bil2</span> <span class="o">=</span> <span class="n">megacatalogue</span><span class="p">[</span><span class="n">megacatalogue</span><span class="p">[</span><span class="s1">&#39;Language&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;bilingual&#39;</span><span class="p">]</span>
+<span class="n">bil_q</span> <span class="o">=</span> <span class="n">megacatalogue</span><span class="p">[</span><span class="n">megacatalogue</span><span class="p">[</span><span class="s1">&#39;Language&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Bilingual?&#39;</span><span class="p">]</span>
+
+<span class="n">sumer</span> <span class="o">=</span> <span class="n">megacatalogue</span><span class="p">[</span><span class="n">megacatalogue</span><span class="p">[</span><span class="s1">&#39;Language&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Sumerian&#39;</span><span class="p">]</span>
+<span class="n">sumer_q</span> <span class="o">=</span> <span class="n">megacatalogue</span><span class="p">[</span><span class="n">megacatalogue</span><span class="p">[</span><span class="s1">&#39;Language&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Sumerian?&#39;</span><span class="p">]</span>
+
+<span class="n">sumer_akk</span> <span class="o">=</span> <span class="n">megacatalogue</span><span class="p">[</span><span class="n">megacatalogue</span><span class="p">[</span><span class="s1">&#39;Language&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Sumerian; Akkadian&#39;</span><span class="p">]</span>
+<span class="n">sumer_akk2</span> <span class="o">=</span> <span class="n">megacatalogue</span><span class="p">[</span><span class="n">megacatalogue</span><span class="p">[</span><span class="s1">&#39;Language&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Sumerian;Akkadian&#39;</span><span class="p">]</span>
+
+<span class="n">akk</span> <span class="o">=</span> <span class="n">megacatalogue</span><span class="p">[</span><span class="n">megacatalogue</span><span class="p">[</span><span class="s1">&#39;Language&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Akkadian&#39;</span><span class="p">]</span>
+
+<span class="n">akk_aramaic</span> <span class="o">=</span> <span class="n">megacatalogue</span><span class="p">[</span><span class="n">megacatalogue</span><span class="p">[</span><span class="s1">&#39;Language&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Akkadian;Aramaic&#39;</span><span class="p">]</span>
+<span class="n">aramaic</span> <span class="o">=</span> <span class="n">megacatalogue</span><span class="p">[</span><span class="n">megacatalogue</span><span class="p">[</span><span class="s1">&#39;Language&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Aramaic&#39;</span><span class="p">]</span>
+<span class="n">assyrian_assyrian</span> <span class="o">=</span> <span class="n">megacatalogue</span><span class="p">[</span><span class="n">megacatalogue</span><span class="p">[</span><span class="s1">&#39;Language&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Assyrian;Assyrian&#39;</span><span class="p">]</span>
+<span class="n">luwain</span> <span class="o">=</span> <span class="n">megacatalogue</span><span class="p">[</span><span class="n">megacatalogue</span><span class="p">[</span><span class="s1">&#39;Language&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Luwian&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#uncomment any line to display any of the raw dfs</span>
+<span class="c1">#nans</span>
+<span class="c1">#semicolon</span>
+<span class="c1">#semicolon2</span>
+<span class="c1">#bil</span>
+<span class="c1">#bil2</span>
+<span class="c1">#bil_q</span>
+<span class="c1">#sumer</span>
+<span class="c1">#sumer_q</span>
+<span class="c1">#sumer_akk</span>
+<span class="c1">#sumer_akk2</span>
+<span class="c1">#akk</span>
+<span class="c1">#akk_aramaic</span>
+<span class="c1">#aramaic</span>
+<span class="c1">#assyrian_assyrian</span>
+<span class="c1">#luwain</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="merging-the-raw-dfs-into-larger-language-dfs">
+<h2>Merging the Raw dfs into Larger Language dfs<a class="headerlink" href="#merging-the-raw-dfs-into-larger-language-dfs" title="Link to this heading">#</a></h2>
+<p>I have separated the megacatalogue into the following categories:</p>
+<ol class="arabic simple">
+<li><p>Unspecified: [nan, ‘;’ , ‘;;’]</p></li>
+<li><p>Bilingual: [‘Bilingual’, ‘bilingual’, ‘Bilingual?’]</p></li>
+<li><p>Sumerian: [‘Sumerian’, ‘Sumerian?’]</p></li>
+<li><p>Sumerian_Akkadian: [‘Sumerian; Akkadian’, ‘Sumerian;Akkadian’]</p></li>
+<li><p>Addadian: [‘Akkadian’]</p></li>
+<li><p>Others: [‘Assyrian;Assyrian’, ‘Aramaic’, ‘Luwian’, ‘Akkadian;Aramaic’]</p></li>
+</ol>
+<p>The following code will concatenate the associated dataframes into their category and create a new column ‘Category’ in each df with a label for their category. Therefore, maintaining their original language specification.</p>
+<p>Projects in multiple categories means that the texts in that project have different languages and/or have missing language specification. We can specify which texts by probing into the dataframe and identifying the unique “id_text”s.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">unspecified</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">nans</span><span class="p">,</span> <span class="n">semicolon</span><span class="p">,</span> <span class="n">semicolon2</span><span class="p">])</span>
+<span class="n">unspecified</span><span class="p">[</span><span class="s1">&#39;Category&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;unspecified&#39;</span>
+<span class="n">bilingual</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">bil</span><span class="p">,</span><span class="n">bil2</span><span class="p">,</span><span class="n">bil_q</span><span class="p">])</span>
+<span class="n">bilingual</span><span class="p">[</span><span class="s1">&#39;Category&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Bilingual&#39;</span>
+<span class="n">sumerian</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">sumer</span><span class="p">,</span><span class="n">sumer_q</span><span class="p">])</span>
+<span class="n">sumerian</span><span class="p">[</span><span class="s1">&#39;Category&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Sumerian&#39;</span>
+<span class="n">sumerian_akkadian</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">sumer_akk</span><span class="p">,</span> <span class="n">sumer_akk2</span><span class="p">])</span>
+<span class="n">sumerian_akkadian</span><span class="p">[</span><span class="s1">&#39;Category&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Summerian_Akkadian&#39;</span>
+<span class="n">akkadian</span> <span class="o">=</span> <span class="n">akk</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">akkadian</span><span class="p">[</span><span class="s1">&#39;Category&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Akkadian&#39;</span>
+<span class="n">others</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">assyrian_assyrian</span><span class="p">,</span> <span class="n">aramaic</span><span class="p">,</span> <span class="n">luwain</span><span class="p">,</span> <span class="n">akk_aramaic</span><span class="p">])</span>
+<span class="n">others</span><span class="p">[</span><span class="s1">&#39;Category&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;others&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#The projects associated in each category can be seen at a glance here</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">unspecified</span><span class="p">[</span><span class="s1">&#39;project_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bilingual</span><span class="p">[</span><span class="s1">&#39;project_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sumerian</span><span class="p">[</span><span class="s1">&#39;project_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sumerian_akkadian</span><span class="p">[</span><span class="s1">&#39;project_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">akkadian</span><span class="p">[</span><span class="s1">&#39;project_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">others</span><span class="p">[</span><span class="s1">&#39;project_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;atae/tilbarsip&#39; &#39;aemw/amarna&#39; &#39;adsd/adart1&#39; &#39;adsd/adart2&#39; &#39;adsd/adart3&#39;
+ &#39;aemw/alalakh/idrimi&#39; &#39;saao/saa03&#39; &#39;atae/assurmisc&#39; &#39;saao/saa20&#39;
+ &#39;saao/saas2&#39; &#39;saao/saa12&#39; &#39;saao/saa13&#39; &#39;saao/saa02&#39; &#39;atae/stat2&#39;
+ &#39;atae/stat1&#39; &#39;atae/wvdog152&#39; &#39;atae/stat3&#39; &#39;atae/rfdn17&#39; &#39;atae/saab0509&#39;
+ &#39;atae/tuszhan&#39; &#39;saao/saa14&#39; &#39;saao/saa18&#39; &#39;saao/saa21&#39; &#39;saao/saa08&#39;
+ &#39;saao/saa17&#39; &#39;saao/saa04&#39; &#39;saao/saa10&#39; &#39;saao/saa15&#39; &#39;saao/saa06&#39;
+ &#39;saao/saa11&#39; &#39;saao/saa16&#39; &#39;saao/saa07&#39; &#39;saao/saa01&#39; &#39;saao/saa05&#39;
+ &#39;saao/saa09&#39; &#39;asbp&#39; &#39;dcclt/nineveh&#39; &#39;caspo&#39; &#39;dcclt/signlists&#39; &#39;btto&#39;
+ &#39;blms&#39; &#39;eisl&#39; &#39;ccpo&#39; &#39;cams/barutu&#39; &#39;dccmt&#39; &#39;dcclt&#39; &#39;asbp/ninmed&#39; &#39;glass&#39;
+ &#39;cdli&#39; &#39;rinap/sources&#39; &#39;cams/ludlul&#39; &#39;cams/etana&#39; &#39;caspo/akkpm&#39;
+ &#39;adsd/adart6&#39; &#39;atae/szibaniba&#39; &#39;atae/marqasu&#39; &#39;akklove&#39; &#39;atae/ctn2&#39;
+ &#39;atae/ctn3&#39; &#39;atae/guzana&#39; &#39;adsd/adart5&#39; &#39;atae/imgurenlil&#39;
+ &#39;atae/durkatlimmu&#39; &#39;saao/saa19&#39; &#39;atae/ctn1&#39; &#39;atae/mallanate&#39; &#39;atae/ctn6&#39;
+ &#39;atae/huzirina&#39; &#39;atae/edubba10&#39; &#39;atae/burmarina&#39; &#39;atae/samal&#39;
+ &#39;asbp/rlasb&#39; &#39;ario&#39; &#39;armep&#39; &#39;dcclt/ebla&#39; &#39;obmc&#39; &#39;tcma/assur&#39; &#39;ckst&#39;
+ &#39;ribo/sources&#39; &#39;cams/gkab&#39; &#39;tcma/kulishinas&#39; &#39;tcma/miscellaneous&#39;
+ &#39;tcma/nippur&#39; &#39;tcma/laws&#39; &#39;tcma/kartn&#39; &#39;tcma/hatti&#39; &#39;tcma/bazmusian&#39;
+ &#39;tcma/tsh1&#39; &#39;tcma/billa&#39; &#39;tcma/rimah&#39; &#39;tcma/giricano&#39; &#39;tcma/fekheriye&#39;
+ &#39;tcma/nuzi&#39; &#39;tcma/chuera&#39; &#39;tcma/hana&#39; &#39;riao&#39; &#39;etcsri&#39; &#39;rinap/rinap4&#39;
+ &#39;ribo/babylon6&#39; &#39;rinap/rinap1&#39; &#39;rinap/rinap3&#39; &#39;rinap/rinap5&#39;
+ &#39;ribo/babylon10&#39; &#39;ribo/babylon7&#39; &#39;suhu&#39; &#39;ribo/babylon2&#39; &#39;ribo/babylon3&#39;
+ &#39;ribo/babylon4&#39; &#39;ribo/babylon5&#39; &#39;rinap/rinap2&#39; &#39;ecut&#39; &#39;tcma/ali1&#39;
+ &#39;tcma/suri&#39; &#39;tcma/haradum&#39; &#39;tcma/qitar&#39; &#39;tcma/barri&#39; &#39;tcma/emar&#39;
+ &#39;tcma/taban&#39; &#39;tcma/tsa1&#39; &#39;saao&#39; &#39;hbtin&#39; &#39;cams/absumu&#39; &#39;epsd2/admin/ed3a&#39;
+ &#39;epsd2/admin/ed12&#39; &#39;epsd2/admin/ed3b&#39; &#39;epsd2/earlylit&#39; &#39;epsd2/praxis&#39;
+ &#39;epsd2/admin/oakk&#39; &#39;epsd2/admin/ur3&#39; &#39;epsd2/admin/lagash2&#39;
+ &#39;epsd2/admin/oldbab&#39; &#39;epsd2/praxis/varia&#39; &#39;epsd2/literary&#39; &#39;obel&#39;
+ &#39;epsd2/praxis/liturgy&#39; &#39;dsst&#39; &#39;epsd2/royal&#39; &#39;babcity&#39; &#39;borsippa&#39;
+ &#39;cmawro/cmawr2&#39; &#39;cmawro&#39; &#39;cams&#39; &#39;ctij&#39; &#39;obta&#39; &#39;rimanum&#39; &#39;lacost&#39;
+ &#39;rinap/rinap5p1&#39; &#39;qcat&#39; &#39;nere&#39; &#39;xcat&#39; &#39;tcma/ugarit&#39; &#39;tcma/amarna&#39;
+ &#39;tcma/nineveh&#39;]
+[&#39;asbp&#39; &#39;dcclt/nineveh&#39; &#39;blms&#39; &#39;dcclt&#39; &#39;cams/etana&#39; &#39;caspo&#39; &#39;btto&#39; &#39;ccpo&#39;
+ &#39;cams/ludlul&#39;]
+[&#39;asbp&#39;]
+[&#39;dcclt/nineveh&#39; &#39;asbp&#39; &#39;dcclt&#39; &#39;blms&#39; &#39;caspo&#39; &#39;btto&#39;]
+[&#39;asbp&#39; &#39;rinap/sources&#39; &#39;ccpo&#39; &#39;caspo/akkpm&#39; &#39;blms&#39; &#39;dcclt&#39;
+ &#39;dcclt/nineveh&#39; &#39;cams/ludlul&#39; &#39;cams/etana&#39; &#39;caspo&#39;]
+[&#39;asbp&#39; &#39;caspo&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>#Splitting the Finaldf by Language and Word</p>
+<p>Note that the finaldf does not include the name of the project a word or text came from. Alongside this, it is likely that every project/subproject has texts in more than one language. Therefore, whether it would be useful to label a project with its languages can be contested.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;/content/drive/MyDrive/Melinee/ORACC_DFS/finaldf.csv&#39;</span>
+<span class="n">final</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">low_memory</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">final</span> <span class="o">=</span> <span class="n">final</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="s1">&#39;columns&#39;</span><span class="p">,</span> <span class="n">how</span> <span class="o">=</span> <span class="s1">&#39;all&#39;</span><span class="p">)</span>
+<span class="n">final</span> <span class="o">=</span> <span class="n">final</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">final</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">final</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(7271149, 22)
+</pre></div>
+</div>
+<div class="output text_html">
+  <div id="df-3852b6da-8286-4026-b616-e76dbffe5b64" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>lang</th>
+      <th>form</th>
+      <th>id_word</th>
+      <th>label</th>
+      <th>id_text</th>
+      <th>gdl</th>
+      <th>pos</th>
+      <th>cf</th>
+      <th>gw</th>
+      <th>sense</th>
+      <th>...</th>
+      <th>headform</th>
+      <th>contrefs</th>
+      <th>norm0</th>
+      <th>base</th>
+      <th>morph</th>
+      <th>stem</th>
+      <th>cont</th>
+      <th>syntax_ub-after</th>
+      <th>morph2</th>
+      <th>aform</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>arc</td>
+      <td>mmxx</td>
+      <td>P522613.2.1</td>
+      <td>o 1</td>
+      <td>P522613</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>arc</td>
+      <td>t</td>
+      <td>P522613.2.2</td>
+      <td>o 1</td>
+      <td>P522613</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>arc</td>
+      <td>rmyt</td>
+      <td>P522613.2.3</td>
+      <td>o 1</td>
+      <td>P522613</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>3 rows × 22 columns</p>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-3852b6da-8286-4026-b616-e76dbffe5b64')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-3852b6da-8286-4026-b616-e76dbffe5b64 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-3852b6da-8286-4026-b616-e76dbffe5b64');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+<div id="df-96d34794-4d58-4055-af29-8b5afebda438">
+  <button class="colab-df-quickchart" onclick="quickchart('df-96d34794-4d58-4055-af29-8b5afebda438')"
+            title="Suggest charts"
+            style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+  </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+  <script>
+    async function quickchart(key) {
+      const quickchartButtonEl =
+        document.querySelector('#' + key + ' button');
+      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+      quickchartButtonEl.classList.add('colab-df-spinner');
+      try {
+        const charts = await google.colab.kernel.invokeFunction(
+            'suggestCharts', [key], {});
+      } catch (error) {
+        console.error('Error during call to suggestCharts:', error);
+      }
+      quickchartButtonEl.classList.remove('colab-df-spinner');
+      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+    }
+    (() => {
+      let quickchartButtonEl =
+        document.querySelector('#df-96d34794-4d58-4055-af29-8b5afebda438 button');
+      quickchartButtonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+    })();
+  </script>
+</div>
+    </div>
+  </div>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">languages</span> <span class="o">=</span> <span class="n">final</span><span class="p">[</span><span class="s1">&#39;lang&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="n">languages</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="n">languages</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;akk&#39;, &#39;akk-935&#39;, &#39;akk-936&#39;, &#39;akk-949&#39;, &#39;akk-x-earakk&#39;,
+       &#39;akk-x-ltebab&#39;, &#39;akk-x-mbperi&#39;, &#39;akk-x-mbperi-949&#39;, &#39;akk-x-midass&#39;,
+       &#39;akk-x-midbab&#39;, &#39;akk-x-neoass&#39;, &#39;akk-x-neobab&#39;, &#39;akk-x-neobab-949&#39;,
+       &#39;akk-x-oldakk&#39;, &#39;akk-x-oldass&#39;, &#39;akk-x-oldbab&#39;, &#39;akk-x-oldbab-949&#39;,
+       &#39;akk-x-stdbab&#39;, &#39;akk-x-stdbab-949&#39;, &#39;arc&#39;, &#39;arc-949&#39;, &#39;egy-020&#39;,
+       &#39;elx&#39;, &#39;grc&#39;, &#39;hit&#39;, &#39;hit-946&#39;, &#39;hlu&#39;, &#39;peo&#39;, &#39;qca&#39;, &#39;qcu&#39;,
+       &#39;qcu-949&#39;, &#39;qeb&#39;, &#39;qpc&#39;, &#39;qur&#39;, &#39;sux&#39;, &#39;sux-947&#39;, &#39;sux-x-emesal&#39;,
+       &#39;sux-x-gloss&#39;, &#39;sux-x-syll&#39;, &#39;uga&#39;, &#39;uga-040&#39;, &#39;xhu&#39;, &#39;xhu-946&#39;,
+       &#39;xur&#39;, &#39;xur-944&#39;, &#39;xur-946&#39;], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">akk</span> <span class="o">=</span> <span class="n">final</span><span class="p">[</span><span class="n">final</span><span class="p">[</span><span class="s1">&#39;lang&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;akk&#39;</span><span class="p">]</span>
+<span class="n">akk_935</span> <span class="o">=</span> <span class="n">final</span><span class="p">[</span><span class="n">final</span><span class="p">[</span><span class="s1">&#39;lang&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;akk-935&#39;</span><span class="p">]</span>
+<span class="n">akk_936</span> <span class="o">=</span> <span class="n">final</span><span class="p">[</span><span class="n">final</span><span class="p">[</span><span class="s1">&#39;lang&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;akk-936&#39;</span><span class="p">]</span>
+<span class="n">akk_949</span> <span class="o">=</span> <span class="n">final</span><span class="p">[</span><span class="n">final</span><span class="p">[</span><span class="s1">&#39;lang&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;akk-949&#39;</span><span class="p">]</span>
+<span class="n">akk_x_earakk</span> <span class="o">=</span> <span class="n">final</span><span class="p">[</span><span class="n">final</span><span class="p">[</span><span class="s1">&#39;lang&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;akk-x-earakk&#39;</span><span class="p">]</span>
+<span class="n">akk_x_ltebab</span> <span class="o">=</span> <span class="n">final</span><span class="p">[</span><span class="n">final</span><span class="p">[</span><span class="s1">&#39;lang&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;akk-x-ltebab&#39;</span><span class="p">]</span>
+<span class="n">akk_x_mbperi</span> <span class="o">=</span> <span class="n">final</span><span class="p">[</span><span class="n">final</span><span class="p">[</span><span class="s1">&#39;lang&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;akk-x-mbperi&#39;</span><span class="p">]</span>
+<span class="n">akk_x_mbperi_949</span> <span class="o">=</span> <span class="n">final</span><span class="p">[</span><span class="n">final</span><span class="p">[</span><span class="s1">&#39;lang&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;akk-x-mbperi-949&#39;</span><span class="p">]</span>
+<span class="n">akk_x_midass</span> <span class="o">=</span> <span class="n">final</span><span class="p">[</span><span class="n">final</span><span class="p">[</span><span class="s1">&#39;lang&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;akk-x-midass&#39;</span><span class="p">]</span>
+<span class="n">akk_x_midbab</span> <span class="o">=</span> <span class="n">final</span><span class="p">[</span><span class="n">final</span><span class="p">[</span><span class="s1">&#39;lang&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;akk-x-midbab&#39;</span><span class="p">]</span>
+<span class="n">akk_x_neoass</span> <span class="o">=</span> <span class="n">final</span><span class="p">[</span><span class="n">final</span><span class="p">[</span><span class="s1">&#39;lang&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;akk-x-neoass&#39;</span><span class="p">]</span>
+<span class="n">akk_x_neobab</span> <span class="o">=</span> <span class="n">final</span><span class="p">[</span><span class="n">final</span><span class="p">[</span><span class="s1">&#39;lang&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;akk-x-neobab&#39;</span><span class="p">]</span>
+<span class="n">akk_x_neobab_949</span> <span class="o">=</span> <span class="n">final</span><span class="p">[</span><span class="n">final</span><span class="p">[</span><span class="s1">&#39;lang&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;akk-x-neobab-949&#39;</span><span class="p">]</span>
+<span class="n">akk_x_oldakk</span> <span class="o">=</span> <span class="n">final</span><span class="p">[</span><span class="n">final</span><span class="p">[</span><span class="s1">&#39;lang&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;akk-x-oldass&#39;</span><span class="p">]</span>
+<span class="n">akk_x_oldass</span> <span class="o">=</span> <span class="n">final</span><span class="p">[</span><span class="n">final</span><span class="p">[</span><span class="s1">&#39;lang&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;akk-x-oldass&#39;</span><span class="p">]</span>
+<span class="n">akk_x_oldbab</span> <span class="o">=</span> <span class="n">final</span><span class="p">[</span><span class="n">final</span><span class="p">[</span><span class="s1">&#39;lang&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;akk-x-oldbab&#39;</span><span class="p">]</span>
+<span class="n">akk_x_oldbab_949</span> <span class="o">=</span> <span class="n">final</span><span class="p">[</span><span class="n">final</span><span class="p">[</span><span class="s1">&#39;lang&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;akk-x-oldbab-949&#39;</span><span class="p">]</span>
+<span class="n">akk_x_stdbab</span> <span class="o">=</span> <span class="n">final</span><span class="p">[</span><span class="n">final</span><span class="p">[</span><span class="s1">&#39;lang&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;akk-x-stdbab&#39;</span><span class="p">]</span>
+<span class="n">akk_x_stdbab_949</span> <span class="o">=</span> <span class="n">final</span><span class="p">[</span><span class="n">final</span><span class="p">[</span><span class="s1">&#39;lang&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;akk-x-stdbab-949&#39;</span><span class="p">]</span>
+
+<span class="n">arc</span> <span class="o">=</span> <span class="n">final</span><span class="p">[</span><span class="n">final</span><span class="p">[</span><span class="s1">&#39;lang&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;arc&#39;</span><span class="p">]</span>
+<span class="n">arc_949</span> <span class="o">=</span> <span class="n">final</span><span class="p">[</span><span class="n">final</span><span class="p">[</span><span class="s1">&#39;lang&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;arc-949&#39;</span><span class="p">]</span>
+
+<span class="n">egy_020</span> <span class="o">=</span> <span class="n">final</span><span class="p">[</span><span class="n">final</span><span class="p">[</span><span class="s1">&#39;lang&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;egy-020&#39;</span><span class="p">]</span>
+<span class="n">elx</span> <span class="o">=</span> <span class="n">final</span><span class="p">[</span><span class="n">final</span><span class="p">[</span><span class="s1">&#39;lang&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;elx&#39;</span><span class="p">]</span>
+<span class="n">grc</span> <span class="o">=</span> <span class="n">final</span><span class="p">[</span><span class="n">final</span><span class="p">[</span><span class="s1">&#39;lang&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;grc&#39;</span><span class="p">]</span>
+
+<span class="n">hit</span> <span class="o">=</span> <span class="n">final</span><span class="p">[</span><span class="n">final</span><span class="p">[</span><span class="s1">&#39;lang&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;hit&#39;</span><span class="p">]</span>
+<span class="n">hit_946</span> <span class="o">=</span> <span class="n">final</span><span class="p">[</span><span class="n">final</span><span class="p">[</span><span class="s1">&#39;lang&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;hit-946&#39;</span><span class="p">]</span>
+
+<span class="n">hlu</span> <span class="o">=</span> <span class="n">final</span><span class="p">[</span><span class="n">final</span><span class="p">[</span><span class="s1">&#39;lang&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;hlu&#39;</span><span class="p">]</span>
+<span class="n">peo</span> <span class="o">=</span> <span class="n">final</span><span class="p">[</span><span class="n">final</span><span class="p">[</span><span class="s1">&#39;lang&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;peo&#39;</span><span class="p">]</span>
+<span class="n">qca</span> <span class="o">=</span> <span class="n">final</span><span class="p">[</span><span class="n">final</span><span class="p">[</span><span class="s1">&#39;lang&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;qca&#39;</span><span class="p">]</span>
+
+<span class="n">qcu</span> <span class="o">=</span> <span class="n">final</span><span class="p">[</span><span class="n">final</span><span class="p">[</span><span class="s1">&#39;lang&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;qcu&#39;</span><span class="p">]</span>
+<span class="n">qcu_949</span> <span class="o">=</span> <span class="n">final</span><span class="p">[</span><span class="n">final</span><span class="p">[</span><span class="s1">&#39;lang&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;qcu-949&#39;</span><span class="p">]</span>
+
+<span class="n">qeb</span> <span class="o">=</span> <span class="n">final</span><span class="p">[</span><span class="n">final</span><span class="p">[</span><span class="s1">&#39;lang&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;qeb&#39;</span><span class="p">]</span>
+<span class="n">qpc</span> <span class="o">=</span> <span class="n">final</span><span class="p">[</span><span class="n">final</span><span class="p">[</span><span class="s1">&#39;lang&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;qpc&#39;</span><span class="p">]</span>
+<span class="n">qur</span> <span class="o">=</span> <span class="n">final</span><span class="p">[</span><span class="n">final</span><span class="p">[</span><span class="s1">&#39;lang&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;qur&#39;</span><span class="p">]</span>
+
+<span class="n">sux</span> <span class="o">=</span> <span class="n">final</span><span class="p">[</span><span class="n">final</span><span class="p">[</span><span class="s1">&#39;lang&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;sux&#39;</span><span class="p">]</span>
+<span class="n">sux_947</span> <span class="o">=</span> <span class="n">final</span><span class="p">[</span><span class="n">final</span><span class="p">[</span><span class="s1">&#39;lang&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;sux-947&#39;</span><span class="p">]</span>
+<span class="n">sux_x_emesal</span> <span class="o">=</span> <span class="n">final</span><span class="p">[</span><span class="n">final</span><span class="p">[</span><span class="s1">&#39;lang&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;sux-x-emesal&#39;</span><span class="p">]</span>
+<span class="n">sux_x_gloss</span> <span class="o">=</span> <span class="n">final</span><span class="p">[</span><span class="n">final</span><span class="p">[</span><span class="s1">&#39;lang&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;sux-x-gloss&#39;</span><span class="p">]</span>
+<span class="n">sux_x_syll</span> <span class="o">=</span> <span class="n">final</span><span class="p">[</span><span class="n">final</span><span class="p">[</span><span class="s1">&#39;lang&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;sux-x-syll&#39;</span><span class="p">]</span>
+
+<span class="n">uga</span> <span class="o">=</span> <span class="n">final</span><span class="p">[</span><span class="n">final</span><span class="p">[</span><span class="s1">&#39;lang&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;uga&#39;</span><span class="p">]</span>
+<span class="n">uga_040</span> <span class="o">=</span> <span class="n">final</span><span class="p">[</span><span class="n">final</span><span class="p">[</span><span class="s1">&#39;lang&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;uga-040&#39;</span><span class="p">]</span>
+
+<span class="n">xhu</span> <span class="o">=</span> <span class="n">final</span><span class="p">[</span><span class="n">final</span><span class="p">[</span><span class="s1">&#39;lang&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;xhu&#39;</span><span class="p">]</span>
+<span class="n">xhu_946</span> <span class="o">=</span> <span class="n">final</span><span class="p">[</span><span class="n">final</span><span class="p">[</span><span class="s1">&#39;lang&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;xhu-946&#39;</span><span class="p">]</span>
+
+<span class="n">xur</span> <span class="o">=</span> <span class="n">final</span><span class="p">[</span><span class="n">final</span><span class="p">[</span><span class="s1">&#39;lang&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;xur&#39;</span><span class="p">]</span>
+<span class="n">xur_944</span> <span class="o">=</span> <span class="n">final</span><span class="p">[</span><span class="n">final</span><span class="p">[</span><span class="s1">&#39;lang&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;xur_944&#39;</span><span class="p">]</span>
+<span class="n">xur_946</span> <span class="o">=</span> <span class="n">final</span><span class="p">[</span><span class="n">final</span><span class="p">[</span><span class="s1">&#39;lang&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;xur_946&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">akk</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-1a8bc3cc-393f-4a28-9ff0-3be76534434c" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>lang</th>
+      <th>form</th>
+      <th>id_word</th>
+      <th>label</th>
+      <th>id_text</th>
+      <th>gdl</th>
+      <th>pos</th>
+      <th>cf</th>
+      <th>gw</th>
+      <th>sense</th>
+      <th>...</th>
+      <th>headform</th>
+      <th>contrefs</th>
+      <th>norm0</th>
+      <th>base</th>
+      <th>morph</th>
+      <th>stem</th>
+      <th>cont</th>
+      <th>syntax_ub-after</th>
+      <th>morph2</th>
+      <th>aform</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>19374</th>
+      <td>akk</td>
+      <td>x</td>
+      <td>X201711.2.1</td>
+      <td>o 1'</td>
+      <td>X201711</td>
+      <td>[{'x': 'ellipsis', 'id': 'X201711.2.1.0', 'bre...</td>
+      <td>u</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>19375</th>
+      <td>akk</td>
+      <td>x</td>
+      <td>X201711.2.2</td>
+      <td>o 1'</td>
+      <td>X201711</td>
+      <td>[{'x': 'ellipsis', 'id': 'X201711.2.2.0', 'bre...</td>
+      <td>u</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>19376</th>
+      <td>akk</td>
+      <td>x</td>
+      <td>X201711.3.1</td>
+      <td>o 2'</td>
+      <td>X201711</td>
+      <td>[{'x': 'ellipsis', 'id': 'X201711.3.1.0', 'bre...</td>
+      <td>u</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>19377</th>
+      <td>akk</td>
+      <td>DIR</td>
+      <td>X201711.3.2</td>
+      <td>o 2'</td>
+      <td>X201711</td>
+      <td>[{'gg': 'logo', 'gdl_type': 'logo', 'group': [...</td>
+      <td>N</td>
+      <td>erpetu</td>
+      <td>cloud</td>
+      <td>cloud</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>19378</th>
+      <td>akk</td>
+      <td>AN</td>
+      <td>X201711.3.3</td>
+      <td>o 2'</td>
+      <td>X201711</td>
+      <td>[{'gg': 'logo', 'gdl_type': 'logo', 'group': [...</td>
+      <td>N</td>
+      <td>šamû</td>
+      <td>sky</td>
+      <td>sky</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>7127369</th>
+      <td>akk</td>
+      <td>ni-nu-u₂-a</td>
+      <td>P503119.8.2</td>
+      <td>o 6</td>
+      <td>P503119</td>
+      <td>[{'v': 'ni', 'id': 'P503119.8.2.0', 'break': '...</td>
+      <td>X</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>7130316</th>
+      <td>akk</td>
+      <td>a-na</td>
+      <td>P504259.8.2</td>
+      <td>o 6</td>
+      <td>P504259</td>
+      <td>[{'v': 'a', 'id': 'P504259.8.2.0', 'delim': '-...</td>
+      <td>X</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>7130317</th>
+      <td>akk</td>
+      <td>erin₂</td>
+      <td>P504259.8.3</td>
+      <td>o 6</td>
+      <td>P504259</td>
+      <td>[{'v': 'erin₂', 'id': 'P504259.8.3.0'}]</td>
+      <td>X</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>7130318</th>
+      <td>akk</td>
+      <td>dam-qum</td>
+      <td>P504259.8.4</td>
+      <td>o 6</td>
+      <td>P504259</td>
+      <td>[{'v': 'dam', 'id': 'P504259.8.4.0', 'delim': ...</td>
+      <td>X</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>7130342</th>
+      <td>akk</td>
+      <td>wa-at-ru</td>
+      <td>P504259.16.4</td>
+      <td>r 2</td>
+      <td>P504259</td>
+      <td>[{'v': 'wa', 'id': 'P504259.16.4.0', 'delim': ...</td>
+      <td>X</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>885597 rows × 22 columns</p>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-1a8bc3cc-393f-4a28-9ff0-3be76534434c')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-1a8bc3cc-393f-4a28-9ff0-3be76534434c button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-1a8bc3cc-393f-4a28-9ff0-3be76534434c');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+<div id="df-cf07797c-cafb-4b8b-ae1c-9d779787d07a">
+  <button class="colab-df-quickchart" onclick="quickchart('df-cf07797c-cafb-4b8b-ae1c-9d779787d07a')"
+            title="Suggest charts"
+            style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+  </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+  <script>
+    async function quickchart(key) {
+      const quickchartButtonEl =
+        document.querySelector('#' + key + ' button');
+      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+      quickchartButtonEl.classList.add('colab-df-spinner');
+      try {
+        const charts = await google.colab.kernel.invokeFunction(
+            'suggestCharts', [key], {});
+      } catch (error) {
+        console.error('Error during call to suggestCharts:', error);
+      }
+      quickchartButtonEl.classList.remove('colab-df-spinner');
+      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+    }
+    (() => {
+      let quickchartButtonEl =
+        document.querySelector('#df-cf07797c-cafb-4b8b-ae1c-9d779787d07a button');
+      quickchartButtonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+    })();
+  </script>
+</div>
+    </div>
+  </div>
+</div></div>
+</div>
+<p>Next steps include:</p>
+<ol class="arabic simple">
+<li><p>merging some of these dfs into bigger dfs (e.g. all Akkadian related texts in a df called Akkadian)</p></li>
+<li><p>exporting these dfs as csv files.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#merge all akkadian texts</span>
+<span class="n">akk_dfs</span> <span class="o">=</span> <span class="p">[</span><span class="n">akk</span><span class="p">,</span> <span class="n">akk_935</span><span class="p">,</span> <span class="n">akk_936</span><span class="p">,</span> <span class="n">akk_949</span><span class="p">,</span> <span class="n">akk_x_earakk</span><span class="p">,</span> <span class="n">akk_x_ltebab</span><span class="p">,</span> <span class="n">akk_x_mbperi</span><span class="p">,</span> <span class="n">akk_x_mbperi_949</span><span class="p">,</span> <span class="n">akk_x_midass</span><span class="p">,</span> <span class="n">akk_x_midbab</span><span class="p">,</span> <span class="n">akk_x_neoass</span><span class="p">,</span> <span class="n">akk_x_neobab</span><span class="p">,</span>
+           <span class="n">akk_x_neobab_949</span><span class="p">,</span> <span class="n">akk_x_oldakk</span><span class="p">,</span> <span class="n">akk_x_oldass</span><span class="p">,</span> <span class="n">akk_x_oldbab</span><span class="p">,</span> <span class="n">akk_x_oldbab_949</span><span class="p">,</span> <span class="n">akk_x_stdbab</span><span class="p">,</span> <span class="n">akk_x_stdbab_949</span><span class="p">]</span>
+
+<span class="n">akkadians</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">akk_dfs</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">akkadians</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-6a8538af-7603-4714-a2d1-55c478e0ef1b" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>lang</th>
+      <th>form</th>
+      <th>id_word</th>
+      <th>label</th>
+      <th>id_text</th>
+      <th>gdl</th>
+      <th>pos</th>
+      <th>cf</th>
+      <th>gw</th>
+      <th>sense</th>
+      <th>...</th>
+      <th>headform</th>
+      <th>contrefs</th>
+      <th>norm0</th>
+      <th>base</th>
+      <th>morph</th>
+      <th>stem</th>
+      <th>cont</th>
+      <th>syntax_ub-after</th>
+      <th>morph2</th>
+      <th>aform</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>akk</td>
+      <td>x</td>
+      <td>X201711.2.1</td>
+      <td>o 1'</td>
+      <td>X201711</td>
+      <td>[{'x': 'ellipsis', 'id': 'X201711.2.1.0', 'bre...</td>
+      <td>u</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>akk</td>
+      <td>x</td>
+      <td>X201711.2.2</td>
+      <td>o 1'</td>
+      <td>X201711</td>
+      <td>[{'x': 'ellipsis', 'id': 'X201711.2.2.0', 'bre...</td>
+      <td>u</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>akk</td>
+      <td>x</td>
+      <td>X201711.3.1</td>
+      <td>o 2'</td>
+      <td>X201711</td>
+      <td>[{'x': 'ellipsis', 'id': 'X201711.3.1.0', 'bre...</td>
+      <td>u</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>akk</td>
+      <td>DIR</td>
+      <td>X201711.3.2</td>
+      <td>o 2'</td>
+      <td>X201711</td>
+      <td>[{'gg': 'logo', 'gdl_type': 'logo', 'group': [...</td>
+      <td>N</td>
+      <td>erpetu</td>
+      <td>cloud</td>
+      <td>cloud</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>akk</td>
+      <td>AN</td>
+      <td>X201711.3.3</td>
+      <td>o 2'</td>
+      <td>X201711</td>
+      <td>[{'gg': 'logo', 'gdl_type': 'logo', 'group': [...</td>
+      <td>N</td>
+      <td>šamû</td>
+      <td>sky</td>
+      <td>sky</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2201918</th>
+      <td>akk-x-stdbab-949</td>
+      <td>*</td>
+      <td>P247829.11.2</td>
+      <td>o 7'</td>
+      <td>P247829</td>
+      <td>NaN</td>
+      <td>N</td>
+      <td>kipkippu</td>
+      <td>(a bird of prey)</td>
+      <td>(a bird of prey)</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2201919</th>
+      <td>akk-x-stdbab-949</td>
+      <td>*</td>
+      <td>P247829.12.2</td>
+      <td>o 8'</td>
+      <td>P247829</td>
+      <td>NaN</td>
+      <td>N</td>
+      <td>kurkurru</td>
+      <td>(a bird)</td>
+      <td>(a bird)</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2201920</th>
+      <td>akk-x-stdbab-949</td>
+      <td>*</td>
+      <td>P247829.13.2</td>
+      <td>o 9'</td>
+      <td>P247829</td>
+      <td>NaN</td>
+      <td>N</td>
+      <td>terterru</td>
+      <td>(a bird)</td>
+      <td>(a bird)</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2201921</th>
+      <td>akk-x-stdbab-949</td>
+      <td>*</td>
+      <td>P247829.14.2</td>
+      <td>o 10'</td>
+      <td>P247829</td>
+      <td>NaN</td>
+      <td>N</td>
+      <td>dubdubbu</td>
+      <td>(a bird)</td>
+      <td>(a bird)</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2201922</th>
+      <td>akk-x-stdbab-949</td>
+      <td>*</td>
+      <td>P247829.15.2</td>
+      <td>o 11'</td>
+      <td>P247829</td>
+      <td>NaN</td>
+      <td>N</td>
+      <td>šeššeku</td>
+      <td>(a bird)</td>
+      <td>(a bird)</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>2201923 rows × 22 columns</p>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-6a8538af-7603-4714-a2d1-55c478e0ef1b')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-6a8538af-7603-4714-a2d1-55c478e0ef1b button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-6a8538af-7603-4714-a2d1-55c478e0ef1b');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+<div id="df-08de878f-e8e8-4b24-b3c9-558fad5e4c47">
+  <button class="colab-df-quickchart" onclick="quickchart('df-08de878f-e8e8-4b24-b3c9-558fad5e4c47')"
+            title="Suggest charts"
+            style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+  </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+  <script>
+    async function quickchart(key) {
+      const quickchartButtonEl =
+        document.querySelector('#' + key + ' button');
+      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+      quickchartButtonEl.classList.add('colab-df-spinner');
+      try {
+        const charts = await google.colab.kernel.invokeFunction(
+            'suggestCharts', [key], {});
+      } catch (error) {
+        console.error('Error during call to suggestCharts:', error);
+      }
+      quickchartButtonEl.classList.remove('colab-df-spinner');
+      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+    }
+    (() => {
+      let quickchartButtonEl =
+        document.querySelector('#df-08de878f-e8e8-4b24-b3c9-558fad5e4c47 button');
+      quickchartButtonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+    })();
+  </script>
+</div>
+    </div>
+  </div>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#merge all sumerian texts</span>
+<span class="n">sux_dfs</span> <span class="o">=</span> <span class="p">[</span><span class="n">sux</span><span class="p">,</span> <span class="n">sux_947</span><span class="p">,</span> <span class="n">sux_x_emesal</span><span class="p">,</span> <span class="n">sux_x_gloss</span><span class="p">,</span> <span class="n">sux_x_syll</span><span class="p">]</span>
+<span class="n">sumerians</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">sux_dfs</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">sumerians</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-3f4ee4a0-f515-4417-9019-3dfb4d590f4f" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>lang</th>
+      <th>form</th>
+      <th>id_word</th>
+      <th>label</th>
+      <th>id_text</th>
+      <th>gdl</th>
+      <th>pos</th>
+      <th>cf</th>
+      <th>gw</th>
+      <th>sense</th>
+      <th>...</th>
+      <th>headform</th>
+      <th>contrefs</th>
+      <th>norm0</th>
+      <th>base</th>
+      <th>morph</th>
+      <th>stem</th>
+      <th>cont</th>
+      <th>syntax_ub-after</th>
+      <th>morph2</th>
+      <th>aform</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>sux</td>
+      <td>na.re.eš</td>
+      <td>P395047.14.2</td>
+      <td>o i 9</td>
+      <td>P395047</td>
+      <td>[{'gg': 'group', 'gdl_type': 'group', 'group':...</td>
+      <td>X</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>sux</td>
+      <td>mi.in.de.eš</td>
+      <td>P395047.14.3</td>
+      <td>o i 9</td>
+      <td>P395047</td>
+      <td>[{'gg': 'group', 'gdl_type': 'group', 'group':...</td>
+      <td>X</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>sux</td>
+      <td>na.re.eš</td>
+      <td>P395047.14.4</td>
+      <td>o i 9</td>
+      <td>P395047</td>
+      <td>[{'gg': 'group', 'gdl_type': 'group', 'group':...</td>
+      <td>X</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>sux</td>
+      <td>hu.ul.pa.ak</td>
+      <td>P395047.14.5</td>
+      <td>o i 9</td>
+      <td>P395047</td>
+      <td>[{'gg': 'group', 'gdl_type': 'group', 'group':...</td>
+      <td>X</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>sux</td>
+      <td>x</td>
+      <td>P395047.14.6</td>
+      <td>o i 9</td>
+      <td>P395047</td>
+      <td>[{'v': 'x', 'id': 'P395047.14.6.0', 'breakStar...</td>
+      <td>u</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>5007881</th>
+      <td>sux-x-syll</td>
+      <td>zu-ʾa₃-ar-ša</td>
+      <td>P240975.63.1</td>
+      <td>o v 4</td>
+      <td>P240975</td>
+      <td>[{'v': 'zu', 'id': 'P240975.63.1.0', 'delim': ...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5007882</th>
+      <td>sux-x-syll</td>
+      <td>ga-a-gi</td>
+      <td>P240975.68.1</td>
+      <td>o v 9</td>
+      <td>P240975</td>
+      <td>[{'v': 'ga', 'id': 'P240975.68.1.0', 'delim': ...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5007883</th>
+      <td>sux-x-syll</td>
+      <td>šu-gur-šu-gur</td>
+      <td>P240975.71.1</td>
+      <td>o v 12</td>
+      <td>P240975</td>
+      <td>[{'v': 'šu', 'id': 'P240975.71.1.0', 'delim': ...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5007884</th>
+      <td>sux-x-syll</td>
+      <td>ga-us₂</td>
+      <td>P240975.74.1</td>
+      <td>o v 15</td>
+      <td>P240975</td>
+      <td>[{'v': 'ga', 'id': 'P240975.74.1.0', 'delim': ...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5007885</th>
+      <td>sux-x-syll</td>
+      <td>ga-zi-zi-gi</td>
+      <td>P240975.87.1</td>
+      <td>o vi 12</td>
+      <td>P240975</td>
+      <td>[{'v': 'ga', 'id': 'P240975.87.1.0', 'delim': ...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>5007886 rows × 22 columns</p>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-3f4ee4a0-f515-4417-9019-3dfb4d590f4f')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-3f4ee4a0-f515-4417-9019-3dfb4d590f4f button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-3f4ee4a0-f515-4417-9019-3dfb4d590f4f');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+<div id="df-8f4763ab-fa96-4a32-a18f-62ea70d8f752">
+  <button class="colab-df-quickchart" onclick="quickchart('df-8f4763ab-fa96-4a32-a18f-62ea70d8f752')"
+            title="Suggest charts"
+            style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+  </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+  <script>
+    async function quickchart(key) {
+      const quickchartButtonEl =
+        document.querySelector('#' + key + ' button');
+      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+      quickchartButtonEl.classList.add('colab-df-spinner');
+      try {
+        const charts = await google.colab.kernel.invokeFunction(
+            'suggestCharts', [key], {});
+      } catch (error) {
+        console.error('Error during call to suggestCharts:', error);
+      }
+      quickchartButtonEl.classList.remove('colab-df-spinner');
+      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+    }
+    (() => {
+      let quickchartButtonEl =
+        document.querySelector('#df-8f4763ab-fa96-4a32-a18f-62ea70d8f752 button');
+      quickchartButtonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+    })();
+  </script>
+</div>
+    </div>
+  </div>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#exports akkadian words to the folder LANGUAGE_CSVS</span>
+<span class="n">akkadians</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">folder</span> <span class="o">+</span> <span class="s1">&#39;LANGUAGE_CSVS/akkadians.csv&#39;</span><span class="p">)</span>
+
+<span class="c1">#exports sumerian words to the folder LANGUAGE_CSVS</span>
+<span class="n">sumerians</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">folder</span> <span class="o">+</span> <span class="s1">&#39;LANGUAGE_CSVS/sumerians.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Separating ORRAC Projects by their Language</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mount-google-drive-folder">Mount Google Drive folder</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#merging-the-raw-dfs-into-larger-language-dfs">Merging the Raw dfs into Larger Language dfs</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
