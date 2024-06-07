@@ -6,7 +6,7 @@ execute:
 
 repository:
   url: https://github.com/austin-pereira/Oracc2LoD
-  path_to_book: ./
+  path_to_book: book/
   branch: main
 
 launch_buttons:
