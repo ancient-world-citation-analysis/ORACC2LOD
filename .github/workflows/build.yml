@@ -1,0 +1,39 @@
+name: Build and Deploy Jupyter Book
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'book/**.ipynb'
+      - '_config.yml'
+      - '.toc.yml'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+
+    - name: Install Dependencies
+      run: |
+        pip install jupyter-book
+        pip install -r requirements.txt
+
+    - name: Build Jupyter Book
+      run: jupyter-book build book/
+
+    - name: Push to GitHub Pages
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add docs/*
+        git commit -m "Update GitHub Pages" -a || echo "No changes to commit"
+        git push
