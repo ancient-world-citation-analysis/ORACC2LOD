@@ -1,0 +1,13 @@
+title: "ORACC2LoD"
+logo: path/to/your/logo.png # Update this to the path of your logo if you have one
+
+execute:
+  execute_notebooks: "off"
+
+repository:
+  url: https://github.com/austin-pereira/Oracc2LoD
+  path_to_book: ./
+  branch: main
+
+launch_buttons:
+  colab_url: "https://colab.research.google.com"
