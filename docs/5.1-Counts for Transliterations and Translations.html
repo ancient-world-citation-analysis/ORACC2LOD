@@ -1,0 +1,1369 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Counts for Transliterations and Translations &#8212; ORACC2LoD</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '5.1-Counts for Transliterations and Translations';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Mount Google Drive folder + imports" href="7.1%20-%20Metacatalogue.html" />
+    <link rel="prev" title="Mount Google Drive folder + imports + steps" href="5-Translations%20Extraction.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="welcome.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">ORACC2LoD</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="welcome.html">
+                    Sumerian Networks JupyterBook
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="1-ORACC_ZIPS.html">Download ORACC Directory ZIP Files (Google Colab version)</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="2-DataFrame%20Extraction.html">Extract words_df and df_cat DataFrames from ZIP files</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="3-Large%20DF%20of%20Unique%20Words.html">Large DataFrame of Unique Words</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="4-Megacatalogue.html">Mount Google Drive folder + imports + steps</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="4.1%20-%20Counts%20for%20Megacatalogue.html">Counts for Megacatalogue</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="5-Translations%20Extraction.html">Mount Google Drive folder + imports + steps</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Counts for Transliterations and Translations</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="7.1%20-%20Metacatalogue.html">Mount Google Drive folder + imports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7.2%20-%20Fitting%20Headers.html">Mount Google Drive folder + imports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7.3%20-%20Factgrid%20Quickstatement%20Processing.html">Mount Google Drive folder + imports</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/austin-pereira/Oracc2LoD/blob/main/book/5.1-Counts for Transliterations and Translations.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/5.1-Counts for Transliterations and Translations.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Counts for Transliterations and Translations</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Counts for Transliterations and Translations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mount-google-drive-folder-imports-steps">Mount Google Drive folder + imports + steps</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="counts-for-transliterations-and-translations">
+<h1>Counts for Transliterations and Translations<a class="headerlink" href="#counts-for-transliterations-and-translations" title="Link to this heading">#</a></h1>
+<p>This notebook contains the counting and assessment of transliterations and translations for the ORACC projects.</p>
+<p>This will be eventually placed in the Translations Extractions notebook but for easier access can be found here.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="mount-google-drive-folder-imports-steps">
+<h1>Mount Google Drive folder + imports + steps<a class="headerlink" href="#mount-google-drive-folder-imports-steps" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+<span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mounted at /content/drive
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#any necessary imports</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">zipfile</span>
+<span class="kn">from</span> <span class="nn">zipfile</span> <span class="kn">import</span> <span class="n">ZipFile</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">errno</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
+
+<span class="c1">#Set folder for remote drive</span>
+<span class="c1">#folder = &#39;/content/drive/My Drive/FactGrid Cuneiform (AWCA)/people/Melinee&#39;</span>
+<span class="n">folder</span> <span class="o">=</span> <span class="s1">&#39;/content/drive/MyDrive/Melinee/&#39;</span>
+
+<span class="c1">#importing utils for the method which downloads the current text json files</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">folder</span> <span class="o">+</span> <span class="s1">&#39;network/utils/&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">utils</span> <span class="kn">import</span> <span class="n">oracc_download</span>
+
+<span class="c1"># This is a user defined module that searches through the texts to find the entities in the text that</span>
+<span class="c1"># are people and places, to be imported as nodes into the network</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">folder</span> <span class="o">+</span> <span class="s1">&#39;network/&#39;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">rank_parser4</span> <span class="k">as</span> <span class="nn">rp</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The steps:</p>
+<ol class="arabic simple">
+<li><p>retrieve the megacatalogue</p></li>
+<li><p>access texts by the form: ‘<a class="reference external" href="http://oracc.iaas.upenn.edu/%5Bproject%5D/%5Bid_text%5D/html">http://oracc.iaas.upenn.edu/[project]/[id_text]/html</a>’</p></li>
+<li><p>analyze the text for transliterations and translations</p></li>
+<li><p>keep a count of the number of transliterations and translations available for ORACC projects</p></li>
+</ol>
+<p>Retrieving the megacatalogue from drive</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;/content/drive/MyDrive/Melinee/ORACC_DFS/megacatalogue.csv&#39;</span>
+<span class="n">megacatalogue</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">low_memory</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">megacatalogue</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-a86104bc-32e7-4b4a-972a-899ed06d26ca" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>id_text</th>
+      <th>langs</th>
+      <th>project</th>
+      <th>id_text.1</th>
+      <th>primary_publication</th>
+      <th>provenience</th>
+      <th>pleiades_id</th>
+      <th>pleiades_coord</th>
+      <th>excavation_no</th>
+      <th>...</th>
+      <th>Q_places</th>
+      <th>parallels</th>
+      <th>new_q</th>
+      <th>subseries</th>
+      <th>subseries_section</th>
+      <th>description</th>
+      <th>oracc_id</th>
+      <th>sec1</th>
+      <th>chap</th>
+      <th>sec2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>P522592</td>
+      <td>0x08000000</td>
+      <td>tilbarsip</td>
+      <td>P522592</td>
+      <td>Til-Barsip 01</td>
+      <td>Tell Ahmar (Til Barsip)</td>
+      <td>658410.0</td>
+      <td>[38.1191944, 36.6749623]</td>
+      <td>T 01</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>P522593</td>
+      <td>0x08000000</td>
+      <td>tilbarsip</td>
+      <td>P522593</td>
+      <td>Til-Barsip 02</td>
+      <td>Tell Ahmar (Til Barsip)</td>
+      <td>658410.0</td>
+      <td>[38.1191944, 36.6749623]</td>
+      <td>T 02</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>P522594</td>
+      <td>0x08000000</td>
+      <td>tilbarsip</td>
+      <td>P522594</td>
+      <td>Til-Barsip 03</td>
+      <td>Tell Ahmar (Til Barsip)</td>
+      <td>658410.0</td>
+      <td>[38.1191944, 36.6749623]</td>
+      <td>T 03</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>3 rows × 405 columns</p>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-a86104bc-32e7-4b4a-972a-899ed06d26ca')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-a86104bc-32e7-4b4a-972a-899ed06d26ca button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-a86104bc-32e7-4b4a-972a-899ed06d26ca');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+    </div>
+  </div>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#These two lines of code are for viewing unique projects and their corresponding texts</span>
+<span class="c1">#megacatalogue[&#39;project&#39;].unique()</span>
+<span class="c1">#megacatalogue[megacatalogue[&#39;project&#39;] == &#39;tcma/nineveh&#39;][&#39;id_text&#39;].unique()</span>
+
+<span class="n">fix_atae</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;tilbarsip&#39;</span><span class="p">,</span><span class="s1">&#39;assurmisc&#39;</span><span class="p">,</span> <span class="s1">&#39;stat2&#39;</span><span class="p">,</span> <span class="s1">&#39;stat1&#39;</span><span class="p">,</span> <span class="s1">&#39;wvdog152&#39;</span><span class="p">,</span> <span class="s1">&#39;stat3&#39;</span><span class="p">,</span> <span class="s1">&#39;rfdn17&#39;</span><span class="p">,</span><span class="s1">&#39;saab0509&#39;</span><span class="p">,</span> <span class="s1">&#39;tuszhan&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;szibaniba&#39;</span><span class="p">,</span> <span class="s1">&#39;marqasu&#39;</span><span class="p">,</span> <span class="s1">&#39;guzana&#39;</span><span class="p">,</span><span class="s1">&#39;imgurenlil&#39;</span><span class="p">,</span> <span class="s1">&#39;durkatlimmu&#39;</span><span class="p">,</span> <span class="s1">&#39;mallanate&#39;</span><span class="p">,</span> <span class="s1">&#39;huzirina&#39;</span><span class="p">,</span> <span class="s1">&#39;burmarina&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;ctn2&#39;</span><span class="p">,</span> <span class="s1">&#39;ctn3&#39;</span><span class="p">,</span> <span class="s1">&#39;ctn1&#39;</span><span class="p">,</span>  <span class="s1">&#39;ctn6&#39;</span><span class="p">,</span> <span class="s1">&#39;edubba10&#39;</span><span class="p">,</span> <span class="s1">&#39;samal&#39;</span><span class="p">]</span>
+
+<span class="n">fix_saao</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;saa03&#39;</span><span class="p">,</span><span class="s1">&#39;saa20&#39;</span><span class="p">,</span> <span class="s1">&#39;saas2&#39;</span><span class="p">,</span> <span class="s1">&#39;saa12&#39;</span><span class="p">,</span> <span class="s1">&#39;saa13&#39;</span><span class="p">,</span> <span class="s1">&#39;saa02&#39;</span><span class="p">,</span> <span class="s1">&#39;saa14&#39;</span><span class="p">,</span> <span class="s1">&#39;saa18&#39;</span><span class="p">,</span> <span class="s1">&#39;saa21&#39;</span><span class="p">,</span> <span class="s1">&#39;saa08&#39;</span><span class="p">,</span> <span class="s1">&#39;saa17&#39;</span><span class="p">,</span> <span class="s1">&#39;saa04&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;saa10&#39;</span><span class="p">,</span> <span class="s1">&#39;saa15&#39;</span><span class="p">,</span><span class="s1">&#39;saa06&#39;</span><span class="p">,</span> <span class="s1">&#39;saa11&#39;</span><span class="p">,</span> <span class="s1">&#39;saa16&#39;</span><span class="p">,</span> <span class="s1">&#39;saa07&#39;</span><span class="p">,</span> <span class="s1">&#39;saa01&#39;</span><span class="p">,</span> <span class="s1">&#39;saa05&#39;</span><span class="p">,</span> <span class="s1">&#39;saa09&#39;</span><span class="p">,</span><span class="s1">&#39;saa19&#39;</span><span class="p">]</span>
+
+<span class="c1">#add new column &#39;project_name&#39; that duplicates &#39;project&#39;</span>
+<span class="n">megacatalogue</span><span class="p">[</span><span class="s1">&#39;project_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">megacatalogue</span><span class="p">[</span><span class="s1">&#39;project&#39;</span><span class="p">]</span>
+
+<span class="c1">#replace all in atae and saao list as main+sub</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">fix_atae</span><span class="p">:</span>
+  <span class="n">megacatalogue</span><span class="p">[</span><span class="s1">&#39;project_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">megacatalogue</span><span class="p">[</span><span class="s1">&#39;project_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;atae/&#39;</span><span class="o">+</span><span class="n">i</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">fix_saao</span><span class="p">:</span>
+  <span class="n">megacatalogue</span><span class="p">[</span><span class="s1">&#39;project_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">megacatalogue</span><span class="p">[</span><span class="s1">&#39;project_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;saao/&#39;</span><span class="o">+</span><span class="n">i</span><span class="p">)</span>
+
+<span class="n">megacatalogue</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(171145, 406)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">megacatalogue</span><span class="p">[</span><span class="n">megacatalogue</span><span class="p">[</span><span class="s1">&#39;project_name&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;asbp&#39;</span><span class="p">]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;project_name&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;armep&#39;</span><span class="p">][</span><span class="s1">&#39;project_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="n">df</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;adsd/adart1&#39;, &#39;adsd/adart2&#39;, &#39;adsd/adart3&#39;, &#39;adsd/adart5&#39;,
+       &#39;adsd/adart6&#39;, &#39;aemw/alalakh/idrimi&#39;, &#39;aemw/amarna&#39;, &#39;akklove&#39;,
+       &#39;ario&#39;, &#39;asbp/ninmed&#39;, &#39;asbp/rlasb&#39;, &#39;atae/assurmisc&#39;,
+       &#39;atae/burmarina&#39;, &#39;atae/ctn1&#39;, &#39;atae/ctn2&#39;, &#39;atae/ctn3&#39;,
+       &#39;atae/ctn6&#39;, &#39;atae/durkatlimmu&#39;, &#39;atae/edubba10&#39;, &#39;atae/guzana&#39;,
+       &#39;atae/huzirina&#39;, &#39;atae/imgurenlil&#39;, &#39;atae/mallanate&#39;,
+       &#39;atae/marqasu&#39;, &#39;atae/rfdn17&#39;, &#39;atae/saab0509&#39;, &#39;atae/samal&#39;,
+       &#39;atae/stat1&#39;, &#39;atae/stat2&#39;, &#39;atae/stat3&#39;, &#39;atae/szibaniba&#39;,
+       &#39;atae/tilbarsip&#39;, &#39;atae/tuszhan&#39;, &#39;atae/wvdog152&#39;, &#39;babcity&#39;,
+       &#39;blms&#39;, &#39;borsippa&#39;, &#39;btto&#39;, &#39;cams&#39;, &#39;cams/absumu&#39;, &#39;cams/barutu&#39;,
+       &#39;cams/etana&#39;, &#39;cams/gkab&#39;, &#39;cams/ludlul&#39;, &#39;caspo&#39;, &#39;caspo/akkpm&#39;,
+       &#39;ccpo&#39;, &#39;cdli&#39;, &#39;ckst&#39;, &#39;cmawro&#39;, &#39;cmawro/cmawr2&#39;, &#39;ctij&#39;, &#39;dcclt&#39;,
+       &#39;dcclt/ebla&#39;, &#39;dcclt/nineveh&#39;, &#39;dcclt/signlists&#39;, &#39;dccmt&#39;, &#39;dsst&#39;,
+       &#39;ecut&#39;, &#39;eisl&#39;, &#39;epsd2/admin/ed12&#39;, &#39;epsd2/admin/ed3a&#39;,
+       &#39;epsd2/admin/ed3b&#39;, &#39;epsd2/admin/lagash2&#39;, &#39;epsd2/admin/oakk&#39;,
+       &#39;epsd2/admin/oldbab&#39;, &#39;epsd2/admin/ur3&#39;, &#39;epsd2/earlylit&#39;,
+       &#39;epsd2/literary&#39;, &#39;epsd2/praxis&#39;, &#39;epsd2/praxis/liturgy&#39;,
+       &#39;epsd2/praxis/varia&#39;, &#39;epsd2/royal&#39;, &#39;etcsri&#39;, &#39;glass&#39;, &#39;hbtin&#39;,
+       &#39;lacost&#39;, &#39;nere&#39;, &#39;obel&#39;, &#39;obmc&#39;, &#39;obta&#39;, &#39;qcat&#39;, &#39;riao&#39;,
+       &#39;ribo/babylon10&#39;, &#39;ribo/babylon2&#39;, &#39;ribo/babylon3&#39;,
+       &#39;ribo/babylon4&#39;, &#39;ribo/babylon5&#39;, &#39;ribo/babylon6&#39;, &#39;ribo/babylon7&#39;,
+       &#39;ribo/sources&#39;, &#39;rimanum&#39;, &#39;rinap/rinap1&#39;, &#39;rinap/rinap2&#39;,
+       &#39;rinap/rinap3&#39;, &#39;rinap/rinap4&#39;, &#39;rinap/rinap5&#39;, &#39;rinap/rinap5p1&#39;,
+       &#39;rinap/sources&#39;, &#39;saao&#39;, &#39;saao/saa01&#39;, &#39;saao/saa02&#39;, &#39;saao/saa03&#39;,
+       &#39;saao/saa04&#39;, &#39;saao/saa05&#39;, &#39;saao/saa06&#39;, &#39;saao/saa07&#39;,
+       &#39;saao/saa08&#39;, &#39;saao/saa09&#39;, &#39;saao/saa10&#39;, &#39;saao/saa11&#39;,
+       &#39;saao/saa12&#39;, &#39;saao/saa13&#39;, &#39;saao/saa14&#39;, &#39;saao/saa15&#39;,
+       &#39;saao/saa16&#39;, &#39;saao/saa17&#39;, &#39;saao/saa18&#39;, &#39;saao/saa19&#39;,
+       &#39;saao/saa20&#39;, &#39;saao/saa21&#39;, &#39;saao/saas2&#39;, &#39;suhu&#39;, &#39;tcma/ali1&#39;,
+       &#39;tcma/amarna&#39;, &#39;tcma/assur&#39;, &#39;tcma/barri&#39;, &#39;tcma/bazmusian&#39;,
+       &#39;tcma/billa&#39;, &#39;tcma/chuera&#39;, &#39;tcma/emar&#39;, &#39;tcma/fekheriye&#39;,
+       &#39;tcma/giricano&#39;, &#39;tcma/hana&#39;, &#39;tcma/haradum&#39;, &#39;tcma/hatti&#39;,
+       &#39;tcma/kartn&#39;, &#39;tcma/kulishinas&#39;, &#39;tcma/laws&#39;, &#39;tcma/miscellaneous&#39;,
+       &#39;tcma/nineveh&#39;, &#39;tcma/nippur&#39;, &#39;tcma/nuzi&#39;, &#39;tcma/qitar&#39;,
+       &#39;tcma/rimah&#39;, &#39;tcma/suri&#39;, &#39;tcma/taban&#39;, &#39;tcma/tsa1&#39;, &#39;tcma/tsh1&#39;,
+       &#39;tcma/ugarit&#39;, &#39;xcat&#39;], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<p>##Automate Extraction of Texts
+note: asbp and armep projects have around 20,000 texts each, however through my trials there are 0 transliterations and 0 translations. This forces the program to be strained for 3 more hours.</p>
+<p>Note that no transliteration and/or no translation could stem from there not being a supported html “print text” page to scrape. This is the case for the epsd2 files who have transliterations on the oracc project pages.</p>
+<p>Estimated run time for first half: 2 hours 11 minutes</p>
+<p>Estimated run time for second half: 3 hours 30 minutes</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">totaltransliterations</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">totaltranslations</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">subset</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;adsd/adart1&#39;</span><span class="p">,</span> <span class="s1">&#39;adsd/adart2&#39;</span><span class="p">,</span> <span class="s1">&#39;adsd/adart3&#39;</span><span class="p">,</span> <span class="s1">&#39;adsd/adart5&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;adsd/adart6&#39;</span><span class="p">,</span> <span class="s1">&#39;aemw/alalakh/idrimi&#39;</span><span class="p">,</span> <span class="s1">&#39;aemw/amarna&#39;</span><span class="p">,</span> <span class="s1">&#39;akklove&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;ario&#39;</span><span class="p">,</span> <span class="s1">&#39;asbp/ninmed&#39;</span><span class="p">,</span> <span class="s1">&#39;asbp/rlasb&#39;</span><span class="p">,</span> <span class="s1">&#39;atae/assurmisc&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;atae/burmarina&#39;</span><span class="p">,</span> <span class="s1">&#39;atae/ctn1&#39;</span><span class="p">,</span> <span class="s1">&#39;atae/ctn2&#39;</span><span class="p">,</span> <span class="s1">&#39;atae/ctn3&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;atae/ctn6&#39;</span><span class="p">,</span> <span class="s1">&#39;atae/durkatlimmu&#39;</span><span class="p">,</span> <span class="s1">&#39;atae/edubba10&#39;</span><span class="p">,</span> <span class="s1">&#39;atae/guzana&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;atae/huzirina&#39;</span><span class="p">,</span> <span class="s1">&#39;atae/imgurenlil&#39;</span><span class="p">,</span> <span class="s1">&#39;atae/mallanate&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;atae/marqasu&#39;</span><span class="p">,</span> <span class="s1">&#39;atae/rfdn17&#39;</span><span class="p">,</span> <span class="s1">&#39;atae/saab0509&#39;</span><span class="p">,</span> <span class="s1">&#39;atae/samal&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;atae/stat1&#39;</span><span class="p">,</span> <span class="s1">&#39;atae/stat2&#39;</span><span class="p">,</span> <span class="s1">&#39;atae/stat3&#39;</span><span class="p">,</span> <span class="s1">&#39;atae/szibaniba&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;atae/tilbarsip&#39;</span><span class="p">,</span> <span class="s1">&#39;atae/tuszhan&#39;</span><span class="p">,</span> <span class="s1">&#39;atae/wvdog152&#39;</span><span class="p">,</span> <span class="s1">&#39;babcity&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;blms&#39;</span><span class="p">,</span> <span class="s1">&#39;borsippa&#39;</span><span class="p">,</span> <span class="s1">&#39;btto&#39;</span><span class="p">,</span> <span class="s1">&#39;cams&#39;</span><span class="p">,</span> <span class="s1">&#39;cams/absumu&#39;</span><span class="p">,</span> <span class="s1">&#39;cams/barutu&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;cams/etana&#39;</span><span class="p">,</span> <span class="s1">&#39;cams/gkab&#39;</span><span class="p">,</span> <span class="s1">&#39;cams/ludlul&#39;</span><span class="p">,</span> <span class="s1">&#39;caspo&#39;</span><span class="p">,</span> <span class="s1">&#39;caspo/akkpm&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;ccpo&#39;</span><span class="p">,</span> <span class="s1">&#39;cdli&#39;</span><span class="p">,</span> <span class="s1">&#39;ckst&#39;</span><span class="p">,</span> <span class="s1">&#39;cmawro&#39;</span><span class="p">,</span> <span class="s1">&#39;cmawro/cmawr2&#39;</span><span class="p">,</span> <span class="s1">&#39;ctij&#39;</span><span class="p">,</span> <span class="s1">&#39;dcclt&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;dcclt/ebla&#39;</span><span class="p">,</span> <span class="s1">&#39;dcclt/nineveh&#39;</span><span class="p">,</span> <span class="s1">&#39;dcclt/signlists&#39;</span><span class="p">,</span> <span class="s1">&#39;dccmt&#39;</span><span class="p">,</span> <span class="s1">&#39;dsst&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;ecut&#39;</span><span class="p">,</span> <span class="s1">&#39;eisl&#39;</span><span class="p">,</span> <span class="s1">&#39;etcsri&#39;</span><span class="p">,</span> <span class="s1">&#39;glass&#39;</span><span class="p">,</span> <span class="s1">&#39;hbtin&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;lacost&#39;</span><span class="p">,</span> <span class="s1">&#39;nere&#39;</span><span class="p">,</span> <span class="s1">&#39;obel&#39;</span><span class="p">,</span> <span class="s1">&#39;obmc&#39;</span><span class="p">,</span> <span class="s1">&#39;obta&#39;</span><span class="p">,</span> <span class="s1">&#39;qcat&#39;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">subset</span><span class="p">:</span>
+  <span class="n">tlitcount</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="n">transcount</span> <span class="o">=</span> <span class="mi">0</span>
+
+  <span class="n">test</span> <span class="o">=</span> <span class="n">megacatalogue</span><span class="p">[</span><span class="n">megacatalogue</span><span class="p">[</span><span class="s1">&#39;project_name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">test</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+    <span class="n">proj</span> <span class="o">=</span> <span class="n">test</span><span class="p">[</span><span class="s1">&#39;project_name&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">dash_proj</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">)</span>
+    <span class="n">id_txt</span> <span class="o">=</span> <span class="n">test</span><span class="p">[</span><span class="s1">&#39;id_text&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
+    <span class="c1">#print(dash_proj, id_txt)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+      <span class="n">url</span> <span class="o">=</span> <span class="n">urlopen</span><span class="p">(</span><span class="s1">&#39;https://ccp.yale.edu/&#39;</span> <span class="o">+</span> <span class="n">id_txt</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+      <span class="n">url</span> <span class="o">=</span> <span class="n">urlopen</span><span class="p">(</span><span class="s1">&#39;http://oracc.museum.upenn.edu/&#39;</span> <span class="o">+</span> <span class="n">proj</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">id_txt</span> <span class="o">+</span> <span class="s1">&#39;/html&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="n">url</span> <span class="o">=</span> <span class="n">urlopen</span><span class="p">(</span><span class="s1">&#39;http://oracc.iaas.upenn.edu/&#39;</span> <span class="o">+</span> <span class="n">proj</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">id_txt</span> <span class="o">+</span> <span class="s1">&#39;/html&#39;</span><span class="p">)</span>
+
+    <span class="n">html</span> <span class="o">=</span> <span class="n">url</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+
+    <span class="n">transliteration</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="n">class_</span> <span class="o">=</span> <span class="s1">&#39;tt&#39;</span><span class="p">)</span>
+    <span class="n">tlittext</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="k">for</span> <span class="n">string</span> <span class="ow">in</span> <span class="n">transliteration</span><span class="p">:</span>
+      <span class="n">tlittext</span> <span class="o">+=</span> <span class="n">string</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
+
+    <span class="n">translation</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="n">class_</span> <span class="o">=</span> <span class="s1">&#39;tr&#39;</span><span class="p">)</span>
+    <span class="n">transtext</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="k">for</span> <span class="n">string</span> <span class="ow">in</span> <span class="n">translation</span><span class="p">:</span>
+      <span class="n">transtext</span> <span class="o">+=</span> <span class="n">string</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
+
+    <span class="c1">#transliteration count</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">tlittext</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+      <span class="n">tlitcount</span> <span class="o">+=</span> <span class="mi">1</span>
+      <span class="n">totaltransliterations</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="c1">#translation count</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">transtext</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+      <span class="n">transcount</span> <span class="o">+=</span> <span class="mi">1</span>
+      <span class="n">totaltranslations</span> <span class="o">+=</span> <span class="mi">1</span>
+
+  <span class="nb">print</span><span class="p">(</span><span class="n">dash_proj</span> <span class="o">+</span> <span class="s1">&#39; (&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">test</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39; texts): transliterations: &#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">tlitcount</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;, translations: &#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">transcount</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">totaltransliterations</span><span class="p">,</span> <span class="n">totaltranslations</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>adsd-adart1 (86 texts): transliterations: 86, translations: 86
+adsd-adart2 (177 texts): transliterations: 161, translations: 161
+adsd-adart3 (154 texts): transliterations: 154, translations: 154
+adsd-adart5 (106 texts): transliterations: 104, translations: 104
+adsd-adart6 (180 texts): transliterations: 180, translations: 179
+aemw-alalakh-idrimi (1 texts): transliterations: 1, translations: 1
+aemw-amarna (379 texts): transliterations: 218, translations: 218
+akklove (24 texts): transliterations: 23, translations: 24
+ario (175 texts): transliterations: 170, translations: 172
+asbp-ninmed (360 texts): transliterations: 76, translations: 75
+asbp-rlasb (26 texts): transliterations: 26, translations: 26
+atae-assurmisc (7 texts): transliterations: 7, translations: 7
+atae-burmarina (44 texts): transliterations: 44, translations: 44
+atae-ctn1 (66 texts): transliterations: 33, translations: 33
+atae-ctn2 (284 texts): transliterations: 242, translations: 242
+atae-ctn3 (133 texts): transliterations: 114, translations: 118
+atae-ctn6 (120 texts): transliterations: 117, translations: 117
+atae-durkatlimmu (210 texts): transliterations: 210, translations: 1
+atae-edubba10 (55 texts): transliterations: 55, translations: 55
+atae-guzana (226 texts): transliterations: 207, translations: 103
+atae-huzirina (19 texts): transliterations: 18, translations: 17
+atae-imgurenlil (30 texts): transliterations: 30, translations: 30
+atae-mallanate (74 texts): transliterations: 73, translations: 48
+atae-marqasu (46 texts): transliterations: 44, translations: 44
+atae-rfdn17 (34 texts): transliterations: 34, translations: 34
+atae-saab0509 (144 texts): transliterations: 142, translations: 91
+atae-samal (2 texts): transliterations: 2, translations: 2
+atae-stat1 (52 texts): transliterations: 51, translations: 52
+atae-stat2 (328 texts): transliterations: 328, translations: 328
+atae-stat3 (113 texts): transliterations: 110, translations: 110
+atae-szibaniba (22 texts): transliterations: 22, translations: 1
+atae-tilbarsip (22 texts): transliterations: 20, translations: 20
+atae-tuszhan (35 texts): transliterations: 33, translations: 33
+atae-wvdog152 (88 texts): transliterations: 85, translations: 85
+babcity (276 texts): transliterations: 219, translations: 218
+blms (382 texts): transliterations: 371, translations: 355
+borsippa (224 texts): transliterations: 224, translations: 224
+btto (25 texts): transliterations: 6, translations: 1
+cams (12 texts): transliterations: 0, translations: 0
+cams-absumu (20 texts): transliterations: 0, translations: 0
+cams-barutu (2 texts): transliterations: 2, translations: 2
+cams-etana (14 texts): transliterations: 14, translations: 0
+cams-gkab (574 texts): transliterations: 534, translations: 567
+cams-ludlul (14 texts): transliterations: 13, translations: 0
+caspo (252 texts): transliterations: 250, translations: 250
+caspo-akkpm (4 texts): transliterations: 4, translations: 4
+ccpo (183 texts): transliterations: 156, translations: 180
+cdli (19 texts): transliterations: 0, translations: 0
+ckst (90 texts): transliterations: 85, translations: 71
+cmawro (337 texts): transliterations: 0, translations: 0
+cmawro-cmawr2 (1 texts): transliterations: 0, translations: 0
+ctij (134 texts): transliterations: 132, translations: 60
+dcclt (5481 texts): transliterations: 3562, translations: 1237
+dcclt-ebla (137 texts): transliterations: 129, translations: 99
+dcclt-nineveh (656 texts): transliterations: 78, translations: 438
+dcclt-signlists (166 texts): transliterations: 32, translations: 84
+dccmt (1141 texts): transliterations: 149, translations: 115
+dsst (124 texts): transliterations: 56, translations: 0
+ecut (823 texts): transliterations: 730, translations: 651
+eisl (341 texts): transliterations: 57, translations: 11
+etcsri (1456 texts): transliterations: 0, translations: 1445
+glass (15 texts): transliterations: 15, translations: 15
+hbtin (522 texts): transliterations: 477, translations: 299
+lacost (5 texts): transliterations: 2, translations: 1
+nere (1 texts): transliterations: 1, translations: 1
+obel (409 texts): transliterations: 185, translations: 174
+obmc (175 texts): transliterations: 158, translations: 155
+obta (59 texts): transliterations: 0, translations: 0
+qcat (648 texts): transliterations: 0, translations: 0
+10861 9472
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">subset</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;riao&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;ribo/babylon10&#39;</span><span class="p">,</span> <span class="s1">&#39;ribo/babylon2&#39;</span><span class="p">,</span> <span class="s1">&#39;ribo/babylon3&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;ribo/babylon4&#39;</span><span class="p">,</span> <span class="s1">&#39;ribo/babylon5&#39;</span><span class="p">,</span> <span class="s1">&#39;ribo/babylon6&#39;</span><span class="p">,</span> <span class="s1">&#39;ribo/babylon7&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;ribo/sources&#39;</span><span class="p">,</span> <span class="s1">&#39;rimanum&#39;</span><span class="p">,</span> <span class="s1">&#39;rinap/rinap1&#39;</span><span class="p">,</span> <span class="s1">&#39;rinap/rinap2&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;rinap/rinap3&#39;</span><span class="p">,</span> <span class="s1">&#39;rinap/rinap4&#39;</span><span class="p">,</span> <span class="s1">&#39;rinap/rinap5&#39;</span><span class="p">,</span> <span class="s1">&#39;rinap/rinap5p1&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;rinap/sources&#39;</span><span class="p">,</span> <span class="s1">&#39;saao&#39;</span><span class="p">,</span> <span class="s1">&#39;saao/saa01&#39;</span><span class="p">,</span> <span class="s1">&#39;saao/saa02&#39;</span><span class="p">,</span> <span class="s1">&#39;saao/saa03&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;saao/saa04&#39;</span><span class="p">,</span> <span class="s1">&#39;saao/saa05&#39;</span><span class="p">,</span> <span class="s1">&#39;saao/saa06&#39;</span><span class="p">,</span> <span class="s1">&#39;saao/saa07&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;saao/saa08&#39;</span><span class="p">,</span> <span class="s1">&#39;saao/saa09&#39;</span><span class="p">,</span> <span class="s1">&#39;saao/saa10&#39;</span><span class="p">,</span> <span class="s1">&#39;saao/saa11&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;saao/saa12&#39;</span><span class="p">,</span> <span class="s1">&#39;saao/saa13&#39;</span><span class="p">,</span> <span class="s1">&#39;saao/saa14&#39;</span><span class="p">,</span> <span class="s1">&#39;saao/saa15&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;saao/saa16&#39;</span><span class="p">,</span> <span class="s1">&#39;saao/saa17&#39;</span><span class="p">,</span> <span class="s1">&#39;saao/saa18&#39;</span><span class="p">,</span> <span class="s1">&#39;saao/saa19&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;saao/saa20&#39;</span><span class="p">,</span> <span class="s1">&#39;saao/saa21&#39;</span><span class="p">,</span> <span class="s1">&#39;saao/saas2&#39;</span><span class="p">,</span> <span class="s1">&#39;suhu&#39;</span><span class="p">,</span> <span class="s1">&#39;tcma/ali1&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;tcma/amarna&#39;</span><span class="p">,</span> <span class="s1">&#39;tcma/assur&#39;</span><span class="p">,</span> <span class="s1">&#39;tcma/barri&#39;</span><span class="p">,</span> <span class="s1">&#39;tcma/bazmusian&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;tcma/billa&#39;</span><span class="p">,</span> <span class="s1">&#39;tcma/chuera&#39;</span><span class="p">,</span> <span class="s1">&#39;tcma/emar&#39;</span><span class="p">,</span> <span class="s1">&#39;tcma/fekheriye&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;tcma/giricano&#39;</span><span class="p">,</span> <span class="s1">&#39;tcma/hana&#39;</span><span class="p">,</span> <span class="s1">&#39;tcma/haradum&#39;</span><span class="p">,</span> <span class="s1">&#39;tcma/hatti&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;tcma/kartn&#39;</span><span class="p">,</span> <span class="s1">&#39;tcma/kulishinas&#39;</span><span class="p">,</span> <span class="s1">&#39;tcma/laws&#39;</span><span class="p">,</span> <span class="s1">&#39;tcma/miscellaneous&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;tcma/nineveh&#39;</span><span class="p">,</span> <span class="s1">&#39;tcma/nippur&#39;</span><span class="p">,</span> <span class="s1">&#39;tcma/nuzi&#39;</span><span class="p">,</span> <span class="s1">&#39;tcma/qitar&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;tcma/rimah&#39;</span><span class="p">,</span> <span class="s1">&#39;tcma/suri&#39;</span><span class="p">,</span> <span class="s1">&#39;tcma/taban&#39;</span><span class="p">,</span> <span class="s1">&#39;tcma/tsa1&#39;</span><span class="p">,</span> <span class="s1">&#39;tcma/tsh1&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;tcma/ugarit&#39;</span><span class="p">,</span> <span class="s1">&#39;xcat&#39;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">subset</span><span class="p">:</span>
+  <span class="n">tlitcount</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="n">transcount</span> <span class="o">=</span> <span class="mi">0</span>
+
+  <span class="n">test</span> <span class="o">=</span> <span class="n">megacatalogue</span><span class="p">[</span><span class="n">megacatalogue</span><span class="p">[</span><span class="s1">&#39;project_name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">test</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+    <span class="n">proj</span> <span class="o">=</span> <span class="n">test</span><span class="p">[</span><span class="s1">&#39;project_name&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">dash_proj</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">)</span>
+    <span class="n">id_txt</span> <span class="o">=</span> <span class="n">test</span><span class="p">[</span><span class="s1">&#39;id_text&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
+    <span class="c1">#print(dash_proj, id_txt)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+      <span class="n">url</span> <span class="o">=</span> <span class="n">urlopen</span><span class="p">(</span><span class="s1">&#39;https://ccp.yale.edu/&#39;</span> <span class="o">+</span> <span class="n">id_txt</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+      <span class="n">url</span> <span class="o">=</span> <span class="n">urlopen</span><span class="p">(</span><span class="s1">&#39;http://oracc.museum.upenn.edu/&#39;</span> <span class="o">+</span> <span class="n">proj</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">id_txt</span> <span class="o">+</span> <span class="s1">&#39;/html&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="n">url</span> <span class="o">=</span> <span class="n">urlopen</span><span class="p">(</span><span class="s1">&#39;http://oracc.iaas.upenn.edu/&#39;</span> <span class="o">+</span> <span class="n">proj</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">id_txt</span> <span class="o">+</span> <span class="s1">&#39;/html&#39;</span><span class="p">)</span>
+
+    <span class="n">html</span> <span class="o">=</span> <span class="n">url</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+
+    <span class="n">transliteration</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="n">class_</span> <span class="o">=</span> <span class="s1">&#39;tt&#39;</span><span class="p">)</span>
+    <span class="n">tlittext</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="k">for</span> <span class="n">string</span> <span class="ow">in</span> <span class="n">transliteration</span><span class="p">:</span>
+      <span class="n">tlittext</span> <span class="o">+=</span> <span class="n">string</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
+
+    <span class="n">translation</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="n">class_</span> <span class="o">=</span> <span class="s1">&#39;tr&#39;</span><span class="p">)</span>
+    <span class="n">transtext</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="k">for</span> <span class="n">string</span> <span class="ow">in</span> <span class="n">translation</span><span class="p">:</span>
+      <span class="n">transtext</span> <span class="o">+=</span> <span class="n">string</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
+
+    <span class="c1">#transliteration count</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">tlittext</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+      <span class="n">tlitcount</span> <span class="o">+=</span> <span class="mi">1</span>
+      <span class="n">totaltransliterations</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="c1">#translation count</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">transtext</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+      <span class="n">transcount</span> <span class="o">+=</span> <span class="mi">1</span>
+      <span class="n">totaltranslations</span> <span class="o">+=</span> <span class="mi">1</span>
+
+  <span class="nb">print</span><span class="p">(</span><span class="n">dash_proj</span> <span class="o">+</span> <span class="s1">&#39; (&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">test</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39; texts): transliterations: &#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">tlitcount</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;, translations: &#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">transcount</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;total transliterations: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">totaltransliterations</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;, total translations: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">totaltranslations</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>riao (890 texts): transliterations: 714, translations: 713
+ribo-babylon10 (1 texts): transliterations: 1, translations: 1
+ribo-babylon2 (38 texts): transliterations: 38, translations: 38
+ribo-babylon3 (4 texts): transliterations: 4, translations: 4
+ribo-babylon4 (6 texts): transliterations: 6, translations: 6
+ribo-babylon5 (1 texts): transliterations: 1, translations: 1
+ribo-babylon6 (126 texts): transliterations: 124, translations: 125
+ribo-babylon7 (211 texts): transliterations: 192, translations: 192
+ribo-sources (396 texts): transliterations: 268, translations: 0
+rimanum (345 texts): transliterations: 345, translations: 345
+rinap-rinap1 (96 texts): transliterations: 88, translations: 88
+rinap-rinap2 (151 texts): transliterations: 134, translations: 145
+rinap-rinap3 (259 texts): transliterations: 235, translations: 236
+rinap-rinap4 (142 texts): transliterations: 136, translations: 137
+rinap-rinap5 (302 texts): transliterations: 300, translations: 300
+rinap-rinap5p1 (1 texts): transliterations: 0, translations: 0
+rinap-sources (2199 texts): transliterations: 1967, translations: 0
+saao (1 texts): transliterations: 0, translations: 0
+saao-saa01 (261 texts): transliterations: 260, translations: 260
+saao-saa02 (15 texts): transliterations: 15, translations: 15
+saao-saa03 (49 texts): transliterations: 47, translations: 47
+saao-saa04 (361 texts): transliterations: 348, translations: 348
+saao-saa05 (297 texts): transliterations: 295, translations: 295
+saao-saa06 (350 texts): transliterations: 350, translations: 350
+saao-saa07 (219 texts): transliterations: 213, translations: 218
+saao-saa08 (567 texts): transliterations: 566, translations: 566
+saao-saa09 (11 texts): transliterations: 11, translations: 11
+saao-saa10 (389 texts): transliterations: 389, translations: 389
+saao-saa11 (234 texts): transliterations: 230, translations: 234
+saao-saa12 (92 texts): transliterations: 91, translations: 92
+saao-saa13 (210 texts): transliterations: 210, translations: 210
+saao-saa14 (479 texts): transliterations: 479, translations: 479
+saao-saa15 (391 texts): transliterations: 389, translations: 389
+saao-saa16 (246 texts): transliterations: 246, translations: 246
+saao-saa17 (207 texts): transliterations: 207, translations: 207
+saao-saa18 (204 texts): transliterations: 203, translations: 203
+saao-saa19 (229 texts): transliterations: 229, translations: 229
+saao-saa20 (51 texts): transliterations: 51, translations: 51
+saao-saa21 (161 texts): transliterations: 161, translations: 161
+saao-saas2 (21 texts): transliterations: 10, translations: 2
+suhu (33 texts): transliterations: 26, translations: 27
+tcma-ali1 (11 texts): transliterations: 11, translations: 11
+tcma-amarna (1 texts): transliterations: 1, translations: 1
+tcma-assur (1114 texts): transliterations: 1043, translations: 975
+tcma-barri (6 texts): transliterations: 3, translations: 3
+tcma-bazmusian (7 texts): transliterations: 7, translations: 4
+tcma-billa (66 texts): transliterations: 65, translations: 57
+tcma-chuera (97 texts): transliterations: 92, translations: 78
+tcma-emar (3 texts): transliterations: 2, translations: 2
+tcma-fekheriye (15 texts): transliterations: 14, translations: 12
+tcma-giricano (15 texts): transliterations: 15, translations: 15
+tcma-hana (2 texts): transliterations: 2, translations: 2
+tcma-haradum (4 texts): transliterations: 2, translations: 2
+tcma-hatti (10 texts): transliterations: 10, translations: 7
+tcma-kartn (62 texts): transliterations: 57, translations: 58
+tcma-kulishinas (13 texts): transliterations: 10, translations: 9
+tcma-laws (45 texts): transliterations: 45, translations: 41
+tcma-miscellaneous (29 texts): transliterations: 24, translations: 24
+tcma-nineveh (1 texts): transliterations: 1, translations: 0
+tcma-nippur (4 texts): transliterations: 4, translations: 4
+tcma-nuzi (1 texts): transliterations: 1, translations: 1
+tcma-qitar (1 texts): transliterations: 1, translations: 1
+tcma-rimah (123 texts): transliterations: 123, translations: 98
+tcma-suri (2 texts): transliterations: 0, translations: 0
+tcma-taban (23 texts): transliterations: 13, translations: 12
+tcma-tsa1 (28 texts): transliterations: 17, translations: 12
+tcma-tsh1 (334 texts): transliterations: 248, translations: 183
+tcma-ugarit (5 texts): transliterations: 5, translations: 4
+xcat (12 texts): transliterations: 0, translations: 0
+total transliterations: 0, total translations: 0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;total transliterations: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">totaltransliterations</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;, total translations: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">totaltranslations</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>total transliterations: 22256, total translations: 18448
+</pre></div>
+</div>
+</div>
+</div>
+<p>##EXAMPLE: Get the Transliterations and English Translation of a Single Text</p>
+<p>In this section, there
+will be a count for if a transliteration and english translation are found for a given url.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#changes directory to English Translations folder</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">folder</span> <span class="o">+</span><span class="s1">&#39;ORACC_TRANSLATIONS/ENG_TRANSLATIONS&#39;</span><span class="p">)</span>
+
+<span class="c1">#given a url, parse through and create a soup of html text</span>
+<span class="n">url</span> <span class="o">=</span> <span class="n">urlopen</span><span class="p">(</span><span class="s1">&#39;http://oracc.iaas.upenn.edu/adsd/adart5/X500001/html&#39;</span><span class="p">)</span>
+<span class="n">html</span> <span class="o">=</span> <span class="n">url</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+
+<span class="c1">#for english translation:</span>
+<span class="c1">#create a variable &#39;soupy&#39; that contains all elements of the p class translations</span>
+<span class="c1">#using a for loop, get all texts. *get_text() only works for single element</span>
+<span class="n">soupy</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">()</span>
+<span class="n">soupy</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="n">class_</span> <span class="o">=</span> <span class="s1">&#39;tr&#39;</span><span class="p">)</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="k">for</span> <span class="n">string</span> <span class="ow">in</span> <span class="n">soupy</span><span class="p">:</span>
+  <span class="n">text</span> <span class="o">+=</span> <span class="n">string</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
+
+<span class="n">text</span>
+
+<span class="c1">#for transliteration:</span>
+<span class="n">soupy2</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">()</span>
+<span class="n">soupy2</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="n">class_</span> <span class="o">=</span> <span class="s1">&#39;tt&#39;</span><span class="p">)</span>
+<span class="n">text2</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="k">for</span> <span class="n">string</span> <span class="ow">in</span> <span class="n">soupy2</span><span class="p">:</span>
+  <span class="n">text2</span> <span class="o">+=</span> <span class="n">string</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
+
+<span class="n">text2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;ina a-mat dEN u dGAŠAN-ia₂ liš-lim1.40 MU SAG NAM.LUGAL.LA [x x x]ŠE 5 ITU 14 U₄.ZAL GAR ad₂ ⸢x⸣ [x x]2.10 MU 1 KIN ⸢15?⸣ GAR ina SI SAR [x (x)][x] ULU₃ ⸢GIN⸣ ad₂ ŠU₂ KIN ⸢DIR⸣[ZIZ₂] ⸢14⸣ GAR 1.40 ana ZALAG₂ ⸢TAG₄?⸣[MU 2] ⸢NE⸣ 14 TIL GAR[ZIZ₂] DIB[MU 3 NE] ⸢DIB⸣ KIN DIR[x x x x] TIL ⸢x⸣[...] ⸢x⸣ [...]&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>#Total counts:</p>
+<p>In the form project name (total number of texts in the megacatalogue): number of transliterations and the number of translations found</p>
+<p>**note that this number of transliterations and translations is based on if a given text has an available html to parse through. (Via the ‘print text’ option on the oracc projects website</p>
+<p><strong>total transliterations: 22256, total translations: 18448</strong></p>
+<p>adsd-adart1 (86 texts): transliterations: 86, translations: 86</p>
+<p>adsd-adart2 (177 texts): transliterations: 161, translations: 161</p>
+<p>adsd-adart3 (154 texts): transliterations: 154, translations: 154</p>
+<p>adsd-adart5 (106 texts): transliterations: 104, translations: 104</p>
+<p>adsd-adart6 (180 texts): transliterations: 180, translations: 179</p>
+<p>aemw-alalakh-idrimi (1 texts): transliterations: 1, translations: 1</p>
+<p>aemw-amarna (379 texts): transliterations: 218, translations: 218</p>
+<p>akklove (24 texts): transliterations: 23, translations: 24</p>
+<p>ario (175 texts): transliterations: 170, translations: 172</p>
+<p>asbp-ninmed (360 texts): transliterations: 76, translations: 75</p>
+<p>asbp-rlasb (26 texts): transliterations: 26, translations: 26</p>
+<p>atae-assurmisc (7 texts): transliterations: 7, translations: 7</p>
+<p>atae-burmarina (44 texts): transliterations: 44, translations: 44</p>
+<p>atae-ctn1 (66 texts): transliterations: 33, translations: 33</p>
+<p>atae-ctn2 (284 texts): transliterations: 242, translations: 242</p>
+<p>atae-ctn3 (133 texts): transliterations: 114, translations: 118</p>
+<p>atae-ctn6 (120 texts): transliterations: 117, translations: 117</p>
+<p>atae-durkatlimmu (210 texts): transliterations: 210, translations: 1</p>
+<p>atae-edubba10 (55 texts): transliterations: 55, translations: 55</p>
+<p>atae-guzana (226 texts): transliterations: 207, translations: 103</p>
+<p>atae-huzirina (19 texts): transliterations: 18, translations: 17</p>
+<p>atae-imgurenlil (30 texts): transliterations: 30, translations: 30</p>
+<p>atae-mallanate (74 texts): transliterations: 73, translations: 48</p>
+<p>atae-marqasu (46 texts): transliterations: 44, translations: 44</p>
+<p>atae-rfdn17 (34 texts): transliterations: 34, translations: 34</p>
+<p>atae-saab0509 (144 texts): transliterations: 142, translations: 91</p>
+<p>atae-samal (2 texts): transliterations: 2, translations: 2</p>
+<p>atae-stat1 (52 texts): transliterations: 51, translations: 52</p>
+<p>atae-stat2 (328 texts): transliterations: 328, translations: 328</p>
+<p>atae-stat3 (113 texts): transliterations: 110, translations: 110</p>
+<p>atae-szibaniba (22 texts): transliterations: 22, translations: 1</p>
+<p>atae-tilbarsip (22 texts): transliterations: 20, translations: 20</p>
+<p>atae-tuszhan (35 texts): transliterations: 33, translations: 33</p>
+<p>atae-wvdog152 (88 texts): transliterations: 85, translations: 85</p>
+<p>babcity (276 texts): transliterations: 219, translations: 218</p>
+<p>blms (382 texts): transliterations: 371, translations: 355</p>
+<p>borsippa (224 texts): transliterations: 224, translations: 224</p>
+<p>btto (25 texts): transliterations: 6, translations: 1</p>
+<p>cams (12 texts): transliterations: 0, translations: 0</p>
+<p>cams-absumu (20 texts): transliterations: 0, translations: 0</p>
+<p>cams-barutu (2 texts): transliterations: 2, translations: 2</p>
+<p>cams-etana (14 texts): transliterations: 14, translations: 0</p>
+<p>cams-gkab (574 texts): transliterations: 534, translations: 567</p>
+<p>cams-ludlul (14 texts): transliterations: 13, translations: 0</p>
+<p>caspo (252 texts): transliterations: 250, translations: 250</p>
+<p>caspo-akkpm (4 texts): transliterations: 4, translations: 4</p>
+<p>ccpo (183 texts): transliterations: 156, translations: 180</p>
+<p>cdli (19 texts): transliterations: 0, translations: 0</p>
+<p>ckst (90 texts): transliterations: 85, translations: 71</p>
+<p>cmawro (337 texts): transliterations: 0, translations: 0</p>
+<p>cmawro-cmawr2 (1 texts): transliterations: 0, translations: 0</p>
+<p>ctij (134 texts): transliterations: 132, translations: 60</p>
+<p>dcclt (5481 texts): transliterations: 3562, translations: 1237</p>
+<p>dcclt-ebla (137 texts): transliterations: 129, translations: 99</p>
+<p>dcclt-nineveh (656 texts): transliterations: 78, translations: 438</p>
+<p>dcclt-signlists (166 texts): transliterations: 32, translations: 84</p>
+<p>dccmt (1141 texts): transliterations: 149, translations: 115</p>
+<p>dsst (124 texts): transliterations: 56, translations: 0</p>
+<p>ecut (823 texts): transliterations: 730, translations: 651</p>
+<p>eisl (341 texts): transliterations: 57, translations: 11</p>
+<p>etcsri (1456 texts): transliterations: 0, translations: 1445</p>
+<p>glass (15 texts): transliterations: 15, translations: 15</p>
+<p>hbtin (522 texts): transliterations: 477, translations: 299</p>
+<p>lacost (5 texts): transliterations: 2, translations: 1</p>
+<p>nere (1 texts): transliterations: 1, translations: 1</p>
+<p>obel (409 texts): transliterations: 185, translations: 174</p>
+<p>obmc (175 texts): transliterations: 158, translations: 155</p>
+<p>obta (59 texts): transliterations: 0, translations: 0</p>
+<p>qcat (648 texts): transliterations: 0, translations: 0</p>
+<p>riao (890 texts): transliterations: 714, translations: 713</p>
+<p>ribo-babylon10 (1 texts): transliterations: 1, translations: 1</p>
+<p>ribo-babylon2 (38 texts): transliterations: 38, translations: 38</p>
+<p>ribo-babylon3 (4 texts): transliterations: 4, translations: 4</p>
+<p>ribo-babylon4 (6 texts): transliterations: 6, translations: 6</p>
+<p>ribo-babylon5 (1 texts): transliterations: 1, translations: 1</p>
+<p>ribo-babylon6 (126 texts): transliterations: 124, translations: 125</p>
+<p>ribo-babylon7 (211 texts): transliterations: 192, translations: 192</p>
+<p>ribo-sources (396 texts): transliterations: 268, translations: 0</p>
+<p>rimanum (345 texts): transliterations: 345, translations: 345</p>
+<p>rinap-rinap1 (96 texts): transliterations: 88, translations: 88</p>
+<p>rinap-rinap2 (151 texts): transliterations: 134, translations: 145</p>
+<p>rinap-rinap3 (259 texts): transliterations: 235, translations: 236</p>
+<p>rinap-rinap4 (142 texts): transliterations: 136, translations: 137</p>
+<p>rinap-rinap5 (302 texts): transliterations: 300, translations: 300</p>
+<p>rinap-rinap5p1 (1 texts): transliterations: 0, translations: 0</p>
+<p>rinap-sources (2199 texts): transliterations: 1967, translations: 0</p>
+<p>saao (1 texts): transliterations: 0, translations: 0</p>
+<p>saao-saa01 (261 texts): transliterations: 260, translations: 260</p>
+<p>saao-saa02 (15 texts): transliterations: 15, translations: 15</p>
+<p>saao-saa03 (49 texts): transliterations: 47, translations: 47</p>
+<p>saao-saa04 (361 texts): transliterations: 348, translations: 348</p>
+<p>saao-saa05 (297 texts): transliterations: 295, translations: 295</p>
+<p>saao-saa06 (350 texts): transliterations: 350, translations: 350</p>
+<p>saao-saa07 (219 texts): transliterations: 213, translations: 218</p>
+<p>saao-saa08 (567 texts): transliterations: 566, translations: 566</p>
+<p>saao-saa09 (11 texts): transliterations: 11, translations: 11</p>
+<p>saao-saa10 (389 texts): transliterations: 389, translations: 389</p>
+<p>saao-saa11 (234 texts): transliterations: 230, translations: 234</p>
+<p>saao-saa12 (92 texts): transliterations: 91, translations: 92</p>
+<p>saao-saa13 (210 texts): transliterations: 210, translations: 210</p>
+<p>saao-saa14 (479 texts): transliterations: 479, translations: 479</p>
+<p>saao-saa15 (391 texts): transliterations: 389, translations: 389</p>
+<p>saao-saa16 (246 texts): transliterations: 246, translations: 246</p>
+<p>saao-saa17 (207 texts): transliterations: 207, translations: 207</p>
+<p>saao-saa18 (204 texts): transliterations: 203, translations: 203</p>
+<p>saao-saa19 (229 texts): transliterations: 229, translations: 229</p>
+<p>saao-saa20 (51 texts): transliterations: 51, translations: 51</p>
+<p>saao-saa21 (161 texts): transliterations: 161, translations: 161</p>
+<p>saao-saas2 (21 texts): transliterations: 10, translations: 2</p>
+<p>suhu (33 texts): transliterations: 26, translations: 27</p>
+<p>tcma-ali1 (11 texts): transliterations: 11, translations: 11</p>
+<p>tcma-amarna (1 texts): transliterations: 1, translations: 1</p>
+<p>tcma-assur (1114 texts): transliterations: 1043, translations: 975</p>
+<p>tcma-barri (6 texts): transliterations: 3, translations: 3</p>
+<p>tcma-bazmusian (7 texts): transliterations: 7, translations: 4</p>
+<p>tcma-billa (66 texts): transliterations: 65, translations: 57</p>
+<p>tcma-chuera (97 texts): transliterations: 92, translations: 78</p>
+<p>tcma-emar (3 texts): transliterations: 2, translations: 2</p>
+<p>tcma-fekheriye (15 texts): transliterations: 14, translations: 12</p>
+<p>tcma-giricano (15 texts): transliterations: 15, translations: 15</p>
+<p>tcma-hana (2 texts): transliterations: 2, translations: 2</p>
+<p>tcma-haradum (4 texts): transliterations: 2, translations: 2</p>
+<p>tcma-hatti (10 texts): transliterations: 10, translations: 7</p>
+<p>tcma-kartn (62 texts): transliterations: 57, translations: 58</p>
+<p>tcma-kulishinas (13 texts): transliterations: 10, translations: 9</p>
+<p>tcma-laws (45 texts): transliterations: 45, translations: 41</p>
+<p>tcma-miscellaneous (29 texts): transliterations: 24, translations: 24</p>
+<p>tcma-nineveh (1 texts): transliterations: 1, translations: 0</p>
+<p>tcma-nippur (4 texts): transliterations: 4, translations: 4</p>
+<p>tcma-nuzi (1 texts): transliterations: 1, translations: 1</p>
+<p>tcma-qitar (1 texts): transliterations: 1, translations: 1</p>
+<p>tcma-rimah (123 texts): transliterations: 123, translations: 98</p>
+<p>tcma-suri (2 texts): transliterations: 0, translations: 0</p>
+<p>tcma-taban (23 texts): transliterations: 13, translations: 12</p>
+<p>tcma-tsa1 (28 texts): transliterations: 17, translations: 12</p>
+<p>tcma-tsh1 (334 texts): transliterations: 248, translations: 183</p>
+<p>tcma-ugarit (5 texts): transliterations: 5, translations: 4</p>
+<p>xcat (12 texts): transliterations: 0, translations: 0</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="5-Translations%20Extraction.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Mount Google Drive folder + imports + steps</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="7.1%20-%20Metacatalogue.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Mount Google Drive folder + imports</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Counts for Transliterations and Translations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mount-google-drive-folder-imports-steps">Mount Google Drive folder + imports + steps</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

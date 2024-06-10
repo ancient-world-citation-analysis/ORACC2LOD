@@ -1,0 +1,1656 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Extract words_df and df_cat DataFrames from ZIP files &#8212; ORACC2LoD</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '2-DataFrame Extraction';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Large DataFrame of Unique Words" href="3-Large%20DF%20of%20Unique%20Words.html" />
+    <link rel="prev" title="Download ORACC Directory ZIP Files (Google Colab version)" href="1-ORACC_ZIPS.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="welcome.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">ORACC2LoD</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="welcome.html">
+                    Sumerian Networks JupyterBook
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="1-ORACC_ZIPS.html">Download ORACC Directory ZIP Files (Google Colab version)</a></li>
+
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Extract words_df and df_cat DataFrames from ZIP files</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="3-Large%20DF%20of%20Unique%20Words.html">Large DataFrame of Unique Words</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="4-Megacatalogue.html">Mount Google Drive folder + imports + steps</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="4.1%20-%20Counts%20for%20Megacatalogue.html">Counts for Megacatalogue</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="5-Translations%20Extraction.html">Mount Google Drive folder + imports + steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5.1-Counts%20for%20Transliterations%20and%20Translations.html">Counts for Transliterations and Translations</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="7.1%20-%20Metacatalogue.html">Mount Google Drive folder + imports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7.2%20-%20Fitting%20Headers.html">Mount Google Drive folder + imports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7.3%20-%20Factgrid%20Quickstatement%20Processing.html">Mount Google Drive folder + imports</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/austin-pereira/Oracc2LoD/blob/main/book/2-DataFrame Extraction.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/2-DataFrame Extraction.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Extract words_df and df_cat DataFrames from ZIP files</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Extract words_df and df_cat DataFrames from ZIP files</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mount-google-drive-folder-load-libraries">Mount Google Drive folder + Load Libraries</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#unzip-project-adsd-adart1">Unzip project adsd-adart1</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-unzipfile-method">Run <code class="docutils literal notranslate"><span class="pre">unzipFile()</span> <span class="pre">Method</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#now-we-will-process-this-via-json-parsing">Now we will process this via JSON parsing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define-unzipmultiplefiles-method">Define <code class="docutils literal notranslate"><span class="pre">unzipMultipleFiles()</span></code> Method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframe-extraction">DataFrame Extraction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-list-of-the-projects">Get the list of the projects</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-unzipmultiplefiles-method">Run <code class="docutils literal notranslate"><span class="pre">unzipMultipleFiles()</span></code> Method</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="extract-words-df-and-df-cat-dataframes-from-zip-files">
+<h1>Extract words_df and df_cat DataFrames from ZIP files<a class="headerlink" href="#extract-words-df-and-df-cat-dataframes-from-zip-files" title="Link to this heading">#</a></h1>
+<p>Notebook by Melinee Her</p>
+<p>See how to download ZIP files of data from the ORACC project list in this COLAB:
+<a class="reference external" href="https://colab.research.google.com/drive/1EAahNUcBXxk6-BXc68Dhp5hPj2bXWF-C?usp=sharing">https://colab.research.google.com/drive/1EAahNUcBXxk6-BXc68Dhp5hPj2bXWF-C?usp=sharing</a></p>
+<p>The goal for this notebook is to take a series of project zip files and export the words_df and df_cat DataFrames for each project.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="mount-google-drive-folder-load-libraries">
+<h1>Mount Google Drive folder + Load Libraries<a class="headerlink" href="#mount-google-drive-folder-load-libraries" title="Link to this heading">#</a></h1>
+<p>The code snippet below is to mount Google Drive files so that we can interact with our Google Drive files using the file browser or command line. Running it will give a permissions prompt.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+<span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mounted at /content/drive
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#any necessary imports</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">zipfile</span>
+<span class="kn">from</span> <span class="nn">zipfile</span> <span class="kn">import</span> <span class="n">ZipFile</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">errno</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="c1">#Set folder for remote drive</span>
+<span class="c1">#folder = &#39;/content/drive/My Drive/FactGrid Cuneiform (AWCA)/people/Melinee&#39;</span>
+<span class="n">folder</span> <span class="o">=</span> <span class="s1">&#39;/content/drive/MyDrive/FactGrid Cuneiform (AWCA)/people/Melinee/&#39;</span>
+
+<span class="c1">#importing utils for the method which downloads the current text json files</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">folder</span> <span class="o">+</span> <span class="s1">&#39;network/utils/&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">utils</span> <span class="kn">import</span> <span class="n">oracc_download</span>
+
+<span class="c1"># This is a user defined module that searches through the texts to find the entities in the text that</span>
+<span class="c1"># are people and places, to be imported as nodes into the network</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">folder</span> <span class="o">+</span> <span class="s1">&#39;network/&#39;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">rank_parser4</span> <span class="k">as</span> <span class="nn">rp</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The steps:</p>
+<ol class="arabic simple">
+<li><p>Take the ZIP files known and systematically unzip all of them.</p></li>
+<li><p>Create a process that takes each unzipped project file and parses the JSON files.</p></li>
+<li><p>Find the words_df and df_cat dataFrames and rename the index columns as “id_text”.</p></li>
+<li><p>Create a directory to store all words_df and df_cats for each project.</p></li>
+</ol>
+<p>For reference, I will show an example of the process for a single project first, followed by the automatic version for all projects below.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="unzip-project-adsd-adart1">
+<h1>Unzip project adsd-adart1<a class="headerlink" href="#unzip-project-adsd-adart1" title="Link to this heading">#</a></h1>
+<p>This section is for a single project and does not have to be run before automating the process. It is an in-depth look at the process from start to finish.</p>
+<p>After sucessfully running the first COLAB notebook and creating the “ORACC_zips” directory, we will create a new directory called “ORACC_UNZIPPED” that holds all of the unzipped project files.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s2">&quot;drive/MyDrive/ORACC_UNZIPPED&quot;</span><span class="p">,</span> <span class="n">exist_ok</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The unzipFile function unzips any given one file and places it in a given destination.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">unzipFile</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">source_directory</span><span class="p">,</span> <span class="n">destination</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  :param file: ZIP file name</span>
+<span class="sd">  :param source_directory: source directory of the ZIP file</span>
+<span class="sd">  :param destination: destination directory to put the downloaded files in</span>
+<span class="sd">  This is a method that unzips a single file. Utility for `unzipMultipleFiles().`</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="k">if</span> <span class="ow">not</span> <span class="n">source_directory</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">):</span>
+    <span class="n">source_directory</span> <span class="o">=</span> <span class="n">source_directory</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span>
+  <span class="k">if</span> <span class="ow">not</span> <span class="n">destination</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">):</span>
+    <span class="n">destination</span> <span class="o">=</span> <span class="n">destination</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span>
+  <span class="n">file_path</span> <span class="o">=</span> <span class="n">source_directory</span> <span class="o">+</span> <span class="n">file</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+  <span class="n">file_name</span> <span class="o">=</span> <span class="n">file</span><span class="p">[:</span><span class="n">file</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s2">&quot;.zip&quot;</span><span class="p">)]</span>
+  <span class="k">with</span> <span class="n">ZipFile</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">zipObj</span><span class="p">:</span>
+      <span class="n">zipObj</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">destination</span><span class="si">}{</span><span class="n">file_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+  <span class="n">file_name</span> <span class="o">=</span> <span class="n">file</span><span class="p">[:</span><span class="n">file</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s2">&quot;.zip&quot;</span><span class="p">)]</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Unzipped </span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s1">. See </span><span class="si">{</span><span class="n">destination</span><span class="si">}{</span><span class="n">file_name</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="run-unzipfile-method">
+<h2>Run <code class="docutils literal notranslate"><span class="pre">unzipFile()</span> <span class="pre">Method</span></code><a class="headerlink" href="#run-unzipfile-method" title="Link to this heading">#</a></h2>
+<p>For our example, we will use the adsd-adart1 project. First, unzip the adsd-adart1 zip file (located in the ORACC_zips directory) by calling the unzipFile() Method and locating it in the ORACC_UNZIPPED directory.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">unzipFile</span><span class="p">(</span><span class="s2">&quot;adsd-adart1.zip&quot;</span><span class="p">,</span> <span class="n">folder</span> <span class="o">+</span> <span class="s2">&quot;ORACC_zips&quot;</span><span class="p">,</span> <span class="n">folder</span> <span class="o">+</span> <span class="s2">&quot;ORACC_UNZIPPED&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/content/drive/MyDrive/Melinee/ORACC_zips/adsd-adart1.zip
+Unzipped adsd-adart1.zip. See /content/drive/MyDrive/Melinee/ORACC_UNZIPPED/adsd-adart1.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="now-we-will-process-this-via-json-parsing">
+<h2>Now we will process this via JSON parsing<a class="headerlink" href="#now-we-will-process-this-via-json-parsing" title="Link to this heading">#</a></h2>
+<p>With the project file unzipped, we have access to the project’s JSON files. The parsejson function takes a given text and searches for useful lemmas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">parsejson</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">JSONobject</span> <span class="ow">in</span> <span class="n">text</span><span class="p">[</span><span class="s2">&quot;cdl&quot;</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="s2">&quot;cdl&quot;</span> <span class="ow">in</span> <span class="n">JSONobject</span><span class="p">:</span>
+            <span class="c1">#print(&#39;cdl in JSON&#39;)</span>
+            <span class="n">parsejson</span><span class="p">(</span><span class="n">JSONobject</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s2">&quot;label&quot;</span> <span class="ow">in</span> <span class="n">JSONobject</span><span class="p">:</span>
+            <span class="n">meta_d</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">JSONobject</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="s2">&quot;f&quot;</span> <span class="ow">in</span> <span class="n">JSONobject</span><span class="p">:</span>
+            <span class="n">lemma</span> <span class="o">=</span> <span class="n">JSONobject</span><span class="p">[</span><span class="s2">&quot;f&quot;</span><span class="p">]</span>
+            <span class="c1">#if &quot;ftype&quot; in JSONobject:   # you don&#39;t need this - useful for distinguishing between regular text and year names</span>
+            <span class="c1">#    lemma[&#39;ftype&#39;] = JSONobject[&#39;ftype&#39;]</span>
+            <span class="n">lemma</span><span class="p">[</span><span class="s2">&quot;id_word&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">JSONobject</span><span class="p">[</span><span class="s2">&quot;ref&quot;</span><span class="p">]</span>
+            <span class="n">lemma</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">meta_d</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span>
+            <span class="n">lemma</span><span class="p">[</span><span class="s2">&quot;id_text&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">meta_d</span><span class="p">[</span><span class="s2">&quot;id_text&quot;</span><span class="p">]</span>
+            <span class="n">lemm_l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lemma</span><span class="p">)</span>
+            <span class="c1">#print(&#39;Appending Lemma: &#39; + str(lemma))</span>
+        <span class="c1">#if &quot;strict&quot; in JSONobject and JSONobject[&quot;strict&quot;] == &quot;1&quot;:</span>
+         <span class="c1">#   lemma = {key: JSONobject[key] for key in dollar_keys}</span>
+         <span class="c1">#   lemma[&quot;id_word&quot;] = JSONobject[&quot;ref&quot;]</span>
+         <span class="c1">#   lemma[&quot;id_text&quot;] = meta_d[&quot;id_text&quot;]</span>
+         <span class="c1">#   lemm_l.append(lemma)</span>
+    <span class="k">return</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Using the utils from the network folder provided by FactGrid, we can download the project of interest with the function oracc_download.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#gets utils, downloads projects</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">folder</span> <span class="o">+</span> <span class="s1">&#39;network/&#39;</span><span class="p">)</span>
+
+<span class="n">projects</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;adsd/adart1&#39;</span><span class="p">]</span>
+<span class="n">projects</span> <span class="o">=</span> <span class="n">oracc_download</span><span class="p">(</span><span class="n">projects</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="c1">#DOWNLOAD REDUNDANCY</span>
+<span class="n">projects</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Saving http://build-oracc.museum.upenn.edu/json/adsd-adart1.zip as jsonzip/adsd-adart1.zip.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.10/dist-packages/urllib3/connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host &#39;build-oracc.museum.upenn.edu&#39;. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "dfca110750ed48e1be8241fcdcff03f2", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;adsd/adart1&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, we use the downloaded project and the corresponding JSON files to create the project’s words_df and df_cat.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lemm_l</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">meta_d</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;id_text&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
+<span class="c1">#dollar_keys = [&quot;extent&quot;, &quot;scope&quot;, &quot;state&quot;]</span>
+
+<span class="n">df_cat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="n">used_pnums</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">cat_d</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">project</span> <span class="ow">in</span> <span class="n">projects</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Project: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">project</span><span class="p">))</span>
+  <span class="n">z</span> <span class="o">=</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="s1">&#39;jsonzip/&#39;</span> <span class="o">+</span> <span class="n">project</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span><span class="s1">&#39;-&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;.zip&#39;</span><span class="p">)</span>
+  <span class="c1">#print(file + &quot; does not exist or is not a proper ZIP file&quot;)</span>
+  <span class="n">files</span> <span class="o">=</span> <span class="n">z</span><span class="o">.</span><span class="n">namelist</span><span class="p">()</span>     <span class="c1"># list of all the files in the ZIP</span>
+  <span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="n">name</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">files</span> <span class="k">if</span> <span class="s2">&quot;corpusjson&quot;</span> <span class="ow">in</span> <span class="n">name</span> <span class="ow">and</span> <span class="n">name</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">:]</span> <span class="o">==</span> <span class="s1">&#39;.json&#39;</span><span class="p">]</span>
+  <span class="n">cat_file</span> <span class="o">=</span> <span class="n">z</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">project</span> <span class="o">+</span> <span class="s1">&#39;/catalogue.json&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+  <span class="n">cat_json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">cat_file</span><span class="p">)</span>
+
+  <span class="n">cat_d</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">cat_json</span><span class="p">[</span><span class="s1">&#39;members&#39;</span><span class="p">]))</span>
+  <span class="c1">#df_cat = pd.concat([df_cat,pd.DataFrame(cat_json[&#39;members&#39;]).T])                          #that holds all the P, Q, and X numbers.</span>
+
+  <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">files</span><span class="p">):</span>       <span class="c1">#iterate over the file names</span>
+      <span class="n">id_text</span> <span class="o">=</span> <span class="n">filename</span><span class="p">[</span><span class="o">-</span><span class="mi">12</span><span class="p">:</span><span class="o">-</span><span class="mi">5</span><span class="p">]</span>
+      <span class="k">if</span> <span class="n">id_text</span> <span class="ow">in</span> <span class="n">used_pnums</span><span class="p">:</span>
+        <span class="k">continue</span>
+      <span class="k">else</span><span class="p">:</span>
+        <span class="n">used_pnums</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">id_text</span><span class="p">)</span>
+      <span class="n">meta_d</span><span class="p">[</span><span class="s2">&quot;id_text&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">id_text</span>
+
+      <span class="n">st</span> <span class="o">=</span> <span class="n">z</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>       <span class="c1">#read and decode the json file of one particular text</span>
+      <span class="c1">#if empty file, skip, else run through parsejson</span>
+      <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">st</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">filename</span><span class="p">);</span> <span class="c1">#prints out the empty</span>
+      <span class="k">else</span><span class="p">:</span>
+        <span class="n">data_json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">st</span><span class="p">)</span>                <span class="c1"># make it into a json object (essentially a dictionary)</span>
+        <span class="c1">#print(str(data_json))</span>
+        <span class="n">parsejson</span><span class="p">(</span><span class="n">data_json</span><span class="p">)</span>               <span class="c1"># and send to the parsejson() function</span>
+  <span class="n">z</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+  <span class="n">df_cat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">cat_d</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+  <span class="n">words_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">lemm_l</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Project: adsd/adart1
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|          | 0/89 [00:00&lt;?, ?it/s]
+  9%|▉         | 8/89 [00:00&lt;00:01, 77.50it/s]
+ 24%|██▎       | 21/89 [00:00&lt;00:00, 105.53it/s]
+ 36%|███▌      | 32/89 [00:00&lt;00:00, 74.94it/s] 
+ 47%|████▋     | 42/89 [00:00&lt;00:00, 82.55it/s]
+ 63%|██████▎   | 56/89 [00:00&lt;00:00, 91.60it/s]
+ 76%|███████▋  | 68/89 [00:00&lt;00:00, 99.42it/s]
+ 89%|████████▉ | 79/89 [00:00&lt;00:00, 91.71it/s]
+100%|██████████| 89/89 [00:01&lt;00:00, 85.81it/s]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here’s a quick glance of what these dataframes look like.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">words_df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;number&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">words_df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;number&#39;</span>
+<span class="n">words_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-a0de31ed-38bf-4b87-a2b0-242f2de0b115">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>lang</th>
+      <th>form</th>
+      <th>delim</th>
+      <th>gdl</th>
+      <th>pos</th>
+      <th>id_word</th>
+      <th>label</th>
+      <th>id_text</th>
+      <th>cf</th>
+      <th>gw</th>
+      <th>sense</th>
+      <th>norm</th>
+      <th>epos</th>
+    </tr>
+    <tr>
+      <th>number</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>akk</td>
+      <td>x</td>
+      <td></td>
+      <td>[{'x': 'ellipsis', 'id': 'X103322.2.1.0', 'bre...</td>
+      <td>u</td>
+      <td>X103322.2.1</td>
+      <td>o 1'</td>
+      <td>X103322</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>akk</td>
+      <td>GE₆</td>
+      <td></td>
+      <td>[{'gg': 'logo', 'gdl_type': 'logo', 'group': [...</td>
+      <td>N</td>
+      <td>X103322.2.2</td>
+      <td>o 1'</td>
+      <td>X103322</td>
+      <td>mūšu</td>
+      <td>night</td>
+      <td>night</td>
+      <td>mūšu</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>akk</td>
+      <td>28</td>
+      <td></td>
+      <td>[{'n': 'n', 'sexified': '2(u) 8(diš)', 'form':...</td>
+      <td>n</td>
+      <td>X103322.2.3</td>
+      <td>o 1'</td>
+      <td>X103322</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-a0de31ed-38bf-4b87-a2b0-242f2de0b115')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+        
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+      
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-a0de31ed-38bf-4b87-a2b0-242f2de0b115 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-a0de31ed-38bf-4b87-a2b0-242f2de0b115');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+  </div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df_cat</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;id&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_cat</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;id_text&#39;</span>
+<span class="n">df_cat</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-64abe0c9-11d6-41a3-9326-104c1c5486c5">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>langs</th>
+      <th>project</th>
+      <th>id_text</th>
+      <th>designation</th>
+      <th>copy</th>
+      <th>photo</th>
+      <th>museum_no</th>
+      <th>text_comments</th>
+      <th>accession_no</th>
+      <th>ancient_year</th>
+      <th>...</th>
+      <th>object_type</th>
+      <th>period</th>
+      <th>provenience</th>
+      <th>pleiades_id</th>
+      <th>pleiades_coord</th>
+      <th>supergenre</th>
+      <th>trans</th>
+      <th>tablet_comments</th>
+      <th>date_comments</th>
+      <th>bibilography</th>
+    </tr>
+    <tr>
+      <th>id_text</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>X102611</th>
+      <td>0x08000000</td>
+      <td>adsd/adart1</td>
+      <td>X102611</td>
+      <td>AD -261A</td>
+      <td>LBAT 249</td>
+      <td>ADART I plate 66</td>
+      <td>BM 41690</td>
+      <td>A obv. 9': At the beginning of the line either...</td>
+      <td>81-6-25,308</td>
+      <td>SE 50</td>
+      <td>...</td>
+      <td>tablet</td>
+      <td>Hellenistic</td>
+      <td>Babylon</td>
+      <td>893951</td>
+      <td>[44.422236,32.543395]</td>
+      <td>unknown</td>
+      <td>[en]</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>X102612</th>
+      <td>0x08000000</td>
+      <td>adsd/adart1</td>
+      <td>X102612</td>
+      <td>AD -261B</td>
+      <td>ADART I plate 68</td>
+      <td>ADART I plates 66 and 67</td>
+      <td>BM 32245 + 32404</td>
+      <td>B obv. 11': Eclipse of -261 Dec. 21 (not visib...</td>
+      <td>S+76-11-17,1972+2137</td>
+      <td>SE 50</td>
+      <td>...</td>
+      <td>tablet</td>
+      <td>Hellenistic</td>
+      <td>Babylon</td>
+      <td>893951</td>
+      <td>[44.422236,32.543395]</td>
+      <td>unknown</td>
+      <td>[en]</td>
+      <td>Both pieces [-261B&amp;C] are almost certainly par...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>X102613</th>
+      <td>0x08000000</td>
+      <td>adsd/adart1</td>
+      <td>X102613</td>
+      <td>AD -261C</td>
+      <td>ADART I plate 68</td>
+      <td>ADART I plates 66 and 67</td>
+      <td>BM 41615 + 41913</td>
+      <td>NaN</td>
+      <td>81-6-25,230+533</td>
+      <td>SE 50</td>
+      <td>...</td>
+      <td>tablet</td>
+      <td>Hellenistic</td>
+      <td>Babylon</td>
+      <td>893951</td>
+      <td>[44.422236,32.543395]</td>
+      <td>unknown</td>
+      <td>[en]</td>
+      <td>Both pieces [-261B&amp;C] are almost certainly par...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>3 rows × 25 columns</p>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-64abe0c9-11d6-41a3-9326-104c1c5486c5')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+        
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+      
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-64abe0c9-11d6-41a3-9326-104c1c5486c5 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-64abe0c9-11d6-41a3-9326-104c1c5486c5');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+  </div></div>
+</div>
+<p>The last step is to export these dataframes to a specified directory. The directory {folder}/ORACC_DFS/PROJECT_DFS will hold the exported words_dfs and df_cats for all projects.</p>
+<p>A modified project-oriented version of this folder is nested with separate folders for each project that then store the respective dataframes. This can be created with directories like ORACC_DFS/PROJECT_DFS/PROJECT/SUBPROJECT (e.g. oracc_dfs/project_dfs/adsd/adart1). This is more useful for project oriented case studies, however a larger folder that contains all dfs is useful for quicker and simpler access to all project dataframes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">folder</span> <span class="o">+</span> <span class="s1">&#39;ORACC_DFS&#39;</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">file</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">folder</span> <span class="o">+</span> <span class="s1">&#39;ORACC_DFS/PROJECT_DFS&#39;</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">words_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">folder</span> <span class="o">+</span> <span class="s1">&#39;ORACC_DFS/PROJECT_DFS&#39;</span> <span class="o">+</span> <span class="n">file</span> <span class="o">+</span> <span class="s1">&#39;-words-df.csv&#39;</span><span class="p">)</span>
+<span class="n">df_cat</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">folder</span> <span class="o">+</span> <span class="s1">&#39;ORACC_DFS/PROJECT_DFS&#39;</span> <span class="o">+</span> <span class="n">file</span> <span class="o">+</span> <span class="s1">&#39;-df-cat.csv&#39;</span><span class="p">)</span>
+
+<span class="err">!</span><span class="n">ls</span> <span class="o">/</span><span class="n">content</span><span class="o">/</span><span class="n">drive</span><span class="o">/</span><span class="n">MyDrive</span><span class="o">/</span><span class="n">Melinee</span><span class="o">/</span><span class="n">ORACC_DF</span><span class="o">/</span><span class="n">PROJECT_DFS</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>adsd-adart1-df-cat.csv	adsd-adart1-words-df.csv
+</pre></div>
+</div>
+</div>
+</div>
+<p>With this single project example finished, we can move on to the automated version of this process.</p>
+<p>#Automated Process for Unzipping Project Files and Exporting DataFrames
+This section defines the process for unzipping all project files, parsing through the JSON files, and extracting and exporting the dataframes for each project.</p>
+</section>
+<section id="define-unzipmultiplefiles-method">
+<h2>Define <code class="docutils literal notranslate"><span class="pre">unzipMultipleFiles()</span></code> Method<a class="headerlink" href="#define-unzipmultiplefiles-method" title="Link to this heading">#</a></h2>
+<p>This is a method that unzips multiple given files.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">unzipFile</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">source_directory</span><span class="p">,</span> <span class="n">destination</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  :param file: ZIP file name</span>
+<span class="sd">  :param source_directory: source directory of the ZIP file</span>
+<span class="sd">  :param destination: destination directory to put the downloaded files in</span>
+<span class="sd">  This is a method that unzips a single file. Utility for unzipMultipleFiles().</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="k">if</span> <span class="ow">not</span> <span class="n">source_directory</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">):</span>
+    <span class="n">source_directory</span> <span class="o">=</span> <span class="n">source_directory</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span>
+  <span class="k">if</span> <span class="ow">not</span> <span class="n">destination</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">):</span>
+    <span class="n">destination</span> <span class="o">=</span> <span class="n">destination</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span>
+  <span class="n">file_path</span> <span class="o">=</span> <span class="n">source_directory</span> <span class="o">+</span> <span class="n">file</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+  <span class="n">file_name</span> <span class="o">=</span> <span class="n">file</span><span class="p">[:</span><span class="n">file</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s2">&quot;.zip&quot;</span><span class="p">)]</span>
+  <span class="k">with</span> <span class="n">ZipFile</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">zipObj</span><span class="p">:</span>
+      <span class="n">zipObj</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">destination</span><span class="si">}{</span><span class="n">file_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+  <span class="n">file_name</span> <span class="o">=</span> <span class="n">file</span><span class="p">[:</span><span class="n">file</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s2">&quot;.zip&quot;</span><span class="p">)]</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Unzipped </span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s1">. See </span><span class="si">{</span><span class="n">destination</span><span class="si">}{</span><span class="n">file_name</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">unzipMultipleFiles</span><span class="p">(</span><span class="n">file_list</span><span class="p">,</span> <span class="n">source_directory</span><span class="p">,</span> <span class="n">destination</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  :param file: ZIP file name</span>
+<span class="sd">  :param source_directory: source directory of the ZIP file</span>
+<span class="sd">  :param destination: destination directory to put the downloaded files in</span>
+<span class="sd">  This is a method that unzips multiple files. Uses unzipFile().</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="k">if</span> <span class="ow">not</span> <span class="n">source_directory</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">):</span>
+    <span class="n">source_directory</span> <span class="o">=</span> <span class="n">source_directory</span> <span class="o">+</span> <span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+  <span class="k">if</span> <span class="ow">not</span> <span class="n">destination</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">):</span>
+    <span class="n">destination</span> <span class="o">=</span> <span class="n">destination</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span>
+  <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">file_list</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">unzipFile</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">source_directory</span><span class="p">,</span> <span class="n">destination</span><span class="p">)</span>
+    <span class="k">except</span> <span class="p">(</span><span class="ne">FileNotFoundError</span><span class="p">,</span> <span class="ne">IOError</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File not found. Wrong file path.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="dataframe-extraction">
+<h2>DataFrame Extraction<a class="headerlink" href="#dataframe-extraction" title="Link to this heading">#</a></h2>
+<p>This part includes:</p>
+<ol class="arabic simple">
+<li><p>defining the parsejson function</p></li>
+<li><p>creating a path list of all relevant projects.</p></li>
+<li><p>unzipping all files</p></li>
+<li><p>downloading all of the projects from ORACC</p></li>
+<li><p>running through all projects, parse through every usable file, and downloading the dataframes</p></li>
+</ol>
+<p>The most efficient way of catching errors (e.g. missing files, empty corpuses) and ensuring each project was accounted for (reducing long run times) when running the final code cell was to split the final path list into smaller sections [p1,p2,p3,p4,p5,p6].</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#parses through json file (repeated code from section above)</span>
+<span class="k">def</span> <span class="nf">parsejson</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">JSONobject</span> <span class="ow">in</span> <span class="n">text</span><span class="p">[</span><span class="s2">&quot;cdl&quot;</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="s2">&quot;cdl&quot;</span> <span class="ow">in</span> <span class="n">JSONobject</span><span class="p">:</span>
+            <span class="c1">#print(&#39;cdl in JSON&#39;)</span>
+            <span class="n">parsejson</span><span class="p">(</span><span class="n">JSONobject</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s2">&quot;label&quot;</span> <span class="ow">in</span> <span class="n">JSONobject</span><span class="p">:</span>
+            <span class="n">meta_d</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">JSONobject</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="s2">&quot;f&quot;</span> <span class="ow">in</span> <span class="n">JSONobject</span><span class="p">:</span>
+            <span class="n">lemma</span> <span class="o">=</span> <span class="n">JSONobject</span><span class="p">[</span><span class="s2">&quot;f&quot;</span><span class="p">]</span>
+            <span class="c1">#if &quot;ftype&quot; in JSONobject:   # you don&#39;t need this - useful for distinguishing between regular text and year names</span>
+            <span class="c1">#    lemma[&#39;ftype&#39;] = JSONobject[&#39;ftype&#39;]</span>
+            <span class="n">lemma</span><span class="p">[</span><span class="s2">&quot;id_word&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">JSONobject</span><span class="p">[</span><span class="s2">&quot;ref&quot;</span><span class="p">]</span>
+            <span class="n">lemma</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">meta_d</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span>
+            <span class="n">lemma</span><span class="p">[</span><span class="s2">&quot;id_text&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">meta_d</span><span class="p">[</span><span class="s2">&quot;id_text&quot;</span><span class="p">]</span>
+            <span class="n">lemm_l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lemma</span><span class="p">)</span>
+            <span class="c1">#print(&#39;Appending Lemma: &#39; + str(lemma))</span>
+        <span class="c1">#if &quot;strict&quot; in JSONobject and JSONobject[&quot;strict&quot;] == &quot;1&quot;:</span>
+         <span class="c1">#   lemma = {key: JSONobject[key] for key in dollar_keys}</span>
+         <span class="c1">#   lemma[&quot;id_word&quot;] = JSONobject[&quot;ref&quot;]</span>
+         <span class="c1">#   lemma[&quot;id_text&quot;] = meta_d[&quot;id_text&quot;]</span>
+         <span class="c1">#   lemm_l.append(lemma)</span>
+    <span class="k">return</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="get-the-list-of-the-projects">
+<h2>Get the list of the projects<a class="headerlink" href="#get-the-list-of-the-projects" title="Link to this heading">#</a></h2>
+<p>There is a csv file exported from the ORACC_downloads notebook, “project_paths_list_df” that we will use to make a list in format of ‘project’.zip so we can unzip all files.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#this list was found from the ORACC_ZIPS colab notebook</span>
+<span class="c1">#includes all projects on the Oracc Project List page and the buried file paths from epsd [see final and redacted in cell below]</span>
+<span class="n">path_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;adsd&#39;</span><span class="p">,</span><span class="s1">&#39;adsd/adart1&#39;</span><span class="p">,</span><span class="s1">&#39;adsd/adart2&#39;</span><span class="p">,</span><span class="s1">&#39;adsd/adart3&#39;</span><span class="p">,</span><span class="s1">&#39;adsd/adart5&#39;</span><span class="p">,</span><span class="s1">&#39;adsd/adart6&#39;</span><span class="p">,</span><span class="s1">&#39;aemw&#39;</span><span class="p">,</span><span class="s1">&#39;aemw/alalakh/idrimi&#39;</span><span class="p">,</span><span class="s1">&#39;aemw/amarna&#39;</span><span class="p">,</span><span class="s1">&#39;akklove&#39;</span><span class="p">,</span><span class="s1">&#39;amgg&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;ario&#39;</span><span class="p">,</span><span class="s1">&#39;armep&#39;</span><span class="p">,</span><span class="s1">&#39;arrim&#39;</span><span class="p">,</span><span class="s1">&#39;asbp&#39;</span><span class="p">,</span><span class="s1">&#39;asbp/ninmed&#39;</span><span class="p">,</span><span class="s1">&#39;asbp/rlasb&#39;</span><span class="p">,</span><span class="s1">&#39;atae&#39;</span><span class="p">,</span><span class="s1">&#39;atae/assur&#39;</span><span class="p">,</span><span class="s1">&#39;atae/burmarina&#39;</span><span class="p">,</span><span class="s1">&#39;atae/durkatlimmu&#39;</span><span class="p">,</span><span class="s1">&#39;atae/durszarrukin&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;atae/guzana&#39;</span><span class="p">,</span><span class="s1">&#39;atae/huzirina&#39;</span><span class="p">,</span><span class="s1">&#39;atae/imgurenlil&#39;</span><span class="p">,</span><span class="s1">&#39;atae/kalhu&#39;</span><span class="p">,</span><span class="s1">&#39;atae/kunalia&#39;</span><span class="p">,</span><span class="s1">&#39;atae/mallanate&#39;</span><span class="p">,</span><span class="s1">&#39;atae/marqasu&#39;</span><span class="p">,</span><span class="s1">&#39;atae/nineveh&#39;</span><span class="p">,</span><span class="s1">&#39;atae/samal&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;atae/szibaniba&#39;</span><span class="p">,</span><span class="s1">&#39;atae/tilbarsip&#39;</span><span class="p">,</span><span class="s1">&#39;atae/tuszhan&#39;</span><span class="p">,</span><span class="s1">&#39;babcity&#39;</span><span class="p">,</span><span class="s1">&#39;blms&#39;</span><span class="p">,</span><span class="s1">&#39;borsippa&#39;</span><span class="p">,</span><span class="s1">&#39;btmao&#39;</span><span class="p">,</span><span class="s1">&#39;btto&#39;</span><span class="p">,</span><span class="s1">&#39;cams&#39;</span><span class="p">,</span><span class="s1">&#39;cams/akno&#39;</span><span class="p">,</span><span class="s1">&#39;cams/anzu&#39;</span><span class="p">,</span><span class="s1">&#39;cams/barutu&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;cams/etana&#39;</span><span class="p">,</span><span class="s1">&#39;cams/gkab&#39;</span><span class="p">,</span><span class="s1">&#39;cams/ludlul&#39;</span><span class="p">,</span><span class="s1">&#39;cams/selbi&#39;</span><span class="p">,</span><span class="s1">&#39;cams/tlab&#39;</span><span class="p">,</span><span class="s1">&#39;cdli&#39;</span><span class="p">,</span><span class="s1">&#39;ckst&#39;</span><span class="p">,</span><span class="s1">&#39;cmawro&#39;</span><span class="p">,</span><span class="s1">&#39;cmawro/cmawr1&#39;</span><span class="p">,</span><span class="s1">&#39;cmawro/cmawr2&#39;</span><span class="p">,</span><span class="s1">&#39;cmawro/cmawr3&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;cmawro/maqlu&#39;</span><span class="p">,</span><span class="s1">&#39;contrib&#39;</span><span class="p">,</span><span class="s1">&#39;contrib/amarna&#39;</span><span class="p">,</span><span class="s1">&#39;contrib/lambert&#39;</span><span class="p">,</span><span class="s1">&#39;ctij&#39;</span><span class="p">,</span><span class="s1">&#39;dcclt&#39;</span><span class="p">,</span><span class="s1">&#39;dcclt/ebla&#39;</span><span class="p">,</span><span class="s1">&#39;dcclt/jena&#39;</span><span class="p">,</span><span class="s1">&#39;dcclt/nineveh&#39;</span><span class="p">,</span><span class="s1">&#39;dcclt/signlists&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;dccmt&#39;</span><span class="p">,</span><span class="s1">&#39;dsst&#39;</span><span class="p">,</span><span class="s1">&#39;ecut&#39;</span><span class="p">,</span><span class="s1">&#39;eisl&#39;</span><span class="p">,</span><span class="s1">&#39;epsd2&#39;</span><span class="p">,</span><span class="s1">&#39;etcsri&#39;</span><span class="p">,</span><span class="s1">&#39;glass&#39;</span><span class="p">,</span><span class="s1">&#39;hbtin&#39;</span><span class="p">,</span><span class="s1">&#39;lacost&#39;</span><span class="p">,</span><span class="s1">&#39;lovelyrics&#39;</span><span class="p">,</span><span class="s1">&#39;nere&#39;</span><span class="p">,</span><span class="s1">&#39;nimrud&#39;</span><span class="p">,</span><span class="s1">&#39;obel&#39;</span><span class="p">,</span><span class="s1">&#39;obmc&#39;</span><span class="p">,</span><span class="s1">&#39;obta&#39;</span><span class="p">,</span><span class="s1">&#39;ogsl&#39;</span><span class="p">,</span><span class="s1">&#39;oimea&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;pnao&#39;</span><span class="p">,</span><span class="s1">&#39;qcat&#39;</span><span class="p">,</span><span class="s1">&#39;riao&#39;</span><span class="p">,</span><span class="s1">&#39;ribo&#39;</span><span class="p">,</span><span class="s1">&#39;ribo/bab7scores&#39;</span><span class="p">,</span><span class="s1">&#39;ribo/babylon10&#39;</span><span class="p">,</span><span class="s1">&#39;ribo/babylon2&#39;</span><span class="p">,</span><span class="s1">&#39;ribo/babylon3&#39;</span><span class="p">,</span><span class="s1">&#39;ribo/babylon4&#39;</span><span class="p">,</span><span class="s1">&#39;ribo/babylon5&#39;</span><span class="p">,</span><span class="s1">&#39;ribo/babylon6&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;ribo/babylon7&#39;</span><span class="p">,</span><span class="s1">&#39;ribo/babylon8&#39;</span><span class="p">,</span><span class="s1">&#39;ribo/sources&#39;</span><span class="p">,</span><span class="s1">&#39;rimanum&#39;</span><span class="p">,</span><span class="s1">&#39;rinap&#39;</span><span class="p">,</span><span class="s1">&#39;rinap/rinap1&#39;</span><span class="p">,</span><span class="s1">&#39;rinap/rinap2&#39;</span><span class="p">,</span><span class="s1">&#39;rinap/rinap3&#39;</span><span class="p">,</span><span class="s1">&#39;rinap/rinap4&#39;</span><span class="p">,</span><span class="s1">&#39;rinap/rinap5&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;rinap/rinap5p1&#39;</span><span class="p">,</span><span class="s1">&#39;rinap/scores&#39;</span><span class="p">,</span><span class="s1">&#39;rinap/sources&#39;</span><span class="p">,</span><span class="s1">&#39;saao&#39;</span><span class="p">,</span><span class="s1">&#39;saao/aebp&#39;</span><span class="p">,</span><span class="s1">&#39;saao/knpp&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa01&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa02&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa03&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa04&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa05&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;saao/saa06&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa07&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa08&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa09&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa10&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa11&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa12&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa13&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa14&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa15&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa16&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;saao/saa17&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa18&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa19&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa20&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa21&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saas2&#39;</span><span class="p">,</span><span class="s1">&#39;suhu&#39;</span><span class="p">,</span><span class="s1">&#39;tcma&#39;</span><span class="p">,</span><span class="s1">&#39;tsae&#39;</span><span class="p">,</span><span class="s1">&#39;xcat&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;epsd2/admin&#39;</span><span class="p">,</span> <span class="s1">&#39;epsd2/earlylit&#39;</span><span class="p">,</span> <span class="s1">&#39;epsd2/literary&#39;</span><span class="p">,</span> <span class="s1">&#39;epsd2/praxis&#39;</span><span class="p">,</span> <span class="s1">&#39;epsd2/praxis/liturgy&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#projects alphabetical, starts with &#39;a&#39;</span>
+<span class="n">p1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;adsd&#39;</span><span class="p">,</span><span class="s1">&#39;adsd/adart1&#39;</span><span class="p">,</span><span class="s1">&#39;adsd/adart2&#39;</span><span class="p">,</span><span class="s1">&#39;adsd/adart3&#39;</span><span class="p">,</span><span class="s1">&#39;adsd/adart5&#39;</span><span class="p">,</span><span class="s1">&#39;adsd/adart6&#39;</span><span class="p">,</span><span class="s1">&#39;aemw/alalakh/idrimi&#39;</span><span class="p">,</span><span class="s1">&#39;aemw/amarna&#39;</span><span class="p">,</span><span class="s1">&#39;akklove&#39;</span><span class="p">,</span> <span class="s1">&#39;ario&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;armep&#39;</span><span class="p">,</span><span class="s1">&#39;asbp&#39;</span><span class="p">,</span><span class="s1">&#39;asbp/ninmed&#39;</span><span class="p">,</span><span class="s1">&#39;asbp/rlasb&#39;</span><span class="p">,</span><span class="s1">&#39;atae&#39;</span><span class="p">,</span><span class="s1">&#39;atae/assur&#39;</span><span class="p">,</span><span class="s1">&#39;atae/burmarina&#39;</span><span class="p">,</span><span class="s1">&#39;atae/durkatlimmu&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;atae/guzana&#39;</span><span class="p">,</span><span class="s1">&#39;atae/huzirina&#39;</span><span class="p">,</span><span class="s1">&#39;atae/imgurenlil&#39;</span><span class="p">,</span><span class="s1">&#39;atae/kalhu&#39;</span><span class="p">,</span><span class="s1">&#39;atae/mallanate&#39;</span><span class="p">,</span><span class="s1">&#39;atae/marqasu&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;atae/nineveh&#39;</span><span class="p">,</span><span class="s1">&#39;atae/samal&#39;</span><span class="p">,</span><span class="s1">&#39;atae/szibaniba&#39;</span><span class="p">,</span><span class="s1">&#39;atae/tilbarsip&#39;</span><span class="p">,</span><span class="s1">&#39;atae/tuszhan&#39;</span><span class="p">]</span>
+
+
+<span class="c1">#projects alphabetical, starts with &#39;b&#39; through &#39;e&#39;</span>
+<span class="n">p2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;babcity&#39;</span><span class="p">,</span><span class="s1">&#39;blms&#39;</span><span class="p">,</span><span class="s1">&#39;borsippa&#39;</span><span class="p">,</span><span class="s1">&#39;btmao&#39;</span><span class="p">,</span><span class="s1">&#39;btto&#39;</span><span class="p">,</span><span class="s1">&#39;cams&#39;</span><span class="p">,</span><span class="s1">&#39;cams/akno&#39;</span><span class="p">,</span><span class="s1">&#39;cams/anzu&#39;</span><span class="p">,</span><span class="s1">&#39;cams/barutu&#39;</span><span class="p">,</span><span class="s1">&#39;cams/etana&#39;</span><span class="p">,</span><span class="s1">&#39;cams/ludlul&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;cams/selbi&#39;</span><span class="p">,</span><span class="s1">&#39;cams/tlab&#39;</span><span class="p">,</span><span class="s1">&#39;ckst&#39;</span><span class="p">,</span><span class="s1">&#39;cmawro&#39;</span><span class="p">,</span><span class="s1">&#39;cmawro/cmawr1&#39;</span><span class="p">,</span><span class="s1">&#39;cmawro/cmawr2&#39;</span><span class="p">,</span><span class="s1">&#39;cmawro/cmawr3&#39;</span><span class="p">,</span> <span class="s1">&#39;cmawro/maqlu&#39;</span><span class="p">,</span><span class="s1">&#39;contrib/amarna&#39;</span><span class="p">,</span> <span class="s1">&#39;ctij&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;dcclt&#39;</span><span class="p">,</span><span class="s1">&#39;dcclt/ebla&#39;</span><span class="p">,</span><span class="s1">&#39;dcclt/jena&#39;</span><span class="p">,</span><span class="s1">&#39;dcclt/nineveh&#39;</span><span class="p">,</span><span class="s1">&#39;dcclt/signlists&#39;</span><span class="p">,</span><span class="s1">&#39;dccmt&#39;</span><span class="p">,</span><span class="s1">&#39;dsst&#39;</span><span class="p">,</span> <span class="s1">&#39;ecut&#39;</span><span class="p">,</span> <span class="s1">&#39;eisl&#39;</span><span class="p">,</span><span class="s1">&#39;epsd2&#39;</span><span class="p">,</span><span class="s1">&#39;etcsri&#39;</span><span class="p">,]</span>
+
+
+<span class="c1">#projects alphabetical, &#39;g&#39; through &#39;r&#39;</span>
+<span class="n">p3</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;glass&#39;</span><span class="p">,</span><span class="s1">&#39;hbtin&#39;</span><span class="p">,</span><span class="s1">&#39;lacost&#39;</span><span class="p">,</span><span class="s1">&#39;nere&#39;</span><span class="p">,</span><span class="s1">&#39;obel&#39;</span><span class="p">,</span><span class="s1">&#39;obmc&#39;</span><span class="p">,</span><span class="s1">&#39;obta&#39;</span><span class="p">,</span><span class="s1">&#39;oimea&#39;</span><span class="p">,</span><span class="s1">&#39;qcat&#39;</span><span class="p">,</span><span class="s1">&#39;riao&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;ribo&#39;</span><span class="p">,</span><span class="s1">&#39;ribo/bab7scores&#39;</span><span class="p">,</span><span class="s1">&#39;ribo/babylon10&#39;</span><span class="p">,</span><span class="s1">&#39;ribo/babylon2&#39;</span><span class="p">,</span><span class="s1">&#39;ribo/babylon3&#39;</span><span class="p">,</span><span class="s1">&#39;ribo/babylon4&#39;</span><span class="p">,</span><span class="s1">&#39;ribo/babylon5&#39;</span><span class="p">,</span><span class="s1">&#39;ribo/babylon6&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;ribo/babylon7&#39;</span><span class="p">,</span><span class="s1">&#39;ribo/babylon8&#39;</span><span class="p">,</span><span class="s1">&#39;ribo/sources&#39;</span><span class="p">,</span><span class="s1">&#39;rimanum&#39;</span><span class="p">,</span><span class="s1">&#39;rinap&#39;</span><span class="p">,</span><span class="s1">&#39;rinap/rinap1&#39;</span><span class="p">,</span><span class="s1">&#39;rinap/rinap2&#39;</span><span class="p">,</span><span class="s1">&#39;rinap/rinap3&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;rinap/rinap4&#39;</span><span class="p">,</span><span class="s1">&#39;rinap/rinap5&#39;</span><span class="p">,</span><span class="s1">&#39;rinap/rinap5p1&#39;</span><span class="p">,</span><span class="s1">&#39;rinap/scores&#39;</span><span class="p">,</span><span class="s1">&#39;rinap/sources&#39;</span><span class="p">,]</span>
+
+
+<span class="c1">#projects alphabetical, &#39;s&#39; through &#39;x&#39;</span>
+<span class="n">p4</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;saao&#39;</span><span class="p">,</span><span class="s1">&#39;saao/aebp&#39;</span><span class="p">,</span><span class="s1">&#39;saao/knpp&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa01&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa02&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa03&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa04&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa05&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa06&#39;</span><span class="p">,</span> <span class="s1">&#39;saao/saa07&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa08&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;saao/saa09&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa10&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa11&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa12&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa13&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa14&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa15&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa16&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa17&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;saao/saa18&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa19&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa20&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa21&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saas2&#39;</span><span class="p">,</span><span class="s1">&#39;suhu&#39;</span><span class="p">,</span><span class="s1">&#39;tcma&#39;</span><span class="p">,</span><span class="s1">&#39;tsae&#39;</span><span class="p">,</span><span class="s1">&#39;xcat&#39;</span><span class="p">]</span>
+
+<span class="c1">#the buried projects</span>
+<span class="n">p5</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;epsd2/earlylit&#39;</span><span class="p">,</span> <span class="s1">&#39;epsd2/literary&#39;</span><span class="p">,</span> <span class="s1">&#39;epsd2/praxis&#39;</span><span class="p">,</span> <span class="s1">&#39;epsd2/praxis/liturgy&#39;</span><span class="p">,</span><span class="s1">&#39;epsd2/admin/ed12&#39;</span><span class="p">,</span> <span class="s1">&#39;epsd2/admin/ed3b&#39;</span><span class="p">,</span> <span class="s1">&#39;epsd2/admin/lagash2&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;epsd2/admin/oakk&#39;</span><span class="p">,</span> <span class="s1">&#39;epsd2/admin/oldbab&#39;</span><span class="p">,</span> <span class="s1">&#39;epsd2/admin/ur3&#39;</span><span class="p">]</span>
+
+<span class="n">p6</span> <span class="o">=</span>  <span class="p">[</span><span class="s2">&quot;tcma/ali1&quot;</span><span class="p">,</span><span class="s2">&quot;tcma/amarna&quot;</span><span class="p">,</span><span class="s2">&quot;tcma/assur&quot;</span><span class="p">,</span><span class="s2">&quot;tcma/barri&quot;</span><span class="p">,</span><span class="s2">&quot;tcma/bazmusian&quot;</span><span class="p">,</span><span class="s2">&quot;tcma/billa&quot;</span><span class="p">,</span> <span class="s2">&quot;tcma/brak&quot;</span><span class="p">,</span><span class="s2">&quot;tcma/chuera&quot;</span><span class="p">,</span><span class="s2">&quot;tcma/emar&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;tcma/fekheriye&quot;</span><span class="p">,</span><span class="s2">&quot;tcma/giricano&quot;</span><span class="p">,</span><span class="s2">&quot;tcma/hana&quot;</span><span class="p">,</span><span class="s2">&quot;tcma/haradum&quot;</span><span class="p">,</span><span class="s2">&quot;tcma/hatti&quot;</span><span class="p">,</span><span class="s2">&quot;tcma/kalhu&quot;</span><span class="p">,</span><span class="s2">&quot;tcma/kartn&quot;</span><span class="p">,</span><span class="s2">&quot;tcma/kulishinas&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;tcma/miscellaneous&quot;</span><span class="p">,</span><span class="s2">&quot;tcma/nineveh&quot;</span><span class="p">,</span><span class="s2">&quot;tcma/nippur&quot;</span><span class="p">,</span><span class="s2">&quot;tcma/nuzi&quot;</span><span class="p">,</span><span class="s2">&quot;tcma/qitar&quot;</span><span class="p">,</span><span class="s2">&quot;tcma/rimah&quot;</span><span class="p">,</span><span class="s2">&quot;tcma/suri&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;tcma/taban&quot;</span><span class="p">,</span><span class="s2">&quot;tcma/tsa1&quot;</span><span class="p">,</span><span class="s2">&quot;tcma/tsh1&quot;</span><span class="p">,</span><span class="s2">&quot;tcma/ugarit&quot;</span><span class="p">]</span>
+
+<span class="n">pfinal</span> <span class="o">=</span> <span class="n">p1</span><span class="o">+</span><span class="n">p2</span><span class="o">+</span><span class="n">p3</span><span class="o">+</span><span class="n">p4</span><span class="o">+</span><span class="n">p5</span><span class="o">+</span><span class="n">p6</span>
+
+<span class="c1">#redacted projects:</span>
+<span class="c1">#amgg (no corpus), &#39;arrim&#39; (no corpus), atae/durszarrukin (no corpus), atae/kunalia (no corpus), aemw (no corpus, split to idrimi and amarna), cdli (no catalogue)</span>
+<span class="c1">#cams/gkab (has no cdl to read, but holds texts***), contrib/lambert (no corpus), lovelyrics (no corpus), nimrud (no corpus), ogsl (no corpus), pnao (no corpus)</span>
+
+<span class="c1">#more information about imperfect projects</span>
+<span class="c1">#ario [Q007131, Q007189] empty, ctij [X000533.json] empty, cdli [P002296, P005702], cmawro/cmawr3 [Q007424, Q007432] empty</span>
+<span class="c1">#ecut [Q000000, Q006881, Q007089, Q008031, Q008040, Q008089, Q008091, Q008092, Q008217, Q008226]</span>
+<span class="c1">#lacost [P226580, P281779, P432130, P464355, P464358] empty, saao/saa04 [P237481] empty, saao/saa07 [P335792]</span>
+<span class="c1">#epsd2/admin/ebla does not exist.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="run-unzipmultiplefiles-method">
+<h2>Run <code class="docutils literal notranslate"><span class="pre">unzipMultipleFiles()</span></code> Method<a class="headerlink" href="#run-unzipmultiplefiles-method" title="Link to this heading">#</a></h2>
+<p>Would recommend running this only once through as it is unnecessary to unzip all of the files each time this notebook is run.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#establishes the directory to place all unzipped files</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s2">&quot;drive/MyDrive/ORACC_UNZIPPED&quot;</span><span class="p">,</span> <span class="n">exist_ok</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will use the <code class="docutils literal notranslate"><span class="pre">file_list</span></code> to run the <code class="docutils literal notranslate"><span class="pre">unzipMultipleFiles()</span></code> method.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span> <span class="o">+</span> <span class="s1">&#39;.zip&#39;</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">p5</span><span class="p">]</span>
+<span class="n">file_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">files</span><span class="p">]</span>
+<span class="n">source_directory</span> <span class="o">=</span> <span class="n">folder</span> <span class="o">+</span> <span class="s2">&quot;ORACC_zips&quot;</span>
+<span class="n">destination</span> <span class="o">=</span> <span class="n">folder</span> <span class="o">+</span> <span class="s2">&quot;ORACC_UNZIPPED&quot;</span>
+<span class="n">unzipMultipleFiles</span><span class="p">(</span><span class="n">file_list</span><span class="p">,</span> <span class="n">source_directory</span><span class="p">,</span> <span class="n">destination</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>##Download the words_df and df_cat for all projects</p>
+<p>To use the split sections [p1,p2,p3,p4,p5,p6], change the first parameter of oracc_download to any list of projects you want to parse and download dataframes from in the next cell. Using pfinal will take a long time to run for both cells below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">folder</span> <span class="o">+</span> <span class="s1">&#39;network/&#39;</span><span class="p">)</span>
+<span class="n">projects</span> <span class="o">=</span> <span class="n">oracc_download</span><span class="p">(</span><span class="n">pfinal</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="c1">#DOWNLOAD REDUNDANCY</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lemm_l</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">meta_d</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;id_text&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
+<span class="c1">#dollar_keys = [&quot;extent&quot;, &quot;scope&quot;, &quot;state&quot;]</span>
+
+<span class="n">df_cat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="n">used_pnums</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">cat_d</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">project</span> <span class="ow">in</span> <span class="n">projects</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Project: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">project</span><span class="p">))</span>
+  <span class="n">z</span> <span class="o">=</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="s1">&#39;jsonzip/&#39;</span> <span class="o">+</span> <span class="n">project</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span><span class="s1">&#39;-&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;.zip&#39;</span><span class="p">)</span>
+  <span class="c1">#print(file + &quot; does not exist or is not a proper ZIP file&quot;)</span>
+  <span class="n">files</span> <span class="o">=</span> <span class="n">z</span><span class="o">.</span><span class="n">namelist</span><span class="p">()</span>     <span class="c1"># list of all the files in the ZIP</span>
+  <span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="n">name</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">files</span> <span class="k">if</span> <span class="s2">&quot;corpusjson&quot;</span> <span class="ow">in</span> <span class="n">name</span> <span class="ow">and</span> <span class="n">name</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">:]</span> <span class="o">==</span> <span class="s1">&#39;.json&#39;</span><span class="p">]</span>
+  <span class="n">cat_file</span> <span class="o">=</span> <span class="n">z</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">project</span> <span class="o">+</span> <span class="s1">&#39;/catalogue.json&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+  <span class="n">cat_json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">cat_file</span><span class="p">)</span>
+
+  <span class="n">cat_d</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">cat_json</span><span class="p">[</span><span class="s1">&#39;members&#39;</span><span class="p">]))</span>
+  <span class="c1">#df_cat = pd.concat([df_cat,pd.DataFrame(cat_json[&#39;members&#39;]).T])                          #that holds all the P, Q, and X numbers.</span>
+
+  <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">files</span><span class="p">):</span>       <span class="c1">#iterate over the file names</span>
+      <span class="n">id_text</span> <span class="o">=</span> <span class="n">filename</span><span class="p">[</span><span class="o">-</span><span class="mi">12</span><span class="p">:</span><span class="o">-</span><span class="mi">5</span><span class="p">]</span>
+      <span class="k">if</span> <span class="n">id_text</span> <span class="ow">in</span> <span class="n">used_pnums</span><span class="p">:</span>
+        <span class="k">continue</span>
+      <span class="k">else</span><span class="p">:</span>
+        <span class="n">used_pnums</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">id_text</span><span class="p">)</span>
+      <span class="n">meta_d</span><span class="p">[</span><span class="s2">&quot;id_text&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">id_text</span>
+
+      <span class="n">st</span> <span class="o">=</span> <span class="n">z</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>       <span class="c1">#read and decode the json file of one particular text</span>
+      <span class="c1">#if empty file, skip, else run through parsejson</span>
+      <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">st</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">filename</span><span class="p">);</span> <span class="c1">#prints out the empty</span>
+      <span class="k">else</span><span class="p">:</span>
+        <span class="n">data_json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">st</span><span class="p">)</span>                <span class="c1"># make it into a json object (essentially a dictionary)</span>
+        <span class="c1">#print(str(data_json))</span>
+        <span class="n">parsejson</span><span class="p">(</span><span class="n">data_json</span><span class="p">)</span>               <span class="c1"># and send to the parsejson() function</span>
+  <span class="n">z</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+  <span class="n">df_cat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">cat_d</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+  <span class="n">words_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">lemm_l</span><span class="p">)</span>
+  <span class="n">words_df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;number&#39;</span>
+  <span class="n">df_cat</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;id_text&#39;</span>
+  <span class="c1">#downloads the df_cat and words_df dataFrames as csv files into a master folder</span>
+  <span class="n">file</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">)</span>
+  <span class="n">words_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">folder</span> <span class="o">+</span> <span class="s1">&#39;ORACC_DFS/PROJECT_DFS&#39;</span> <span class="o">+</span> <span class="n">file</span> <span class="o">+</span> <span class="s1">&#39;-words-df.csv&#39;</span><span class="p">)</span>
+  <span class="n">df_cat</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">folder</span> <span class="o">+</span> <span class="s1">&#39;ORACC_DFS/PROJECT_DFS&#39;</span> <span class="o">+</span> <span class="n">file</span> <span class="o">+</span> <span class="s1">&#39;-df-cat.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Project: tcma/barri
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 4/4 [00:00&lt;00:00, 436.76it/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Project: tcma/brak
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 5/5 [00:00&lt;00:00, 301.99it/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Project: tcma/bazmusian
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 7/7 [00:00&lt;00:00, 188.83it/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Project: tcma/tsh1
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 250/250 [00:01&lt;00:00, 127.06it/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Project: tcma/fekheriye
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 14/14 [00:00&lt;00:00, 758.09it/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Project: tcma/miscellaneous
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 24/24 [00:00&lt;00:00, 550.60it/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Project: tcma/nineveh
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 9/9 [00:00&lt;00:00, 102.63it/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Project: tcma/emar
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 3/3 [00:00&lt;00:00, 494.83it/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Project: tcma/hana
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 3/3 [00:00&lt;00:00, 175.58it/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Project: tcma/nippur
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 4/4 [00:00&lt;00:00, 403.85it/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Project: tcma/giricano
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 15/15 [00:00&lt;00:00, 299.33it/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Project: tcma/amarna
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 3/3 [00:00&lt;00:00, 209.52it/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Project: tcma/tsa1
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 17/17 [00:00&lt;00:00, 446.81it/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Project: tcma/kalhu
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 1/1 [00:00&lt;00:00, 49.27it/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Project: tcma/qitar
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 1/1 [00:00&lt;00:00, 100.27it/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Project: tcma/suri
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 1/1 [00:00&lt;00:00, 114.86it/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Project: tcma/rimah
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 124/124 [00:00&lt;00:00, 679.55it/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Project: tcma/chuera
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 97/97 [00:00&lt;00:00, 537.80it/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Project: tcma/assur
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 12%|█▏        | 132/1130 [00:00&lt;00:02, 412.80it/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tcma/assur/corpusjson/P288859.json
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 1130/1130 [00:02&lt;00:00, 420.06it/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Project: tcma/kartn
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 62/62 [00:00&lt;00:00, 132.77it/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Project: tcma/ali1
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 24/24 [00:00&lt;00:00, 561.29it/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Project: tcma/hatti
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 11/11 [00:00&lt;00:00, 260.58it/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Project: tcma/taban
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 13/13 [00:00&lt;00:00, 445.87it/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Project: tcma/ugarit
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 5/5 [00:00&lt;00:00, 203.25it/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Project: tcma/haradum
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 2/2 [00:00&lt;00:00, 270.04it/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Project: tcma/kulishinas
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 10/10 [00:00&lt;00:00, 356.51it/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Project: tcma/nuzi
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 1/1 [00:00&lt;00:00, 226.23it/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Project: tcma/billa
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 66/66 [00:00&lt;00:00, 674.83it/s]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We have accomplished:</p>
+<ol class="arabic simple">
+<li><p>unzipping all project files from a given directory</p></li>
+<li><p>checking each file of each project for content</p></li>
+<li><p>downloading relevant dataframes from each project</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="1-ORACC_ZIPS.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Download ORACC Directory ZIP Files (Google Colab version)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="3-Large%20DF%20of%20Unique%20Words.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Large DataFrame of Unique Words</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Extract words_df and df_cat DataFrames from ZIP files</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mount-google-drive-folder-load-libraries">Mount Google Drive folder + Load Libraries</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#unzip-project-adsd-adart1">Unzip project adsd-adart1</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-unzipfile-method">Run <code class="docutils literal notranslate"><span class="pre">unzipFile()</span> <span class="pre">Method</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#now-we-will-process-this-via-json-parsing">Now we will process this via JSON parsing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define-unzipmultiplefiles-method">Define <code class="docutils literal notranslate"><span class="pre">unzipMultipleFiles()</span></code> Method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframe-extraction">DataFrame Extraction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-list-of-the-projects">Get the list of the projects</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-unzipmultiplefiles-method">Run <code class="docutils literal notranslate"><span class="pre">unzipMultipleFiles()</span></code> Method</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
