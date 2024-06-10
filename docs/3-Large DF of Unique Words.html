@@ -1,0 +1,1625 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Large DataFrame of Unique Words &#8212; ORACC2LoD</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '3-Large DF of Unique Words';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Mount Google Drive folder + imports + steps" href="4-Megacatalogue.html" />
+    <link rel="prev" title="Extract words_df and df_cat DataFrames from ZIP files" href="2-DataFrame%20Extraction.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="welcome.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">ORACC2LoD</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="welcome.html">
+                    Sumerian Networks JupyterBook
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="1-ORACC_ZIPS.html">Download ORACC Directory ZIP Files (Google Colab version)</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="2-DataFrame%20Extraction.html">Extract words_df and df_cat DataFrames from ZIP files</a></li>
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Large DataFrame of Unique Words</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="4-Megacatalogue.html">Mount Google Drive folder + imports + steps</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="4.1%20-%20Counts%20for%20Megacatalogue.html">Counts for Megacatalogue</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="5-Translations%20Extraction.html">Mount Google Drive folder + imports + steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5.1-Counts%20for%20Transliterations%20and%20Translations.html">Counts for Transliterations and Translations</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="7.1%20-%20Metacatalogue.html">Mount Google Drive folder + imports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7.2%20-%20Fitting%20Headers.html">Mount Google Drive folder + imports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7.3%20-%20Factgrid%20Quickstatement%20Processing.html">Mount Google Drive folder + imports</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/austin-pereira/Oracc2LoD/blob/main/book/3-Large DF of Unique Words.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/3-Large DF of Unique Words.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Large DataFrame of Unique Words</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Large DataFrame of Unique Words</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mount-google-drive-folder-imports-steps">Mount Google Drive folder + imports + steps</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#final-dataframe">Final DataFrame</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-the-finaldf-using-the-smaller-sections">Creating the finaldf using the smaller sections</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzing-the-finaldf-dataframe">Analyzing the finaldf DataFrame</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#example-merging-two-dataframes">EXAMPLE: Merging Two DataFrames</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="large-dataframe-of-unique-words">
+<h1>Large DataFrame of Unique Words<a class="headerlink" href="#large-dataframe-of-unique-words" title="Link to this heading">#</a></h1>
+<p>Notebook by Melinee Her</p>
+<p>The goal for this notebook is to create a large dataframe of all unqiue words (via their “id_word” tag) from the word-dfs of all ORACC Projects.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="mount-google-drive-folder-imports-steps">
+<h1>Mount Google Drive folder + imports + steps<a class="headerlink" href="#mount-google-drive-folder-imports-steps" title="Link to this heading">#</a></h1>
+<p>The code snippet below is to mount Google Drive files so that we can interact with our Google Drive files using the file browser or command line. Running it will give a permissions prompt.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+<span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Drive already mounted at /content/drive; to attempt to forcibly remount, call drive.mount(&quot;/content/drive&quot;, force_remount=True).
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#any necessary imports</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">zipfile</span>
+<span class="kn">from</span> <span class="nn">zipfile</span> <span class="kn">import</span> <span class="n">ZipFile</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">errno</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="c1">#Set folder for remote drive</span>
+<span class="c1">#folder = &#39;/content/drive/My Drive/FactGrid Cuneiform (AWCA)/people/Melinee&#39;</span>
+<span class="n">folder</span> <span class="o">=</span> <span class="s1">&#39;/content/drive/MyDrive/Melinee/&#39;</span>
+
+<span class="c1">#importing utils for the method which downloads the current text json files</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">folder</span> <span class="o">+</span> <span class="s1">&#39;network/utils/&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">utils</span> <span class="kn">import</span> <span class="n">oracc_download</span>
+
+<span class="c1"># This is a user defined module that searches through the texts to find the entities in the text that</span>
+<span class="c1"># are people and places, to be imported as nodes into the network</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">folder</span> <span class="o">+</span> <span class="s1">&#39;network/&#39;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">rank_parser4</span> <span class="k">as</span> <span class="nn">rp</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The steps:</p>
+<ol class="arabic simple">
+<li><p>Use the directory of the dataframes created called ORACC_DFS/PROJECT_DFS to access the words_df for all projects</p></li>
+<li><p>Move id_text to be the index and merge all dataframes into a large dataframe</p></li>
+<li><p>Sort by unique “id_text”</p></li>
+</ol>
+<p>For reference, there is a smaller example at the bottom of the notebook to watch the process of cleaning and merging two dataframes at a closer level.</p>
+<p>List of the projects - split and final</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#projects alphabetical, starts with &#39;a&#39;</span>
+<span class="n">p1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;adsd&#39;</span><span class="p">,</span><span class="s1">&#39;adsd/adart1&#39;</span><span class="p">,</span><span class="s1">&#39;adsd/adart2&#39;</span><span class="p">,</span><span class="s1">&#39;adsd/adart3&#39;</span><span class="p">,</span><span class="s1">&#39;adsd/adart5&#39;</span><span class="p">,</span><span class="s1">&#39;adsd/adart6&#39;</span><span class="p">,</span><span class="s1">&#39;aemw/alalakh/idrimi&#39;</span><span class="p">,</span><span class="s1">&#39;aemw/amarna&#39;</span><span class="p">,</span><span class="s1">&#39;akklove&#39;</span><span class="p">,</span> <span class="s1">&#39;ario&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;armep&#39;</span><span class="p">,</span><span class="s1">&#39;asbp&#39;</span><span class="p">,</span><span class="s1">&#39;asbp/ninmed&#39;</span><span class="p">,</span><span class="s1">&#39;asbp/rlasb&#39;</span><span class="p">,</span><span class="s1">&#39;atae&#39;</span><span class="p">,</span><span class="s1">&#39;atae/assur&#39;</span><span class="p">,</span><span class="s1">&#39;atae/burmarina&#39;</span><span class="p">,</span><span class="s1">&#39;atae/durkatlimmu&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;atae/guzana&#39;</span><span class="p">,</span><span class="s1">&#39;atae/huzirina&#39;</span><span class="p">,</span><span class="s1">&#39;atae/imgurenlil&#39;</span><span class="p">,</span><span class="s1">&#39;atae/kalhu&#39;</span><span class="p">,</span><span class="s1">&#39;atae/mallanate&#39;</span><span class="p">,</span><span class="s1">&#39;atae/marqasu&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;atae/nineveh&#39;</span><span class="p">,</span><span class="s1">&#39;atae/samal&#39;</span><span class="p">,</span><span class="s1">&#39;atae/szibaniba&#39;</span><span class="p">,</span><span class="s1">&#39;atae/tilbarsip&#39;</span><span class="p">,</span><span class="s1">&#39;atae/tuszhan&#39;</span><span class="p">]</span>
+
+
+<span class="c1">#projects alphabetical, starts with &#39;b&#39; through &#39;e&#39;</span>
+<span class="n">p2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;babcity&#39;</span><span class="p">,</span><span class="s1">&#39;blms&#39;</span><span class="p">,</span><span class="s1">&#39;borsippa&#39;</span><span class="p">,</span><span class="s1">&#39;btmao&#39;</span><span class="p">,</span><span class="s1">&#39;btto&#39;</span><span class="p">,</span><span class="s1">&#39;cams&#39;</span><span class="p">,</span><span class="s1">&#39;cams/akno&#39;</span><span class="p">,</span><span class="s1">&#39;cams/anzu&#39;</span><span class="p">,</span><span class="s1">&#39;cams/barutu&#39;</span><span class="p">,</span><span class="s1">&#39;cams/etana&#39;</span><span class="p">,</span><span class="s1">&#39;cams/ludlul&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;cams/selbi&#39;</span><span class="p">,</span><span class="s1">&#39;cams/tlab&#39;</span><span class="p">,</span><span class="s1">&#39;ckst&#39;</span><span class="p">,</span><span class="s1">&#39;cmawro&#39;</span><span class="p">,</span><span class="s1">&#39;cmawro/cmawr1&#39;</span><span class="p">,</span><span class="s1">&#39;cmawro/cmawr2&#39;</span><span class="p">,</span><span class="s1">&#39;cmawro/cmawr3&#39;</span><span class="p">,</span> <span class="s1">&#39;cmawro/maqlu&#39;</span><span class="p">,</span><span class="s1">&#39;contrib/amarna&#39;</span><span class="p">,</span> <span class="s1">&#39;ctij&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;dcclt&#39;</span><span class="p">,</span><span class="s1">&#39;dcclt/ebla&#39;</span><span class="p">,</span><span class="s1">&#39;dcclt/jena&#39;</span><span class="p">,</span><span class="s1">&#39;dcclt/nineveh&#39;</span><span class="p">,</span><span class="s1">&#39;dcclt/signlists&#39;</span><span class="p">,</span><span class="s1">&#39;dccmt&#39;</span><span class="p">,</span><span class="s1">&#39;dsst&#39;</span><span class="p">,</span> <span class="s1">&#39;ecut&#39;</span><span class="p">,</span> <span class="s1">&#39;eisl&#39;</span><span class="p">,</span><span class="s1">&#39;epsd2&#39;</span><span class="p">,</span><span class="s1">&#39;etcsri&#39;</span><span class="p">,]</span>
+
+
+<span class="c1">#projects alphabetical, &#39;g&#39; through &#39;r&#39;</span>
+<span class="n">p3</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;glass&#39;</span><span class="p">,</span><span class="s1">&#39;hbtin&#39;</span><span class="p">,</span><span class="s1">&#39;lacost&#39;</span><span class="p">,</span><span class="s1">&#39;nere&#39;</span><span class="p">,</span><span class="s1">&#39;obel&#39;</span><span class="p">,</span><span class="s1">&#39;obmc&#39;</span><span class="p">,</span><span class="s1">&#39;obta&#39;</span><span class="p">,</span><span class="s1">&#39;oimea&#39;</span><span class="p">,</span><span class="s1">&#39;qcat&#39;</span><span class="p">,</span><span class="s1">&#39;riao&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;ribo&#39;</span><span class="p">,</span><span class="s1">&#39;ribo/bab7scores&#39;</span><span class="p">,</span><span class="s1">&#39;ribo/babylon10&#39;</span><span class="p">,</span><span class="s1">&#39;ribo/babylon2&#39;</span><span class="p">,</span><span class="s1">&#39;ribo/babylon3&#39;</span><span class="p">,</span><span class="s1">&#39;ribo/babylon4&#39;</span><span class="p">,</span><span class="s1">&#39;ribo/babylon5&#39;</span><span class="p">,</span><span class="s1">&#39;ribo/babylon6&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;ribo/babylon7&#39;</span><span class="p">,</span><span class="s1">&#39;ribo/babylon8&#39;</span><span class="p">,</span><span class="s1">&#39;ribo/sources&#39;</span><span class="p">,</span><span class="s1">&#39;rimanum&#39;</span><span class="p">,</span><span class="s1">&#39;rinap&#39;</span><span class="p">,</span><span class="s1">&#39;rinap/rinap1&#39;</span><span class="p">,</span><span class="s1">&#39;rinap/rinap2&#39;</span><span class="p">,</span><span class="s1">&#39;rinap/rinap3&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;rinap/rinap4&#39;</span><span class="p">,</span><span class="s1">&#39;rinap/rinap5&#39;</span><span class="p">,</span><span class="s1">&#39;rinap/rinap5p1&#39;</span><span class="p">,</span><span class="s1">&#39;rinap/scores&#39;</span><span class="p">,</span><span class="s1">&#39;rinap/sources&#39;</span><span class="p">,]</span>
+
+
+<span class="c1">#projects alphabetical, &#39;s&#39; through &#39;x&#39;</span>
+<span class="n">p4</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;saao&#39;</span><span class="p">,</span><span class="s1">&#39;saao/aebp&#39;</span><span class="p">,</span><span class="s1">&#39;saao/knpp&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa01&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa02&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa03&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa04&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa05&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa06&#39;</span><span class="p">,</span> <span class="s1">&#39;saao/saa07&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa08&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;saao/saa09&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa10&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa11&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa12&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa13&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa14&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa15&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa16&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa17&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;saao/saa18&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa19&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa20&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saa21&#39;</span><span class="p">,</span><span class="s1">&#39;saao/saas2&#39;</span><span class="p">,</span><span class="s1">&#39;suhu&#39;</span><span class="p">,</span><span class="s1">&#39;tcma&#39;</span><span class="p">,</span><span class="s1">&#39;tsae&#39;</span><span class="p">,</span><span class="s1">&#39;xcat&#39;</span><span class="p">]</span>
+
+<span class="c1">#the buried projects</span>
+<span class="n">p5</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;epsd2/earlylit&#39;</span><span class="p">,</span> <span class="s1">&#39;epsd2/literary&#39;</span><span class="p">,</span> <span class="s1">&#39;epsd2/praxis&#39;</span><span class="p">,</span> <span class="s1">&#39;epsd2/praxis/liturgy&#39;</span><span class="p">,</span><span class="s1">&#39;epsd2/admin/ed12&#39;</span><span class="p">,</span> <span class="s1">&#39;epsd2/admin/ed3b&#39;</span><span class="p">,</span> <span class="s1">&#39;epsd2/admin/lagash2&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;epsd2/admin/oakk&#39;</span><span class="p">,</span> <span class="s1">&#39;epsd2/admin/oldbab&#39;</span><span class="p">,</span> <span class="s1">&#39;epsd2/admin/ur3&#39;</span><span class="p">]</span>
+
+<span class="n">p6</span> <span class="o">=</span>  <span class="p">[</span><span class="s2">&quot;tcma/ali1&quot;</span><span class="p">,</span><span class="s2">&quot;tcma/amarna&quot;</span><span class="p">,</span><span class="s2">&quot;tcma/assur&quot;</span><span class="p">,</span><span class="s2">&quot;tcma/barri&quot;</span><span class="p">,</span><span class="s2">&quot;tcma/bazmusian&quot;</span><span class="p">,</span><span class="s2">&quot;tcma/billa&quot;</span><span class="p">,</span> <span class="s2">&quot;tcma/brak&quot;</span><span class="p">,</span><span class="s2">&quot;tcma/chuera&quot;</span><span class="p">,</span><span class="s2">&quot;tcma/emar&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;tcma/fekheriye&quot;</span><span class="p">,</span><span class="s2">&quot;tcma/giricano&quot;</span><span class="p">,</span><span class="s2">&quot;tcma/hana&quot;</span><span class="p">,</span><span class="s2">&quot;tcma/haradum&quot;</span><span class="p">,</span><span class="s2">&quot;tcma/hatti&quot;</span><span class="p">,</span><span class="s2">&quot;tcma/kalhu&quot;</span><span class="p">,</span><span class="s2">&quot;tcma/kartn&quot;</span><span class="p">,</span><span class="s2">&quot;tcma/kulishinas&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;tcma/miscellaneous&quot;</span><span class="p">,</span><span class="s2">&quot;tcma/nineveh&quot;</span><span class="p">,</span><span class="s2">&quot;tcma/nippur&quot;</span><span class="p">,</span><span class="s2">&quot;tcma/nuzi&quot;</span><span class="p">,</span><span class="s2">&quot;tcma/qitar&quot;</span><span class="p">,</span><span class="s2">&quot;tcma/rimah&quot;</span><span class="p">,</span><span class="s2">&quot;tcma/suri&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;tcma/taban&quot;</span><span class="p">,</span><span class="s2">&quot;tcma/tsa1&quot;</span><span class="p">,</span><span class="s2">&quot;tcma/tsh1&quot;</span><span class="p">,</span><span class="s2">&quot;tcma/ugarit&quot;</span><span class="p">]</span>
+
+<span class="n">pfinal</span> <span class="o">=</span> <span class="n">p1</span><span class="o">+</span><span class="n">p2</span><span class="o">+</span><span class="n">p3</span><span class="o">+</span><span class="n">p4</span><span class="o">+</span><span class="n">p5</span><span class="o">+</span><span class="n">p6</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="final-dataframe">
+<h1>Final DataFrame<a class="headerlink" href="#final-dataframe" title="Link to this heading">#</a></h1>
+<p>This section of the notebook creates a final dataframe by concatenating the words-df of all projects.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">general_path</span> <span class="o">=</span> <span class="s1">&#39;/content/drive/MyDrive/Melinee/ORACC_DFS/PROJECT_DFS/&#39;</span>
+<span class="n">pluscsv</span> <span class="o">=</span> <span class="s1">&#39;-words-df.csv&#39;</span>
+
+<span class="k">def</span> <span class="nf">createlargedf</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
+  <span class="n">dash_proj</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">lst</span><span class="p">]</span>
+  <span class="n">temp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">lst</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">lst</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>                   <span class="c1">#uncomment this line to see progress as runs</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">general_path</span> <span class="o">+</span> <span class="n">dash_proj</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">pluscsv</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+      <span class="n">temp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">low_memory</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">low_memory</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+      <span class="n">temp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">temp</span><span class="p">,</span> <span class="n">df</span><span class="p">],</span> <span class="n">ignore_index</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;number&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;id_word&quot;</span><span class="p">])</span>
+  <span class="k">return</span> <span class="n">temp</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="creating-the-finaldf-using-the-smaller-sections">
+<h2>Creating the finaldf using the smaller sections<a class="headerlink" href="#creating-the-finaldf-using-the-smaller-sections" title="Link to this heading">#</a></h2>
+<p>I found that separating the projects into smaller data frames first allows me to run and create the final df in a shorter amount of time and without going over the RAM limit.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#~17 minute runtime</span>
+<span class="n">p1_p4</span><span class="o">=</span> <span class="n">createlargedf</span><span class="p">(</span><span class="n">p1</span><span class="o">+</span><span class="n">p2</span><span class="o">+</span><span class="n">p3</span><span class="o">+</span><span class="n">p4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#~13 minute runtime</span>
+<span class="n">p5_p6</span> <span class="o">=</span> <span class="n">createlargedf</span><span class="p">(</span><span class="n">p5</span><span class="o">+</span><span class="n">p6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">finaldf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">p1_p4</span><span class="p">,</span> <span class="n">p5_p6</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id_word&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>##Creating the finaldf using the full path list
+Using the createlargedf function, we can pass the entire list of the project path to get the finaldf.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">finaldf</span> <span class="o">=</span> <span class="n">createlargedf</span><span class="p">(</span><span class="n">pfinal</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>adsd
+adsd/adart1
+adsd/adart2
+adsd/adart3
+adsd/adart5
+adsd/adart6
+aemw/alalakh/idrimi
+aemw/amarna
+akklove
+ario
+armep
+asbp
+asbp/ninmed
+asbp/rlasb
+atae
+atae/assur
+atae/burmarina
+atae/durkatlimmu
+atae/guzana
+atae/huzirina
+atae/imgurenlil
+atae/kalhu
+atae/mallanate
+atae/marqasu
+atae/nineveh
+atae/samal
+atae/szibaniba
+atae/tilbarsip
+atae/tuszhan
+babcity
+blms
+borsippa
+btmao
+btto
+cams
+cams/akno
+cams/anzu
+cams/barutu
+cams/etana
+cams/ludlul
+cams/selbi
+cams/tlab
+ckst
+cmawro
+cmawro/cmawr1
+cmawro/cmawr2
+cmawro/cmawr3
+cmawro/maqlu
+contrib/amarna
+ctij
+dcclt
+dcclt/ebla
+dcclt/jena
+dcclt/nineveh
+dcclt/signlists
+dccmt
+dsst
+ecut
+eisl
+epsd2
+etcsri
+glass
+hbtin
+lacost
+nere
+obel
+obmc
+obta
+oimea
+qcat
+riao
+ribo
+ribo/bab7scores
+ribo/babylon10
+ribo/babylon2
+ribo/babylon3
+ribo/babylon4
+ribo/babylon5
+ribo/babylon6
+ribo/babylon7
+ribo/babylon8
+ribo/sources
+rimanum
+rinap
+rinap/rinap1
+rinap/rinap2
+rinap/rinap3
+rinap/rinap4
+rinap/rinap5
+rinap/rinap5p1
+rinap/scores
+rinap/sources
+saao
+saao/aebp
+saao/knpp
+saao/saa01
+saao/saa02
+saao/saa03
+saao/saa04
+saao/saa05
+saao/saa06
+saao/saa07
+saao/saa08
+saao/saa09
+saao/saa10
+saao/saa11
+saao/saa12
+saao/saa13
+saao/saa14
+saao/saa15
+saao/saa16
+saao/saa17
+saao/saa18
+saao/saa19
+saao/saa20
+saao/saa21
+saao/saas2
+suhu
+tcma
+tsae
+xcat
+epsd2/earlylit
+epsd2/literary
+epsd2/praxis
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="analyzing-the-finaldf-dataframe">
+<h2>Analyzing the finaldf DataFrame<a class="headerlink" href="#analyzing-the-finaldf-dataframe" title="Link to this heading">#</a></h2>
+<p>To preview the size and unique values for each column in the finaldf</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">finaldf</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+  <span class="n">uniq</span> <span class="o">=</span> <span class="n">finaldf</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">col</span> <span class="o">+</span> <span class="s1">&#39; (&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">uniq</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;): &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">uniq</span><span class="p">[:</span><span class="mi">3</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lang (46): [&#39;arc&#39; &#39;akk-x-neoass&#39; &#39;akk-x-mbperi&#39;]
+form (372095): [&#39;mmxx&#39; &#39;t&#39; &#39;rmyt&#39;]
+id_word (7271149): [&#39;P522613.2.1&#39; &#39;P522613.2.2&#39; &#39;P522613.2.3&#39;]
+label (63625): [&#39;o 1&#39; &#39;o 2&#39; &#39;o 3&#39;]
+id_text (117729): [&#39;P522613&#39; &#39;P522597&#39; &#39;P522600&#39;]
+delim (1): [nan]
+gdl (7214709): [nan
+ &quot;[{&#39;n&#39;: &#39;n&#39;, &#39;sexified&#39;: &#39;1/2(disz)&#39;, &#39;form&#39;: &#39;1/2&#39;, &#39;id&#39;: &#39;P522597.2.1.0&#39;, &#39;seq&#39;: [{&#39;r&#39;: &#39;1/2&#39;}]}]&quot;
+ &quot;[{&#39;gg&#39;: &#39;logo&#39;, &#39;gdl_type&#39;: &#39;logo&#39;, &#39;group&#39;: [{&#39;s&#39;: &#39;MA&#39;, &#39;id&#39;: &#39;P522597.2.2.0&#39;, &#39;role&#39;: &#39;logo&#39;, &#39;logolang&#39;: &#39;sux&#39;, &#39;delim&#39;: &#39;.&#39;}, {&#39;s&#39;: &#39;NA&#39;, &#39;id&#39;: &#39;P522597.2.2.1&#39;, &#39;role&#39;: &#39;logo&#39;, &#39;logolang&#39;: &#39;sux&#39;}]}]&quot;]
+pos (55): [nan &#39;n&#39; &#39;N&#39;]
+cf (80585): [nan &#39;manû&#39; &#39;ṣarpu&#39;]
+gw (14917): [nan &#39;unit&#39; &#39;silver&#39;]
+sense (26224): [nan &#39;a unit of weight&#39; &#39;silver&#39;]
+norm (94863): [nan &#39;manā&#39; &#39;ṣarpu&#39;]
+epos (47): [nan &#39;N&#39; &#39;DET&#39;]
+headform (455): [nan &#39;ib-ba-lak&#39; &#39;x-š&#39;]
+contrefs (1079): [nan &#39;P522604.16.3 P522604.17.1&#39; &#39;Q007155.1.4 Q007155.1.1001&#39;]
+norm0 (101809): [nan &#39;še&#39; &#39;an&#39;]
+base (68084): [nan &#39;ši&#39; &#39;an&#39;]
+morph (13592): [nan &#39;~&#39; &#39;~;a&#39;]
+stem (20): [nan &#39;G&#39; &#39;Š&#39;]
+cont (173): [nan &#39;-ra=r.a&#39; &#39;-na=n.a&#39;]
+syntax_ub-after (2): [nan &#39;-.&#39;]
+morph2 (1409): [nan &#39;N1=NAME.N5=DAT-H&#39; &#39;N1=STEM.N5=ABS&#39;]
+aform (5194): [nan &#39;uzud-zu&#39; &#39;kug-zu&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The count of unique forms and dialects per language</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lang_summary</span> <span class="o">=</span> <span class="n">finaldf</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;lang&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()[[</span><span class="s1">&#39;form&#39;</span><span class="p">]]</span>
+<span class="n">lang_summary</span><span class="p">[</span><span class="s1">&#39;unique forms&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">finaldf</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;lang&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">nunique</span><span class="p">()[[</span><span class="s1">&#39;form&#39;</span><span class="p">]]</span>
+<span class="n">lang_summary</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Looking at the unique amount of words and texts in finaldf</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">id_words</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">finaldf</span><span class="p">[</span><span class="s1">&#39;id_word&#39;</span><span class="p">]))</span>
+<span class="n">id_texts</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">finaldf</span><span class="p">[</span><span class="s1">&#39;id_text&#39;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No.of.unique words :&quot;</span><span class="p">,</span> <span class="n">id_words</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No.of.unique texts :&quot;</span><span class="p">,</span> <span class="n">id_texts</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>No.of.unique words : 7271149
+No.of.unique texts : 117729
+</pre></div>
+</div>
+</div>
+</div>
+<p>Exporting the finaldf to the ORACC_DFS directory</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">finaldf</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">folder</span> <span class="o">+</span> <span class="s1">&#39;ORACC_DFS/finaldf.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>##This workflow accomplished:
+The creation of a large dataframe of total words with their metadata from words_df.</p>
+<p>No.of.unique words : 7271149</p>
+<p>No.of.unique texts : 117729</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="example-merging-two-dataframes">
+<h1>EXAMPLE: Merging Two DataFrames<a class="headerlink" href="#example-merging-two-dataframes" title="Link to this heading">#</a></h1>
+<p>In this example, both the adsd and adsd-adart1 projects are to be merged.
+In order to do this, we need to get and open each words_df csv file and look at the dataframes.</p>
+<p>With the dataframes imported, we can concatenate both dataframes and drop any duplicates.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#gets the path in the right form</span>
+<span class="n">general_path</span> <span class="o">=</span> <span class="s1">&#39;/content/drive/MyDrive/Melinee/ORACC_DFS/&#39;</span>
+<span class="n">pluscsv</span> <span class="o">=</span> <span class="s1">&#39;-words-df.csv&#39;</span>
+<span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;adsd&#39;</span><span class="p">,</span> <span class="s1">&#39;adsd/adart1&#39;</span><span class="p">]</span>
+<span class="n">dash_lst</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">lst</span><span class="p">]</span>
+
+<span class="n">path1</span> <span class="o">=</span> <span class="n">general_path</span> <span class="o">+</span> <span class="n">lst</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">dash_lst</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">pluscsv</span>
+<span class="n">path2</span> <span class="o">=</span> <span class="n">general_path</span> <span class="o">+</span> <span class="n">lst</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">dash_lst</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">pluscsv</span>
+<span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path1</span><span class="p">,</span> <span class="n">low_memory</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path2</span><span class="p">,</span> <span class="n">low_memory</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">df1</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frames</span> <span class="o">=</span> <span class="p">[</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">]</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">frames</span><span class="p">,</span> <span class="n">ignore_index</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="s1">&#39;number&#39;</span><span class="p">)</span>
+<span class="n">result</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-c6e205d8-3f10-49f8-b71c-47efc54c905a">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>lang</th>
+      <th>form</th>
+      <th>delim</th>
+      <th>gdl</th>
+      <th>pos</th>
+      <th>id_word</th>
+      <th>label</th>
+      <th>id_text</th>
+      <th>cf</th>
+      <th>gw</th>
+      <th>sense</th>
+      <th>norm</th>
+      <th>epos</th>
+      <th>headform</th>
+      <th>contrefs</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>akk</td>
+      <td>x</td>
+      <td>NaN</td>
+      <td>[{'x': 'ellipsis', 'id': 'X500020.2.1.0', 'bre...</td>
+      <td>u</td>
+      <td>X500020.2.1</td>
+      <td>o 1'</td>
+      <td>X500020</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>akk</td>
+      <td>x</td>
+      <td>NaN</td>
+      <td>[{'v': 'x', 'id': 'X500020.2.2.0', 'break': 'd...</td>
+      <td>u</td>
+      <td>X500020.2.2</td>
+      <td>o 1'</td>
+      <td>X500020</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>akk</td>
+      <td>LUGAL</td>
+      <td>NaN</td>
+      <td>[{'gg': 'logo', 'gdl_type': 'logo', 'group': [...</td>
+      <td>N</td>
+      <td>X500020.2.3</td>
+      <td>o 1'</td>
+      <td>X500020</td>
+      <td>šarru</td>
+      <td>king</td>
+      <td>king</td>
+      <td>šarru</td>
+      <td>N</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>akk</td>
+      <td>x</td>
+      <td>NaN</td>
+      <td>[{'v': 'x', 'id': 'X500020.3.1.0', 'breakStart...</td>
+      <td>u</td>
+      <td>X500020.3.1</td>
+      <td>o 2'</td>
+      <td>X500020</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>akk</td>
+      <td>x</td>
+      <td>NaN</td>
+      <td>[{'v': 'x', 'id': 'X500020.3.2.0', 'statusStar...</td>
+      <td>u</td>
+      <td>X500020.3.2</td>
+      <td>o 2'</td>
+      <td>X500020</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>613690</th>
+      <td>akk</td>
+      <td>TIL</td>
+      <td>NaN</td>
+      <td>[{'gg': 'logo', 'gdl_type': 'logo', 'group': [...</td>
+      <td>N</td>
+      <td>X102910.110.4</td>
+      <td>l.e. B1</td>
+      <td>X102910</td>
+      <td>qītu</td>
+      <td>end</td>
+      <td>end</td>
+      <td>qītu</td>
+      <td>N</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>613691</th>
+      <td>akk</td>
+      <td>KIN</td>
+      <td>NaN</td>
+      <td>[{'gg': 'logo', 'gdl_type': 'logo', 'group': [...</td>
+      <td>MN</td>
+      <td>X102910.110.5</td>
+      <td>l.e. B1</td>
+      <td>X102910</td>
+      <td>Ulūlu</td>
+      <td>Month VI</td>
+      <td>Month VI</td>
+      <td>Ulūlu</td>
+      <td>MN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>613692</th>
+      <td>akk</td>
+      <td>MU.20.KAM₂</td>
+      <td>NaN</td>
+      <td>[{'gg': 'logo', 'gdl_type': 'logo', 'group': [...</td>
+      <td>n</td>
+      <td>X102910.110.6</td>
+      <td>l.e. B1</td>
+      <td>X102910</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>613693</th>
+      <td>akk</td>
+      <td>{m}se-lu-ku</td>
+      <td>NaN</td>
+      <td>[{'det': 'semantic', 'pos': 'pre', 'seq': [{'v...</td>
+      <td>RN</td>
+      <td>X102910.110.7</td>
+      <td>l.e. B1</td>
+      <td>X102910</td>
+      <td>Seleucus</td>
+      <td>Seleucus</td>
+      <td>Seleucus</td>
+      <td>Seleucus</td>
+      <td>RN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>613694</th>
+      <td>akk</td>
+      <td>x</td>
+      <td>NaN</td>
+      <td>[{'x': 'ellipsis', 'id': 'X102910.110.8.0', 'b...</td>
+      <td>u</td>
+      <td>X102910.110.8</td>
+      <td>l.e. B1</td>
+      <td>X102910</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>613695 rows × 15 columns</p>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-c6e205d8-3f10-49f8-b71c-47efc54c905a')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+        
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+      
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-c6e205d8-3f10-49f8-b71c-47efc54c905a button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-c6e205d8-3f10-49f8-b71c-47efc54c905a');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+  </div></div>
+</div>
+<p>This cell focuses on a dataframe for all texts that have the id ‘X500020’.</p>
+<p>In the initial concatenation, there are 216 recorded texts. After dropping all duplicate rows, there are 108 texts with this id. there is unique information for each 108 inputs, however the id of the text is the same.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">before</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;id_text&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;X500020&#39;</span><span class="p">]</span>
+<span class="n">after</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;id_text&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;X500020&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+
+<span class="n">before</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">after</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>((216, 15), (108, 15))
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here is how to get a list of all unique id_texts and the number of unique texts there are in the merged “result” dataframe.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">unique_ids_adart</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="s1">&#39;id_text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">unique_ids_adart</span><span class="p">)</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">unique_ids_adart</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1609
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this cell, we want to drop duplicates from the entire result dataframe. notice that result df has 613695 rows × 15 columns.</p>
+<p>Once we dropped all duplicate rows and renamed the dataframe “clean”, we see that it has 364669 rows × 15 columns.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">clean</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+<span class="n">clean</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-71668a9c-12d2-43e3-95dd-c43982a916a2">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>lang</th>
+      <th>form</th>
+      <th>delim</th>
+      <th>gdl</th>
+      <th>pos</th>
+      <th>id_word</th>
+      <th>label</th>
+      <th>id_text</th>
+      <th>cf</th>
+      <th>gw</th>
+      <th>sense</th>
+      <th>norm</th>
+      <th>epos</th>
+      <th>headform</th>
+      <th>contrefs</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>akk</td>
+      <td>x</td>
+      <td>NaN</td>
+      <td>[{'x': 'ellipsis', 'id': 'X500020.2.1.0', 'bre...</td>
+      <td>u</td>
+      <td>X500020.2.1</td>
+      <td>o 1'</td>
+      <td>X500020</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>akk</td>
+      <td>x</td>
+      <td>NaN</td>
+      <td>[{'v': 'x', 'id': 'X500020.2.2.0', 'break': 'd...</td>
+      <td>u</td>
+      <td>X500020.2.2</td>
+      <td>o 1'</td>
+      <td>X500020</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>akk</td>
+      <td>LUGAL</td>
+      <td>NaN</td>
+      <td>[{'gg': 'logo', 'gdl_type': 'logo', 'group': [...</td>
+      <td>N</td>
+      <td>X500020.2.3</td>
+      <td>o 1'</td>
+      <td>X500020</td>
+      <td>šarru</td>
+      <td>king</td>
+      <td>king</td>
+      <td>šarru</td>
+      <td>N</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>akk</td>
+      <td>x</td>
+      <td>NaN</td>
+      <td>[{'v': 'x', 'id': 'X500020.3.1.0', 'breakStart...</td>
+      <td>u</td>
+      <td>X500020.3.1</td>
+      <td>o 2'</td>
+      <td>X500020</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>akk</td>
+      <td>x</td>
+      <td>NaN</td>
+      <td>[{'v': 'x', 'id': 'X500020.3.2.0', 'statusStar...</td>
+      <td>u</td>
+      <td>X500020.3.2</td>
+      <td>o 2'</td>
+      <td>X500020</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>364778</th>
+      <td>akk</td>
+      <td>x</td>
+      <td>NaN</td>
+      <td>[{'x': 'ellipsis', 'id': 'X600043.8.6.0', 'bre...</td>
+      <td>u</td>
+      <td>X600043.8.6</td>
+      <td>o 6'</td>
+      <td>X600043</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>364779</th>
+      <td>akk</td>
+      <td>x</td>
+      <td>NaN</td>
+      <td>[{'v': 'x', 'id': 'X600043.9.1.0', 'break': 'd...</td>
+      <td>u</td>
+      <td>X600043.9.1</td>
+      <td>o 7'</td>
+      <td>X600043</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>364780</th>
+      <td>akk</td>
+      <td>x</td>
+      <td>NaN</td>
+      <td>[{'v': 'x', 'id': 'X600043.9.2.0', 'break': 'd...</td>
+      <td>u</td>
+      <td>X600043.9.2</td>
+      <td>o 7'</td>
+      <td>X600043</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>364781</th>
+      <td>akk</td>
+      <td>x</td>
+      <td>NaN</td>
+      <td>[{'v': 'x', 'id': 'X600043.9.3.0', 'break': 'd...</td>
+      <td>u</td>
+      <td>X600043.9.3</td>
+      <td>o 7'</td>
+      <td>X600043</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>364782</th>
+      <td>akk</td>
+      <td>x</td>
+      <td>NaN</td>
+      <td>[{'x': 'ellipsis', 'id': 'X600043.9.4.0', 'bre...</td>
+      <td>u</td>
+      <td>X600043.9.4</td>
+      <td>o 7'</td>
+      <td>X600043</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>364669 rows × 15 columns</p>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-71668a9c-12d2-43e3-95dd-c43982a916a2')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+        
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+      
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-71668a9c-12d2-43e3-95dd-c43982a916a2 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-71668a9c-12d2-43e3-95dd-c43982a916a2');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+  </div></div>
+</div>
+<p>If we run this similar cell from before but with the clean df, we should get the same value of unique id_texts.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">unique_clean</span> <span class="o">=</span> <span class="n">clean</span><span class="p">[</span><span class="s1">&#39;id_text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">unique_clean</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1609
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="2-DataFrame%20Extraction.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Extract words_df and df_cat DataFrames from ZIP files</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="4-Megacatalogue.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Mount Google Drive folder + imports + steps</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Large DataFrame of Unique Words</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mount-google-drive-folder-imports-steps">Mount Google Drive folder + imports + steps</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#final-dataframe">Final DataFrame</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-the-finaldf-using-the-smaller-sections">Creating the finaldf using the smaller sections</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzing-the-finaldf-dataframe">Analyzing the finaldf DataFrame</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#example-merging-two-dataframes">EXAMPLE: Merging Two DataFrames</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

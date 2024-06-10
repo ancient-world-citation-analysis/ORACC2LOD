@@ -1,0 +1,16 @@
+format: jb-book
+root: welcome
+chapters:
+  - file: 1-ORACC_ZIPS
+  - file: 2-DataFrame Extraction
+  - file: 3-Large DF of Unique Words
+  - file: 4-Megacatalogue
+  - file: 4.1 - Counts for Megacatalogue
+  - file: 5-Translations Extraction
+  - file: 5.1-Counts for Transliterations and Translations
+  - file: 6-RulerCatalogue
+  - file: 7-Metacatalogue
+  - file: 7.1 - Metacatalogue
+  - file: 7.2 - Fitting Headers
+  - file: 7.3 - Factgrid Quickstatement Processing
+  - file: 8-ORACC Projects by Language
