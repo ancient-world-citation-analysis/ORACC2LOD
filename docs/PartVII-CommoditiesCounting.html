@@ -1,0 +1,1112 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VII. Commodities Counting &#8212; Sumerian Networks</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="VI. Geography" href="PartVI-GeographicNames.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      <img src="_static/sumnet.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Sumerian Networks</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="welcome.html">
+   Sumerian Networks JupyterBook
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="PartI-ExtractLemmatizationfromJSON.html">
+   I. Importing the Data and Extracting Lemmatization from JSON
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="PartII-N-gramNeighborsoftheProperNames%28PN%29.html">
+   II. N-gram Neighbors of the Proper Names (PN)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="PartIII-HarmonizingYearNameFormulaeandProcessingDates.html">
+   III. Harmonizing Year Name Formulae and Processing Dates
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="PartIV-ArchiveClassification.html">
+   IV. Archive Classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="PartV-IdentifyingAttributesoftheProperNames%28PN%29-ProfessionsandRoles.html">
+   V. Identifying Attributes of the Proper Names (PN): Professions and Roles
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="PartVI-GeographicNames.html">
+   VI. Geography
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   VII. Commodities Counting
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/PartVII-CommoditiesCounting.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/niekveldhuis/sumnet/master?urlpath=tree/book/PartVII-CommoditiesCounting.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/niekveldhuis/sumnet/blob/master/book/PartVII-CommoditiesCounting.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#adding-quantity-number-information-to-lemmas">
+   1 Adding Quantity/Number Information to Lemmas
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#identifying-number-blocks">
+     1.1 Identifying Number Blocks
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#converting-number-blocks-to-a-numerical-format">
+     1.2 Converting Number Blocks to a Numerical Format
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#adding-number-values-to-words-df">
+     1.3 Adding Number Values to words_df
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cleaning-our-data">
+   2 Cleaning Our Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#refining-our-commodity-search">
+   3 Refining Our Commodity Search
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exploring-all-the-texts">
+   4 Exploring all the Texts
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exploring-expenditure-texts">
+   5 Exploring Expenditure Texts
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="vii-commodities-counting">
+<h1>VII. Commodities Counting<a class="headerlink" href="#vii-commodities-counting" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="adding-quantity-number-information-to-lemmas">
+<h2>1 Adding Quantity/Number Information to Lemmas<a class="headerlink" href="#adding-quantity-number-information-to-lemmas" title="Permalink to this headline">¶</a></h2>
+<p>The first step is to extract lemmas representing numbers from the rest of our data. To do this, we simply look for all words whose lemma ends in ‘NU’, storing these in the variable <code class="docutils literal notranslate"><span class="pre">numbers_df</span></code>. Note that the indexes are not re-assigned from <code class="docutils literal notranslate"><span class="pre">words_df</span></code>, so we can still use <code class="docutils literal notranslate"><span class="pre">numbers_df</span></code> to determine the index of a number-lemma in the <code class="docutils literal notranslate"><span class="pre">words_df</span></code> frame.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># note that &#39;NU$&#39; is a regular expression, so the $ indicates that the &#39;NU&#39;</span>
+<span class="c1"># must be at the end of the string.</span>
+<span class="n">numbers_df</span> <span class="o">=</span> <span class="n">words_df</span><span class="p">[</span><span class="n">words_df</span><span class="p">[</span><span class="s1">&#39;lemma&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;NU$&#39;</span><span class="p">)]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>With that out of the way, we next need to do the following:</p>
+<ol class="simple">
+<li><p>Identify all consecutive sequences of number-lemmas (‘number blocks’) on a line.</p></li>
+<li><p>Develop a method to convert the number blocks from (1) into integer or decimal format.</p></li>
+<li><p>Associate the lemma that immediately follows a number block from (1) with the converted integer from (2), and add this information back into the <code class="docutils literal notranslate"><span class="pre">words_df</span></code> frame.</p></li>
+</ol>
+<div class="section" id="identifying-number-blocks">
+<h3>1.1 Identifying Number Blocks<a class="headerlink" href="#identifying-number-blocks" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">search_for_number_blocks</span><span class="p">(</span><span class="n">numb_df</span><span class="p">):</span>
+  <span class="n">number_blocks</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># this will be a list-of-lists, which each sub-list </span>
+                     <span class="c1"># representing the indexes of one number block   </span>
+  
+  <span class="n">current_block</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># the current number block we are building</span>
+  
+  <span class="c1"># loop through all number lemmas</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">numb_df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="p">):</span>
+    <span class="c1"># note that these represent indexes in the words_df frame as whole</span>
+    <span class="n">this_index</span> <span class="o">=</span> <span class="n">numb_df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">next_index</span> <span class="o">=</span> <span class="n">numb_df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">current_block</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">numb_df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    
+    <span class="c1"># there are 3 cases where we have reached the end of a block. First, if the</span>
+    <span class="c1"># index of the next lemma isn&#39;t immediately after the current one. Second,</span>
+    <span class="c1"># if the next lemma is on a different line. Third, if the next lemma is in a</span>
+    <span class="c1"># different tablet (to deal with the case of two one-line tablets in a row).</span>
+    <span class="k">if</span> <span class="n">next_index</span> <span class="o">!=</span> <span class="n">this_index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:</span>
+      <span class="n">number_blocks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current_block</span><span class="p">)</span>
+      <span class="n">current_block</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">elif</span> <span class="n">numb_df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">this_index</span><span class="p">,</span> <span class="s1">&#39;id_line&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">numb_df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">next_index</span><span class="p">,</span> <span class="s1">&#39;id_line&#39;</span><span class="p">]:</span>
+      <span class="n">number_blocks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current_block</span><span class="p">)</span>
+      <span class="n">current_block</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">elif</span> <span class="n">numb_df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">this_index</span><span class="p">,</span> <span class="s1">&#39;id_text&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">numb_df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">next_index</span><span class="p">,</span> <span class="s1">&#39;id_text&#39;</span><span class="p">]:</span>     
+      <span class="n">number_blocks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current_block</span><span class="p">)</span>
+      <span class="n">current_block</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="k">return</span> <span class="n">number_blocks</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="converting-number-blocks-to-a-numerical-format">
+<h3>1.2 Converting Number Blocks to a Numerical Format<a class="headerlink" href="#converting-number-blocks-to-a-numerical-format" title="Permalink to this headline">¶</a></h3>
+<p>The second part is a bit more involved. We break it up into three separate functions, with the last function using the first two.</p>
+<p>In the first of these, <code class="docutils literal notranslate"><span class="pre">add_number_block_column</span></code>, we both check that the words following a number block are indeed on the same line, and if so add the block to a new dataframe indexed by the location of the word that follows.</p>
+<p>Second, we have <code class="docutils literal notranslate"><span class="pre">convert_single_counting_number</span></code>, which converts the (Arabic) numerals given in the lemmatization into a proper number.</p>
+<p>Third, we build on <code class="docutils literal notranslate"><span class="pre">convert_single_counting_number</span></code> in <code class="docutils literal notranslate"><span class="pre">get_comm_count</span></code>. This uses the previous function to convert the Arabic numerals in a number block, then multiplies that by the approporiate weight of the unit used in the Sumerian number system.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_number_block_column</span><span class="p">(</span><span class="n">number_blocks</span><span class="p">,</span> <span class="n">words_frame</span><span class="p">):</span>
+  <span class="n">out_words_frame</span> <span class="o">=</span> <span class="n">words_frame</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> 
+  <span class="n">item_locs</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="n">good_blocks</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="n">number_blocks</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">words_frame</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">block</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;id_line&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">words_frame</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">block</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;id_line&#39;</span><span class="p">]:</span>
+      <span class="k">pass</span>
+    <span class="k">elif</span> <span class="n">words_frame</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">block</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;id_text&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">words_frame</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">block</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;id_text&#39;</span><span class="p">]:</span>
+      <span class="k">pass</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="n">item_locs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">block</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+      <span class="n">good_blocks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">block</span><span class="p">)</span>
+  <span class="n">number_indexes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">good_blocks</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">item_locs</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">number_indexes</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">convert_single_counting_number</span><span class="p">(</span><span class="n">num_str</span><span class="p">):</span>
+  <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="n">grouping_name</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+  <span class="n">bracket_string</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;\[.*\]&#39;</span><span class="p">,</span> <span class="n">num_str</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">()</span>
+  <span class="k">if</span> <span class="n">bracket_string</span> <span class="o">==</span> <span class="s1">&#39;[]&#39;</span><span class="p">:</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">Fraction</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;^[0-9/]*&#39;</span><span class="p">,</span> <span class="n">num_str</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">()))</span>
+    <span class="n">grouping_name</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;\(.*\)&#39;</span><span class="p">,</span> <span class="n">num_str</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">()[</span><span class="mi">1</span><span class="p">:][:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">grouping_name</span> <span class="o">=</span> <span class="n">num_str</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">num_str</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;[&#39;</span><span class="p">)]</span>
+  <span class="k">return</span> <span class="p">[</span><span class="n">count</span><span class="p">,</span> <span class="n">grouping_name</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A dictionary for converting terms to the quantity the represent.</span>
+<span class="n">grouping_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;diš@t&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;diš&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;min&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;eš&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;limmu&#39;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;ja&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;aš&#39;</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span> 
+            <span class="s1">&#39;aš@c&#39;</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;umun&#39;</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span><span class="s1">&#39;ussu&#39;</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span><span class="s1">&#39;ilimmu&#39;</span><span class="p">:</span><span class="mi">9</span><span class="p">,</span><span class="s1">&#39;u&#39;</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> 
+            <span class="s1">&#39;niš&#39;</span><span class="p">:</span><span class="mi">20</span><span class="p">,</span> <span class="s1">&#39;ušu&#39;</span><span class="p">:</span><span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;nimin&#39;</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span> <span class="s1">&#39;ninnu&#39;</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span> 
+            <span class="s1">&#39;geš₂&#39;</span><span class="p">:</span><span class="mi">60</span><span class="p">,</span> <span class="s1">&#39;ĝeš-min&#39;</span><span class="p">:</span><span class="mi">120</span><span class="p">,</span> <span class="s1">&#39;gešʾu&#39;</span><span class="p">:</span><span class="mi">600</span><span class="p">,</span> 
+            <span class="s1">&#39;ĝes-u-min&#39;</span><span class="p">:</span><span class="mi">1200</span><span class="p">,</span> <span class="s1">&#39;šar₂&#39;</span><span class="p">:</span><span class="mi">3600</span><span class="p">,</span><span class="s1">&#39;sila&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;barig&#39;</span><span class="p">:</span><span class="mi">60</span><span class="p">,</span> <span class="s1">&#39;ban₂&#39;</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> 
+            <span class="s1">&#39;gur&#39;</span><span class="p">:</span><span class="mi">300</span><span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">get_comm_count</span><span class="p">(</span><span class="n">word_index</span><span class="p">,</span> <span class="n">comm_series</span><span class="p">,</span> <span class="n">numb_df</span><span class="p">):</span>
+  <span class="n">number_block</span> <span class="o">=</span> <span class="n">comm_series</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">word_index</span><span class="p">]</span>
+  <span class="n">numb_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">number_block</span><span class="p">,</span> <span class="s1">&#39;lemma&#39;</span><span class="p">]</span>
+  <span class="n">converted_nums</span> <span class="o">=</span> <span class="n">numb_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">number_block</span><span class="p">,</span> <span class="s1">&#39;lemma&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">convert_single_counting_number</span><span class="p">)</span>
+  <span class="k">try</span><span class="p">:</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">converted_nums</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">grouping_dict</span><span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]]))),</span> <span class="nb">list</span><span class="p">(</span><span class="n">converted_nums</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+  <span class="k">except</span><span class="p">:</span>
+    <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">converted_nums</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="adding-number-values-to-words-df">
+<h3>1.3 Adding Number Values to words_df<a class="headerlink" href="#adding-number-values-to-words-df" title="Permalink to this headline">¶</a></h3>
+<p>Given that the previous steps have been performed, the final procedure is to associated the calculated number with a lemma in <code class="docutils literal notranslate"><span class="pre">words_df</span></code>. In particular, we attach it to the lemma that immediately follows the number block, but in the future, a more sophisticated method may be used to ensure it is attached to a commodity.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_comm_counts_to_words_df</span><span class="p">(</span><span class="n">words_frame</span><span class="p">,</span> <span class="n">comm_idx</span><span class="p">,</span> <span class="n">numb_df</span><span class="p">):</span>
+  <span class="n">counts</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="n">units</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">comm_idx</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+    <span class="n">count</span><span class="p">,</span> <span class="n">unit</span> <span class="o">=</span> <span class="n">get_comm_count</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">comm_idx</span><span class="p">,</span> <span class="n">numb_df</span><span class="p">)</span>
+    <span class="n">counts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+    <span class="n">units</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">unit</span><span class="p">)</span>
+  <span class="n">comm_count</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">counts</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="n">comm_idx</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+  <span class="n">units_found</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">units</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="n">comm_idx</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+  <span class="n">new_words_frame</span> <span class="o">=</span> <span class="n">words_frame</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+  <span class="n">new_words_frame</span><span class="p">[</span><span class="s1">&#39;comm_count&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">comm_count</span>
+  <span class="n">new_words_frame</span><span class="p">[</span><span class="s1">&#39;units_found&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">units_found</span>
+  <span class="k">return</span> <span class="n">new_words_frame</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ensure the lemma string is in one of the correct formats.</span>
+<span class="n">numbers_df</span> <span class="o">=</span> <span class="n">numbers_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span> <span class="n">numbers_df</span><span class="p">[</span><span class="s1">&#39;lemma&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;[0-9/]*\(.*\)\[\]NU&#39;</span><span class="p">)</span> <span class="o">|</span> <span class="n">numbers_df</span><span class="p">[</span><span class="s1">&#39;lemma&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;.*\[.+\]NU&#39;</span><span class="p">))]</span>
+<span class="n">comm_idx</span> <span class="o">=</span> <span class="n">add_number_block_column</span><span class="p">(</span><span class="n">search_for_number_blocks</span><span class="p">(</span><span class="n">numbers_df</span><span class="p">),</span> <span class="n">words_df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">out</span> <span class="o">=</span> <span class="n">add_comm_counts_to_words_df</span><span class="p">(</span><span class="n">words_df</span><span class="p">,</span> <span class="n">comm_idx</span><span class="p">,</span> <span class="n">numbers_df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="cleaning-our-data">
+<h2>2 Cleaning Our Data<a class="headerlink" href="#cleaning-our-data" title="Permalink to this headline">¶</a></h2>
+<p>There are several uncertainties and inaccuracies that remain in our data. For one, much of our future analysis will look at changes in commodities over time, but many of the tablets have near-illegible or multiple dates. Before we continue, we must filter these out.</p>
+<p>Secondly, lemmas with the same transliteration are occasionally mistaken for one another. This can be quite problematic since oftentimes the typical quantity of one is much greater than the other. To attempt to detect when this has occurred, we eliminate commodities whose largest count is over five times that of its second largest.</p>
+<p>Another potential issue is that many lemmas were only used in a few tablets from a limited selection of years. In such a case they tell us very little about overall changes to the Ur III economy throughout its existence. Therefore we exclude commodities that occur in fewer than 10 years.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">valid_counts</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">valid_counts</span> <span class="o">=</span> <span class="n">valid_counts</span><span class="p">[(</span><span class="n">valid_counts</span><span class="p">[</span><span class="s1">&#39;questionable&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">False</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">valid_counts</span><span class="p">[</span><span class="s1">&#39;metadata_source_x&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;BDTNS&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">valid_counts</span><span class="p">[</span><span class="s1">&#39;multiple_dates&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">False</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">valid_counts</span><span class="p">[</span><span class="s1">&#39;ftype&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;yn&#39;</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">unreliable_lemmas</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">lemma</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">valid_counts</span><span class="p">[</span><span class="s1">&#39;lemma&#39;</span><span class="p">])):</span>
+  <span class="n">ordered_vals</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">valid_counts</span><span class="p">[</span><span class="n">valid_counts</span><span class="p">[</span><span class="s1">&#39;lemma&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">lemma</span><span class="p">][</span><span class="s1">&#39;comm_count&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">))</span>
+  <span class="n">years</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">valid_counts</span><span class="p">[</span><span class="n">valid_counts</span><span class="p">[</span><span class="s1">&#39;lemma&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">lemma</span><span class="p">][</span><span class="s1">&#39;year&#39;</span><span class="p">])</span>
+  <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ordered_vals</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">ordered_vals</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">ordered_vals</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="mi">5</span><span class="p">:</span> <span class="c1"># filter out data with likely mislemmatization</span>
+    <span class="n">unreliable_lemmas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lemma</span><span class="p">)</span>
+  <span class="k">elif</span> <span class="s1">&#39;[unit]&#39;</span> <span class="ow">in</span> <span class="n">lemma</span><span class="p">:</span> <span class="c1"># if this is a unit of measurement, for now we ignore it</span>
+    <span class="n">unreliable_lemmas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lemma</span><span class="p">)</span>
+  <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">years</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span> <span class="c1"># if a lemma only appears in a few years throw it out</span>
+    <span class="n">unreliable_lemmas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lemma</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">valid_counts</span> <span class="o">=</span> <span class="n">valid_counts</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">valid_counts</span><span class="p">[</span><span class="s1">&#39;lemma&#39;</span><span class="p">][</span><span class="n">valid_counts</span><span class="p">[</span><span class="s1">&#39;lemma&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">unreliable_lemmas</span><span class="p">)]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="refining-our-commodity-search">
+<h2>3 Refining Our Commodity Search<a class="headerlink" href="#refining-our-commodity-search" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Lemma</span><span class="p">:</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">transliteration</span> <span class="o">=</span> <span class="s1">&#39;.*&#39;</span><span class="p">,</span> <span class="n">definition</span> <span class="o">=</span> <span class="s1">&#39;.*&#39;</span><span class="p">,</span> <span class="n">pos</span> <span class="o">=</span> <span class="s1">&#39;.*&#39;</span><span class="p">,</span> <span class="n">plaintext_alias</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">transliteration</span> <span class="o">=</span> <span class="n">transliteration</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">definition</span> <span class="o">=</span> <span class="n">definition</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">pos</span> <span class="o">=</span> <span class="n">pos</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">regex_seed</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;((</span><span class="si">{</span><span class="n">transliteration</span><span class="si">}</span><span class="s1">)\[(</span><span class="si">{</span><span class="n">definition</span><span class="si">}</span><span class="s1">)\](</span><span class="si">{</span><span class="n">pos</span><span class="si">}</span><span class="s1">))&#39;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">plaintext_alias</span> <span class="o">=</span> <span class="n">plaintext_alias</span>
+  
+  <span class="k">def</span> <span class="nf">lookup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">words_frame</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">words_frame</span><span class="p">[</span><span class="s1">&#39;lemma&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">regex_seed</span><span class="p">)</span>
+  
+  <span class="k">def</span> <span class="nf">merge_matches</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">words_frame</span><span class="p">):</span>
+    <span class="n">out_frame</span> <span class="o">=</span> <span class="n">words_frame</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">locations</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lookup</span><span class="p">(</span><span class="n">out_frame</span><span class="p">)</span>
+    <span class="k">if</span> <span class="o">~</span><span class="n">locations</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+      <span class="k">return</span> <span class="n">out_frame</span>
+    <span class="n">replacement_string</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">plaintext_alias</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">plaintext_alias</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">re</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">regex_seed</span><span class="p">)</span>
+    <span class="n">out_frame</span><span class="p">[</span><span class="s1">&#39;lemma&#39;</span><span class="p">][</span><span class="n">locations</span><span class="p">]</span> <span class="o">=</span> <span class="n">replacement_string</span>
+    <span class="k">return</span> <span class="n">out_frame</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">lookup_lines_of_lemma</span><span class="p">(</span><span class="n">lemma</span><span class="p">,</span> <span class="n">words_frame</span><span class="p">):</span>
+  <span class="n">filtered_frame</span> <span class="o">=</span> <span class="n">words_frame</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+  <span class="n">filtered_frame</span> <span class="o">=</span> <span class="n">filtered_frame</span><span class="p">[</span><span class="n">filtered_frame</span><span class="p">[</span><span class="s1">&#39;lemma&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">lemma</span><span class="o">.</span><span class="n">regex_seed</span><span class="p">)]</span>
+  <span class="k">return</span> <span class="n">filtered_frame</span><span class="p">[[</span><span class="s1">&#39;id_text&#39;</span><span class="p">,</span> <span class="s1">&#39;id_line&#39;</span><span class="p">,</span> <span class="s1">&#39;lemma&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;id_text&#39;</span><span class="p">,</span> <span class="s1">&#39;id_line&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">indices</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">lookup_forward_neighbors</span><span class="p">(</span><span class="n">lemma</span><span class="p">,</span> <span class="n">words_frame</span><span class="p">,</span> <span class="n">leap_size</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">words_frame</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">words_frame</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">words_frame</span><span class="p">[</span><span class="s1">&#39;lemma&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">fullmatch</span><span class="p">(</span><span class="n">lemma</span><span class="o">.</span><span class="n">regex_seed</span><span class="p">)]</span><span class="o">.</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)[:(</span><span class="o">-</span><span class="n">leap_size</span><span class="p">)]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">lookup_backwards_neighbors</span><span class="p">(</span><span class="n">lemma</span><span class="p">,</span> <span class="n">words_frame</span><span class="p">,</span> <span class="n">leap_size</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">words_frame</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">words_frame</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">words_frame</span><span class="p">[</span><span class="s1">&#39;lemma&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">fullmatch</span><span class="p">(</span><span class="n">lemma</span><span class="o">.</span><span class="n">regex_seed</span><span class="p">)]</span><span class="o">.</span><span class="n">index</span> <span class="o">-</span> <span class="n">leap_size</span><span class="p">)[</span><span class="n">leap_size</span><span class="p">:]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reduced_words_df</span> <span class="o">=</span> <span class="n">words_df</span><span class="p">[[</span><span class="s1">&#39;lemma&#39;</span><span class="p">,</span> <span class="s1">&#39;id_text&#39;</span><span class="p">,</span> <span class="s1">&#39;id_line&#39;</span><span class="p">,</span> <span class="s1">&#39;id_word&#39;</span><span class="p">,</span> <span class="s1">&#39;label&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">delivery_texts</span> <span class="o">=</span> <span class="p">[</span><span class="n">key</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">lookup_lines_of_lemma</span><span class="p">(</span><span class="n">Lemma</span><span class="p">(</span><span class="s1">&#39;mu.DU&#39;</span><span class="p">,</span><span class="s1">&#39;delivery&#39;</span><span class="p">),</span> <span class="n">reduced_words_df</span><span class="p">)</span><span class="o">.</span><span class="n">keys</span><span class="p">()]</span>
+<span class="n">expenditure_texts</span> <span class="o">=</span> <span class="p">[</span><span class="n">key</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">lookup_lines_of_lemma</span><span class="p">(</span><span class="n">Lemma</span><span class="p">(</span><span class="s1">&#39;ziga&#39;</span><span class="p">,</span> <span class="s1">&#39;expenditure&#39;</span><span class="p">),</span> <span class="n">reduced_words_df</span><span class="p">)</span><span class="o">.</span><span class="n">keys</span><span class="p">()]</span>
+<span class="n">expenditure_texts</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">key</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">lookup_lines_of_lemma</span><span class="p">(</span><span class="n">Lemma</span><span class="p">(</span><span class="s1">&#39;zig&#39;</span><span class="p">,</span> <span class="s1">&#39;rise&#39;</span><span class="p">),</span> <span class="n">reduced_words_df</span><span class="p">)</span><span class="o">.</span><span class="n">keys</span><span class="p">()])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># If a text only has mu.DU, then add it to delivery</span>
+<span class="n">valid_counts</span><span class="p">[</span><span class="s1">&#39;delivery&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">valid_counts</span><span class="p">[</span><span class="s1">&#39;id_text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">delivery_texts</span><span class="p">)</span> <span class="o">&amp;</span> <span class="o">~</span><span class="n">valid_counts</span><span class="p">[</span><span class="s1">&#39;id_text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">expenditure_texts</span><span class="p">)</span>
+
+<span class="c1"># If a text has zig or ziga, regardless of whether it has mu.DU, add it to expenditure</span>
+<span class="n">valid_counts</span><span class="p">[</span><span class="s1">&#39;expenditure&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">valid_counts</span><span class="p">[</span><span class="s1">&#39;id_text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">expenditure_texts</span><span class="p">)</span>
+
+<span class="c1"># Lastly, create a category that contains both sets of texts</span>
+<span class="n">valid_counts</span><span class="p">[</span><span class="s1">&#39;delivery_or_expenditure&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">valid_counts</span><span class="p">[</span><span class="s1">&#39;id_text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">expenditure_texts</span><span class="p">)</span> <span class="o">|</span> <span class="n">valid_counts</span><span class="p">[</span><span class="s1">&#39;id_text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">delivery_texts</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lookup_backwards_neighbors</span><span class="p">(</span><span class="n">Lemma</span><span class="p">(</span><span class="s1">&#39;mu.DU&#39;</span><span class="p">,</span> <span class="s1">&#39;delivery&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">),</span> <span class="n">reduced_words_df</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>lemma</th>
+      <th>id_text</th>
+      <th>id_line</th>
+      <th>id_word</th>
+      <th>label</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>220</th>
+      <td>Urum[1]SN</td>
+      <td>P100217</td>
+      <td>12</td>
+      <td>P100217.12.4</td>
+      <td>r 2</td>
+    </tr>
+    <tr>
+      <th>260</th>
+      <td>ensik[ruler]N</td>
+      <td>P100219</td>
+      <td>8</td>
+      <td>P100219.8.1</td>
+      <td>o 6</td>
+    </tr>
+    <tr>
+      <th>303</th>
+      <td>1(diš)[]NU</td>
+      <td>P100221</td>
+      <td>4</td>
+      <td>P100221.4.1</td>
+      <td>o 2</td>
+    </tr>
+    <tr>
+      <th>366</th>
+      <td>ud[sun]N</td>
+      <td>P100222</td>
+      <td>16</td>
+      <td>P100222.16.1</td>
+      <td>r 6</td>
+    </tr>
+    <tr>
+      <th>505</th>
+      <td>sila[lamb]N</td>
+      <td>P100228</td>
+      <td>4</td>
+      <td>P100228.4.2</td>
+      <td>o 2</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>579201</th>
+      <td>sila[lamb]N</td>
+      <td>P517184</td>
+      <td>4</td>
+      <td>P517184.4.2</td>
+      <td>o 2</td>
+    </tr>
+    <tr>
+      <th>579208</th>
+      <td>sila[lamb]N</td>
+      <td>P517184</td>
+      <td>6</td>
+      <td>P517184.6.2</td>
+      <td>o 4</td>
+    </tr>
+    <tr>
+      <th>579217</th>
+      <td>sila[lamb]N</td>
+      <td>P517184</td>
+      <td>9</td>
+      <td>P517184.9.2</td>
+      <td>o 7</td>
+    </tr>
+    <tr>
+      <th>579226</th>
+      <td>niga[fattened]V/i</td>
+      <td>P517184</td>
+      <td>12</td>
+      <td>P517184.12.3</td>
+      <td>o 10</td>
+    </tr>
+    <tr>
+      <th>579474</th>
+      <td>ur-{d}ištaran[]PN</td>
+      <td>P519792</td>
+      <td>29</td>
+      <td>P519792.29.1</td>
+      <td>r 10</td>
+    </tr>
+  </tbody>
+</table>
+<p>4793 rows × 5 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="exploring-all-the-texts">
+<h2>4 Exploring all the Texts<a class="headerlink" href="#exploring-all-the-texts" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">generic_goat_lemma</span> <span class="o">=</span> <span class="n">Lemma</span><span class="p">(</span><span class="n">definition</span><span class="o">=</span><span class="s1">&#39;~?goat&#39;</span><span class="p">,</span> <span class="n">plaintext_alias</span><span class="o">=</span><span class="s1">&#39;maš[goat]N&#39;</span><span class="p">)</span>
+<span class="n">generic_sheep_lemma</span> <span class="o">=</span> <span class="n">Lemma</span><span class="p">(</span><span class="n">definition</span><span class="o">=</span><span class="s1">&#39;~?sheep&#39;</span><span class="p">,</span> <span class="n">plaintext_alias</span><span class="o">=</span><span class="s1">&#39;udu[sheep]N&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">comm_counts</span> <span class="o">=</span> <span class="n">valid_counts</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">comm_counts</span> <span class="o">=</span> <span class="n">comm_counts</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">comm_counts</span><span class="p">[</span><span class="s1">&#39;lemma&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;]N$&#39;</span><span class="p">))]</span>
+<span class="n">comm_counts</span> <span class="o">=</span> <span class="n">comm_counts</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="p">(</span><span class="n">comm_counts</span><span class="p">[</span><span class="s1">&#39;lemma&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;year$&#39;</span><span class="p">))]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sheep_n_goats</span> <span class="o">=</span> <span class="n">generic_goat_lemma</span><span class="o">.</span><span class="n">merge_matches</span><span class="p">(</span><span class="n">comm_counts</span><span class="p">)</span>
+<span class="n">sheep_n_goats</span> <span class="o">=</span> <span class="n">generic_sheep_lemma</span><span class="o">.</span><span class="n">merge_matches</span><span class="p">(</span><span class="n">sheep_n_goats</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.7/dist-packages/pandas/core/strings.py:2001: UserWarning: This pattern has match groups. To actually get the groups, use str.extract.
+  return func(self, *args, **kwargs)
+/usr/local/lib/python3.7/dist-packages/ipykernel_launcher.py:18: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">commodities_by_year</span> <span class="o">=</span> <span class="n">valid_counts</span><span class="p">[[</span><span class="s1">&#39;lemma&#39;</span><span class="p">,</span> <span class="s1">&#39;min_year&#39;</span><span class="p">,</span> <span class="s1">&#39;comm_count&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;lemma&#39;</span><span class="p">,</span> <span class="s1">&#39;min_year&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sheep_n_goats_by_year</span> <span class="o">=</span> <span class="n">sheep_n_goats</span><span class="p">[[</span><span class="s1">&#39;lemma&#39;</span><span class="p">,</span> <span class="s1">&#39;min_year&#39;</span><span class="p">,</span> <span class="s1">&#39;comm_count&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;lemma&#39;</span><span class="p">,</span> <span class="s1">&#39;min_year&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">commodities_by_year</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span> <span class="o">=</span> <span class="s1">&#39;comm_count&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>comm_count</th>
+    </tr>
+    <tr>
+      <th>lemma</th>
+      <th>min_year</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="2" valign="top">udu[sheep]N</th>
+      <th>71.0</th>
+      <td>91183.000000</td>
+    </tr>
+    <tr>
+      <th>70.0</th>
+      <td>87813.000000</td>
+    </tr>
+    <tr>
+      <th>x[NA]NA</th>
+      <th>70.0</th>
+      <td>85703.000000</td>
+    </tr>
+    <tr>
+      <th>gun[load]N</th>
+      <th>85.0</th>
+      <td>82026.000000</td>
+    </tr>
+    <tr>
+      <th>itud[moon]N</th>
+      <th>83.0</th>
+      <td>55220.000000</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <th>...</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>ma-na[]PN</th>
+      <th>63.0</th>
+      <td>0.500000</td>
+    </tr>
+    <tr>
+      <th>a-geš-IGI-ri[]PN</th>
+      <th>83.0</th>
+      <td>0.500000</td>
+    </tr>
+    <tr>
+      <th>niŋlalarum[dessert]N</th>
+      <th>84.0</th>
+      <td>0.500000</td>
+    </tr>
+    <tr>
+      <th>išah[lard]N</th>
+      <th>70.0</th>
+      <td>0.500000</td>
+    </tr>
+    <tr>
+      <th>šu-{d}iškur[]PN</th>
+      <th>58.0</th>
+      <td>0.333333</td>
+    </tr>
+  </tbody>
+</table>
+<p>2688 rows × 1 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tablets_by_time</span> <span class="o">=</span> <span class="n">words_df</span><span class="p">[(</span><span class="n">words_df</span><span class="p">[</span><span class="s1">&#39;questionable&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">False</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">words_df</span><span class="p">[</span><span class="s1">&#39;metadata_source_x&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;BDTNS&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">words_df</span><span class="p">[</span><span class="s1">&#39;multiple_dates&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">False</span><span class="p">)][[</span><span class="s1">&#39;min_year&#39;</span><span class="p">,</span> <span class="s1">&#39;id_text&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span> <span class="o">=</span> <span class="s1">&#39;min_year&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words_by_time</span> <span class="o">=</span> <span class="n">words_df</span><span class="p">[(</span><span class="n">words_df</span><span class="p">[</span><span class="s1">&#39;questionable&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">False</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">words_df</span><span class="p">[</span><span class="s1">&#39;metadata_source_x&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;BDTNS&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">words_df</span><span class="p">[</span><span class="s1">&#39;multiple_dates&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">False</span><span class="p">)][[</span><span class="s1">&#39;min_year&#39;</span><span class="p">,</span> <span class="s1">&#39;id_text&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span> <span class="o">=</span> <span class="s1">&#39;min_year&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">((</span><span class="n">commodities_by_year</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;udu[sheep]N&#39;</span><span class="p">][</span><span class="s1">&#39;comm_count&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">tablets_by_time</span><span class="p">[</span><span class="s1">&#39;id_text&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">commodities_by_year</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;udu[sheep]N&#39;</span><span class="p">][</span><span class="s1">&#39;comm_count&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">tablets_by_time</span><span class="p">[</span><span class="s1">&#39;id_text&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">((</span><span class="n">commodities_by_year</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;maš[goat]N&#39;</span><span class="p">][</span><span class="s1">&#39;comm_count&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">tablets_by_time</span><span class="p">[</span><span class="s1">&#39;id_text&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">commodities_by_year</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;maš[goat]N&#39;</span><span class="p">][</span><span class="s1">&#39;comm_count&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">tablets_by_time</span><span class="p">[</span><span class="s1">&#39;id_text&#39;</span><span class="p">])</span>
+<span class="c1">#plt.plot(commodities_by_year.loc[&#39;maš[goat]N&#39;].index,  commodities_by_year.loc[&#39;maš[goat]N&#39;][&#39;comm_count&#39;]/tablets_by_time[&#39;id_text&#39;])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tablets_by_time</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">tablets_by_time</span><span class="o">/</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f3698f827d0&gt;]
+</pre></div>
+</div>
+<img alt="_images/PartVII-CommoditiesCounting_40_1.png" src="_images/PartVII-CommoditiesCounting_40_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">((</span><span class="n">sheep_n_goats_by_year</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;udu[sheep]N&#39;</span><span class="p">][</span><span class="s1">&#39;comm_count&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">tablets_by_time</span><span class="p">[</span><span class="s1">&#39;id_text&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">sheep_n_goats_by_year</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;udu[sheep]N&#39;</span><span class="p">][</span><span class="s1">&#39;comm_count&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">tablets_by_time</span><span class="p">[</span><span class="s1">&#39;id_text&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">((</span><span class="n">sheep_n_goats_by_year</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;maš[goat]N&#39;</span><span class="p">][</span><span class="s1">&#39;comm_count&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">tablets_by_time</span><span class="p">[</span><span class="s1">&#39;id_text&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">sheep_n_goats_by_year</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;maš[goat]N&#39;</span><span class="p">][</span><span class="s1">&#39;comm_count&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">tablets_by_time</span><span class="p">[</span><span class="s1">&#39;id_text&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tablets_by_time</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">tablets_by_time</span><span class="o">/</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f3698f631d0&gt;]
+</pre></div>
+</div>
+<img alt="_images/PartVII-CommoditiesCounting_41_1.png" src="_images/PartVII-CommoditiesCounting_41_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">((</span><span class="n">commodities_by_year</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;udu[sheep]N&#39;</span><span class="p">][</span><span class="s1">&#39;comm_count&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">words_by_time</span><span class="p">[</span><span class="s1">&#39;id_text&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">commodities_by_year</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;udu[sheep]N&#39;</span><span class="p">][</span><span class="s1">&#39;comm_count&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">words_by_time</span><span class="p">[</span><span class="s1">&#39;id_text&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f3698f3d950&gt;]
+</pre></div>
+</div>
+<img alt="_images/PartVII-CommoditiesCounting_42_1.png" src="_images/PartVII-CommoditiesCounting_42_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">relative_spike</span> <span class="o">=</span> <span class="p">(</span><span class="n">commodities_by_year</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;udu[sheep]N&#39;</span><span class="p">][</span><span class="s1">&#39;comm_count&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">words_by_time</span><span class="p">[</span><span class="s1">&#39;id_text&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">relative_spike</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>min_year
+79.0    3.415813
+70.0    2.996315
+71.0    2.518033
+47.0    2.232092
+60.0    2.089681
+68.0    2.009363
+81.0    1.976220
+74.0    1.852672
+75.0    1.787211
+66.0    1.785718
+73.0    1.743820
+72.0    1.717206
+82.0    1.666760
+83.0    1.517521
+84.0    1.450986
+78.0    1.407816
+65.0    1.250905
+80.0    1.245296
+77.0    1.225937
+58.0    1.174519
+63.0    1.074880
+86.0    1.038360
+64.0    0.981723
+51.0    0.713147
+85.0    0.710645
+61.0    0.697853
+76.0    0.678775
+69.0    0.648679
+59.0    0.575142
+48.0    0.554688
+67.0    0.550728
+62.0    0.488782
+52.0    0.238155
+57.0    0.235935
+53.0    0.151741
+49.0    0.151239
+54.0    0.118158
+87.0    0.113158
+50.0    0.057937
+55.0    0.050339
+56.0    0.037833
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">commodities_by_year</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;u[ewe]N&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">commodities_by_year</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;u[ewe]N&#39;</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">90</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(30.0, 90.0)
+</pre></div>
+</div>
+<img alt="_images/PartVII-CommoditiesCounting_45_1.png" src="_images/PartVII-CommoditiesCounting_45_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="exploring-expenditure-texts">
+<h2>5 Exploring Expenditure Texts<a class="headerlink" href="#exploring-expenditure-texts" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">delivery_by_year</span> <span class="o">=</span> <span class="n">valid_counts</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">valid_counts</span><span class="p">[</span><span class="s1">&#39;delivery&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;lemma&#39;</span><span class="p">,</span> <span class="s1">&#39;min_year&#39;</span><span class="p">,</span> <span class="s1">&#39;comm_count&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;lemma&#39;</span><span class="p">,</span> <span class="s1">&#39;min_year&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">expenditure_by_year</span> <span class="o">=</span> <span class="n">valid_counts</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">valid_counts</span><span class="p">[</span><span class="s1">&#39;expenditure&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;lemma&#39;</span><span class="p">,</span> <span class="s1">&#39;min_year&#39;</span><span class="p">,</span> <span class="s1">&#39;comm_count&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;lemma&#39;</span><span class="p">,</span> <span class="s1">&#39;min_year&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">both_by_year</span> <span class="o">=</span>  <span class="n">valid_counts</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">valid_counts</span><span class="p">[</span><span class="s1">&#39;delivery_or_expenditure&#39;</span><span class="p">]</span> <span class="p">,</span> <span class="p">[</span><span class="s1">&#39;lemma&#39;</span><span class="p">,</span> <span class="s1">&#39;min_year&#39;</span><span class="p">,</span> <span class="s1">&#39;comm_count&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;lemma&#39;</span><span class="p">,</span> <span class="s1">&#39;min_year&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A comparison of udu and mash (per tablet) over time in expenditure texts.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expenditure_by_year</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;ninda[bread]N&#39;</span><span class="p">][</span><span class="s1">&#39;comm_count&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>min_year
+58.0    120.0
+61.0     60.0
+65.0    140.0
+75.0    250.0
+Name: comm_count, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">((</span><span class="n">expenditure_by_year</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;udu[sheep]N&#39;</span><span class="p">][</span><span class="s1">&#39;comm_count&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">tablets_by_time</span><span class="p">[</span><span class="s1">&#39;id_text&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">expenditure_by_year</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;udu[sheep]N&#39;</span><span class="p">][</span><span class="s1">&#39;comm_count&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">tablets_by_time</span><span class="p">[</span><span class="s1">&#39;id_text&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">((</span><span class="n">expenditure_by_year</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;maš[goat]N&#39;</span><span class="p">][</span><span class="s1">&#39;comm_count&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">tablets_by_time</span><span class="p">[</span><span class="s1">&#39;id_text&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">expenditure_by_year</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;maš[goat]N&#39;</span><span class="p">][</span><span class="s1">&#39;comm_count&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">tablets_by_time</span><span class="p">[</span><span class="s1">&#39;id_text&#39;</span><span class="p">])</span>
+<span class="c1">#plt.plot((expenditure_by_year.loc[&#39;gun[load]N&#39;][&#39;comm_count&#39;]/tablets_by_time[&#39;id_text&#39;]).index, expenditure_by_year.loc[&#39;gun[load]N&#39;][&#39;comm_count&#39;]/tablets_by_time[&#39;id_text&#39;])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">((</span><span class="n">expenditure_by_year</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;gud[ox]N&#39;</span><span class="p">][</span><span class="s1">&#39;comm_count&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">tablets_by_time</span><span class="p">[</span><span class="s1">&#39;id_text&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">expenditure_by_year</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;gud[ox]N&#39;</span><span class="p">][</span><span class="s1">&#39;comm_count&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">tablets_by_time</span><span class="p">[</span><span class="s1">&#39;id_text&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">((</span><span class="n">expenditure_by_year</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;ninda[bread]N&#39;</span><span class="p">][</span><span class="s1">&#39;comm_count&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">tablets_by_time</span><span class="p">[</span><span class="s1">&#39;id_text&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">expenditure_by_year</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;ninda[bread]N&#39;</span><span class="p">][</span><span class="s1">&#39;comm_count&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">tablets_by_time</span><span class="p">[</span><span class="s1">&#39;id_text&#39;</span><span class="p">])</span>
+
+
+<span class="c1">#plt.plot(commodities_by_year.loc[&#39;maš[goat]N&#39;].index,  commodities_by_year.loc[&#39;maš[goat]N&#39;][&#39;comm_count&#39;]/tablets_by_time[&#39;id_text&#39;])</span>
+<span class="c1">#plt.plot(tablets_by_time.index, tablets_by_time/10)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f3698e1a650&gt;]
+</pre></div>
+</div>
+<img alt="_images/PartVII-CommoditiesCounting_50_1.png" src="_images/PartVII-CommoditiesCounting_50_1.png" />
+</div>
+</div>
+<p>A comparison of udu in expediture and delivery texts.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">((</span><span class="n">expenditure_by_year</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;udu[sheep]N&#39;</span><span class="p">][</span><span class="s1">&#39;comm_count&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">tablets_by_time</span><span class="p">[</span><span class="s1">&#39;id_text&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">expenditure_by_year</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;udu[sheep]N&#39;</span><span class="p">][</span><span class="s1">&#39;comm_count&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">tablets_by_time</span><span class="p">[</span><span class="s1">&#39;id_text&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">((</span><span class="n">delivery_by_year</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;udu[sheep]N&#39;</span><span class="p">][</span><span class="s1">&#39;comm_count&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">tablets_by_time</span><span class="p">[</span><span class="s1">&#39;id_text&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">delivery_by_year</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;udu[sheep]N&#39;</span><span class="p">][</span><span class="s1">&#39;comm_count&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">tablets_by_time</span><span class="p">[</span><span class="s1">&#39;id_text&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f3698d892d0&gt;]
+</pre></div>
+</div>
+<img alt="_images/PartVII-CommoditiesCounting_52_1.png" src="_images/PartVII-CommoditiesCounting_52_1.png" />
+</div>
+</div>
+<p>A raw comparison of udu and mash in expenditure texts (not adjusted for number of tablets).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">((</span><span class="n">expenditure_by_year</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;udu[sheep]N&#39;</span><span class="p">][</span><span class="s1">&#39;comm_count&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">expenditure_by_year</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;udu[sheep]N&#39;</span><span class="p">][</span><span class="s1">&#39;comm_count&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">((</span><span class="n">expenditure_by_year</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;maš[goat]N&#39;</span><span class="p">][</span><span class="s1">&#39;comm_count&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">expenditure_by_year</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;maš[goat]N&#39;</span><span class="p">][</span><span class="s1">&#39;comm_count&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f369a23a250&gt;]
+</pre></div>
+</div>
+<img alt="_images/PartVII-CommoditiesCounting_54_1.png" src="_images/PartVII-CommoditiesCounting_54_1.png" />
+</div>
+</div>
+<p>A comparison of udu and mash in delivery (also adjusted).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">((</span><span class="n">delivery_by_year</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;udu[sheep]N&#39;</span><span class="p">][</span><span class="s1">&#39;comm_count&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">tablets_by_time</span><span class="p">[</span><span class="s1">&#39;id_text&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">delivery_by_year</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;udu[sheep]N&#39;</span><span class="p">][</span><span class="s1">&#39;comm_count&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">tablets_by_time</span><span class="p">[</span><span class="s1">&#39;id_text&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">((</span><span class="n">delivery_by_year</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;maš[goat]N&#39;</span><span class="p">][</span><span class="s1">&#39;comm_count&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">tablets_by_time</span><span class="p">[</span><span class="s1">&#39;id_text&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">delivery_by_year</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;maš[goat]N&#39;</span><span class="p">][</span><span class="s1">&#39;comm_count&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">tablets_by_time</span><span class="p">[</span><span class="s1">&#39;id_text&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f3699b63690&gt;]
+</pre></div>
+</div>
+<img alt="_images/PartVII-CommoditiesCounting_56_1.png" src="_images/PartVII-CommoditiesCounting_56_1.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="PartVI-GeographicNames.html" title="previous page">VI. Geography</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

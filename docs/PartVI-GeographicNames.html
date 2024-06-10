@@ -1,0 +1,1739 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VI. Geography &#8212; Sumerian Networks</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="VII. Commodities Counting" href="PartVII-CommoditiesCounting.html" />
+    <link rel="prev" title="V. Identifying Attributes of the Proper Names (PN): Professions and Roles" href="PartV-IdentifyingAttributesoftheProperNames%28PN%29-ProfessionsandRoles.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      <img src="_static/sumnet.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Sumerian Networks</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="welcome.html">
+   Sumerian Networks JupyterBook
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="PartI-ExtractLemmatizationfromJSON.html">
+   I. Importing the Data and Extracting Lemmatization from JSON
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="PartII-N-gramNeighborsoftheProperNames%28PN%29.html">
+   II. N-gram Neighbors of the Proper Names (PN)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="PartIII-HarmonizingYearNameFormulaeandProcessingDates.html">
+   III. Harmonizing Year Name Formulae and Processing Dates
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="PartIV-ArchiveClassification.html">
+   IV. Archive Classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="PartV-IdentifyingAttributesoftheProperNames%28PN%29-ProfessionsandRoles.html">
+   V. Identifying Attributes of the Proper Names (PN): Professions and Roles
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   VI. Geography
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="PartVII-CommoditiesCounting.html">
+   VII. Commodities Counting
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/PartVI-GeographicNames.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/niekveldhuis/sumnet/master?urlpath=tree/book/PartVI-GeographicNames.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/niekveldhuis/sumnet/blob/master/book/PartVI-GeographicNames.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="vi-geography">
+<h1>VI. Geography<a class="headerlink" href="#vi-geography" title="Permalink to this headline">¶</a></h1>
+<p>In this section, we make use of the <a class="reference external" href="https://www.lingfil.uu.se/research/assyriology/earth/">Geographic Data for Ancient Near Eastern Archaeological Sites</a> from Professor <a class="reference external" href="https://katalog.uu.se/profile/?id=N94-579">Olof Pedersén</a> at Uppsala University to locate some of the geographic names appeared in the Drehem texts.</p>
+<p>We will use fuzzy search to find matches between the ANE files and our texts, and then use the geographic locations in the ANE to plot those that appear in our texts.</p>
+<p>The following installs and imports the relevant libararies.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+<span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Drive already mounted at /content/drive; to attempt to forcibly remount, call drive.mount(&quot;/content/drive&quot;, force_remount=True).
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">cd</span> &quot;drive/My Drive/SumerianNetworks&quot;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Errno 2] No such file or directory: &#39;drive/My Drive/SumerianNetworks&#39;
+/content/drive/My Drive/SumerianNetworks
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install geopandas
+<span class="o">!</span>pip install descartes
+<span class="o">!</span>pip install pysal
+<span class="o">!</span>pip install fuzzywuzzy
+<span class="o">!</span>pip install python-Levenshtein
+<span class="o">!</span>pip install NetworkX
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+<span class="kn">from</span> <span class="nn">fuzzywuzzy</span> <span class="kn">import</span> <span class="n">fuzz</span> 
+<span class="kn">from</span> <span class="nn">fuzzywuzzy</span> <span class="kn">import</span> <span class="n">process</span> 
+<span class="kn">import</span> <span class="nn">fiona</span>
+<span class="n">fiona</span><span class="o">.</span><span class="n">drvsupport</span><span class="o">.</span><span class="n">supported_drivers</span><span class="p">[</span><span class="s1">&#39;kml&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;rw&#39;</span> <span class="c1"># enable KML support which is disabled by default</span>
+<span class="n">fiona</span><span class="o">.</span><span class="n">drvsupport</span><span class="o">.</span><span class="n">supported_drivers</span><span class="p">[</span><span class="s1">&#39;KML&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;rw&#39;</span> <span class="c1"># enable KML support which is disabled by defaults</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.7/dist-packages/geopandas/_compat.py:110: UserWarning: The Shapely GEOS version (3.8.0-CAPI-1.13.1 ) is incompatible with the GEOS version PyGEOS was compiled with (3.9.1-CAPI-1.14.2). Conversions between both will be slow.
+  shapely_geos_version, geos_capi_version_string
+</pre></div>
+</div>
+</div>
+</div>
+<p>We first import filtered Drehem data and extract all the geographic names: SN (settlement name), TN (temple name), AN, FN (field name), QN (quarter name), WN (water course name).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">drehem</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;JupyterBook/words_df.csv&quot;</span><span class="p">)</span>
+<span class="n">drehem</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>lemma</th>
+      <th>id_text</th>
+      <th>id_line</th>
+      <th>id_word</th>
+      <th>label</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>1(geš₂)[]NU</td>
+      <td>P113959</td>
+      <td>3</td>
+      <td>P113959.3.1</td>
+      <td>o 1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>1(u)[]NU</td>
+      <td>P113959</td>
+      <td>3</td>
+      <td>P113959.3.2</td>
+      <td>o 1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>6(aš)[]NU</td>
+      <td>P113959</td>
+      <td>3</td>
+      <td>P113959.3.3</td>
+      <td>o 1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>4(barig)[]NU</td>
+      <td>P113959</td>
+      <td>3</td>
+      <td>P113959.3.4</td>
+      <td>o 1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>3(ban₂)[]NU</td>
+      <td>P113959</td>
+      <td>3</td>
+      <td>P113959.3.5</td>
+      <td>o 1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">drehem</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3175331, 6)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">geo_names</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">p_number</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="n">places</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">geo_names_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1">#SN (settlement name), TN (temple name), AN, FN (field name), QN (quarter name), WN (water course name)</span>
+<span class="c1">#remove year names</span>
+<span class="n">types</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;SN&quot;</span><span class="p">,</span> <span class="s2">&quot;TN&quot;</span><span class="p">,</span> <span class="s2">&quot;AN&quot;</span><span class="p">,</span> <span class="s2">&quot;FN&quot;</span><span class="p">,</span> <span class="s2">&quot;QN&quot;</span><span class="p">,</span> <span class="s2">&quot;WN&quot;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">drehem</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+      <span class="c1"># if row[&#39;id_word&#39;][:7] != p_number:</span>
+      <span class="c1">#     geo_names[p_number] = places</span>
+      <span class="c1">#     p_number = row[&#39;id_word&#39;][:7]</span>
+      <span class="c1">#     places = []</span>
+      <span class="n">w</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;lemma&#39;</span><span class="p">]</span>
+      <span class="k">if</span> <span class="n">w</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span> <span class="ow">in</span> <span class="n">types</span><span class="p">:</span>
+          <span class="n">geo_names</span><span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;id_text&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">w</span>
+<span class="c1"># geo_names[p_number] = [places]</span>
+<span class="c1"># del geo_names[&#39;&#39;]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;ip&#39;</span><span class="p">:</span><span class="nb">list</span><span class="p">(</span><span class="n">geo_names</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span><span class="s1">&#39;geo_name&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">geo_names</span><span class="o">.</span><span class="n">values</span><span class="p">())}</span>
+<span class="n">geo_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">d</span><span class="p">)</span>
+<span class="n">geo_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ip</th>
+      <th>geo_name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>P125538</td>
+      <td>Nibru[1]SN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>P379198</td>
+      <td>hub₂-e[]FN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>P110676</td>
+      <td>e-su-dar[]FN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>P388027</td>
+      <td>Irisaŋrig[1]SN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>P118246</td>
+      <td>Gaeš[1]SN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Now we remove the suffixes and leave just the geographical names. (eg. “[00]SN”).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">remove_tail</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;[&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">non_emp_geo</span> <span class="o">=</span> <span class="n">geo_df</span>
+<span class="n">non_emp_geo</span><span class="p">[</span><span class="s2">&quot;cleaned_geo_name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">non_emp_geo</span><span class="p">[</span><span class="s2">&quot;geo_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">remove_tail</span><span class="p">)</span>
+<span class="n">non_emp_geo</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ip</th>
+      <th>geo_name</th>
+      <th>cleaned_geo_name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>P125538</td>
+      <td>Nibru[1]SN</td>
+      <td>Nibru</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>P379198</td>
+      <td>hub₂-e[]FN</td>
+      <td>hub₂-e</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>P110676</td>
+      <td>e-su-dar[]FN</td>
+      <td>e-su-dar</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>P388027</td>
+      <td>Irisaŋrig[1]SN</td>
+      <td>Irisaŋrig</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>P118246</td>
+      <td>Gaeš[1]SN</td>
+      <td>Gaeš</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We now import the ANE KMZ files. Make sure you have the latest files from <a class="reference external" href="https://www.lingfil.uu.se/research/assyriology/earth/">here</a> and change the file name below accordingly.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">location</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;JupyterBook/jupyter_collection/04_Geographic_Names/geopandas_intro/data/sites.kml&#39;</span><span class="p">,</span> <span class="n">driver</span><span class="o">=</span><span class="s1">&#39;KML&#39;</span><span class="p">,</span><span class="n">layer</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">location</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">location</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2857, 3)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Adab (Bismaya)</td>
+      <td></td>
+      <td>POINT Z (45.62386 31.95071 0.00000)</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Abydos</td>
+      <td></td>
+      <td>POINT Z (31.91906 26.18509 0.00000)</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Adamdun? (Teppe Surkhehgan)</td>
+      <td></td>
+      <td>POINT Z (48.79814 32.02168 0.00000)</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Admannu / Natmane (Tell 'Ali)</td>
+      <td></td>
+      <td>POINT Z (43.68200 35.38198 0.00000)</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Adumatu? (Dumat el-Jandal)</td>
+      <td></td>
+      <td>POINT Z (39.86723 29.81135 0.00000)</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Since the <code class="docutils literal notranslate"><span class="pre">Name</span></code> column contains both the modern name and ancient name of the same place, we will convert them into a list for matching purpose.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">parse_names</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Takes in a string (eg. Adamdun? (Teppe Surkhehgan))</span>
+<span class="sd">    Returns a tuple of list of names, and whether </span>
+<span class="sd">    or not there&#39;s doubts (&#39;?&#39;) on the ancient name (0/1).</span>
+<span class="sd">    In case there</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">names</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">ancient_names</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">modern_names</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">if</span> <span class="s1">&#39;?&#39;</span> <span class="ow">in</span> <span class="n">string</span><span class="p">:</span>
+        <span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;?&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s1">&#39;(&#39;</span> <span class="ow">in</span> <span class="n">string</span><span class="p">:</span>
+        <span class="n">ancient_names</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;(&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">modern_names</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;(&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;)&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="s1">&#39;/&#39;</span> <span class="ow">in</span> <span class="n">modern_names</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">modern_names</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">):</span>
+                <span class="n">names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">modern_names</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ancient_names</span> <span class="o">=</span> <span class="n">string</span>
+    
+    <span class="k">if</span> <span class="s1">&#39;/&#39;</span> <span class="ow">in</span> <span class="n">ancient_names</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">ancient_names</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">):</span>
+            <span class="n">names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ancient_names</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">names</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">location</span><span class="p">[</span><span class="s2">&quot;Name (in list)&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">location</span><span class="p">[</span><span class="s2">&quot;Name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">parse_names</span><span class="p">)</span>
+<span class="n">location</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>geometry</th>
+      <th>Name (in list)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Adab (Bismaya)</td>
+      <td></td>
+      <td>POINT Z (45.62386 31.95071 0.00000)</td>
+      <td>[Bismaya, Adab ]</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Abydos</td>
+      <td></td>
+      <td>POINT Z (31.91906 26.18509 0.00000)</td>
+      <td>[Abydos]</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Adamdun? (Teppe Surkhehgan)</td>
+      <td></td>
+      <td>POINT Z (48.79814 32.02168 0.00000)</td>
+      <td>[Teppe Surkhehgan, Adamdun ]</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Admannu / Natmane (Tell 'Ali)</td>
+      <td></td>
+      <td>POINT Z (43.68200 35.38198 0.00000)</td>
+      <td>[Tell 'Ali, Admannu ,  Natmane ]</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Adumatu? (Dumat el-Jandal)</td>
+      <td></td>
+      <td>POINT Z (39.86723 29.81135 0.00000)</td>
+      <td>[Dumat el-Jandal, Adumatu ]</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>There are also columns with a question mark indicating if there’s any doubt in the ancient and moden name equivalence, we will make a new column <code class="docutils literal notranslate"><span class="pre">Doubt?</span></code> indicating that information.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">location</span><span class="p">[</span><span class="s2">&quot;Doubt?&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">location</span><span class="p">[</span><span class="s2">&quot;Name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">string</span><span class="p">:</span> <span class="s1">&#39;?&#39;</span> <span class="ow">in</span> <span class="n">string</span><span class="p">)</span>
+<span class="n">location</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>geometry</th>
+      <th>Name (in list)</th>
+      <th>Doubt?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Adab (Bismaya)</td>
+      <td></td>
+      <td>POINT Z (45.62386 31.95071 0.00000)</td>
+      <td>[Bismaya, Adab ]</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Abydos</td>
+      <td></td>
+      <td>POINT Z (31.91906 26.18509 0.00000)</td>
+      <td>[Abydos]</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Adamdun? (Teppe Surkhehgan)</td>
+      <td></td>
+      <td>POINT Z (48.79814 32.02168 0.00000)</td>
+      <td>[Teppe Surkhehgan, Adamdun ]</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Admannu / Natmane (Tell 'Ali)</td>
+      <td></td>
+      <td>POINT Z (43.68200 35.38198 0.00000)</td>
+      <td>[Tell 'Ali, Admannu ,  Natmane ]</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Adumatu? (Dumat el-Jandal)</td>
+      <td></td>
+      <td>POINT Z (39.86723 29.81135 0.00000)</td>
+      <td>[Dumat el-Jandal, Adumatu ]</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Now expand <code class="docutils literal notranslate"><span class="pre">location</span></code> into one name for each row.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">location_expanded</span> <span class="o">=</span> <span class="n">location</span><span class="o">.</span><span class="n">explode</span><span class="p">(</span><span class="s2">&quot;Name (in list)&quot;</span><span class="p">)</span>
+<span class="n">location_expanded</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>geometry</th>
+      <th>Name (in list)</th>
+      <th>Doubt?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Adab (Bismaya)</td>
+      <td></td>
+      <td>POINT Z (45.62386 31.95071 0.00000)</td>
+      <td>Bismaya</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Adab (Bismaya)</td>
+      <td></td>
+      <td>POINT Z (45.62386 31.95071 0.00000)</td>
+      <td>Adab</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Abydos</td>
+      <td></td>
+      <td>POINT Z (31.91906 26.18509 0.00000)</td>
+      <td>Abydos</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Adamdun? (Teppe Surkhehgan)</td>
+      <td></td>
+      <td>POINT Z (48.79814 32.02168 0.00000)</td>
+      <td>Teppe Surkhehgan</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Adamdun? (Teppe Surkhehgan)</td>
+      <td></td>
+      <td>POINT Z (48.79814 32.02168 0.00000)</td>
+      <td>Adamdun</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Now we have 5856 places.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">location_expanded</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(5856, 5)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we have both files (ANE file and our Drehem file) ready, we will match the geo names in these files. We will use the <code class="docutils literal notranslate"><span class="pre">fuzzywuzzy</span></code> library’s <code class="docutils literal notranslate"><span class="pre">WRatio</span></code>, which is more tolerant to small differences like capitalization and punctuation. You can try different methods.</p>
+<p>Note that the matching takes a fairly long time (&gt; 30 mins) to run.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fuzzy_search</span><span class="p">(</span><span class="n">geo_name</span><span class="p">):</span>
+  <span class="n">scores</span> <span class="o">=</span> <span class="n">location_expanded</span><span class="p">[</span><span class="s1">&#39;Name (in list)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">name</span><span class="p">:</span> <span class="n">fuzz</span><span class="o">.</span><span class="n">WRatio</span><span class="p">(</span><span class="n">geo_name</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+  
+  <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">location_expanded</span><span class="p">[</span><span class="n">scores</span><span class="o">&gt;</span><span class="mi">90</span><span class="p">][</span><span class="s1">&#39;Name&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">non_emp_geo</span><span class="p">[</span><span class="s1">&#39;fuzzy_match&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">non_emp_geo</span><span class="p">[</span><span class="s1">&#39;cleaned_geo_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">fuzzy_search</span><span class="p">)</span>
+<span class="n">non_emp_geo</span><span class="p">[</span><span class="n">non_emp_geo</span><span class="p">[</span><span class="s1">&#39;fuzzy_match&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="nb">len</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ip</th>
+      <th>geo_name</th>
+      <th>cleaned_geo_name</th>
+      <th>fuzzy_match</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>9</th>
+      <td>P121982</td>
+      <td>Umma[1]SN</td>
+      <td>Umma</td>
+      <td>[Umma (Tell Jokha)]</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>P465780</td>
+      <td>Umma[1]SN</td>
+      <td>Umma</td>
+      <td>[Umma (Tell Jokha)]</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>P141679</td>
+      <td>Umma[1]SN</td>
+      <td>Umma</td>
+      <td>[Umma (Tell Jokha)]</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>P100676</td>
+      <td>Umma[1]SN</td>
+      <td>Umma</td>
+      <td>[Umma (Tell Jokha)]</td>
+    </tr>
+    <tr>
+      <th>56</th>
+      <td>P131594</td>
+      <td>Umma[1]SN</td>
+      <td>Umma</td>
+      <td>[Umma (Tell Jokha)]</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>20679</th>
+      <td>P136415</td>
+      <td>Lagaš[1]SN</td>
+      <td>Lagaš</td>
+      <td>[Lagaš (El-Hiba)]</td>
+    </tr>
+    <tr>
+      <th>20684</th>
+      <td>P122006</td>
+      <td>Umma[1]SN</td>
+      <td>Umma</td>
+      <td>[Umma (Tell Jokha)]</td>
+    </tr>
+    <tr>
+      <th>20686</th>
+      <td>P218142</td>
+      <td>Umma[1]SN</td>
+      <td>Umma</td>
+      <td>[Umma (Tell Jokha)]</td>
+    </tr>
+    <tr>
+      <th>20690</th>
+      <td>P322761</td>
+      <td>Zabalam[1]SN</td>
+      <td>Zabalam</td>
+      <td>[Zabalam (Tulul Ibzaikh)]</td>
+    </tr>
+    <tr>
+      <th>20697</th>
+      <td>P378821</td>
+      <td>Isin[1]SN</td>
+      <td>Isin</td>
+      <td>[Isin (Ishan Bahriyat)]</td>
+    </tr>
+  </tbody>
+</table>
+<p>3802 rows × 4 columns</p>
+</div></div></div>
+</div>
+<p>If we set the matching score threshold to 90, we got 37 unique matches.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">matches</span> <span class="o">=</span> <span class="n">non_emp_geo</span><span class="p">[</span><span class="n">non_emp_geo</span><span class="p">[</span><span class="s1">&#39;fuzzy_match&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="nb">len</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">unique_matches</span> <span class="o">=</span> <span class="n">matches</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="s1">&#39;geo_name&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># unique_matches = matched[&#39;cleaned_geo_name&#39;].unique()</span>
+<span class="n">unique_matches</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ip</th>
+      <th>geo_name</th>
+      <th>cleaned_geo_name</th>
+      <th>fuzzy_match</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>P121982</td>
+      <td>Umma[1]SN</td>
+      <td>Umma</td>
+      <td>[Umma (Tell Jokha)]</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>P136601</td>
+      <td>Isin[1]SN</td>
+      <td>Isin</td>
+      <td>[Isin (Ishan Bahriyat)]</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>P110363</td>
+      <td>Anšan[1]SN</td>
+      <td>Anšan</td>
+      <td>[Anšan (Tell Malyan)]</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>P324788</td>
+      <td>Zabalam[1]SN</td>
+      <td>Zabalam</td>
+      <td>[Zabalam (Tulul Ibzaikh)]</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>P118180</td>
+      <td>Eridug[1]SN</td>
+      <td>Eridug</td>
+      <td>[Eridu (Tell Abu Shahrain)]</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">unique_matches</span><span class="p">[</span><span class="s1">&#39;fuzzy_match&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">unique_matches</span><span class="p">[</span><span class="s1">&#39;fuzzy_match&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">l</span><span class="p">:</span> <span class="n">l</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">unique_matches</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ip</th>
+      <th>geo_name</th>
+      <th>cleaned_geo_name</th>
+      <th>fuzzy_match</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>P121982</td>
+      <td>Umma[1]SN</td>
+      <td>Umma</td>
+      <td>Umma (Tell Jokha)</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>P136601</td>
+      <td>Isin[1]SN</td>
+      <td>Isin</td>
+      <td>Isin (Ishan Bahriyat)</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>P110363</td>
+      <td>Anšan[1]SN</td>
+      <td>Anšan</td>
+      <td>Anšan (Tell Malyan)</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>P324788</td>
+      <td>Zabalam[1]SN</td>
+      <td>Zabalam</td>
+      <td>Zabalam (Tulul Ibzaikh)</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>P118180</td>
+      <td>Eridug[1]SN</td>
+      <td>Eridug</td>
+      <td>Eridu (Tell Abu Shahrain)</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Here we saved the matches to drive so we can reuse it later.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">non_emp_geo</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;JupyterBook/jupyter_collection/04_Geographic_Names/working files/non_emp_geo.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we try to set the score to be &gt; 87.5. Note the following cell also runs a fairly long time.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fuzzy_search_875</span><span class="p">(</span><span class="n">geo_name</span><span class="p">):</span>
+  <span class="n">scores</span> <span class="o">=</span> <span class="n">location_expanded</span><span class="p">[</span><span class="s1">&#39;Name (in list)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">name</span><span class="p">:</span> <span class="n">fuzz</span><span class="o">.</span><span class="n">WRatio</span><span class="p">(</span><span class="n">geo_name</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+  
+  <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">location_expanded</span><span class="p">[</span><span class="n">scores</span><span class="o">&gt;</span><span class="mf">87.5</span><span class="p">][</span><span class="s1">&#39;Name&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">non_emp_geo</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;JupyterBook/jupyter_collection/04_Geographic_Names/working files/non_emp_geo.csv&quot;</span><span class="p">)</span>
+<span class="n">non_emp_geo</span><span class="p">[</span><span class="s1">&#39;fuzzy_match_875&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">non_emp_geo</span><span class="p">[</span><span class="s1">&#39;cleaned_geo_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">fuzzy_search_875</span><span class="p">)</span>
+<span class="n">non_emp_geo</span><span class="p">[</span><span class="n">non_emp_geo</span><span class="p">[</span><span class="s1">&#39;fuzzy_match_875&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="nb">len</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We got more matches, but some of them are not what we want.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">non_emp_geo</span><span class="p">[</span><span class="n">non_emp_geo</span><span class="p">[</span><span class="s1">&#39;fuzzy_match_875&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="nb">len</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;cleaned_geo_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see the subset of places which are not in the 33 matches with scores greater than 90 but are in matches with scores greater than 87.5. We can see some of them are not the same place, but there are places we missed in the 33.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">in875_notin_90</span> <span class="o">=</span> <span class="n">non_emp_geo</span><span class="p">[(</span><span class="n">non_emp_geo</span><span class="p">[</span><span class="s1">&#39;fuzzy_match&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="nb">len</span><span class="p">)</span><span class="o">==</span><span class="mi">2</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">non_emp_geo</span><span class="p">[</span><span class="s1">&#39;fuzzy_match_875&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="nb">len</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)]</span>
+<span class="n">in875_notin_90</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">in875_notin_90</span><span class="p">[</span><span class="n">in875_notin_90</span><span class="p">[</span><span class="s2">&quot;fuzzy_match_875&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">lst</span><span class="p">:</span> <span class="nb">any</span><span class="p">([</span><span class="n">s</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;Adamdun&#39;</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">lst</span><span class="p">]))]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since manually going over the names takes a lot of time and labor, we will focus on the 33 good matches at this time.</p>
+<p>Here we will add the coordinate information to the matched locations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_coordinates</span><span class="p">(</span><span class="nb">str</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">location</span><span class="p">[</span><span class="n">location</span><span class="p">[</span><span class="s2">&quot;Name&quot;</span><span class="p">]</span><span class="o">==</span><span class="nb">str</span><span class="p">][</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">s</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+<span class="n">unique_matches</span><span class="p">[</span><span class="s1">&#39;coordinates&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">unique_matches</span><span class="p">[</span><span class="s2">&quot;fuzzy_match&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">add_coordinates</span><span class="p">)</span>
+<span class="n">unique_matches</span> <span class="o">=</span> <span class="n">unique_matches</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">unique_matches</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ip</th>
+      <th>geo_name</th>
+      <th>cleaned_geo_name</th>
+      <th>fuzzy_match</th>
+      <th>coordinates</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>P121982</td>
+      <td>Umma[1]SN</td>
+      <td>Umma</td>
+      <td>Umma (Tell Jokha)</td>
+      <td>POINT Z (45.88767609164621 31.66743001625768 0)</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>P136601</td>
+      <td>Isin[1]SN</td>
+      <td>Isin</td>
+      <td>Isin (Ishan Bahriyat)</td>
+      <td>POINT Z (45.26937063450065 31.88437701508951 0)</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>P110363</td>
+      <td>Anšan[1]SN</td>
+      <td>Anšan</td>
+      <td>Anšan (Tell Malyan)</td>
+      <td>POINT Z (52.41066812180781 30.01111323889061 0)</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>P324788</td>
+      <td>Zabalam[1]SN</td>
+      <td>Zabalam</td>
+      <td>Zabalam (Tulul Ibzaikh)</td>
+      <td>POINT Z (45.87575461093311 31.74472924832169 0)</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>P118180</td>
+      <td>Eridug[1]SN</td>
+      <td>Eridug</td>
+      <td>Eridu (Tell Abu Shahrain)</td>
+      <td>POINT Z (45.99672447851623 30.81686971277664 0)</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Now we will use NetworkX to plot the locations in a graph. We have a few additional libraries to install and import.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install contextily
+<span class="o">!</span>pip install cartopy
+<span class="o">!</span>pip uninstall shapely
+<span class="o">!</span>pip install shapely --no-binary shapely
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: contextily in /usr/local/lib/python3.7/dist-packages (1.1.0)
+Requirement already satisfied: joblib in /usr/local/lib/python3.7/dist-packages (from contextily) (1.0.1)
+Requirement already satisfied: requests in /usr/local/lib/python3.7/dist-packages (from contextily) (2.23.0)
+Requirement already satisfied: pillow in /usr/local/lib/python3.7/dist-packages (from contextily) (7.1.2)
+Requirement already satisfied: matplotlib in /usr/local/lib/python3.7/dist-packages (from contextily) (3.2.2)
+Requirement already satisfied: mercantile in /usr/local/lib/python3.7/dist-packages (from contextily) (1.2.1)
+Requirement already satisfied: rasterio in /usr/local/lib/python3.7/dist-packages (from contextily) (1.2.3)
+Requirement already satisfied: geopy in /usr/local/lib/python3.7/dist-packages (from contextily) (1.17.0)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/local/lib/python3.7/dist-packages (from requests-&gt;contextily) (2020.12.5)
+Requirement already satisfied: chardet&lt;4,&gt;=3.0.2 in /usr/local/lib/python3.7/dist-packages (from requests-&gt;contextily) (3.0.4)
+Requirement already satisfied: urllib3!=1.25.0,!=1.25.1,&lt;1.26,&gt;=1.21.1 in /usr/local/lib/python3.7/dist-packages (from requests-&gt;contextily) (1.25.11)
+Requirement already satisfied: idna&lt;3,&gt;=2.5 in /usr/local/lib/python3.7/dist-packages (from requests-&gt;contextily) (2.10)
+Requirement already satisfied: numpy&gt;=1.11 in /usr/local/lib/python3.7/dist-packages (from matplotlib-&gt;contextily) (1.19.5)
+Requirement already satisfied: pyparsing!=2.0.4,!=2.1.2,!=2.1.6,&gt;=2.0.1 in /usr/local/lib/python3.7/dist-packages (from matplotlib-&gt;contextily) (2.4.7)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /usr/local/lib/python3.7/dist-packages (from matplotlib-&gt;contextily) (1.3.1)
+Requirement already satisfied: python-dateutil&gt;=2.1 in /usr/local/lib/python3.7/dist-packages (from matplotlib-&gt;contextily) (2.8.0)
+Requirement already satisfied: cycler&gt;=0.10 in /usr/local/lib/python3.7/dist-packages (from matplotlib-&gt;contextily) (0.10.0)
+Requirement already satisfied: click&gt;=3.0 in /usr/local/lib/python3.7/dist-packages (from mercantile-&gt;contextily) (7.1.2)
+Requirement already satisfied: cligj&gt;=0.5 in /usr/local/lib/python3.7/dist-packages (from rasterio-&gt;contextily) (0.7.1)
+Requirement already satisfied: affine in /usr/local/lib/python3.7/dist-packages (from rasterio-&gt;contextily) (2.3.0)
+Requirement already satisfied: snuggs&gt;=1.4.1 in /usr/local/lib/python3.7/dist-packages (from rasterio-&gt;contextily) (1.4.7)
+Requirement already satisfied: click-plugins in /usr/local/lib/python3.7/dist-packages (from rasterio-&gt;contextily) (1.1.1)
+Requirement already satisfied: attrs in /usr/local/lib/python3.7/dist-packages (from rasterio-&gt;contextily) (21.2.0)
+Requirement already satisfied: geographiclib&lt;2,&gt;=1.49 in /usr/local/lib/python3.7/dist-packages (from geopy-&gt;contextily) (1.50)
+Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.7/dist-packages (from python-dateutil&gt;=2.1-&gt;matplotlib-&gt;contextily) (1.15.0)
+Requirement already satisfied: cartopy in /usr/local/lib/python3.7/dist-packages (0.19.0.post1)
+Requirement already satisfied: pyshp&gt;=2 in /usr/local/lib/python3.7/dist-packages (from cartopy) (2.1.3)
+Requirement already satisfied: shapely&gt;=1.5.6 in /usr/local/lib/python3.7/dist-packages (from cartopy) (1.7.1)
+Requirement already satisfied: numpy&gt;=1.13.3 in /usr/local/lib/python3.7/dist-packages (from cartopy) (1.19.5)
+Uninstalling Shapely-1.7.1:
+  Would remove:
+    /usr/local/lib/python3.7/dist-packages/Shapely-1.7.1-py3.7.egg-info
+    /usr/local/lib/python3.7/dist-packages/shapely/*
+Proceed (y/n)? y
+  Successfully uninstalled Shapely-1.7.1
+Collecting shapely
+  Using cached https://files.pythonhosted.org/packages/42/f3/0e1bc2c4f15e05e30c6b99322b9ddaa2babb3f43bc7df2698efdc1553439/Shapely-1.7.1.tar.gz
+Skipping wheel build for shapely, due to binaries being disabled for it.
+<span class=" -Color -Color-Red">ERROR: albumentations 0.1.12 has requirement imgaug&lt;0.2.7,&gt;=0.2.5, but you&#39;ll have imgaug 0.2.9 which is incompatible.</span>
+Installing collected packages: shapely
+    Running setup.py install for shapely ... ?25l?25hdone
+Successfully installed shapely-1.7.1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">libpysal</span> <span class="kn">import</span> <span class="n">weights</span><span class="p">,</span> <span class="n">examples</span>
+<span class="kn">from</span> <span class="nn">contextily</span> <span class="kn">import</span> <span class="n">add_basemap</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">cartopy</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.7/dist-packages/geopandas/_compat.py:110: UserWarning: The Shapely GEOS version (3.6.2-CAPI-1.10.2 4d2925d6) is incompatible with the GEOS version PyGEOS was compiled with (3.9.1-CAPI-1.14.2). Conversions between both will be slow.
+  shapely_geos_version, geos_capi_version_string
+</pre></div>
+</div>
+</div>
+</div>
+<p>GeoPandas dataframe requires a <code class="docutils literal notranslate"><span class="pre">geometry</span></code> attribute, we construct <code class="docutils literal notranslate"><span class="pre">geo_um</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coordinates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">unique_matches</span><span class="p">[</span><span class="s2">&quot;coordinates&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">p</span><span class="p">:</span> <span class="n">p</span><span class="o">.</span><span class="n">x</span><span class="p">),</span> <span class="n">unique_matches</span><span class="p">[</span><span class="s2">&quot;coordinates&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">p</span><span class="p">:</span> <span class="n">p</span><span class="o">.</span><span class="n">y</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">geo_um</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">unique_matches</span><span class="p">,</span> <span class="n">geometry</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">unique_matches</span><span class="p">[</span><span class="s1">&#39;coordinates&#39;</span><span class="p">]))</span>
+<span class="n">geo_um</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ip</th>
+      <th>geo_name</th>
+      <th>cleaned_geo_name</th>
+      <th>fuzzy_match</th>
+      <th>coordinates</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>P121982</td>
+      <td>Umma[1]SN</td>
+      <td>Umma</td>
+      <td>Umma (Tell Jokha)</td>
+      <td>POINT Z (45.88767609164621 31.66743001625768 0)</td>
+      <td>POINT Z (45.88768 31.66743 0.00000)</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>P136601</td>
+      <td>Isin[1]SN</td>
+      <td>Isin</td>
+      <td>Isin (Ishan Bahriyat)</td>
+      <td>POINT Z (45.26937063450065 31.88437701508951 0)</td>
+      <td>POINT Z (45.26937 31.88438 0.00000)</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>P110363</td>
+      <td>Anšan[1]SN</td>
+      <td>Anšan</td>
+      <td>Anšan (Tell Malyan)</td>
+      <td>POINT Z (52.41066812180781 30.01111323889061 0)</td>
+      <td>POINT Z (52.41067 30.01111 0.00000)</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>P324788</td>
+      <td>Zabalam[1]SN</td>
+      <td>Zabalam</td>
+      <td>Zabalam (Tulul Ibzaikh)</td>
+      <td>POINT Z (45.87575461093311 31.74472924832169 0)</td>
+      <td>POINT Z (45.87575 31.74473 0.00000)</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>P118180</td>
+      <td>Eridug[1]SN</td>
+      <td>Eridug</td>
+      <td>Eridu (Tell Abu Shahrain)</td>
+      <td>POINT Z (45.99672447851623 30.81686971277664 0)</td>
+      <td>POINT Z (45.99672 30.81687 0.00000)</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We try to build connections using p-numbers: since the same geographic name can appear in multiple p-numbers, so we add an edge if two places appear in the same p-number. But unfortunately, we can’t find two places appearing in the same p-number, so instead we plotted a fully connected graph.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">matches</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ip</th>
+      <th>geo_name</th>
+      <th>cleaned_geo_name</th>
+      <th>fuzzy_match</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>9</th>
+      <td>P121982</td>
+      <td>Umma[1]SN</td>
+      <td>Umma</td>
+      <td>[Umma (Tell Jokha)]</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>P465780</td>
+      <td>Umma[1]SN</td>
+      <td>Umma</td>
+      <td>[Umma (Tell Jokha)]</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>P141679</td>
+      <td>Umma[1]SN</td>
+      <td>Umma</td>
+      <td>[Umma (Tell Jokha)]</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>P100676</td>
+      <td>Umma[1]SN</td>
+      <td>Umma</td>
+      <td>[Umma (Tell Jokha)]</td>
+    </tr>
+    <tr>
+      <th>56</th>
+      <td>P131594</td>
+      <td>Umma[1]SN</td>
+      <td>Umma</td>
+      <td>[Umma (Tell Jokha)]</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name_pnum</span> <span class="o">=</span> <span class="n">matches</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;cleaned_geo_name&#39;</span><span class="p">])[</span><span class="s1">&#39;ip&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;pnum&#39;</span><span class="p">)</span>
+<span class="n">name_pnum</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cleaned_geo_name</th>
+      <th>pnum</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Adab</td>
+      <td>[P325875, P126986, P458586, P123317, P201858, ...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Anšan</td>
+      <td>[P110363, P356008, P113518, P406257, P131214, ...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Awal</td>
+      <td>[P107255, P145800, P126531, P107256, P112023]</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Aššur</td>
+      <td>[P117479, P143751, P134727, P248907, P126176]</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Babila</td>
+      <td>[P101457, P129473, P119451, P103818]</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+
+<span class="c1">#Add nodes to the graph</span>
+<span class="k">for</span> <span class="n">place</span> <span class="ow">in</span> <span class="n">name_pnum</span><span class="p">[</span><span class="s1">&#39;cleaned_geo_name&#39;</span><span class="p">]:</span>
+  <span class="n">g</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">place</span><span class="p">)</span>
+
+<span class="c1">#Add edges</span>
+<span class="n">num_edges</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">place1</span> <span class="ow">in</span> <span class="n">name_pnum</span><span class="p">[</span><span class="s1">&#39;cleaned_geo_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">:</span>
+  <span class="k">for</span> <span class="n">place2</span> <span class="ow">in</span> <span class="n">name_pnum</span><span class="p">[</span><span class="s1">&#39;cleaned_geo_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">place1</span> <span class="o">!=</span> <span class="n">place2</span><span class="p">:</span>
+      <span class="n">weight</span> <span class="o">=</span> <span class="mi">1</span>
+      <span class="c1"># for pnum1 in name_pnum[name_pnum[&#39;cleaned_geo_name&#39;]==place1][&#39;pnum&#39;].values[0]:</span>
+      <span class="c1">#   for pnum2 in name_pnum[name_pnum[&#39;cleaned_geo_name&#39;]==place2][&#39;pnum&#39;].values[0]:</span>
+      <span class="c1">#     if pnum1 == pnum2:</span>
+      <span class="c1">#       weight += 1</span>
+      <span class="c1">#       num_edges += 1</span>
+      <span class="n">g</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">place1</span><span class="p">,</span> <span class="n">place2</span><span class="p">)</span>
+
+<span class="n">pos</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">place</span> <span class="ow">in</span> <span class="n">name_pnum</span><span class="p">[</span><span class="s1">&#39;cleaned_geo_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">:</span>
+  <span class="n">loc</span> <span class="o">=</span> <span class="n">unique_matches</span><span class="p">[</span><span class="n">unique_matches</span><span class="p">[</span><span class="s1">&#39;cleaned_geo_name&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">place</span><span class="p">][</span><span class="s2">&quot;coordinates&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+  <span class="n">pos</span><span class="p">[</span><span class="n">place</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">loc</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">loc</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">crs</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">()</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span>
+    <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">subplot_kw</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">crs</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">cartopy</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">OCEAN</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">cartopy</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">LAND</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">cartopy</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">LAKES</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">cartopy</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">RIVERS</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">gridlines</span><span class="p">()</span>
+<span class="c1"># Extent of .</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_extent</span><span class="p">([</span><span class="mi">30</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">40</span><span class="p">])</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+                 <span class="n">font_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+                 <span class="n">alpha</span><span class="o">=</span><span class="mf">.8</span><span class="p">,</span>
+                 <span class="n">width</span><span class="o">=</span><span class="mf">.075</span><span class="p">,</span>
+                 <span class="n">pos</span><span class="o">=</span><span class="n">pos</span><span class="p">,</span>
+                 <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">autumn</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can zoom in a little to the area where we have a lot of known geo names (around Drehem).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">crs</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">()</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span>
+    <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">subplot_kw</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">crs</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">cartopy</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">OCEAN</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">cartopy</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">LAND</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">cartopy</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">LAKES</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">cartopy</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">RIVERS</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">gridlines</span><span class="p">()</span>
+<span class="c1"># Extent of .</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_extent</span><span class="p">([</span><span class="mi">42</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">35</span><span class="p">])</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+                 <span class="n">font_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+                 <span class="n">alpha</span><span class="o">=</span><span class="mf">.8</span><span class="p">,</span>
+                 <span class="n">width</span><span class="o">=</span><span class="mf">.075</span><span class="p">,</span>
+                 <span class="n">pos</span><span class="o">=</span><span class="n">pos</span><span class="p">,</span>
+                 <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">autumn</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is in no way completed, potential next step might include interactive graphs like those realized in Gephi (potentially using Bokeh?) and explore other methods to set up edges (currently there are no two places with a same p number so I just simply connected them) and edge weights.</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="PartV-IdentifyingAttributesoftheProperNames%28PN%29-ProfessionsandRoles.html" title="previous page">V. Identifying Attributes of the Proper Names (PN): Professions and Roles</a>
+    <a class='right-next' id="next-link" href="PartVII-CommoditiesCounting.html" title="next page">VII. Commodities Counting</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

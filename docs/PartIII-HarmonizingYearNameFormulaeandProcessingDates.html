@@ -1,0 +1,733 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>III. Harmonizing Year Name Formulae and Processing Dates &#8212; Sumerian Networks</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="IV. Archive Classification" href="PartIV-ArchiveClassification.html" />
+    <link rel="prev" title="II. N-gram Neighbors of the Proper Names (PN)" href="PartII-N-gramNeighborsoftheProperNames%28PN%29.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      <img src="_static/sumnet.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Sumerian Networks</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="welcome.html">
+   Sumerian Networks JupyterBook
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="PartI-ExtractLemmatizationfromJSON.html">
+   I. Importing the Data and Extracting Lemmatization from JSON
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="PartII-N-gramNeighborsoftheProperNames%28PN%29.html">
+   II. N-gram Neighbors of the Proper Names (PN)
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   III. Harmonizing Year Name Formulae and Processing Dates
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="PartIV-ArchiveClassification.html">
+   IV. Archive Classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="PartV-IdentifyingAttributesoftheProperNames%28PN%29-ProfessionsandRoles.html">
+   V. Identifying Attributes of the Proper Names (PN): Professions and Roles
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="PartVI-GeographicNames.html">
+   VI. Geography
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="PartVII-CommoditiesCounting.html">
+   VII. Commodities Counting
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/PartIII-HarmonizingYearNameFormulaeandProcessingDates.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/niekveldhuis/sumnet/master?urlpath=tree/book/PartIII-HarmonizingYearNameFormulaeandProcessingDates.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/niekveldhuis/sumnet/blob/master/book/PartIII-HarmonizingYearNameFormulaeandProcessingDates.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#normalizing-bdtns-dates">
+   1 Normalizing BDTNS Dates
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#normalizing-cdli-date-strings">
+   2 Normalizing CDLI Date Strings
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#putting-it-all-together">
+   3 Putting it all Together
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#save-results-in-csv-file-and-pickle">
+   4 Save Results in CSV file and Pickle
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="iii-harmonizing-year-name-formulae-and-processing-dates">
+<h1>III. Harmonizing Year Name Formulae and Processing Dates<a class="headerlink" href="#iii-harmonizing-year-name-formulae-and-processing-dates" title="Permalink to this headline">¶</a></h1>
+<p>We now will convert the date field to a series of numerical entries representing the year, month, and day, as well as various special values, recorded on the tablet. This will allow us to perform time analysis on the data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import necessary libraries</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="s1">&#39;https://gitlab.com/yashila.bordag/sumnet-data/-/raw/main/part_2_output.p&#39;</span><span class="p">)</span> <span class="c1"># uncomment to read from online file</span>
+<span class="c1">#words_df = pd.read_pickle(&#39;output/part_2_output.p&#39;) #uncomment to read from local file</span>
+
+<span class="n">catalogue_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="s1">&#39;https://gitlab.com/yashila.bordag/sumnet-data/-/raw/main/part_1_catalogue.p&#39;</span><span class="p">)</span>
+<span class="c1">#catalogue_data = pd.read_pickle(&#39;output/part_1_catalogue.p&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>date_of_origin</th>
+      <th>dates_referenced</th>
+      <th>collection</th>
+      <th>primary_publication</th>
+      <th>museum_no</th>
+      <th>provenience</th>
+      <th>metadata_source</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>P100041</th>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AAS 053</td>
+      <td>AO 20313</td>
+      <td>Puzriš-Dagān</td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>P100189</th>
+      <td>SH46 - 08 - 05</td>
+      <td>SH46 - 08 - 05</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AAS 211</td>
+      <td>AO 20039</td>
+      <td>Puzriš-Dagān</td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>P100190</th>
+      <td>SH47 - 07 - 29</td>
+      <td>SH47 - 07 - 29</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AAS 212</td>
+      <td>AO 20051</td>
+      <td>Puzriš-Dagān</td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>P100191</th>
+      <td>AS01 - 03 - 24</td>
+      <td>AS01 - 03 - 24</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AAS 213</td>
+      <td>AO 20074</td>
+      <td>Puzriš-Dagān</td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>P100211</th>
+      <td>AS01 - 12 - 11</td>
+      <td>AS01 - 12 - 11</td>
+      <td>Museum of Fine Arts, Budapest, Hungary</td>
+      <td>ActSocHun Or 5-12, 156 2</td>
+      <td>MHBA 51.2400</td>
+      <td>Puzriš-Dagān</td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>P456164</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>CDLI Seals 003454 (composite)</td>
+      <td>NaN</td>
+      <td>Puzriš-Dagan (mod. Drehem)</td>
+      <td>ORACC</td>
+    </tr>
+    <tr>
+      <th>P459158</th>
+      <td>Ibbi-Suen.00.00.00</td>
+      <td>Ibbi-Suen.00.00.00</td>
+      <td>private: anonymous, unlocated</td>
+      <td>CDLI Seals 006338 (physical)</td>
+      <td>Anonymous 459158</td>
+      <td>Puzriš-Dagan (mod. Drehem)</td>
+      <td>ORACC</td>
+    </tr>
+    <tr>
+      <th>P481391</th>
+      <td>SH46 - 02 - 24</td>
+      <td>SH46 - 02 - 24</td>
+      <td>Department of Classics, University of Cincinna...</td>
+      <td>unpublished unassigned ?</td>
+      <td>UC CSC 1950</td>
+      <td>Puzriš-Dagān</td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>P481395</th>
+      <td>SS02 - 02 - 00</td>
+      <td>SS02 - 02 - 00</td>
+      <td>Department of Classics, University of Cincinna...</td>
+      <td>unpublished unassigned ?</td>
+      <td>UC CSC 1954</td>
+      <td>Puzriš-Dagān</td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>P517012</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>CDLI Seals 013964 (composite)</td>
+      <td>NaN</td>
+      <td>Puzriš-Dagan (mod. Drehem)</td>
+      <td>ORACC</td>
+    </tr>
+  </tbody>
+</table>
+<p>15671 rows × 7 columns</p>
+</div></div></div>
+</div>
+<div class="section" id="normalizing-bdtns-dates">
+<h2>1 Normalizing BDTNS Dates<a class="headerlink" href="#normalizing-bdtns-dates" title="Permalink to this headline">¶</a></h2>
+<p>In the ORACC metadata the field <code class="docutils literal notranslate"><span class="pre">date_of_origin</span></code> is formatted as <code class="docutils literal notranslate"><span class="pre">Amar-Suen.05.10.03</span></code>, meaning “5th regnal year of Amar-Suen; month 10, day 3”. The ORACC metadata are directly imported from CDLI. In general, BDTNS metadata tend to be more reliable than CDLI metadata. As such, wherever possible we will use the BDTNS date rather than the CDLI date.</p>
+<p>However, the strings for the dates are formatted differently in BDTNS. If the date were the same as the example given above, in the BDTNS format it would be represented by the string <code class="docutils literal notranslate"><span class="pre">AS05</span> <span class="pre">-</span> <span class="pre">10</span> <span class="pre">-</span> <span class="pre">03</span></code>. Moreover, BDTNS dates can sometimes contain additional information, like if the month was a diri month, or multiple dates on the same tablet. When present, this information could be of value later on, so we attempt to include as much of it as possible. In the following we will write two functions, the first to convert from BDTNS format to several numerical and boolean fields and the second to do the same for the CDLI format.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">inner_normalize_bdtns_date</span><span class="p">(</span><span class="n">bdtns_date</span><span class="p">):</span>
+      <span class="c1"># the normalized time each king&#39;s reign began, with Ur-Namma&#39;s first year</span>
+      <span class="c1"># of rule as year 0.</span>
+      <span class="n">reigns</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;UN&#39;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
+                <span class="s1">&#39;SH&#39;</span> <span class="p">:</span> <span class="mi">18</span><span class="p">,</span> 
+                <span class="s1">&#39;AS&#39;</span><span class="p">:</span> <span class="mi">66</span><span class="p">,</span> 
+                <span class="s1">&#39;SS&#39;</span> <span class="p">:</span> <span class="mi">75</span><span class="p">,</span> 
+                <span class="s1">&#39;IS&#39;</span> <span class="p">:</span> <span class="mi">84</span>
+                <span class="p">}</span>
+    
+      <span class="c1"># Sometimes a date string contains multiple dates seperated by &#39;//&#39;.</span>
+      <span class="c1"># In such a case we set the range of dates to go from the earliest</span>
+      <span class="c1"># date to the latest date.</span>
+      <span class="k">if</span> <span class="s1">&#39;//&#39;</span> <span class="ow">in</span> <span class="n">bdtns_date</span><span class="p">:</span>
+          <span class="n">dates</span> <span class="o">=</span> <span class="p">[</span><span class="n">normalize_bdtns_date</span><span class="p">(</span><span class="n">date</span><span class="p">)</span> <span class="k">for</span> <span class="n">date</span> <span class="ow">in</span> <span class="n">bdtns_date</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;//&#39;</span><span class="p">)]</span>
+          <span class="k">return</span> <span class="p">{</span>
+            <span class="s1">&#39;min_year&#39;</span><span class="p">:</span> <span class="nb">min</span><span class="p">([</span><span class="n">date</span><span class="p">[</span><span class="s1">&#39;min_year&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">date</span> <span class="ow">in</span> <span class="n">dates</span><span class="p">]),</span>
+            <span class="s1">&#39;max_year&#39;</span><span class="p">:</span> <span class="nb">max</span><span class="p">([</span><span class="n">date</span><span class="p">[</span><span class="s1">&#39;max_year&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">date</span> <span class="ow">in</span> <span class="n">dates</span><span class="p">]),</span>
+            <span class="s1">&#39;min_month&#39;</span><span class="p">:</span> <span class="nb">min</span><span class="p">([</span><span class="n">date</span><span class="p">[</span><span class="s1">&#39;min_month&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">date</span> <span class="ow">in</span> <span class="n">dates</span><span class="p">]),</span>
+            <span class="s1">&#39;max_month&#39;</span><span class="p">:</span> <span class="nb">max</span><span class="p">([</span><span class="n">date</span><span class="p">[</span><span class="s1">&#39;max_month&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">date</span> <span class="ow">in</span> <span class="n">dates</span><span class="p">]),</span>
+            <span class="s1">&#39;diri_month&#39;</span><span class="p">:</span> <span class="nb">any</span><span class="p">([</span><span class="n">date</span><span class="p">[</span><span class="s1">&#39;diri_month&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">date</span> <span class="ow">in</span> <span class="n">dates</span><span class="p">]),</span>
+            <span class="s1">&#39;min_day&#39;</span><span class="p">:</span> <span class="nb">min</span><span class="p">([</span><span class="n">date</span><span class="p">[</span><span class="s1">&#39;min_day&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">date</span> <span class="ow">in</span> <span class="n">dates</span><span class="p">]),</span>
+            <span class="s1">&#39;max_day&#39;</span><span class="p">:</span> <span class="nb">max</span><span class="p">([</span><span class="n">date</span><span class="p">[</span><span class="s1">&#39;max_day&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">date</span> <span class="ow">in</span> <span class="n">dates</span><span class="p">]),</span>
+            <span class="s1">&#39;questionable&#39;</span><span class="p">:</span> <span class="nb">any</span><span class="p">([</span><span class="n">date</span><span class="p">[</span><span class="s1">&#39;questionable&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">date</span> <span class="ow">in</span> <span class="n">dates</span><span class="p">]),</span>
+            <span class="s1">&#39;other_meta_chars&#39;</span><span class="p">:</span> <span class="nb">any</span><span class="p">([</span><span class="n">date</span><span class="p">[</span><span class="s1">&#39;other_meta_chars&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">date</span> <span class="ow">in</span> <span class="n">dates</span><span class="p">]),</span>
+            <span class="s1">&#39;multiple_dates&#39;</span><span class="p">:</span> <span class="kc">True</span>
+          <span class="p">}</span>
+
+      <span class="c1"># there are several characters used as markers for metatextual information</span>
+      <span class="c1"># we remove them from our string and handle them seperately.</span>
+      <span class="n">chars</span> <span class="o">=</span> <span class="s1">&#39; d?]m+()l&#39;</span>
+      <span class="n">reduced_string</span> <span class="o">=</span> <span class="n">bdtns_date</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+      <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">chars</span><span class="o">.</span><span class="n">upper</span><span class="p">():</span>
+        <span class="n">reduced_string</span> <span class="o">=</span> <span class="n">reduced_string</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+      <span class="n">date_list</span> <span class="o">=</span> <span class="n">reduced_string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+      <span class="n">date_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;nan&#39;</span> <span class="k">if</span> <span class="s1">&#39;XX&#39;</span> <span class="ow">in</span> <span class="n">s</span> <span class="k">else</span> <span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">date_list</span><span class="p">]</span>
+      <span class="k">try</span><span class="p">:</span>
+        <span class="n">year</span> <span class="o">=</span> <span class="n">reigns</span><span class="p">[</span><span class="n">date_list</span><span class="p">[</span><span class="mi">0</span><span class="p">][:</span><span class="mi">2</span><span class="p">]]</span> <span class="o">+</span> <span class="nb">float</span><span class="p">(</span><span class="n">date_list</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="o">-</span><span class="mi">2</span><span class="p">:])</span>
+      <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+        <span class="n">year</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;nan&#39;</span><span class="p">)</span>
+      <span class="n">month</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">date_list</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+      <span class="k">try</span><span class="p">:</span>
+        <span class="n">day</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">date_list</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+      <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+        <span class="n">day</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;nan&#39;</span><span class="p">)</span>
+      <span class="k">return</span> <span class="p">{</span>
+              <span class="s1">&#39;min_year&#39;</span><span class="p">:</span> <span class="n">year</span><span class="p">,</span>
+              <span class="s1">&#39;max_year&#39;</span><span class="p">:</span> <span class="n">year</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+              <span class="s1">&#39;min_month&#39;</span><span class="p">:</span> <span class="n">month</span><span class="p">,</span>
+              <span class="s1">&#39;max_month&#39;</span><span class="p">:</span> <span class="n">month</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+              <span class="s1">&#39;diri_month&#39;</span><span class="p">:</span> <span class="s1">&#39;d&#39;</span> <span class="ow">in</span> <span class="n">bdtns_date</span><span class="p">,</span>
+              <span class="s1">&#39;min_day&#39;</span><span class="p">:</span> <span class="n">day</span><span class="p">,</span>
+              <span class="s1">&#39;max_day&#39;</span><span class="p">:</span> <span class="n">day</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+              <span class="s1">&#39;questionable&#39;</span><span class="p">:</span> <span class="s1">&#39;?&#39;</span> <span class="ow">in</span> <span class="n">bdtns_date</span><span class="p">,</span>
+              <span class="s1">&#39;other_meta_chars&#39;</span><span class="p">:</span> <span class="nb">any</span><span class="p">([</span><span class="n">c</span> <span class="ow">in</span> <span class="n">bdtns_date</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">chars</span><span class="p">[</span><span class="mi">3</span><span class="p">:]]),</span>
+              <span class="s1">&#39;multiple_dates&#39;</span><span class="p">:</span> <span class="kc">False</span>
+            <span class="p">}</span>
+
+<span class="c1"># Lastly, we define a wrapper function to catch any errors thrown by our main function.</span>
+<span class="c1"># This is useful because the string was manually entered, so there are many edge cases,</span>
+<span class="c1"># each with only a few instances.</span>
+<span class="k">def</span> <span class="nf">normalize_bdtns_date</span><span class="p">(</span><span class="n">bdtns_date</span><span class="p">):</span>
+  <span class="k">try</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">inner_normalize_bdtns_date</span><span class="p">(</span><span class="n">bdtns_date</span><span class="p">)</span>
+  <span class="k">except</span><span class="p">:</span>
+    <span class="k">return</span> <span class="p">{</span>
+                  <span class="s1">&#39;min_year&#39;</span> <span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                  <span class="s1">&#39;max_year&#39;</span> <span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                  <span class="s1">&#39;min_month&#39;</span> <span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                  <span class="s1">&#39;max_month&#39;</span> <span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                  <span class="s1">&#39;min_day&#39;</span> <span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                  <span class="s1">&#39;max_day&#39;</span> <span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                  <span class="s1">&#39;diri_month&#39;</span> <span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                  <span class="s1">&#39;questionable&#39;</span> <span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                  <span class="s1">&#39;other_meta_chars&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                  <span class="s1">&#39;multiple_dates&#39;</span> <span class="p">:</span> <span class="kc">None</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="normalizing-cdli-date-strings">
+<h2>2 Normalizing CDLI Date Strings<a class="headerlink" href="#normalizing-cdli-date-strings" title="Permalink to this headline">¶</a></h2>
+<p>The next step is to convert the CDLI string representing the date into a numerical format. For months and days, this process is relatively straightforward: so long as the entry is legible we can convert the substring into a number. If it is illegible, we set it to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<p>When it comes to the year, however, the process is a bit more involved. Since the year number in the date string represents the year of the current king’s reign, it does not by itself give us the absolute year. We account for this by adding the year the king began his reign to the year given in the date. The table below contains the values used to achieve this.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>king</p></th>
+<th class="head"><p>normalized years</p></th>
+<th class="head"><p>regnal years</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Ur-Namma</p></td>
+<td><p>1-18</p></td>
+<td><p>18</p></td>
+</tr>
+<tr class="row-odd"><td><p>Šulgi</p></td>
+<td><p>19-66</p></td>
+<td><p>48</p></td>
+</tr>
+<tr class="row-even"><td><p>Amar-Suen</p></td>
+<td><p>67-75</p></td>
+<td><p>9</p></td>
+</tr>
+<tr class="row-odd"><td><p>Šū-Suen</p></td>
+<td><p>76-84</p></td>
+<td><p>9</p></td>
+</tr>
+<tr class="row-even"><td><p>Ibbi-Suen</p></td>
+<td><p>85-108</p></td>
+<td><p>24</p></td>
+</tr>
+</tbody>
+</table>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">normalize_cdli_date</span><span class="p">(</span><span class="n">cdli_date</span><span class="p">):</span>
+      <span class="c1"># the normalized time each king&#39;s reign began, with Ur-Namma&#39;s first year</span>
+      <span class="c1"># of rule as year 0.</span>
+      <span class="n">reigns</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Ur-Namma&#39;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
+                <span class="s1">&#39;Šulgi&#39;</span> <span class="p">:</span> <span class="mi">18</span><span class="p">,</span> 
+                <span class="s1">&#39;Amar-Suen&#39;</span><span class="p">:</span> <span class="mi">66</span><span class="p">,</span> 
+                <span class="s1">&#39;Šū-Suen&#39;</span> <span class="p">:</span> <span class="mi">75</span><span class="p">,</span> 
+                <span class="s1">&#39;Ibbi-Suen&#39;</span> <span class="p">:</span> <span class="mi">84</span> 
+                <span class="p">}</span>
+
+      <span class="c1"># break if NaN or None (this means the date is illegible)</span>
+      <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">cdli_date</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">str</span><span class="p">:</span> 
+        <span class="n">out</span> <span class="o">=</span> <span class="p">{</span>
+                  <span class="s1">&#39;min_year&#39;</span> <span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                  <span class="s1">&#39;max_year&#39;</span> <span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                  <span class="s1">&#39;min_month&#39;</span> <span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                  <span class="s1">&#39;max_month&#39;</span> <span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                  <span class="s1">&#39;min_day&#39;</span> <span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                  <span class="s1">&#39;max_day&#39;</span> <span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                  <span class="s1">&#39;diri_month&#39;</span> <span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                  <span class="s1">&#39;questionable&#39;</span> <span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                  <span class="s1">&#39;other_meta_chars&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                  <span class="s1">&#39;multiple_dates&#39;</span> <span class="p">:</span> <span class="kc">None</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">out</span>
+
+      <span class="n">decomposed_date</span> <span class="o">=</span> <span class="n">cdli_date</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+      <span class="n">decomposed_date</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">reigns</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">decomposed_date</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+      <span class="k">if</span> <span class="n">decomposed_date</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">decomposed_date</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;nan&#39;</span><span class="p">)</span>
+
+      <span class="c1"># if a section of the year/month/day is illegible we replace that entry with NaN,</span>
+      <span class="c1"># otherwise we convert it to a float.</span>
+      <span class="n">decomposed_date</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()</span> <span class="k">else</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;nan&#39;</span><span class="p">),</span> <span class="n">decomposed_date</span><span class="p">[</span><span class="mi">1</span><span class="p">:]))</span>
+      <span class="k">try</span><span class="p">:</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="p">{</span>
+                  <span class="s1">&#39;min_year&#39;</span> <span class="p">:</span> <span class="n">decomposed_date</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">decomposed_date</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                  <span class="s1">&#39;max_year&#39;</span> <span class="p">:</span> <span class="n">decomposed_date</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">decomposed_date</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+                  <span class="s1">&#39;min_month&#39;</span> <span class="p">:</span> <span class="n">decomposed_date</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+                  <span class="s1">&#39;max_month&#39;</span> <span class="p">:</span> <span class="n">decomposed_date</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+                  <span class="s1">&#39;min_day&#39;</span> <span class="p">:</span> <span class="n">decomposed_date</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span>
+                  <span class="s1">&#39;max_day&#39;</span> <span class="p">:</span> <span class="n">decomposed_date</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+                  <span class="s1">&#39;diri_month&#39;</span> <span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+                  <span class="s1">&#39;questionable&#39;</span> <span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+                  <span class="s1">&#39;other_meta_chars&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+                  <span class="s1">&#39;multiple_dates&#39;</span> <span class="p">:</span> <span class="kc">False</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">out</span>
+
+      <span class="k">except</span><span class="p">:</span> <span class="c1"># due to some edge cases in the formatting, the list can occasionally</span>
+              <span class="c1"># have length shorter than 4. If so, the date is partially illegible</span>
+              <span class="c1"># and can be ignored.</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="p">{</span>
+                  <span class="s1">&#39;min_year&#39;</span> <span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                  <span class="s1">&#39;max_year&#39;</span> <span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                  <span class="s1">&#39;min_month&#39;</span> <span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                  <span class="s1">&#39;max_month&#39;</span> <span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                  <span class="s1">&#39;min_day&#39;</span> <span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                  <span class="s1">&#39;max_day&#39;</span> <span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                  <span class="s1">&#39;diri_month&#39;</span> <span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                  <span class="s1">&#39;questionable&#39;</span> <span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                  <span class="s1">&#39;other_meta_chars&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                  <span class="s1">&#39;multiple_dates&#39;</span> <span class="p">:</span> <span class="kc">None</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">out</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="putting-it-all-together">
+<h2>3 Putting it all Together<a class="headerlink" href="#putting-it-all-together" title="Permalink to this headline">¶</a></h2>
+<p>Now that we have a way to convert our strings in either format, we are ready to apply it to the data. To do this we will</p>
+<ol class="simple">
+<li><p>loop through each row of the input DataFrame</p></li>
+<li><p>use the <code class="docutils literal notranslate"><span class="pre">metadata_source</span></code> field to determine the format of the date string</p></li>
+<li><p>apply the appropriate function to the <code class="docutils literal notranslate"><span class="pre">date_of_origin</span></code> field to get a dictionary of our new fields</p></li>
+<li><p>compile the results for each row into a list</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_normalized_columns</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+  <span class="n">row_list</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="c1"># go through each row of the DataFrame</span>
+  <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+    <span class="c1"># get the date_of_origin string</span>
+    <span class="n">date</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;date_of_origin&#39;</span><span class="p">][</span><span class="n">index</span><span class="p">]</span>
+    <span class="c1"># select the appropriate function to convert using metadata_source</span>
+    <span class="k">if</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;metadata_source&#39;</span><span class="p">][</span><span class="n">index</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;BDTNS&#39;</span><span class="p">:</span>
+      <span class="n">row</span> <span class="o">=</span> <span class="n">normalize_bdtns_date</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="n">row</span> <span class="o">=</span> <span class="n">normalize_cdli_date</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
+    <span class="n">row</span><span class="p">[</span><span class="s1">&#39;metadata_source&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;metadata_source&#39;</span><span class="p">][</span><span class="n">index</span><span class="p">]</span>
+    <span class="c1"># add the result to a list</span>
+    <span class="n">row_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">row_list</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, we process the dates given in <code class="docutils literal notranslate"><span class="pre">catalogue_data</span></code>. From this we will both add the information to our <code class="docutils literal notranslate"><span class="pre">words_df</span></code> variable, as well as include it in a standalone variable, <code class="docutils literal notranslate"><span class="pre">time_data</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> <span class="n">result</span> <span class="o">=</span> <span class="n">add_normalized_columns</span><span class="p">(</span><span class="n">catalogue_data</span><span class="p">)</span>
+ <span class="n">time_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">catalogue_data</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+ <span class="n">words_df</span> <span class="o">=</span> <span class="n">words_df</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">time_data</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;id_text&#39;</span><span class="p">,</span> <span class="n">right_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>At this stage, we can already get a bit more insight into our data using our newly added fields. For example, we can look at the number of tablets over time - even removing cases with uncertain or multiple dates.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">time_data</span><span class="p">[(</span><span class="n">time_data</span><span class="p">[</span><span class="s1">&#39;questionable&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">False</span><span class="p">)]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s1">&#39;min_year&#39;</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="s1">&#39;metadata_source&#39;</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">90</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/PartIII-HarmonizingYearNameFormulaeandProcessingDates_14_0.png" src="_images/PartIII-HarmonizingYearNameFormulaeandProcessingDates_14_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="save-results-in-csv-file-and-pickle">
+<h2>4 Save Results in CSV file and Pickle<a class="headerlink" href="#save-results-in-csv-file-and-pickle" title="Permalink to this headline">¶</a></h2>
+<p>Here we will save the <code class="docutils literal notranslate"><span class="pre">words_df</span></code> and <code class="docutils literal notranslate"><span class="pre">time_data</span></code> outputs from parts 1, 2, and 3.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;output/part_3_words_output.csv&#39;</span><span class="p">)</span>
+<span class="n">words_df</span><span class="o">.</span><span class="n">to_pickle</span><span class="p">(</span><span class="s1">&#39;output/part_3_words_output.p&#39;</span><span class="p">)</span>
+
+<span class="n">time_data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;output/part_3_time_output.csv&#39;</span><span class="p">)</span>
+<span class="n">time_data</span><span class="o">.</span><span class="n">to_pickle</span><span class="p">(</span><span class="s1">&#39;output/part_3_time_output.p&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="PartII-N-gramNeighborsoftheProperNames%28PN%29.html" title="previous page">II. N-gram Neighbors of the Proper Names (PN)</a>
+    <a class='right-next' id="next-link" href="PartIV-ArchiveClassification.html" title="next page">IV. Archive Classification</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

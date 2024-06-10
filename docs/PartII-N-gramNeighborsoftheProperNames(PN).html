@@ -1,0 +1,1604 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>II. N-gram Neighbors of the Proper Names (PN) &#8212; Sumerian Networks</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="III. Harmonizing Year Name Formulae and Processing Dates" href="PartIII-HarmonizingYearNameFormulaeandProcessingDates.html" />
+    <link rel="prev" title="I. Importing the Data and Extracting Lemmatization from JSON" href="PartI-ExtractLemmatizationfromJSON.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      <img src="_static/sumnet.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Sumerian Networks</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="welcome.html">
+   Sumerian Networks JupyterBook
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="PartI-ExtractLemmatizationfromJSON.html">
+   I. Importing the Data and Extracting Lemmatization from JSON
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   II. N-gram Neighbors of the Proper Names (PN)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="PartIII-HarmonizingYearNameFormulaeandProcessingDates.html">
+   III. Harmonizing Year Name Formulae and Processing Dates
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="PartIV-ArchiveClassification.html">
+   IV. Archive Classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="PartV-IdentifyingAttributesoftheProperNames%28PN%29-ProfessionsandRoles.html">
+   V. Identifying Attributes of the Proper Names (PN): Professions and Roles
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="PartVI-GeographicNames.html">
+   VI. Geography
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="PartVII-CommoditiesCounting.html">
+   VII. Commodities Counting
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/PartII-N-gramNeighborsoftheProperNames(PN).ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/niekveldhuis/sumnet/master?urlpath=tree/book/PartII-N-gramNeighborsoftheProperNames(PN).ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/niekveldhuis/sumnet/blob/master/book/PartII-N-gramNeighborsoftheProperNames(PN).ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#find-neighbors">
+   1 Find Neighbors
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#save-results-in-csv-file-pickle">
+   2 Save Results in CSV file &amp; Pickle
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="ii-n-gram-neighbors-of-the-proper-names-pn">
+<h1>II. N-gram Neighbors of the Proper Names (PN)<a class="headerlink" href="#ii-n-gram-neighbors-of-the-proper-names-pn" title="Permalink to this headline">¶</a></h1>
+<p>Section II was made to add greater context to each PN.</p>
+<p>Below are lists of professions, roles, and family relationships.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import necessary libraries</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">tqdm.auto</span> <span class="kn">import</span> <span class="n">tqdm</span>
+
+<span class="c1"># import libraries for this section</span>
+<span class="kn">import</span> <span class="nn">re</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="find-neighbors">
+<h2>1 Find Neighbors<a class="headerlink" href="#find-neighbors" title="Permalink to this headline">¶</a></h2>
+<p>Below we are making a copy of the filtered dataframe to manipulate and add the neighbors column.</p>
+<p>The commented out line can be used if you have a copy of the words_df dataframe from the previous section and you would like to load that instead of running part I.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#words_df = pd.read_pickle(&#39;output/part_1_output.p&#39;) #uncomment to read from local file</span>
+<span class="n">words_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="s1">&#39;https://gitlab.com/yashila.bordag/sumnet-data/-/raw/main/part_1_output.p&#39;</span><span class="p">)</span> <span class="c1"># uncomment to read from online file</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#List of professions, roles, family</span>
+<span class="n">professions</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">&quot;aʾigidu[worker]&quot;</span><span class="p">,</span> 
+                <span class="s2">&quot;abala[water-drawer]&quot;</span><span class="p">,</span> 
+                <span class="s2">&quot;abrig[functionary]&quot;</span><span class="p">,</span> 
+                <span class="s2">&quot;ad.KID[weaver]&quot;</span><span class="p">,</span> 
+                <span class="s2">&quot;agaʾus[soldier]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;arad[slave]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ašgab[leatherworker]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;aʾua [musician]&quot;</span><span class="p">,</span> 
+                <span class="s2">&quot;azlag[fuller]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;bahar[potter]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;bisaŋdubak[archivist]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;damgar[merchant]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;dikud[judge]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;dubsar[scribe]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;en[priest]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;erešdiŋir[priestess]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ensik[ruler]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;engar[farmer]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;enkud[tax-collector]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;gabaʾaš[courier]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;galamah[singer]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;gala[singer]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;geme[worker]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;gudug[priest]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;guzala[official]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;idu[doorkeeper]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;išib[priest]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;kaguruk[supervisor]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;kaš[runner]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;kiŋgia[messenger]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;kinda[barber]&quot;</span><span class="p">,</span> 
+                <span class="s2">&quot;kinkin[miller]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;kiridab[driver]&quot;</span><span class="p">,</span> 
+                <span class="s2">&quot;kurušda[fattener]&quot;</span><span class="p">,</span> 
+                <span class="s2">&quot;kuš[official]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;lu[person]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;lugal[king]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;lukur[priestess]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;lungak[brewer]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;malah[sailor]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;muhaldim[cook]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;mušendu[bird-catcher]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;nagada[herdsman]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;nagar[carpenter]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;nar[musician]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;nargal[musician]&quot;</span><span class="p">,</span> 
+                <span class="s2">&quot;narsa[musician]&quot;</span><span class="p">,</span> 
+                <span class="s2">&quot;nin[lady]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;nubanda[overseer]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;nukirik[horticulturalist]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;saŋ.DUN₃[recorder]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;saŋŋa[official]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;simug[smith]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sipad[shepherd]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sukkal[secretary]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;šabra[administrator]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;šagia[cup-bearer]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;šakkanak[general]&quot;</span><span class="p">,</span>
+                <span class="c1"># &quot;szej[cook]&quot;, this is a verb</span>
+                <span class="s2">&quot;šidim[builder]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;šuʾi[barber]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;šukud[fisherman]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;tibira[sculptor]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ugula[overseer]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;unud[cowherd]&quot;</span><span class="p">,</span>
+                <span class="c1"># &quot;urin[guard]&quot;,</span>
+                <span class="s2">&quot;UN.IL₂[menial]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ušbar[weaver]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;zabardab[official]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;zadim[stone-cutter]&quot;</span><span class="p">]</span>
+
+<span class="n">roles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ki[source]&#39;</span><span class="p">,</span> <span class="s1">&#39;maškim[administrator]&#39;</span><span class="p">,</span> 
+         <span class="s1">&#39;maškim[authorized]&#39;</span><span class="p">,</span> <span class="s1">&#39;i3-dab5[recipient]&#39;</span><span class="p">,</span> <span class="s1">&#39;giri3[intermediary]&#39;</span><span class="p">]</span>
+
+<span class="n">family</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;šeš[brother]&#39;</span><span class="p">,</span> <span class="s1">&#39;szesz[brother]&#39;</span><span class="p">,</span> <span class="s1">&#39;dumu[son]&#39;</span><span class="p">,</span> <span class="s1">&#39;dumu-munus[daughter]&#39;</span><span class="p">,</span> 
+        <span class="s1">&#39;dumumunus[daughter]&#39;</span> <span class="p">,</span> <span class="s1">&#39;dam[spouse]&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">n_neighbors</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="c1">#create list to return, non-proper names will return empty lists</span>
+    <span class="n">n_neighbors_list</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))]</span>
+
+    <span class="c1">#find list of all PN lemma indices</span>
+    <span class="n">PN_index</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;lemma&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;PN&quot;</span><span class="p">)]</span><span class="o">.</span><span class="n">index</span>
+
+    <span class="c1">#go through each tablet and find neighbors for each PN and add to list</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">PN_index</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;N Neighbors&#39;</span><span class="p">):</span>
+        
+        <span class="c1">#find all lemma rows from the same tablet</span>
+        <span class="n">group_of_same_pnumber</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;id_text&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;id_text&#39;</span><span class="p">]]</span>
+
+        <span class="c1">#find all lemma rows from the n-gram range</span>
+        <span class="n">group_of_n_lines_befaf</span> <span class="o">=</span> <span class="n">group_of_same_pnumber</span><span class="p">[((</span><span class="n">group_of_same_pnumber</span><span class="p">[</span><span class="s1">&#39;id_line&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;id_line&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">n</span><span class="p">)</span>
+                                                        <span class="o">&amp;</span><span class="p">(</span><span class="n">group_of_same_pnumber</span><span class="p">[</span><span class="s1">&#39;id_line&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;id_line&#39;</span><span class="p">]))</span>
+                                                    <span class="o">|</span> <span class="p">((</span><span class="n">group_of_same_pnumber</span><span class="p">[</span><span class="s1">&#39;id_line&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;id_line&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">n</span><span class="p">)</span>
+                                                       <span class="o">&amp;</span> <span class="p">(</span><span class="n">group_of_same_pnumber</span><span class="p">[</span><span class="s1">&#39;id_line&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;id_line&#39;</span><span class="p">]))]</span>
+        
+        <span class="c1">#create list of n-grams and remove breaks</span>
+        <span class="n">lemma_neighbors</span> <span class="o">=</span> <span class="n">group_of_n_lines_befaf</span><span class="p">[</span><span class="s1">&#39;lemma&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="k">if</span> <span class="s1">&#39;break&#39;</span> <span class="ow">in</span> <span class="n">lemma_neighbors</span><span class="p">:</span>
+            <span class="n">lemma_neighbors</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;break&#39;</span><span class="p">)</span>
+
+        <span class="c1">#add to final list</span>
+        <span class="n">n_neighbors_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">lemma_neighbors</span>
+
+    <span class="k">return</span> <span class="n">n_neighbors_list</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words_df</span><span class="p">[</span><span class="s1">&#39;prof?&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">words_df</span><span class="p">[</span><span class="s1">&#39;lemma&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">word</span><span class="p">:</span> <span class="s1">&#39;Yes&#39;</span> <span class="k">if</span> <span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;^[^\]]*&#39;</span><span class="p">,</span> <span class="n">word</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;]&#39;</span><span class="p">)</span> <span class="ow">in</span> <span class="n">professions</span> <span class="k">else</span> <span class="s1">&#39;No&#39;</span><span class="p">)</span>
+<span class="n">words_df</span><span class="p">[</span><span class="s1">&#39;role?&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">words_df</span><span class="p">[</span><span class="s1">&#39;lemma&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">word</span><span class="p">:</span> <span class="s1">&#39;Yes&#39;</span> <span class="k">if</span> <span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;^[^\]]*&#39;</span><span class="p">,</span> <span class="n">word</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;]&#39;</span><span class="p">)</span> <span class="ow">in</span> <span class="n">roles</span> <span class="k">else</span> <span class="s1">&#39;No&#39;</span><span class="p">)</span>
+<span class="n">words_df</span><span class="p">[</span><span class="s1">&#39;family?&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">words_df</span><span class="p">[</span><span class="s1">&#39;lemma&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">word</span><span class="p">:</span> <span class="s1">&#39;Yes&#39;</span> <span class="k">if</span> <span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;^[^\]]*&#39;</span><span class="p">,</span> <span class="n">word</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;]&#39;</span><span class="p">)</span> <span class="ow">in</span> <span class="n">family</span> <span class="k">else</span> <span class="s1">&#39;No&#39;</span><span class="p">)</span>
+
+<span class="c1">#Create &quot;number?&quot;&quot; to see if row is number. this could imply that that next row is a commodity</span>
+<span class="n">words_df</span><span class="p">[</span><span class="s1">&#39;number?&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">words_df</span><span class="p">[</span><span class="s1">&#39;lemma&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;NU&#39;</span><span class="p">)</span>
+<span class="n">words_df</span><span class="p">[</span><span class="s1">&#39;number?&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Yes&#39;</span> <span class="k">if</span> <span class="n">words_df</span><span class="p">[</span><span class="s1">&#39;number?&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="kc">True</span> <span class="k">else</span> <span class="s1">&#39;No&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">words_df</span><span class="o">.</span><span class="n">index</span><span class="p">]</span>
+<span class="n">words_df</span><span class="p">[</span><span class="s1">&#39;commodity?&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;No&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;Yes&#39;</span> <span class="k">if</span> <span class="n">words_df</span><span class="p">[</span><span class="s1">&#39;number?&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Yes&#39;</span> <span class="k">else</span> <span class="s1">&#39;No&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">words_df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">1</span><span class="p">:]]</span>
+<span class="n">words_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>lemma</th>
+      <th>id_text</th>
+      <th>id_line</th>
+      <th>id_word</th>
+      <th>label</th>
+      <th>date</th>
+      <th>dates_references</th>
+      <th>publication</th>
+      <th>collection</th>
+      <th>museum_no</th>
+      <th>ftype</th>
+      <th>metadata_source</th>
+      <th>prof?</th>
+      <th>role?</th>
+      <th>family?</th>
+      <th>number?</th>
+      <th>commodity?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>6(diš)[]NU</td>
+      <td>P100041</td>
+      <td>3</td>
+      <td>P100041.3.1</td>
+      <td>o 1</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td></td>
+      <td>BDTNS</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>udu[sheep]N</td>
+      <td>P100041</td>
+      <td>3</td>
+      <td>P100041.3.2</td>
+      <td>o 1</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td></td>
+      <td>BDTNS</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>kišib[seal]N</td>
+      <td>P100041</td>
+      <td>4</td>
+      <td>P100041.4.1</td>
+      <td>o 2</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td></td>
+      <td>BDTNS</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Lusuen[0]PN</td>
+      <td>P100041</td>
+      <td>4</td>
+      <td>P100041.4.2</td>
+      <td>o 2</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td></td>
+      <td>BDTNS</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>ki[place]N</td>
+      <td>P100041</td>
+      <td>5</td>
+      <td>P100041.5.1</td>
+      <td>o 3</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td></td>
+      <td>BDTNS</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>594695</th>
+      <td>gud[ox]N</td>
+      <td>P481395</td>
+      <td>31</td>
+      <td>P481395.31.2</td>
+      <td>l.e. 1</td>
+      <td>SS02 - 02 - 00</td>
+      <td>SS02 - 02 - 00</td>
+      <td>unpublished unassigned ?</td>
+      <td>Department of Classics, University of Cincinna...</td>
+      <td>UC CSC 1954</td>
+      <td></td>
+      <td>BDTNS</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>594696</th>
+      <td>1(diš)[]NU</td>
+      <td>P481395</td>
+      <td>31</td>
+      <td>P481395.31.3</td>
+      <td>l.e. 1</td>
+      <td>SS02 - 02 - 00</td>
+      <td>SS02 - 02 - 00</td>
+      <td>unpublished unassigned ?</td>
+      <td>Department of Classics, University of Cincinna...</td>
+      <td>UC CSC 1954</td>
+      <td></td>
+      <td>BDTNS</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <th>594697</th>
+      <td>anše[equid]N</td>
+      <td>P481395</td>
+      <td>31</td>
+      <td>P481395.31.4</td>
+      <td>l.e. 1</td>
+      <td>SS02 - 02 - 00</td>
+      <td>SS02 - 02 - 00</td>
+      <td>unpublished unassigned ?</td>
+      <td>Department of Classics, University of Cincinna...</td>
+      <td>UC CSC 1954</td>
+      <td></td>
+      <td>BDTNS</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>594698</th>
+      <td>Šusuen[1]RN</td>
+      <td>P517012</td>
+      <td>3</td>
+      <td>P517012.3.1</td>
+      <td>a 1</td>
+      <td></td>
+      <td></td>
+      <td>CDLI Seals 013964 (composite)</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>ORACC</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>594699</th>
+      <td>Abumilum[0]PN</td>
+      <td>P517012</td>
+      <td>4</td>
+      <td>P517012.4.1</td>
+      <td>a 2</td>
+      <td></td>
+      <td></td>
+      <td>CDLI Seals 013964 (composite)</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>ORACC</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table>
+<p>594700 rows × 17 columns</p>
+</div></div></div>
+</div>
+<p>The next code block takes a very long time to run.</p>
+<ol class="simple">
+<li><p>List item</p></li>
+<li><p>List item</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#call n_neighbor function to get neighbors from two lines above and below</span>
+<span class="n">words_df</span><span class="p">[</span><span class="s1">&#39;neighbors&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">n_neighbors</span><span class="p">(</span><span class="n">words_df</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">words_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "8022ecb0302348a8ae658e411711af69", "version_major": 2, "version_minor": 0}
+</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>lemma</th>
+      <th>id_text</th>
+      <th>id_line</th>
+      <th>id_word</th>
+      <th>label</th>
+      <th>date</th>
+      <th>dates_references</th>
+      <th>publication</th>
+      <th>collection</th>
+      <th>museum_no</th>
+      <th>ftype</th>
+      <th>metadata_source</th>
+      <th>prof?</th>
+      <th>role?</th>
+      <th>family?</th>
+      <th>number?</th>
+      <th>commodity?</th>
+      <th>neighbors</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>6(diš)[]NU</td>
+      <td>P100041</td>
+      <td>3</td>
+      <td>P100041.3.1</td>
+      <td>o 1</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td></td>
+      <td>BDTNS</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>udu[sheep]N</td>
+      <td>P100041</td>
+      <td>3</td>
+      <td>P100041.3.2</td>
+      <td>o 1</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td></td>
+      <td>BDTNS</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>kišib[seal]N</td>
+      <td>P100041</td>
+      <td>4</td>
+      <td>P100041.4.1</td>
+      <td>o 2</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td></td>
+      <td>BDTNS</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Lusuen[0]PN</td>
+      <td>P100041</td>
+      <td>4</td>
+      <td>P100041.4.2</td>
+      <td>o 2</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td></td>
+      <td>BDTNS</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>[6(diš)[]NU, udu[sheep]N, kišib[seal]N, Lusuen...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>ki[place]N</td>
+      <td>P100041</td>
+      <td>5</td>
+      <td>P100041.5.1</td>
+      <td>o 3</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td></td>
+      <td>BDTNS</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>579680</th>
+      <td>gud[ox]N</td>
+      <td>P481395</td>
+      <td>31</td>
+      <td>P481395.31.2</td>
+      <td>l.e. 1</td>
+      <td>SS02 - 02 - 00</td>
+      <td>SS02 - 02 - 00</td>
+      <td>unpublished unassigned ?</td>
+      <td>Department of Classics, University of Cincinna...</td>
+      <td>UC CSC 1954</td>
+      <td></td>
+      <td>BDTNS</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>579681</th>
+      <td>1(diš)[]NU</td>
+      <td>P481395</td>
+      <td>31</td>
+      <td>P481395.31.3</td>
+      <td>l.e. 1</td>
+      <td>SS02 - 02 - 00</td>
+      <td>SS02 - 02 - 00</td>
+      <td>unpublished unassigned ?</td>
+      <td>Department of Classics, University of Cincinna...</td>
+      <td>UC CSC 1954</td>
+      <td></td>
+      <td>BDTNS</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>579682</th>
+      <td>anše[equid]N</td>
+      <td>P481395</td>
+      <td>31</td>
+      <td>P481395.31.4</td>
+      <td>l.e. 1</td>
+      <td>SS02 - 02 - 00</td>
+      <td>SS02 - 02 - 00</td>
+      <td>unpublished unassigned ?</td>
+      <td>Department of Classics, University of Cincinna...</td>
+      <td>UC CSC 1954</td>
+      <td></td>
+      <td>BDTNS</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>579683</th>
+      <td>Šusuen[1]RN</td>
+      <td>P517012</td>
+      <td>3</td>
+      <td>P517012.3.1</td>
+      <td>a 1</td>
+      <td></td>
+      <td></td>
+      <td>CDLI Seals 013964 (composite)</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>ORACC</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>579684</th>
+      <td>Abumilum[0]PN</td>
+      <td>P517012</td>
+      <td>4</td>
+      <td>P517012.4.1</td>
+      <td>a 2</td>
+      <td></td>
+      <td></td>
+      <td>CDLI Seals 013964 (composite)</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>ORACC</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>[Šusuen[1]RN, Abumilum[0]PN]</td>
+    </tr>
+  </tbody>
+</table>
+<p>579685 rows × 18 columns</p>
+</div></div></div>
+</div>
+<p>Check output only has neighbors for proper names.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words_df</span><span class="p">[</span><span class="n">words_df</span><span class="p">[</span><span class="s1">&#39;lemma&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;PN&quot;</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>lemma</th>
+      <th>id_text</th>
+      <th>id_line</th>
+      <th>id_word</th>
+      <th>label</th>
+      <th>date</th>
+      <th>dates_references</th>
+      <th>publication</th>
+      <th>collection</th>
+      <th>museum_no</th>
+      <th>ftype</th>
+      <th>metadata_source</th>
+      <th>prof?</th>
+      <th>role?</th>
+      <th>family?</th>
+      <th>number?</th>
+      <th>commodity?</th>
+      <th>neighbors</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3</th>
+      <td>Lusuen[0]PN</td>
+      <td>P100041</td>
+      <td>4</td>
+      <td>P100041.4.2</td>
+      <td>o 2</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td></td>
+      <td>BDTNS</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>[6(diš)[]NU, udu[sheep]N, kišib[seal]N, Lusuen...</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Abbakala[0]PN</td>
+      <td>P100041</td>
+      <td>5</td>
+      <td>P100041.5.2</td>
+      <td>o 3</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td></td>
+      <td>BDTNS</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>[6(diš)[]NU, udu[sheep]N, kišib[seal]N, Lusuen...</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>UrKugnunak[0]PN</td>
+      <td>P100041</td>
+      <td>17</td>
+      <td>P100041.17.1</td>
+      <td>seal 1 ii 1</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td></td>
+      <td>BDTNS</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>[lugal[king]N, an[sky]N, anubda[quarter]N, lim...</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>Ludiŋirak[0]PN</td>
+      <td>P100189</td>
+      <td>7</td>
+      <td>P100189.7.2</td>
+      <td>o 5</td>
+      <td>SH46 - 08 - 05</td>
+      <td>SH46 - 08 - 05</td>
+      <td>AAS 211</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20039</td>
+      <td></td>
+      <td>BDTNS</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>[uš[die]V/i, ud[sun]N, 5(diš)-kam[]NU, ki[plac...</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>Urniŋarak[0]PN</td>
+      <td>P100189</td>
+      <td>9</td>
+      <td>P100189.9.1</td>
+      <td>r 1</td>
+      <td>SH46 - 08 - 05</td>
+      <td>SH46 - 08 - 05</td>
+      <td>AAS 211</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20039</td>
+      <td></td>
+      <td>BDTNS</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>[ki[place]N, Ludiŋirak[0]PN, Urniŋarak[0]PN, š...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>579544</th>
+      <td>Rabiʾili[0]PN</td>
+      <td>P459158</td>
+      <td>10</td>
+      <td>P459158.10.1</td>
+      <td>a ii 2</td>
+      <td>Ibbi-Suen.00.00.00</td>
+      <td>Ibbi-Suen.00.00.00</td>
+      <td>CDLI Seals 006338 (physical)</td>
+      <td>private: anonymous, unlocated</td>
+      <td>Anonymous 459158</td>
+      <td></td>
+      <td>ORACC</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>[lugal[king]N, an[sky]N, anubda[quarter]N, lim...</td>
+    </tr>
+    <tr>
+      <th>579571</th>
+      <td>Dugazida[0]PN</td>
+      <td>P481391</td>
+      <td>10</td>
+      <td>P481391.10.2</td>
+      <td>r 1</td>
+      <td>SH46 - 02 - 24</td>
+      <td>SH46 - 02 - 24</td>
+      <td>unpublished unassigned ?</td>
+      <td>Department of Classics, University of Cincinna...</td>
+      <td>UC CSC 1950</td>
+      <td></td>
+      <td>BDTNS</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>[uš[die]V/i, ud[sun]N, 2(u)[]NU, 4(diš)-kam[]N...</td>
+    </tr>
+    <tr>
+      <th>579573</th>
+      <td>Urniŋarak[0]PN</td>
+      <td>P481391</td>
+      <td>11</td>
+      <td>P481391.11.1</td>
+      <td>r 2</td>
+      <td>SH46 - 02 - 24</td>
+      <td>SH46 - 02 - 24</td>
+      <td>unpublished unassigned ?</td>
+      <td>Department of Classics, University of Cincinna...</td>
+      <td>UC CSC 1950</td>
+      <td></td>
+      <td>BDTNS</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>[ki[place]N, Dugazida[0]PN, kurušda[fattener]N...</td>
+    </tr>
+    <tr>
+      <th>579671</th>
+      <td>Enlila[0]PN</td>
+      <td>P481395</td>
+      <td>27</td>
+      <td>P481395.27.2</td>
+      <td>r 8</td>
+      <td>SS02 - 02 - 00</td>
+      <td>SS02 - 02 - 00</td>
+      <td>unpublished unassigned ?</td>
+      <td>Department of Classics, University of Cincinna...</td>
+      <td>UC CSC 1954</td>
+      <td></td>
+      <td>BDTNS</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>[šuniŋin[total]N, 1(diš)[]NU, dusu[equid]N, ni...</td>
+    </tr>
+    <tr>
+      <th>579684</th>
+      <td>Abumilum[0]PN</td>
+      <td>P517012</td>
+      <td>4</td>
+      <td>P517012.4.1</td>
+      <td>a 2</td>
+      <td></td>
+      <td></td>
+      <td>CDLI Seals 013964 (composite)</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>ORACC</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>[Šusuen[1]RN, Abumilum[0]PN]</td>
+    </tr>
+  </tbody>
+</table>
+<p>53093 rows × 18 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words_df</span><span class="p">[</span><span class="o">~</span><span class="n">words_df</span><span class="p">[</span><span class="s1">&#39;lemma&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;PN&quot;</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>lemma</th>
+      <th>id_text</th>
+      <th>id_line</th>
+      <th>id_word</th>
+      <th>label</th>
+      <th>date</th>
+      <th>dates_references</th>
+      <th>publication</th>
+      <th>collection</th>
+      <th>museum_no</th>
+      <th>ftype</th>
+      <th>metadata_source</th>
+      <th>prof?</th>
+      <th>role?</th>
+      <th>family?</th>
+      <th>number?</th>
+      <th>commodity?</th>
+      <th>neighbors</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>6(diš)[]NU</td>
+      <td>P100041</td>
+      <td>3</td>
+      <td>P100041.3.1</td>
+      <td>o 1</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td></td>
+      <td>BDTNS</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>udu[sheep]N</td>
+      <td>P100041</td>
+      <td>3</td>
+      <td>P100041.3.2</td>
+      <td>o 1</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td></td>
+      <td>BDTNS</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>kišib[seal]N</td>
+      <td>P100041</td>
+      <td>4</td>
+      <td>P100041.4.1</td>
+      <td>o 2</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td></td>
+      <td>BDTNS</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>ki[place]N</td>
+      <td>P100041</td>
+      <td>5</td>
+      <td>P100041.5.1</td>
+      <td>o 3</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td></td>
+      <td>BDTNS</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>zig[rise]V/i</td>
+      <td>P100041</td>
+      <td>6</td>
+      <td>P100041.6.1</td>
+      <td>o 4</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td></td>
+      <td>BDTNS</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>579679</th>
+      <td>2(u)[]NU</td>
+      <td>P481395</td>
+      <td>31</td>
+      <td>P481395.31.1</td>
+      <td>l.e. 1</td>
+      <td>SS02 - 02 - 00</td>
+      <td>SS02 - 02 - 00</td>
+      <td>unpublished unassigned ?</td>
+      <td>Department of Classics, University of Cincinna...</td>
+      <td>UC CSC 1954</td>
+      <td></td>
+      <td>BDTNS</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>579680</th>
+      <td>gud[ox]N</td>
+      <td>P481395</td>
+      <td>31</td>
+      <td>P481395.31.2</td>
+      <td>l.e. 1</td>
+      <td>SS02 - 02 - 00</td>
+      <td>SS02 - 02 - 00</td>
+      <td>unpublished unassigned ?</td>
+      <td>Department of Classics, University of Cincinna...</td>
+      <td>UC CSC 1954</td>
+      <td></td>
+      <td>BDTNS</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>579681</th>
+      <td>1(diš)[]NU</td>
+      <td>P481395</td>
+      <td>31</td>
+      <td>P481395.31.3</td>
+      <td>l.e. 1</td>
+      <td>SS02 - 02 - 00</td>
+      <td>SS02 - 02 - 00</td>
+      <td>unpublished unassigned ?</td>
+      <td>Department of Classics, University of Cincinna...</td>
+      <td>UC CSC 1954</td>
+      <td></td>
+      <td>BDTNS</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>579682</th>
+      <td>anše[equid]N</td>
+      <td>P481395</td>
+      <td>31</td>
+      <td>P481395.31.4</td>
+      <td>l.e. 1</td>
+      <td>SS02 - 02 - 00</td>
+      <td>SS02 - 02 - 00</td>
+      <td>unpublished unassigned ?</td>
+      <td>Department of Classics, University of Cincinna...</td>
+      <td>UC CSC 1954</td>
+      <td></td>
+      <td>BDTNS</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>579683</th>
+      <td>Šusuen[1]RN</td>
+      <td>P517012</td>
+      <td>3</td>
+      <td>P517012.3.1</td>
+      <td>a 1</td>
+      <td></td>
+      <td></td>
+      <td>CDLI Seals 013964 (composite)</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>ORACC</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>[]</td>
+    </tr>
+  </tbody>
+</table>
+<p>526592 rows × 18 columns</p>
+</div></div></div>
+</div>
+<p>The following line confirms there are no rows where the lemma is not a Proper Noun and is given neighbors.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">([</span><span class="n">lst</span> <span class="o">!=</span> <span class="p">[]</span> <span class="k">for</span> <span class="n">lst</span> <span class="ow">in</span> <span class="n">words_df</span><span class="p">[</span><span class="o">~</span><span class="n">words_df</span><span class="p">[</span><span class="s1">&#39;lemma&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;PN&quot;</span><span class="p">)][</span><span class="s1">&#39;neighbors&#39;</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="save-results-in-csv-file-pickle">
+<h2>2 Save Results in CSV file &amp; Pickle<a class="headerlink" href="#save-results-in-csv-file-pickle" title="Permalink to this headline">¶</a></h2>
+<p>Here we will save the words_df output from parts 1 and 2.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;output/part_2_output.csv&#39;</span><span class="p">)</span>
+<span class="n">words_df</span><span class="o">.</span><span class="n">to_pickle</span><span class="p">(</span><span class="s1">&#39;output/part_2_output.p&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="PartI-ExtractLemmatizationfromJSON.html" title="previous page">I. Importing the Data and Extracting Lemmatization from JSON</a>
+    <a class='right-next' id="next-link" href="PartIII-HarmonizingYearNameFormulaeandProcessingDates.html" title="next page">III. Harmonizing Year Name Formulae and Processing Dates</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

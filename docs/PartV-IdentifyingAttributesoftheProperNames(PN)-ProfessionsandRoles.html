@@ -1,0 +1,755 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>V. Identifying Attributes of the Proper Names (PN): Professions and Roles &#8212; Sumerian Networks</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="VI. Geography" href="PartVI-GeographicNames.html" />
+    <link rel="prev" title="IV. Archive Classification" href="PartIV-ArchiveClassification.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      <img src="_static/sumnet.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Sumerian Networks</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="welcome.html">
+   Sumerian Networks JupyterBook
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="PartI-ExtractLemmatizationfromJSON.html">
+   I. Importing the Data and Extracting Lemmatization from JSON
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="PartII-N-gramNeighborsoftheProperNames%28PN%29.html">
+   II. N-gram Neighbors of the Proper Names (PN)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="PartIII-HarmonizingYearNameFormulaeandProcessingDates.html">
+   III. Harmonizing Year Name Formulae and Processing Dates
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="PartIV-ArchiveClassification.html">
+   IV. Archive Classification
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   V. Identifying Attributes of the Proper Names (PN): Professions and Roles
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="PartVI-GeographicNames.html">
+   VI. Geography
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="PartVII-CommoditiesCounting.html">
+   VII. Commodities Counting
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/PartV-IdentifyingAttributesoftheProperNames(PN)-ProfessionsandRoles.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/niekveldhuis/sumnet/master?urlpath=tree/book/PartV-IdentifyingAttributesoftheProperNames(PN)-ProfessionsandRoles.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/niekveldhuis/sumnet/blob/master/book/PartV-IdentifyingAttributesoftheProperNames(PN)-ProfessionsandRoles.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#list-of-professions">
+   1 List of Professions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#finding-roles">
+   2 Finding Roles
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#transfer-to-csv">
+   3 Transfer to CSV
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analyzing-roles-and-professions">
+   4 Analyzing Roles and Professions
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="v-identifying-attributes-of-the-proper-names-pn-professions-and-roles">
+<h1>V. Identifying Attributes of the Proper Names (PN): Professions and Roles<a class="headerlink" href="#v-identifying-attributes-of-the-proper-names-pn-professions-and-roles" title="Permalink to this headline">¶</a></h1>
+<p>In order to build a node list for all personal names (PN) mentioned in each text, we create a dictionary with all the PN as keys. The values are dictionaries that contain additional attributes for each PN, including their profession and role. These will be added to the resulting node list below.</p>
+<p>The goal of this notebook is to build a node list (as <code class="docutils literal notranslate"><span class="pre">CSV</span></code>) with each row representing a PN with a unique ID, and additional columns for the attributes of the PN. Currently, these include the associated role for each text and their profession if matched with the list below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">people</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">filtered</span><span class="o">.</span><span class="n">itertuples</span><span class="p">():</span>
+    <span class="k">if</span> <span class="s1">&#39;PN&#39;</span> <span class="ow">in</span> <span class="n">row</span><span class="o">.</span><span class="n">lemma</span><span class="p">:</span>
+        <span class="n">people</span><span class="p">[(</span><span class="n">row</span><span class="o">.</span><span class="n">lemma</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">id_word</span><span class="p">)]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#sanity check</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">people</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="list-of-professions">
+<h2>1 List of Professions<a class="headerlink" href="#list-of-professions" title="Permalink to this headline">¶</a></h2>
+<p>We first created the initial list of professions and other named entities by mining all the nouns in each tablet which follow each PN, and placing them in a <code class="docutils literal notranslate"><span class="pre">CSV</span></code> entitled <a class="reference external" href="https://docs.google.com/spreadsheets/d/1Jrn8nzMl59CTd8qdiwFZCuCbogj-U5FdBXhF26_94U0/edit?usp=sharing">words_after_PN</a>.
+We then split the list based on different lexical boundaries and used a typology to categorize these into different groups:</p>
+<ul class="simple">
+<li><p>com = commodity</p></li>
+<li><p>econ = economic terminology</p></li>
+<li><p>fam = family affiliation</p></li>
+<li><p>gender = term distinguishing gender</p></li>
+<li><p>place = geographic names, house names, place names, etc.</p></li>
+<li><p>prof = professions and titles used</p></li>
+<li><p>time = chronological terms, or things associated with the cultic calendar (e.g. ‘offerings’)</p></li>
+</ul>
+<p>SOURCE: <a class="reference external" href="https://docs.google.com/document/d/1GRyje1Qmt0tbi6PZHk0lJNvFpwE0mIsvIG08PAj4Q_c/edit?usp=sharing">URAP meeting notes</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">professions</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">&quot;aʾigidu[worker]&quot;</span><span class="p">,</span> 
+                <span class="s2">&quot;abala[water-drawer]&quot;</span><span class="p">,</span> 
+                <span class="s2">&quot;abrig[functionary]&quot;</span><span class="p">,</span> 
+                <span class="s2">&quot;ad.KID[weaver]&quot;</span><span class="p">,</span> 
+                <span class="s2">&quot;agaʾus[soldier]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;arad[slave]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ašgab[leatherworker]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;aʾua [musician]&quot;</span><span class="p">,</span> 
+                <span class="s2">&quot;azlag[fuller]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;bahar[potter]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;bisaŋdubak[archivist]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;damgar[merchant]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;dikud[judge]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;dubsar[scribe]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;en[priest]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;erešdiŋir[priestess]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ensik[ruler]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;engar[farmer]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;enkud[tax-collector]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;gabaʾaš[courier]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;galamah[singer]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;gala[singer]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;geme[worker]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;gudug[priest]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;guzala[official]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;idu[doorkeeper]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;išib[priest]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;kaguruk[supervisor]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;kaš[runner]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;kiŋgia[messenger]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;kinda[barber]&quot;</span><span class="p">,</span> 
+                <span class="s2">&quot;kinkin[miller]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;kiridab[driver]&quot;</span><span class="p">,</span> 
+                <span class="s2">&quot;kurušda[fattener]&quot;</span><span class="p">,</span> 
+                <span class="s2">&quot;kuš[official]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;lu[person]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;lugal[king]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;lukur[priestess]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;lungak[brewer]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;malah[sailor]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;muhaldim[cook]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;mušendu[bird-catcher]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;nagada[herdsman]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;nagar[carpenter]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;nar[musician]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;nargal[musician]&quot;</span><span class="p">,</span> 
+                <span class="s2">&quot;narsa[musician]&quot;</span><span class="p">,</span> 
+                <span class="s2">&quot;nin[lady]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;nubanda[overseer]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;nukirik[horticulturalist]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;saŋ.DUN₃[recorder]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;saŋŋa[official]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;simug[smith]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sipad[shepherd]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sukkal[secretary]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;šabra[administrator]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;šagia[cup-bearer]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;šakkanak[general]&quot;</span><span class="p">,</span>
+                <span class="c1"># &quot;szej[cook]&quot;, this is a verb</span>
+                <span class="s2">&quot;šidim[builder]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;šuʾi[barber]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;šukud[fisherman]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;tibira[sculptor]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ugula[overseer]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;unud[cowherd]&quot;</span><span class="p">,</span>
+                <span class="c1"># &quot;urin[guard]&quot;, this is a verb</span>
+                <span class="s2">&quot;UN.IL₂[menial]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ušbar[weaver]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;zabardab[official]&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;zadim[stone-cutter]&quot;</span><span class="p">]</span>
+
+<span class="n">profession_counts</span> <span class="o">=</span> <span class="p">{</span> <span class="n">i</span> <span class="p">:</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">professions</span> <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If previous word is a ‘PN’ and the current word matches a profession, I’ll add that profession to the PN. The commented out parts are from when I tried to generate my own list of professions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+
+<span class="n">prev_row</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">filtered</span><span class="o">.</span><span class="n">itertuples</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">prev_row</span> <span class="o">!=</span> <span class="kc">None</span> <span class="ow">and</span> <span class="s1">&#39;PN&#39;</span> <span class="ow">in</span> <span class="n">prev_row</span><span class="o">.</span><span class="n">lemma</span> <span class="ow">and</span> <span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;^[^\]]*&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">lemma</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;]&quot;</span><span class="p">)</span> <span class="ow">in</span> <span class="n">professions</span><span class="p">:</span>
+                <span class="n">profession_counts</span><span class="p">[(</span><span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;^[^\]]*&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">lemma</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;]&quot;</span><span class="p">)]</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">people</span><span class="p">[(</span><span class="n">prev_row</span><span class="o">.</span><span class="n">lemma</span><span class="p">,</span> <span class="n">prev_row</span><span class="o">.</span><span class="n">id_word</span><span class="p">)][</span><span class="s1">&#39;profession&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">lemma</span>
+        <span class="n">prev_row</span> <span class="o">=</span> <span class="n">row</span>
+        
+        
+<span class="n">english</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+<span class="c1">#for word in words:</span>
+    <span class="c1">#to get only english use this one</span>
+    <span class="c1">#english.append((re.search(&#39;\[(.*?)\]&#39;, str(word)).group()))</span>
+ <span class="c1">#   english.add(word[0])</span>
+
+<span class="c1">#print(len(english))</span>
+
+<span class="c1">#for val in set(english):</span>
+ <span class="c1">#   print(val[1:-1])</span>
+
+<span class="c1">#Since this is related to the n-neighbors, this CSV is later on used in the neighbors notebook</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">english</span><span class="p">))</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;words_after_PN.csv&#39;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">profession_counts</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Percentages&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">profession_counts</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<span class="n">profession_percentages</span> <span class="o">=</span> <span class="p">{</span> <span class="n">i</span> <span class="p">:</span> <span class="n">profession_counts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">total</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">profession_counts</span><span class="p">}</span>
+<span class="n">percentage_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">profession_percentages</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Percentage&#39;</span><span class="p">])</span>
+<span class="n">percentage_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Looking at professions that never appear:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">percentage_df</span><span class="p">[</span><span class="n">percentage_df</span><span class="p">[</span><span class="s1">&#39;Percentage&#39;</span><span class="p">]</span> <span class="o">==</span>  <span class="mf">0.0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">percentage_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;Percentage&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="finding-roles">
+<h2>2 Finding Roles<a class="headerlink" href="#finding-roles" title="Permalink to this headline">¶</a></h2>
+<p>More information on keywords can be found here:
+<a class="reference external" href="https://github.com/niekveldhuis/Sumerian-network/blob/master/Finding%20Merging%20Roles%20and%20Professions/roles_and_keywords.md">https://github.com/niekveldhuis/Sumerian-network/blob/master/Finding Merging Roles and Professions/roles_and_keywords.md</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+<span class="k">def</span> <span class="nf">match_ki_ta</span><span class="p">():</span>
+    <span class="n">prev_row</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+    <span class="n">words</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">filtered</span><span class="o">.</span><span class="n">itertuples</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;.+ta\[\]PN&quot;</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">lemma</span><span class="p">)</span> <span class="ow">and</span> <span class="s1">&#39;ki[place]N&#39;</span> <span class="ow">in</span> <span class="n">prev_row</span><span class="p">:</span>
+            <span class="n">words</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">row</span><span class="o">.</span><span class="n">lemma</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">id_word</span><span class="p">))</span>
+            <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
+        <span class="n">prev_row</span> <span class="o">=</span> <span class="n">row</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of roles found:&#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">find_keyword_prev</span><span class="p">(</span><span class="n">keyword</span><span class="p">):</span>
+    <span class="n">prev_row</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+    <span class="n">words</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">filtered</span><span class="o">.</span><span class="n">itertuples</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">prev_row</span> <span class="o">!=</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">keyword</span> <span class="ow">in</span> <span class="n">row</span><span class="o">.</span><span class="n">lemma</span> <span class="ow">and</span> <span class="s1">&#39;PN&#39;</span> <span class="ow">in</span> <span class="n">prev_row</span><span class="o">.</span><span class="n">lemma</span><span class="p">:</span>
+            <span class="n">words</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">prev_row</span><span class="o">.</span><span class="n">lemma</span><span class="p">,</span> <span class="n">prev_row</span><span class="o">.</span><span class="n">id_word</span><span class="p">))</span>
+            <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
+        <span class="n">prev_row</span> <span class="o">=</span> <span class="n">row</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of roles found:&#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+    
+<span class="k">def</span> <span class="nf">find_keyword_next</span><span class="p">(</span><span class="n">keyword</span><span class="p">):</span>
+    <span class="n">prev_row</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+    <span class="n">words</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">filtered</span><span class="o">.</span><span class="n">itertuples</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">prev_row</span> <span class="o">!=</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">keyword</span> <span class="ow">in</span> <span class="n">prev_row</span><span class="o">.</span><span class="n">lemma</span> <span class="ow">and</span> <span class="s1">&#39;PN&#39;</span> <span class="ow">in</span> <span class="n">row</span><span class="o">.</span><span class="n">lemma</span><span class="p">:</span>
+            <span class="n">words</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">row</span><span class="o">.</span><span class="n">lemma</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">id_word</span><span class="p">))</span>
+            <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
+        <span class="n">prev_row</span> <span class="o">=</span> <span class="n">row</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of roles found:&#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Creating a dictionary that maps roles to count of those roles</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">role_counts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="simple">
+<li><p>Matching rows that have ‘ki[place]N’ in previous cell and ‘-ta’ in current</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#source</span>
+<span class="k">for</span> <span class="n">person</span><span class="p">,</span> <span class="n">id_w</span> <span class="ow">in</span> <span class="n">match_ki_ta</span><span class="p">()[</span><span class="mi">0</span><span class="p">]:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">people</span><span class="p">[(</span><span class="n">person</span><span class="p">,</span> <span class="n">id_w</span><span class="p">)][</span><span class="s1">&#39;role&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;source&#39;</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">person</span><span class="p">,</span> <span class="n">id_w</span><span class="p">)</span>
+        
+<span class="n">role_counts</span><span class="p">[</span><span class="s1">&#39;source&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">match_ki_ta</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="simple">
+<li><p>Matching rows that have ‘dab[seize]V/t’ in lemmatization</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res</span> <span class="o">=</span> <span class="n">find_keyword_prev</span><span class="p">(</span><span class="s1">&#39;dab[seize]V/t&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">person</span><span class="p">,</span> <span class="n">id_w</span><span class="p">)</span> <span class="ow">in</span> <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">people</span><span class="p">[(</span><span class="n">person</span><span class="p">,</span> <span class="n">id_w</span><span class="p">)][</span><span class="s1">&#39;role&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;recipient&#39;</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">person</span><span class="p">,</span> <span class="n">id_w</span><span class="p">)</span>
+        
+<span class="n">role_counts</span><span class="p">[</span><span class="s1">&#39;recipient&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="simple">
+<li><p>Matching rows that have ‘mu.DU[delivery]N’ in next cell</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># new owner</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">find_keyword_next</span><span class="p">(</span><span class="s1">&#39;mu.DU[delivery]N&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">person</span><span class="p">,</span> <span class="n">id_w</span><span class="p">)</span> <span class="ow">in</span> <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">people</span><span class="p">[(</span><span class="n">person</span><span class="p">,</span> <span class="n">id_w</span><span class="p">)][</span><span class="s1">&#39;role&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;new owner&#39;</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">((</span><span class="n">person</span><span class="p">,</span> <span class="n">id_w</span><span class="p">))</span>
+        
+<span class="n">role_counts</span><span class="p">[</span><span class="s1">&#39;new owner&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="simple">
+<li><p>Matching rows that have ‘šu[hand]N’ in next cell</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res</span> <span class="o">=</span> <span class="n">find_keyword_prev</span><span class="p">(</span><span class="s1">&#39;šu[hand]N&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">person</span><span class="p">,</span> <span class="n">id_w</span><span class="p">)</span> <span class="ow">in</span> <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">people</span><span class="p">[(</span><span class="n">person</span><span class="p">,</span> <span class="n">id_w</span><span class="p">)][</span><span class="s1">&#39;role&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;recipient&#39;</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">person</span><span class="p">,</span> <span class="n">id_w</span><span class="p">)</span>
+<span class="n">role_counts</span><span class="p">[</span><span class="s1">&#39;recipient&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">res</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="simple">
+<li><p>Matching rows that have ‘ŋiri[foot]N’ in next cell</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res</span> <span class="o">=</span> <span class="n">find_keyword_next</span><span class="p">(</span><span class="s1">&#39;ŋiri[foot]N&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">person</span><span class="p">,</span> <span class="n">id_w</span><span class="p">)</span> <span class="ow">in</span> <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">people</span><span class="p">[(</span><span class="n">person</span><span class="p">,</span> <span class="n">id_w</span><span class="p">)][</span><span class="s1">&#39;role&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;intermediary&#39;</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">((</span><span class="n">person</span><span class="p">,</span> <span class="n">id_w</span><span class="p">))</span>
+        
+<span class="n">role_counts</span><span class="p">[</span><span class="s1">&#39;intermediary&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>        
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="simple">
+<li><p>Looks for rows with ‘maškim’ in previous spot</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res</span> <span class="o">=</span> <span class="n">find_keyword_prev</span><span class="p">(</span><span class="s1">&#39;maškim[administrator]N&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">person</span><span class="p">,</span> <span class="n">id_w</span><span class="p">)</span> <span class="ow">in</span> <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">people</span><span class="p">[(</span><span class="n">person</span><span class="p">,</span> <span class="n">id_w</span><span class="p">)][</span><span class="s1">&#39;role&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;administrator&#39;</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">((</span><span class="n">person</span><span class="p">,</span> <span class="n">id_w</span><span class="p">))</span>
+        
+<span class="n">role_counts</span><span class="p">[</span><span class="s1">&#39;administrator&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>      
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="simple">
+<li><p>Looking for PNs before and after ‘zig[rise]V/i’</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res</span> <span class="o">=</span> <span class="n">find_keyword_next</span><span class="p">(</span><span class="s1">&#39;zig[rise]V/i&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">person</span><span class="p">,</span> <span class="n">id_w</span><span class="p">)</span> <span class="ow">in</span> <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">people</span><span class="p">[(</span><span class="n">person</span><span class="p">,</span> <span class="n">id_w</span><span class="p">)][</span><span class="s1">&#39;role&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;source&#39;</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">((</span><span class="n">person</span><span class="p">,</span> <span class="n">id_w</span><span class="p">))</span>
+        
+<span class="n">role_counts</span><span class="p">[</span><span class="s1">&#39;source&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">res</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res</span> <span class="o">=</span> <span class="n">find_keyword_prev</span><span class="p">(</span><span class="s1">&#39;zig[rise]V/i&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">person</span><span class="p">,</span> <span class="n">id_w</span><span class="p">)</span> <span class="ow">in</span> <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">people</span><span class="p">[(</span><span class="n">person</span><span class="p">,</span> <span class="n">id_w</span><span class="p">)][</span><span class="s1">&#39;role&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;source&#39;</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">((</span><span class="n">person</span><span class="p">,</span> <span class="n">id_w</span><span class="p">))</span>
+        
+<span class="n">role_counts</span><span class="p">[</span><span class="s1">&#39;source&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">res</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is every PN mentioned in the filtered texts</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">people</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">people_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">people</span><span class="o">.</span><span class="n">items</span><span class="p">()))</span>
+<span class="n">people_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="transfer-to-csv">
+<h2>3 Transfer to CSV<a class="headerlink" href="#transfer-to-csv" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name_word</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">people_df</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">index</span><span class="o">=</span><span class="n">people_df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="s1">&#39;id_word&#39;</span><span class="p">])</span>
+<span class="n">final</span> <span class="o">=</span> <span class="n">name_word</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">people_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">people_df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">final</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">final</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">final</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">)],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">final</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>adding CDLI No column</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CDLI_No</span> <span class="o">=</span> <span class="n">final</span><span class="p">[</span><span class="s1">&#39;id_word&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;\.&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">final</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;CDLI No&#39;</span><span class="p">,</span> <span class="n">CDLI_No</span><span class="p">)</span>
+<span class="n">final</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">final</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;roles_professions.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#TODO: need to deal with case when PN not right next to role</span>
+<span class="p">[(</span><span class="n">row</span><span class="o">.</span><span class="n">lemma</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">id_word</span><span class="p">)</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">filtered</span><span class="o">.</span><span class="n">itertuples</span><span class="p">()</span> <span class="k">if</span> <span class="s1">&#39;P330639.17&#39;</span> <span class="ow">in</span> <span class="n">row</span><span class="o">.</span><span class="n">id_word</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="analyzing-roles-and-professions">
+<h2>4 Analyzing Roles and Professions<a class="headerlink" href="#analyzing-roles-and-professions" title="Permalink to this headline">¶</a></h2>
+<p>Here we analyze percentages of roles. Previously we created a dataframe for percentages of professions</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#role percentages</span>
+
+<span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">role_counts</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<span class="n">role_counts</span><span class="o">.</span><span class="n">update</span><span class="p">((</span><span class="n">k</span><span class="p">,</span><span class="n">role_counts</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">/</span><span class="n">total</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">role_counts</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">role_counts</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">role_counts</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Percentages&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="PartIV-ArchiveClassification.html" title="previous page">IV. Archive Classification</a>
+    <a class='right-next' id="next-link" href="PartVI-GeographicNames.html" title="next page">VI. Geography</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

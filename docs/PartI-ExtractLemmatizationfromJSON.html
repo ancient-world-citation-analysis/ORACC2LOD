@@ -1,0 +1,3262 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>I. Importing the Data and Extracting Lemmatization from JSON &#8212; Sumerian Networks</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="II. N-gram Neighbors of the Proper Names (PN)" href="PartII-N-gramNeighborsoftheProperNames%28PN%29.html" />
+    <link rel="prev" title="Sumerian Networks JupyterBook" href="welcome.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      <img src="_static/sumnet.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Sumerian Networks</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="welcome.html">
+   Sumerian Networks JupyterBook
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   I. Importing the Data and Extracting Lemmatization from JSON
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="PartII-N-gramNeighborsoftheProperNames%28PN%29.html">
+   II. N-gram Neighbors of the Proper Names (PN)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="PartIII-HarmonizingYearNameFormulaeandProcessingDates.html">
+   III. Harmonizing Year Name Formulae and Processing Dates
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="PartIV-ArchiveClassification.html">
+   IV. Archive Classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="PartV-IdentifyingAttributesoftheProperNames%28PN%29-ProfessionsandRoles.html">
+   V. Identifying Attributes of the Proper Names (PN): Professions and Roles
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="PartVI-GeographicNames.html">
+   VI. Geography
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="PartVII-CommoditiesCounting.html">
+   VII. Commodities Counting
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/PartI-ExtractLemmatizationfromJSON.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/niekveldhuis/sumnet/master?urlpath=tree/book/PartI-ExtractLemmatizationfromJSON.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/niekveldhuis/sumnet/blob/master/book/PartI-ExtractLemmatizationfromJSON.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#import-oracc-data">
+   1 Import ORACC Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#download-btdns-data">
+   2 Download BTDNS Data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#extract-data-from-txt-file">
+     2.1 Extract Data from .txt file.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filtering-data">
+     2.2 Filtering Data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#parsing-the-data">
+   3 Parsing the Data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#getting-the-metadata-data-for-the-tablets">
+     3.1 Getting the Metadata Data for the Tablets.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-parse-oracc-json-function">
+     3.2 The
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       parse_ORACC_json()
+      </span>
+     </code>
+     function
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#call-the-parse-oracc-json-function-for-every-json-file">
+     3.3 Call the
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       parse_ORACC_json()
+      </span>
+     </code>
+     function for every
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       JSON
+      </span>
+     </code>
+     file
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-structuring">
+   4 Data Structuring
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#transform-the-data-into-a-dataframe">
+     4.1 Transform the Data into a DataFrame
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#remove-spaces-and-commas-from-guide-word-and-sense">
+     4.2 Remove Spaces and Commas from Guide Word and Sense
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-line-id">
+     4.3 Create Line ID
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-lemma-column">
+   5 Create Lemma Column
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#select-relevant-columns">
+   6 Select Relevant Columns
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#save-results-in-csv-file-pickle">
+   7 Save Results in CSV file &amp; Pickle
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="i-importing-the-data-and-extracting-lemmatization-from-json">
+<h1>I. Importing the Data and Extracting Lemmatization from JSON<a class="headerlink" href="#i-importing-the-data-and-extracting-lemmatization-from-json" title="Permalink to this headline">¶</a></h1>
+<p>The code in this section will parse the <a class="reference external" href="http://oracc.org">ORACC</a> JSON data of the Ur III corpus to extract lemmatization data.</p>
+<p>The output contains text IDs, line IDs, lemmas, and relevant other data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import necessary libraries</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># import libraries for this section</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">zipfile</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="c1"># import libraries for workbook</span>
+<span class="c1"># from tqdm.auto import tqdm</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="import-oracc-data">
+<h2>1 Import ORACC Data<a class="headerlink" href="#import-oracc-data" title="Permalink to this headline">¶</a></h2>
+<p>We will begin by downloading the lemmatization data from ORACC. This will be downloaded in the form of zipped JSON files which we will parse in the next subsection and store in a pandas dataframe.</p>
+<p>The ORACC database can be accessed via <a class="reference external" href="http://oracc.org/">http://oracc.org/</a>. The Ur III data can be viewed and interacted with at <a class="reference external" href="http://oracc.org/epsd2/admin/ur3">http://oracc.org/epsd2/admin/ur3</a>.</p>
+<p>To manipulated the data in this workbook however, we will need to download the data into our workspace and then parse and store this data in a pandas dataframe. We will download the data through a REST API using the requests library, and then store the data in a zipfile locally which will be parsed in the next section.</p>
+<p>As we are accessing the JSON through the ORACC API, and the request URL is not the same as the viewing URL listed above. We will instead use: <a class="reference external" href="http://build-oracc.museum.upenn.edu/json/epsd2-admin-ur3">http://build-oracc.museum.upenn.edu/json/epsd2-admin-ur3</a>.</p>
+<p>If you are unfamiliar with using APIs and making HTTP requests and would like to learn how to do so in Python, this section of the Data 100 textbook might be helpful: <a class="reference external" href="http://www.textbook.ds100.org/ch/13/web_http.html">http://www.textbook.ds100.org/ch/13/web_http.html</a></p>
+<p><strong>NOTE:</strong> If you already have this data, you can skip this step as it can take quite a long time.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define the url to download from and name the zipfile to be created</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://build-oracc.museum.upenn.edu/json/epsd2-admin-ur3.zip&#39;</span>
+<span class="n">file_name</span> <span class="o">=</span> <span class="s1">&#39;jsonzip/epsd2-admin-ur3.zip&#39;</span>
+
+<span class="c1"># Workbook Code</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">CHUNK = 1024 # Define chunk size</span>
+<span class="sd">with requests.get(url, stream=True) as request:</span>
+<span class="sd">    if request.status_code == 200:</span>
+<span class="sd">        #if file is accessible, download</span>
+<span class="sd">        tqdm.write(&#39;Saving &#39; + url + &#39; as &#39; + file_name)</span>
+<span class="sd">        total_size = int(request.headers.get(&#39;content-length&#39;, 0))</span>
+<span class="sd">        tqdm_handler = tqdm(total=total_size, unit=&#39;B&#39;, unit_scale=True, </span>
+<span class="sd">                            desc = &#39;epsd2/admin/ur3&#39;)</span>
+<span class="sd">        with open(file_name, &#39;wb&#39;) as zip_file:</span>
+<span class="sd">            #use tdqm to show download speed</span>
+<span class="sd">            for chunk in request.iter_content(chunk_size=CHUNK):</span>
+<span class="sd">                tqdm_handler.update(len(chunk))</span>
+<span class="sd">                zip_file.write(chunk)</span>
+<span class="sd">    else:</span>
+<span class="sd">        tqdm.write(&quot;WARNING: %s does not exist.&quot; % url)</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="c1"># Pedagogical Code</span>
+<span class="n">request</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">);</span> <span class="c1"># use a get request to get the data from the url</span>
+<span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">content</span><span class="p">);</span> <span class="c1"># write data into zipfile</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="download-btdns-data">
+<h2>2 Download BTDNS Data<a class="headerlink" href="#download-btdns-data" title="Permalink to this headline">¶</a></h2>
+<p>You can use the following instructions to obtain the data we need from the BDTNS database.</p>
+<ol class="simple">
+<li><p>Go to <a class="reference external" href="http://bdtns.filol.csic.es/index.php?p=formulario_urIII">http://bdtns.filol.csic.es/index.php?p=formulario_urIII</a>.</p></li>
+<li><p>In the Provenience drop down menu choose “Puzriš-Dagan” and hit “Search”. This will give a list of about 15,000 tablets from Drehem.</p></li>
+<li><p>Now, hit “Export” on the left and in the pop-up window select every box except “Transliteration of the whole text(s)”. Hit “export”. This will produce a .txt file and you’ll need to put it into the “bdtns_metadata” folder.</p></li>
+<li><p>The name of the .txt file changes everytime we download, so you may need to alter the code slightly to properly import the data in this notebook.</p></li>
+</ol>
+<p><strong>NOTE:</strong> The database’s downloading function is broken at the moment, however, so we will be using a previously obtained copy of the data hosted on our Github repository.</p>
+<div class="section" id="extract-data-from-txt-file">
+<h3>2.1 Extract Data from .txt file.<a class="headerlink" href="#extract-data-from-txt-file" title="Permalink to this headline">¶</a></h3>
+<p>We have an existing copy of the data stored in a text file on our Github repository (<a class="reference external" href="https://github.com/niekveldhuis/sumnet/blob/master/QUERY_catalogue.txt">https://github.com/niekveldhuis/sumnet/blob/master/QUERY_catalogue.txt</a>).</p>
+<p>As with the last subsection, we will be using an API to access our data, so the url is slightly different (<a class="reference external" href="https://raw.githubusercontent.com/niekveldhuis/sumnet/master/QUERY_catalogue.txt">https://raw.githubusercontent.com/niekveldhuis/sumnet/master/QUERY_catalogue.txt</a>). Using pandas, we can actually download the data without the use of the requests library and can import the data into a pandas dataframe to work with it immediately.</p>
+<p>The data is indexed both on BDTNS number ids and CDLI P-number ids. The ORACC data is indexed by P-numbers and so we will merge the data in the next subsection using these ids.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bdtns_catalogue_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/niekveldhuis/sumnet/master/QUERY_catalogue.txt&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># reset the index to the p numbers</span>
+<span class="n">bdtns_catalogue_data</span> <span class="o">=</span> <span class="n">bdtns_catalogue_data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;CDLI_no&#39;</span><span class="p">)</span>  
+<span class="n">bdtns_catalogue_data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>BDTNS_no</th>
+      <th>Publications</th>
+      <th>Museum_no</th>
+      <th>Date</th>
+      <th>Provenience</th>
+    </tr>
+    <tr>
+      <th>CDLI_no</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>NaN</th>
+      <td>197624.0</td>
+      <td>À l'école des scribes, p. 104</td>
+      <td>NaN</td>
+      <td>AS09 - 00 - 00</td>
+      <td>Umma</td>
+    </tr>
+    <tr>
+      <th>NaN</th>
+      <td>203551.0</td>
+      <td>A New Cuneiform Text..., IM 141866</td>
+      <td>IM 141866 //</td>
+      <td>0000 - 00 - 00</td>
+      <td>Umma</td>
+    </tr>
+    <tr>
+      <th>P114469</th>
+      <td>21035.0</td>
+      <td>AAA 1 78 24 = MVN 05 249 = CDLI P114469</td>
+      <td>WML 49.47.46</td>
+      <td>0000 - 07 - 12</td>
+      <td>Ĝirsu</td>
+    </tr>
+    <tr>
+      <th>P142651</th>
+      <td>38568.0</td>
+      <td>AAICAB 1/1, Ashm. 1909-951 = CDLI P142651</td>
+      <td>Ashm. 1909-951</td>
+      <td>AS05 - 11 - 00</td>
+      <td>Ĝirsu</td>
+    </tr>
+    <tr>
+      <th>P142652</th>
+      <td>38569.0</td>
+      <td>AAICAB 1/1, Ashm. 1911-139 = CDLI P142652</td>
+      <td>Ashm. 1911-139</td>
+      <td>SS09 - 08 - 23</td>
+      <td>Umma</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>P142619</th>
+      <td>6022.0</td>
+      <td>ZVO 25 134 2 = Hermitage 3 195 (unpubl.) = CDL...</td>
+      <td>Erm 14814</td>
+      <td>AS01 - 03 - 28</td>
+      <td>Puzriš-Dagān</td>
+    </tr>
+    <tr>
+      <th>P142620</th>
+      <td>6023.0</td>
+      <td>ZVO 25 136 3 = RA 73 190 = RIM E3/2.1.2.74</td>
+      <td>MA 9612</td>
+      <td>AS06 - 00 - 00</td>
+      <td>Umma</td>
+    </tr>
+    <tr>
+      <th>NaN</th>
+      <td>191925.0</td>
+      <td>Zwischen Orient und Okzident 262 1</td>
+      <td>NaN</td>
+      <td>AS03 - 00 - 00</td>
+      <td>Umma</td>
+    </tr>
+    <tr>
+      <th>NaN</th>
+      <td>191926.0</td>
+      <td>Zwischen Orient und Okzident 264 2</td>
+      <td>NaN</td>
+      <td>IS01 - 00 - 00</td>
+      <td>Umma</td>
+    </tr>
+    <tr>
+      <th>P253713</th>
+      <td>170094.0</td>
+      <td>NaN</td>
+      <td>MS 4703</td>
+      <td>NaN</td>
+      <td>Unkn. Prov.</td>
+    </tr>
+  </tbody>
+</table>
+<p>101390 rows × 5 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="filtering-data">
+<h3>2.2 Filtering Data<a class="headerlink" href="#filtering-data" title="Permalink to this headline">¶</a></h3>
+<p>Here we are filtering the BDTNS data for Puzriš-Dagān tablets and drop tablets with null p-numbers or without dates. This will ensure we keep only the metadata relevant for our purposes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># select for tablets from Puzriš-Dagān/Drehem</span>
+<span class="n">bdtns_catalogue_data</span> <span class="o">=</span> <span class="n">bdtns_catalogue_data</span><span class="p">[(</span><span class="n">bdtns_catalogue_data</span><span class="p">[</span><span class="s1">&#39;Provenience&#39;</span><span class="p">]</span>
+    <span class="o">==</span><span class="s1">&#39;Puzriš-Dagān&#39;</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">bdtns_catalogue_data</span><span class="p">[</span><span class="s1">&#39;Provenience&#39;</span><span class="p">]</span>
+    <span class="o">==</span><span class="s1">&#39;Puzriš-Dagān (?)&#39;</span><span class="p">)]</span> 
+
+<span class="c1">#select for non-null p_numbers and non-null dates</span>
+<span class="n">bdtns_catalogue_data</span> <span class="o">=</span> <span class="n">bdtns_catalogue_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="n">bdtns_catalogue_data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">isnull</span><span class="p">(),</span> <span class="p">:]</span>
+<span class="n">bdtns_catalogue_data</span> <span class="o">=</span> <span class="n">bdtns_catalogue_data</span><span class="p">[</span><span class="o">~</span><span class="n">bdtns_catalogue_data</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()]</span>
+
+<span class="n">bdtns_catalogue_data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>BDTNS_no</th>
+      <th>Publications</th>
+      <th>Museum_no</th>
+      <th>Date</th>
+      <th>Provenience</th>
+    </tr>
+    <tr>
+      <th>CDLI_no</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>P142785</th>
+      <td>38699.0</td>
+      <td>AAICAB 1/1, Ashm. 1919-11a-b = CDLI P142785 = ...</td>
+      <td>Ashm. 1919-11a-b</td>
+      <td>IS01 - 08 - 00</td>
+      <td>Puzriš-Dagān</td>
+    </tr>
+    <tr>
+      <th>P142787</th>
+      <td>38700.0</td>
+      <td>AAICAB 1/1, Ashm. 1923-412 = CDLI P142787</td>
+      <td>Ashm. 1923-412</td>
+      <td>SS05 - 07 - 12</td>
+      <td>Puzriš-Dagān</td>
+    </tr>
+    <tr>
+      <th>P142788</th>
+      <td>38701.0</td>
+      <td>AAICAB 1/1, Ashm. 1923-415 = CDLI P142788</td>
+      <td>Ashm. 1923-415</td>
+      <td>SH48 - 12 - 20</td>
+      <td>Puzriš-Dagān</td>
+    </tr>
+    <tr>
+      <th>P142789</th>
+      <td>38702.0</td>
+      <td>AAICAB 1/1, Ashm. 1923-419 = CDLI P142789</td>
+      <td>Ashm. 1923-419</td>
+      <td>SS04 - XX - 15</td>
+      <td>Puzriš-Dagān</td>
+    </tr>
+    <tr>
+      <th>P142790</th>
+      <td>38703.0</td>
+      <td>AAICAB 1/1, Ashm. 1923-420 = CDLI P142790</td>
+      <td>Ashm. 1923-420</td>
+      <td>XXXX - 01//02 - 01</td>
+      <td>Puzriš-Dagān</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>P141938</th>
+      <td>38553.0</td>
+      <td>ZA 93 61 13</td>
+      <td>GIS 13</td>
+      <td>AS01 - 09 - 24</td>
+      <td>Puzriš-Dagān</td>
+    </tr>
+    <tr>
+      <th>P274585</th>
+      <td>167818.0</td>
+      <td>ZA 95 66 = CDLI P274585</td>
+      <td>A 05505</td>
+      <td>AS05 - XX - XX</td>
+      <td>Puzriš-Dagān</td>
+    </tr>
+    <tr>
+      <th>P381748</th>
+      <td>170855.0</td>
+      <td>ZA 96 179 = HSAO 16, no. 083</td>
+      <td>IM 044366</td>
+      <td>XXXX - XX - XX</td>
+      <td>Puzriš-Dagān</td>
+    </tr>
+    <tr>
+      <th>P142618</th>
+      <td>6021.0</td>
+      <td>ZVO 25 134 1 = Hermitage 3 174 (unpubl.) = CDL...</td>
+      <td>Erm 14811</td>
+      <td>SH47 - 02 - 00</td>
+      <td>Puzriš-Dagān</td>
+    </tr>
+    <tr>
+      <th>P142619</th>
+      <td>6022.0</td>
+      <td>ZVO 25 134 2 = Hermitage 3 195 (unpubl.) = CDL...</td>
+      <td>Erm 14814</td>
+      <td>AS01 - 03 - 28</td>
+      <td>Puzriš-Dagān</td>
+    </tr>
+  </tbody>
+</table>
+<p>15279 rows × 5 columns</p>
+</div></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="parsing-the-data">
+<h2>3 Parsing the Data<a class="headerlink" href="#parsing-the-data" title="Permalink to this headline">¶</a></h2>
+<p>In this subsection we will merge the metadata we have on the Drehem tablets and parse the imported <code class="docutils literal notranslate"><span class="pre">json</span></code> data into a list we can later use to construct a <code class="docutils literal notranslate"><span class="pre">pandas</span></code> dataframe.</p>
+<div class="section" id="getting-the-metadata-data-for-the-tablets">
+<h3>3.1 Getting the Metadata Data for the Tablets.<a class="headerlink" href="#getting-the-metadata-data-for-the-tablets" title="Permalink to this headline">¶</a></h3>
+<p>Before constructing our dataframe of lemmatized data, we will construct a dataframe of Drehem tablet metadata to filter and augment the data with.</p>
+<p>We do this by loading the data from the <code class="docutils literal notranslate"><span class="pre">catalogue.json</span></code> into a dataframe and selecting the p-numbers where the provenience is indicated to be Puzriš-Dagan or modern Drehem. We will then replace the ORACC metadata with the BDTNS metadata where both databases have metadata and list the metadata source. Finally, we select the desired columns</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># open the zipfile to read</span>
+<span class="n">zip_file</span> <span class="o">=</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="s1">&#39;jsonzip/epsd2-admin-ur3.zip&#39;</span><span class="p">)</span>
+
+<span class="c1">#read and decode the project catalog json and store data in oracc_catalogue_json</span>
+<span class="n">oracc_json_str</span> <span class="o">=</span> <span class="n">zip_file</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;epsd2/admin/ur3/catalogue.json&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> 
+<span class="n">oracc_catalogue_json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">oracc_json_str</span><span class="p">)[</span><span class="s1">&#39;members&#39;</span><span class="p">]</span>
+<span class="n">zip_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="c1">#create combined catalogue_data</span>
+<span class="n">oracc_catalogue_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">oracc_catalogue_json</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">)</span>
+<span class="n">catalogue_data</span> <span class="o">=</span> <span class="n">oracc_catalogue_data</span><span class="p">[(</span><span class="n">oracc_catalogue_data</span><span class="p">[</span><span class="s1">&#39;provenience&#39;</span><span class="p">]</span> 
+    <span class="o">==</span> <span class="s1">&#39;Puzriš-Dagan (mod. Drehem)&#39;</span><span class="p">)</span> <span class="o">|</span> 
+    <span class="n">oracc_catalogue_data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">bdtns_catalogue_data</span><span class="o">.</span><span class="n">index</span><span class="p">)]</span>
+    <span class="c1">#choose catalogue entries marked as Puzriš-Dagan in either ORACC or BDTNS</span>
+
+<span class="c1">#add bdtns dates to oracc dataset and name metadata source</span>
+<span class="c1">#added line to suppress setting with copy warning</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">mode</span><span class="o">.</span><span class="n">chained_assignment</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># default=&#39;warn&#39;</span>
+<span class="n">in_bdtns_index</span> <span class="o">=</span> <span class="n">catalogue_data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">bdtns_catalogue_data</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">catalogue_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">in_bdtns_index</span><span class="p">,</span> <span class="s1">&#39;date_of_origin&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bdtns_catalogue_data</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span>
+<span class="n">catalogue_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">in_bdtns_index</span><span class="p">,</span> <span class="s1">&#39;dates_referenced&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bdtns_catalogue_data</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span>
+<span class="n">catalogue_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">in_bdtns_index</span><span class="p">,</span> <span class="s1">&#39;provenience&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bdtns_catalogue_data</span><span class="p">[</span><span class="s1">&#39;Provenience&#39;</span><span class="p">]</span>
+<span class="n">catalogue_data</span><span class="p">[</span><span class="s1">&#39;metadata_source&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;BDTNS&#39;</span> <span class="k">if</span> <span class="n">in_bdtns</span> <span class="k">else</span> <span class="s1">&#39;ORACC&#39;</span> <span class="k">for</span> <span class="n">in_bdtns</span> <span class="ow">in</span> <span class="n">in_bdtns_index</span><span class="p">]</span>
+
+<span class="c1">#select necessary columns</span>
+<span class="n">catalogue_data</span> <span class="o">=</span> <span class="n">catalogue_data</span><span class="p">[[</span><span class="s1">&#39;date_of_origin&#39;</span><span class="p">,</span> <span class="s1">&#39;dates_referenced&#39;</span><span class="p">,</span> <span class="s1">&#39;collection&#39;</span><span class="p">,</span>
+                                 <span class="s1">&#39;primary_publication&#39;</span><span class="p">,</span> <span class="s1">&#39;museum_no&#39;</span><span class="p">,</span> <span class="s1">&#39;provenience&#39;</span><span class="p">,</span>
+                                 <span class="s1">&#39;metadata_source&#39;</span><span class="p">]]</span>
+<span class="c1">#display metadata</span>
+<span class="n">catalogue_data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>date_of_origin</th>
+      <th>dates_referenced</th>
+      <th>collection</th>
+      <th>primary_publication</th>
+      <th>museum_no</th>
+      <th>provenience</th>
+      <th>metadata_source</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>P100041</th>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AAS 053</td>
+      <td>AO 20313</td>
+      <td>Puzriš-Dagān</td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>P100189</th>
+      <td>SH46 - 08 - 05</td>
+      <td>SH46 - 08 - 05</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AAS 211</td>
+      <td>AO 20039</td>
+      <td>Puzriš-Dagān</td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>P100190</th>
+      <td>SH47 - 07 - 29</td>
+      <td>SH47 - 07 - 29</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AAS 212</td>
+      <td>AO 20051</td>
+      <td>Puzriš-Dagān</td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>P100191</th>
+      <td>AS01 - 03 - 24</td>
+      <td>AS01 - 03 - 24</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AAS 213</td>
+      <td>AO 20074</td>
+      <td>Puzriš-Dagān</td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>P100211</th>
+      <td>AS01 - 12 - 11</td>
+      <td>AS01 - 12 - 11</td>
+      <td>Museum of Fine Arts, Budapest, Hungary</td>
+      <td>ActSocHun Or 5-12, 156 2</td>
+      <td>MHBA 51.2400</td>
+      <td>Puzriš-Dagān</td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>P456164</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>CDLI Seals 003454 (composite)</td>
+      <td>NaN</td>
+      <td>Puzriš-Dagan (mod. Drehem)</td>
+      <td>ORACC</td>
+    </tr>
+    <tr>
+      <th>P459158</th>
+      <td>Ibbi-Suen.00.00.00</td>
+      <td>Ibbi-Suen.00.00.00</td>
+      <td>private: anonymous, unlocated</td>
+      <td>CDLI Seals 006338 (physical)</td>
+      <td>Anonymous 459158</td>
+      <td>Puzriš-Dagan (mod. Drehem)</td>
+      <td>ORACC</td>
+    </tr>
+    <tr>
+      <th>P481391</th>
+      <td>SH46 - 02 - 24</td>
+      <td>SH46 - 02 - 24</td>
+      <td>Department of Classics, University of Cincinna...</td>
+      <td>unpublished unassigned ?</td>
+      <td>UC CSC 1950</td>
+      <td>Puzriš-Dagān</td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>P481395</th>
+      <td>SS02 - 02 - 00</td>
+      <td>SS02 - 02 - 00</td>
+      <td>Department of Classics, University of Cincinna...</td>
+      <td>unpublished unassigned ?</td>
+      <td>UC CSC 1954</td>
+      <td>Puzriš-Dagān</td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>P517012</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>CDLI Seals 013964 (composite)</td>
+      <td>NaN</td>
+      <td>Puzriš-Dagan (mod. Drehem)</td>
+      <td>ORACC</td>
+    </tr>
+  </tbody>
+</table>
+<p>15671 rows × 7 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="the-parse-oracc-json-function">
+<h3>3.2 The <code class="docutils literal notranslate"><span class="pre">parse_ORACC_json()</span></code> function<a class="headerlink" href="#the-parse-oracc-json-function" title="Permalink to this headline">¶</a></h3>
+<p>Here we define the <code class="docutils literal notranslate"><span class="pre">parse_ORACC_json()</span></code> function, which will recursively parse the <code class="docutils literal notranslate"><span class="pre">json</span></code> files provided by ORACC until it finds the relevant lemma data. It takes in the an ORACC json data structure, the associated meta_data, and some necessary keys and returns a list of lemma python dictionary entries which we can use to constuct a pandas dataframe.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">json</span></code> files consist of a hierarchy of <code class="docutils literal notranslate"><span class="pre">cdl</span></code> nodes; only the nodes which have ‘f’ or ‘strict’ keys contain lemmatization data. The function goes down this hierarchy by recursively calling itself when a new <code class="docutils literal notranslate"><span class="pre">cdl</span></code> node is encountered. For more information about the data hierarchy in the <a class="reference external" href="http://oracc.org">ORACC</a> <code class="docutils literal notranslate"><span class="pre">json</span></code> files, see <a class="reference external" href="http://oracc.org/doc/opendata/index.html">ORACC Open Data</a>.</p>
+<p>We are left with lemma data dictionaries with a series of attributes:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id_text</span></code>: consists of a project abbreviation, such as <code class="docutils literal notranslate"><span class="pre">blms</span></code> or <code class="docutils literal notranslate"><span class="pre">cams/gkab</span></code> plus a text ID, in the format <code class="docutils literal notranslate"><span class="pre">cams/gkab/P338616</span></code> or <code class="docutils literal notranslate"><span class="pre">dcclt/Q000039</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ftype</span></code>: denotes if a node is a year name (<code class="docutils literal notranslate"><span class="pre">yn</span></code>) or not.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">word_id</span></code>: consists of text ID, line ID, and word ID, in the format <code class="docutils literal notranslate"><span class="pre">Q000039.76.2</span></code> ie. the second word in line 76 of text object <code class="docutils literal notranslate"><span class="pre">Q000039</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">label</span></code>: human-legible label that refers to a line or another part of the text; eg. <code class="docutils literal notranslate"><span class="pre">o</span> <span class="pre">i</span> <span class="pre">23</span></code> (obverse column 1 line 23) or <code class="docutils literal notranslate"><span class="pre">r</span> <span class="pre">v</span> <span class="pre">23'</span></code> (reverse column 5 line 23 prime). The <code class="docutils literal notranslate"><span class="pre">label</span></code> field is used in online <a class="reference external" href="http://oracc.org">ORACC</a> editions to indicate line numbers.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">extent</span></code>, <code class="docutils literal notranslate"><span class="pre">scope</span></code>, and <code class="docutils literal notranslate"><span class="pre">state</span></code>: gives metatextual data about the condition of the object; captures the number of broken lines or columns and similar information.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">date</span></code>, <code class="docutils literal notranslate"><span class="pre">dates_references</span></code>, <code class="docutils literal notranslate"><span class="pre">primary_publication</span></code>, <code class="docutils literal notranslate"><span class="pre">collection</span></code>, and <code class="docutils literal notranslate"><span class="pre">museum_no</span></code>: metadata from the ORACC and BDTNS catalogues.</p></li>
+</ul>
+<p><em>Note:</em> <code class="docutils literal notranslate"><span class="pre">76</span></code> in the <code class="docutils literal notranslate"><span class="pre">word_id</span></code> is not a line number strictly speaking but an object reference within the text object. Things like horizontal rulings, columns, and breaks also get object references. The <code class="docutils literal notranslate"><span class="pre">word_id</span></code> field allows us to put lines, breaks, and horizontal drawings together in the proper order.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">parse_ORACC_json</span><span class="p">(</span><span class="n">lemmatized_data_json</span><span class="p">,</span> <span class="n">meta_data</span><span class="p">,</span> <span class="n">dollar_keys</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    A function to parse the ORACC json lemmatized data which has a specific</span>
+<span class="sd">    format outlined here: http://oracc.museum.upenn.edu/doc/opendata/json/index.html</span>
+<span class="sd">    This function recursively parses objects associated with the &#39;cdl&#39; key to </span>
+<span class="sd">    extend the lemma_list. Each identified lemma&#39;s data is added as a new entry</span>
+<span class="sd">    in the lemma list, which is returned at the end of the function.</span>
+<span class="sd">    </span>
+<span class="sd">    Inputs:</span>
+<span class="sd">    lemmatized_data_json: JSON object containing lemmatized data for a single </span>
+<span class="sd">                          tablet from ORACC. Must be recursively called to </span>
+<span class="sd">                          access lemma data. Lemma data objects can be </span>
+<span class="sd">                          identified with the presence of an &#39;f&#39; key or &#39;strict&#39;</span>
+<span class="sd">                          key</span>
+<span class="sd">    meta_data: a dictionary with various metadata fields pertaining to the given</span>
+<span class="sd">               tablet</span>
+<span class="sd">    dollar_keys: a list of keys used to add data to the &#39;strict&#39; lemmas</span>
+
+<span class="sd">    Outputs:</span>
+<span class="sd">    lemma_list: a list of dictionaries where each entry corresponds to a single </span>
+<span class="sd">                lemma. This list is extended at the end of each recursion.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">lemma_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">JSONobject</span> <span class="ow">in</span> <span class="n">lemmatized_data_json</span><span class="p">[</span><span class="s1">&#39;cdl&#39;</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="s1">&#39;cdl&#39;</span> <span class="ow">in</span> <span class="n">JSONobject</span><span class="p">:</span> 
+            <span class="n">lemma_list</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">parse_ORACC_json</span><span class="p">(</span><span class="n">JSONobject</span><span class="p">,</span> <span class="n">meta_data</span><span class="p">,</span> <span class="n">dollar_keys</span><span class="p">))</span>
+        <span class="k">if</span> <span class="s1">&#39;label&#39;</span> <span class="ow">in</span> <span class="n">JSONobject</span><span class="p">:</span>
+            <span class="n">meta_data</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">JSONobject</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="s1">&#39;f&#39;</span> <span class="ow">in</span> <span class="n">JSONobject</span><span class="p">:</span>
+            <span class="n">lemma</span> <span class="o">=</span> <span class="n">JSONobject</span><span class="p">[</span><span class="s1">&#39;f&#39;</span><span class="p">]</span>
+            <span class="n">lemma</span><span class="p">[</span><span class="s1">&#39;ftype&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">JSONobject</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ftype&#39;</span><span class="p">)</span>
+            <span class="n">lemma</span><span class="p">[</span><span class="s1">&#39;id_word&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">JSONobject</span><span class="p">[</span><span class="s1">&#39;ref&#39;</span><span class="p">]</span>
+            <span class="n">lemma</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">meta_data</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span>
+            <span class="n">lemma</span><span class="p">[</span><span class="s1">&#39;id_text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">meta_data</span><span class="p">[</span><span class="s1">&#39;id_text&#39;</span><span class="p">]</span>
+            <span class="n">lemma</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">meta_data</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span>
+            <span class="n">lemma</span><span class="p">[</span><span class="s1">&#39;dates_references&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">meta_data</span><span class="p">[</span><span class="s1">&#39;dates_references&#39;</span><span class="p">]</span>
+            <span class="n">lemma</span><span class="p">[</span><span class="s1">&#39;publication&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">meta_data</span><span class="p">[</span><span class="s1">&#39;publication&#39;</span><span class="p">]</span>
+            <span class="n">lemma</span><span class="p">[</span><span class="s1">&#39;collection&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">meta_data</span><span class="p">[</span><span class="s1">&#39;collection&#39;</span><span class="p">]</span>
+            <span class="n">lemma</span><span class="p">[</span><span class="s1">&#39;museum_no&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">meta_data</span><span class="p">[</span><span class="s1">&#39;museum_no&#39;</span><span class="p">]</span>
+            <span class="n">lemma</span><span class="p">[</span><span class="s1">&#39;metadata_source&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">meta_data</span><span class="p">[</span><span class="s1">&#39;metadata_source&#39;</span><span class="p">]</span>
+            <span class="n">lemma_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lemma</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s1">&#39;strict&#39;</span> <span class="ow">in</span> <span class="n">JSONobject</span> <span class="ow">and</span> <span class="n">JSONobject</span><span class="p">[</span><span class="s1">&#39;strict&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;1&#39;</span><span class="p">:</span>
+            <span class="n">lemma</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">JSONobject</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">dollar_keys</span><span class="p">}</span>
+            <span class="n">lemma</span><span class="p">[</span><span class="s1">&#39;id_word&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">JSONobject</span><span class="p">[</span><span class="s1">&#39;ref&#39;</span><span class="p">]</span>
+            <span class="n">lemma</span><span class="p">[</span><span class="s1">&#39;id_text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">meta_data</span><span class="p">[</span><span class="s1">&#39;id_text&#39;</span><span class="p">]</span>
+            <span class="n">lemma</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">meta_data</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span>
+            <span class="n">lemma</span><span class="p">[</span><span class="s1">&#39;dates_references&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">meta_data</span><span class="p">[</span><span class="s1">&#39;dates_references&#39;</span><span class="p">]</span>
+            <span class="n">lemma</span><span class="p">[</span><span class="s1">&#39;publication&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">meta_data</span><span class="p">[</span><span class="s1">&#39;publication&#39;</span><span class="p">]</span>
+            <span class="n">lemma</span><span class="p">[</span><span class="s1">&#39;collection&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">meta_data</span><span class="p">[</span><span class="s1">&#39;collection&#39;</span><span class="p">]</span>
+            <span class="n">lemma</span><span class="p">[</span><span class="s1">&#39;museum_no&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">meta_data</span><span class="p">[</span><span class="s1">&#39;museum_no&#39;</span><span class="p">]</span>
+            <span class="n">lemma</span><span class="p">[</span><span class="s1">&#39;metadata_source&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">meta_data</span><span class="p">[</span><span class="s1">&#39;metadata_source&#39;</span><span class="p">]</span>
+            <span class="n">lemma_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lemma</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">lemma_list</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="call-the-parse-oracc-json-function-for-every-json-file">
+<h3>3.3 Call the <code class="docutils literal notranslate"><span class="pre">parse_ORACC_json()</span></code> function for every <code class="docutils literal notranslate"><span class="pre">JSON</span></code> file<a class="headerlink" href="#call-the-parse-oracc-json-function-for-every-json-file" title="Permalink to this headline">¶</a></h3>
+<p>Here we will use the <code class="docutils literal notranslate"><span class="pre">parse_ORACC_json()</span></code> and the <code class="docutils literal notranslate"><span class="pre">catalogue</span></code> dataframe to construct the <code class="docutils literal notranslate"><span class="pre">words_df</span></code> dataframe which we will be using throughout the rest of the code.</p>
+<p>The project <code class="docutils literal notranslate"><span class="pre">zip</span></code> file downloaded earlier contains a directory that is called <code class="docutils literal notranslate"><span class="pre">corpusjson</span></code> that contains a JSON file for every text that is available in that corpus. The files are named using their text IDs in the pattern <code class="docutils literal notranslate"><span class="pre">P######.json</span></code> (or <code class="docutils literal notranslate"><span class="pre">Q######.json</span></code> or <code class="docutils literal notranslate"><span class="pre">X######.json</span></code>).</p>
+<p>The function <code class="docutils literal notranslate"><span class="pre">namelist()</span></code> of the <code class="docutils literal notranslate"><span class="pre">zipfile</span></code> package is used to create a list of the names of all the files in the ZIP. From this list we select all the file names in the <code class="docutils literal notranslate"><span class="pre">corpusjson</span></code> directory with extension <code class="docutils literal notranslate"><span class="pre">.json</span></code> (this way we exclude the name of the directory itself).</p>
+<p>Each of these files is read from the <code class="docutils literal notranslate"><span class="pre">zip</span></code> file and loaded with the command <code class="docutils literal notranslate"><span class="pre">json.loads()</span></code>, which transforms the string into a proper JSON object.</p>
+<p>This JSON object (essentially a Python dictionary), which is called <code class="docutils literal notranslate"><span class="pre">data_json</span></code> is now sent to the <code class="docutils literal notranslate"><span class="pre">parse_ORACC_json()</span></code> function. The function adds lemmata to the <code class="docutils literal notranslate"><span class="pre">lemm_l</span></code> list. In the end, <code class="docutils literal notranslate"><span class="pre">lemm_l</span></code> will contain as many list elements as there are words in all the texts in the projects requested.</p>
+<p>The dictionary <code class="docutils literal notranslate"><span class="pre">meta_d</span></code> is created to hold temporary information. The value of the key <code class="docutils literal notranslate"><span class="pre">id_text</span></code> is updated in the main process every time a new JSON file is opened and send to the <code class="docutils literal notranslate"><span class="pre">parsejson()</span></code> function. The <code class="docutils literal notranslate"><span class="pre">parsejson()</span></code> function itself will change values or add new keys, depending on the information found while iterating through the JSON file. When a new lemma row is created, <code class="docutils literal notranslate"><span class="pre">parse_ORACC_json()</span></code> will supply data such as <code class="docutils literal notranslate"><span class="pre">id_text</span></code>, <code class="docutils literal notranslate"><span class="pre">label</span></code> and (potentially) other information from <code class="docutils literal notranslate"><span class="pre">meta_d</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lemma_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">meta_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
+<span class="n">dollar_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;extent&#39;</span><span class="p">,</span> <span class="s1">&#39;scope&#39;</span><span class="p">,</span> <span class="s1">&#39;state&#39;</span><span class="p">]</span>
+
+<span class="k">try</span><span class="p">:</span>
+  <span class="n">zip_file</span> <span class="o">=</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>       <span class="c1"># create a Zipfile object</span>
+<span class="k">except</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s1">&#39;does not exist or is not a proper ZIP file&#39;</span><span class="p">)</span>
+
+<span class="n">drehem_list_oracc</span> <span class="o">=</span> <span class="n">catalogue_data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+<span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="n">project</span> <span class="o">+</span> <span class="s1">&#39;/corpusjson/&#39;</span> <span class="o">+</span> <span class="n">p_number</span> <span class="o">+</span> <span class="s1">&#39;.json&#39;</span> <span class="k">for</span> <span class="n">p_number</span> <span class="ow">in</span> <span class="n">drehem_list_oracc</span><span class="p">]</span>    <span class="c1">#that holds all the P, Q, and X numbers.</span>
+<span class="k">for</span> <span class="n">lemma_file</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">files</span><span class="p">,</span> <span class="n">desc</span> <span class="o">=</span> <span class="n">project</span><span class="p">):</span>       <span class="c1">#iterate over the file names</span>
+  <span class="n">id_text</span> <span class="o">=</span> <span class="n">project</span> <span class="o">+</span> <span class="n">lemma_file</span><span class="p">[</span><span class="o">-</span><span class="mi">13</span><span class="p">:</span><span class="o">-</span><span class="mi">5</span><span class="p">]</span> <span class="c1"># id_text is, for instance, blms/P414332</span>
+
+  <span class="n">p_number</span> <span class="o">=</span> <span class="n">lemma_file</span><span class="p">[</span><span class="o">-</span><span class="mi">12</span><span class="p">:</span><span class="o">-</span><span class="mi">5</span><span class="p">]</span>
+  <span class="n">meta_data</span><span class="p">[</span><span class="s1">&#39;id_text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">id_text</span>
+  <span class="n">meta_data</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">catalogue_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">p_number</span><span class="p">][</span><span class="s1">&#39;date_of_origin&#39;</span><span class="p">]</span>
+  <span class="n">meta_data</span><span class="p">[</span><span class="s1">&#39;dates_references&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">catalogue_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">p_number</span><span class="p">][</span><span class="s1">&#39;dates_referenced&#39;</span><span class="p">]</span>
+  <span class="n">meta_data</span><span class="p">[</span><span class="s1">&#39;publication&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">catalogue_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">p_number</span><span class="p">][</span><span class="s1">&#39;primary_publication&#39;</span><span class="p">]</span>
+  <span class="n">meta_data</span><span class="p">[</span><span class="s1">&#39;collection&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">catalogue_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">p_number</span><span class="p">][</span><span class="s1">&#39;collection&#39;</span><span class="p">]</span>
+  <span class="n">meta_data</span><span class="p">[</span><span class="s1">&#39;museum_no&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">catalogue_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">p_number</span><span class="p">][</span><span class="s1">&#39;museum_no&#39;</span><span class="p">]</span>
+  <span class="n">meta_data</span><span class="p">[</span><span class="s1">&#39;metadata_source&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">catalogue_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">p_number</span><span class="p">][</span><span class="s1">&#39;metadata_source&#39;</span><span class="p">]</span>
+
+  <span class="k">try</span><span class="p">:</span>
+    <span class="n">json_str</span> <span class="o">=</span> <span class="n">zip_file</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">lemma_file</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>         <span class="c1">#read and decode the json file of one particular text</span>
+    <span class="n">lemmatized_data_json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json_str</span><span class="p">)</span>                <span class="c1"># make it into a json object (essentially a dictionary)</span>
+    <span class="n">lemma_list</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">parse_ORACC_json</span><span class="p">(</span><span class="n">lemmatized_data_json</span><span class="p">,</span> <span class="n">meta_data</span><span class="p">,</span> <span class="n">dollar_keys</span><span class="p">))</span>               <span class="c1"># and send to the parse_ORACC_json() function</span>
+  <span class="k">except</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">id_text</span><span class="p">,</span> <span class="s1">&#39;is not available or not complete&#39;</span><span class="p">)</span>
+
+<span class="n">zip_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "1a14ffb7023941079a84f5e130c9a55e", "version_major": 2, "version_minor": 0}
+</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="data-structuring">
+<h2>4 Data Structuring<a class="headerlink" href="#data-structuring" title="Permalink to this headline">¶</a></h2>
+<p>Here we construct our <code class="docutils literal notranslate"><span class="pre">pandas</span></code> dataframe.</p>
+<div class="section" id="transform-the-data-into-a-dataframe">
+<h3>4.1 Transform the Data into a DataFrame<a class="headerlink" href="#transform-the-data-into-a-dataframe" title="Permalink to this headline">¶</a></h3>
+<p>Here we use <code class="docutils literal notranslate"><span class="pre">lemma_list</span></code> to make our dataframe and we view it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">lemma_list</span><span class="p">)</span>
+<span class="n">words_df</span> <span class="o">=</span> <span class="n">words_df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>      <span class="c1"># fill empty values with empty strings</span>
+<span class="n">words_df</span><span class="p">[</span><span class="n">words_df</span><span class="p">[</span><span class="s1">&#39;lang&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;sux&#39;</span><span class="p">]</span> <span class="c1"># display lemmas where language is Sumerian</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>lang</th>
+      <th>form</th>
+      <th>delim</th>
+      <th>gdl</th>
+      <th>pos</th>
+      <th>ftype</th>
+      <th>id_word</th>
+      <th>label</th>
+      <th>id_text</th>
+      <th>date</th>
+      <th>dates_references</th>
+      <th>publication</th>
+      <th>collection</th>
+      <th>museum_no</th>
+      <th>metadata_source</th>
+      <th>cf</th>
+      <th>gw</th>
+      <th>sense</th>
+      <th>norm0</th>
+      <th>epos</th>
+      <th>base</th>
+      <th>morph</th>
+      <th>extent</th>
+      <th>scope</th>
+      <th>state</th>
+      <th>cont</th>
+      <th>aform</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>sux</td>
+      <td>6(diš)</td>
+      <td></td>
+      <td>[{'n': 'n', 'form': '6(diš)', 'id': 'P100041.3...</td>
+      <td>n</td>
+      <td></td>
+      <td>P100041.3.1</td>
+      <td>o 1</td>
+      <td>epsd2/admin/ur3/P100041</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td>BDTNS</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>sux</td>
+      <td>udu</td>
+      <td></td>
+      <td>[{'v': 'udu', 'id': 'P100041.3.2.0'}]</td>
+      <td>N</td>
+      <td></td>
+      <td>P100041.3.2</td>
+      <td>o 1</td>
+      <td>epsd2/admin/ur3/P100041</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td>BDTNS</td>
+      <td>udu</td>
+      <td>sheep</td>
+      <td>sheep</td>
+      <td>udu</td>
+      <td>N</td>
+      <td>udu</td>
+      <td>~</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>sux</td>
+      <td>kišib₃</td>
+      <td></td>
+      <td>[{'v': 'kišib₃', 'id': 'P100041.4.1.0'}]</td>
+      <td>N</td>
+      <td></td>
+      <td>P100041.4.1</td>
+      <td>o 2</td>
+      <td>epsd2/admin/ur3/P100041</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td>BDTNS</td>
+      <td>kišib</td>
+      <td>seal</td>
+      <td>cylinder seal</td>
+      <td>kišib</td>
+      <td>N</td>
+      <td>kišib₃</td>
+      <td>~</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>sux</td>
+      <td>lu₂-{d}suen</td>
+      <td></td>
+      <td>[{'v': 'lu₂', 'id': 'P100041.4.2.0', 'delim': ...</td>
+      <td>PN</td>
+      <td></td>
+      <td>P100041.4.2</td>
+      <td>o 2</td>
+      <td>epsd2/admin/ur3/P100041</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td>BDTNS</td>
+      <td>Lusuen</td>
+      <td>0</td>
+      <td>0</td>
+      <td>Lusuen</td>
+      <td>PN</td>
+      <td>lu₂-{d}suen</td>
+      <td>~</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>sux</td>
+      <td>ki</td>
+      <td></td>
+      <td>[{'v': 'ki', 'id': 'P100041.5.1.0'}]</td>
+      <td>N</td>
+      <td></td>
+      <td>P100041.5.1</td>
+      <td>o 3</td>
+      <td>epsd2/admin/ur3/P100041</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td>BDTNS</td>
+      <td>ki</td>
+      <td>place</td>
+      <td>place</td>
+      <td>ki</td>
+      <td>N</td>
+      <td>ki</td>
+      <td>~</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>594695</th>
+      <td>sux</td>
+      <td>gu₄</td>
+      <td></td>
+      <td>[{'v': 'gu₄', 'id': 'P481395.31.2.0'}]</td>
+      <td>N</td>
+      <td></td>
+      <td>P481395.31.2</td>
+      <td>l.e. 1</td>
+      <td>epsd2/admin/ur3/P481395</td>
+      <td>SS02 - 02 - 00</td>
+      <td>SS02 - 02 - 00</td>
+      <td>unpublished unassigned ?</td>
+      <td>Department of Classics, University of Cincinna...</td>
+      <td>UC CSC 1954</td>
+      <td>BDTNS</td>
+      <td>gud</td>
+      <td>ox</td>
+      <td>bull, ox</td>
+      <td>gud</td>
+      <td>N</td>
+      <td>gud</td>
+      <td>~</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>594696</th>
+      <td>sux</td>
+      <td>1(diš)</td>
+      <td></td>
+      <td>[{'n': 'n', 'form': '1(diš)', 'id': 'P481395.3...</td>
+      <td>n</td>
+      <td></td>
+      <td>P481395.31.3</td>
+      <td>l.e. 1</td>
+      <td>epsd2/admin/ur3/P481395</td>
+      <td>SS02 - 02 - 00</td>
+      <td>SS02 - 02 - 00</td>
+      <td>unpublished unassigned ?</td>
+      <td>Department of Classics, University of Cincinna...</td>
+      <td>UC CSC 1954</td>
+      <td>BDTNS</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>594697</th>
+      <td>sux</td>
+      <td>anše</td>
+      <td></td>
+      <td>[{'v': 'anše', 'id': 'P481395.31.4.0'}]</td>
+      <td>N</td>
+      <td></td>
+      <td>P481395.31.4</td>
+      <td>l.e. 1</td>
+      <td>epsd2/admin/ur3/P481395</td>
+      <td>SS02 - 02 - 00</td>
+      <td>SS02 - 02 - 00</td>
+      <td>unpublished unassigned ?</td>
+      <td>Department of Classics, University of Cincinna...</td>
+      <td>UC CSC 1954</td>
+      <td>BDTNS</td>
+      <td>anše</td>
+      <td>equid</td>
+      <td>equid, donkey</td>
+      <td>anše</td>
+      <td>N</td>
+      <td>anše</td>
+      <td>~</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>594698</th>
+      <td>sux</td>
+      <td>{d}šu-{d}suen</td>
+      <td></td>
+      <td>[{'det': 'semantic', 'pos': 'pre', 'seq': [{'v...</td>
+      <td>RN</td>
+      <td></td>
+      <td>P517012.3.1</td>
+      <td>a 1</td>
+      <td>epsd2/admin/ur3/P517012</td>
+      <td></td>
+      <td></td>
+      <td>CDLI Seals 013964 (composite)</td>
+      <td></td>
+      <td></td>
+      <td>ORACC</td>
+      <td>Šusuen</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Šusuen</td>
+      <td>RN</td>
+      <td>{d}šu-{d}suen</td>
+      <td>~</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>594699</th>
+      <td>sux</td>
+      <td>a-bu-um-dingir</td>
+      <td></td>
+      <td>[{'v': 'a', 'id': 'P517012.4.1.0', 'delim': '-...</td>
+      <td>PN</td>
+      <td></td>
+      <td>P517012.4.1</td>
+      <td>a 2</td>
+      <td>epsd2/admin/ur3/P517012</td>
+      <td></td>
+      <td></td>
+      <td>CDLI Seals 013964 (composite)</td>
+      <td></td>
+      <td></td>
+      <td>ORACC</td>
+      <td>Abumilum</td>
+      <td>0</td>
+      <td>0</td>
+      <td>Abumilum</td>
+      <td>PN</td>
+      <td>a-bu-um-dingir</td>
+      <td>~</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+<p>588203 rows × 27 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words_df</span><span class="o">.</span><span class="n">shape</span>   <span class="c1"># see shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(594700, 27)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words_df</span><span class="o">.</span><span class="n">columns</span> <span class="c1"># see column names</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;lang&#39;, &#39;form&#39;, &#39;delim&#39;, &#39;gdl&#39;, &#39;pos&#39;, &#39;ftype&#39;, &#39;id_word&#39;, &#39;label&#39;,
+       &#39;id_text&#39;, &#39;date&#39;, &#39;dates_references&#39;, &#39;publication&#39;, &#39;collection&#39;,
+       &#39;museum_no&#39;, &#39;metadata_source&#39;, &#39;cf&#39;, &#39;gw&#39;, &#39;sense&#39;, &#39;norm0&#39;, &#39;epos&#39;,
+       &#39;base&#39;, &#39;morph&#39;, &#39;extent&#39;, &#39;scope&#39;, &#39;state&#39;, &#39;cont&#39;, &#39;aform&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="remove-spaces-and-commas-from-guide-word-and-sense">
+<h3>4.2 Remove Spaces and Commas from Guide Word and Sense<a class="headerlink" href="#remove-spaces-and-commas-from-guide-word-and-sense" title="Permalink to this headline">¶</a></h3>
+<p>Spaces and commas in Guide Word and Sense may cause trouble in computational methods in tokenization, or when saved in Comma Separated Values format. All spaces and commas are replaced by hyphens and nothing (empty string), respectively.</p>
+<p>By default the <code class="docutils literal notranslate"><span class="pre">replace()</span></code> function in <code class="docutils literal notranslate"><span class="pre">pandas</span></code> will match the entire string (that is, “lugal” matches “lugal” but there is no match between “l” and “lugal”). In order to match partial strings the parameter <code class="docutils literal notranslate"><span class="pre">regex</span></code> must be set to <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">replace()</span></code> function takes a nested dictionary as argument. The top-level keys identify the columns on which the <code class="docutils literal notranslate"><span class="pre">replace()</span></code> function should operate (in this case ‘gw’ and ‘sense’). The value of each key is another dictionary with the search string as key and the replace string as value.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">findreplace</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39; &#39;</span> <span class="p">:</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;,&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">}</span>
+<span class="n">words_df</span> <span class="o">=</span> <span class="n">words_df</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="s1">&#39;gw&#39;</span> <span class="p">:</span> <span class="n">findreplace</span><span class="p">,</span> <span class="s1">&#39;sense&#39;</span> <span class="p">:</span> <span class="n">findreplace</span><span class="p">},</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The columns in the resulting DataFrame correspond to the elements of a full <a class="reference external" href="http://oracc.org">ORACC</a> signature, plus information about text, line, and word ids:</p>
+<ul class="simple">
+<li><p>base (Sumerian only)</p></li>
+<li><p>cf (Citation Form)</p></li>
+<li><p>cont (continuation of the base; Sumerian only)</p></li>
+<li><p>epos (Effective Part of Speech)</p></li>
+<li><p>form (transliteration, omitting all flags such as indication of breakage)</p></li>
+<li><p>frag (transliteration; including flags)</p></li>
+<li><p>gdl_utf8 (cuneiform)</p></li>
+<li><p>gw (Guide Word: main or first translation in standard dictionary)</p></li>
+<li><p>id_text (six-digit P, Q, or X number)</p></li>
+<li><p>id_word (word ID in the format Text_ID.Line_ID.Word_ID)</p></li>
+<li><p>label (traditional line number in the form o ii 2’ (obverse column 2 line 2’), etc.)</p></li>
+<li><p>lang (language code, including sux, sux-x-emegir, sux-x-emesal, akk, akk-x-stdbab, etc)</p></li>
+<li><p>morph (Morphology; Sumerian only)</p></li>
+<li><p>norm (Normalization: Akkadian)</p></li>
+<li><p>norm0 (Normalization: Sumerian)</p></li>
+<li><p>pos (Part of Speech)</p></li>
+<li><p>sense (contextual meaning)</p></li>
+<li><p>sig (full ORACC signature)</p></li>
+<li><p>(newly added) ftype (<code class="docutils literal notranslate"><span class="pre">yn</span></code> if a node represents a year name)</p></li>
+</ul>
+<p>Not all data elements (columns) are available for all words. Sumerian words never have a <code class="docutils literal notranslate"><span class="pre">norm</span></code>, Akkadian words do not have <code class="docutils literal notranslate"><span class="pre">norm0</span></code>, <code class="docutils literal notranslate"><span class="pre">base</span></code>, <code class="docutils literal notranslate"><span class="pre">cont</span></code>, or <code class="docutils literal notranslate"><span class="pre">morph</span></code>. Most data elements are only present when the word is lemmatized; only <code class="docutils literal notranslate"><span class="pre">lang</span></code>, <code class="docutils literal notranslate"><span class="pre">form</span></code>, <code class="docutils literal notranslate"><span class="pre">id_word</span></code>, and <code class="docutils literal notranslate"><span class="pre">id_text</span></code> should always be there.</p>
+<p>We also included some metadata:</p>
+<ul class="simple">
+<li><p>date</p></li>
+<li><p>dates_references</p></li>
+<li><p>primary_publication</p></li>
+<li><p>collection</p></li>
+<li><p>museum_no</p></li>
+</ul>
+<p>The first two of which refer to the dates on the tablets and the last three of which refer to the current ownership and where the tablet was published.</p>
+</div>
+<div class="section" id="create-line-id">
+<h3>4.3 Create Line ID<a class="headerlink" href="#create-line-id" title="Permalink to this headline">¶</a></h3>
+<p>The DataFrame currently has a word-by-word data representation. We will add to each word a field <code class="docutils literal notranslate"><span class="pre">id_line</span></code> that will make it possible to reconstruct lines. This newly created field <code class="docutils literal notranslate"><span class="pre">id_line</span></code> is different from a traditional line number (found in the field “label”) in two ways. First, id_line is an integer, so that lines are sorted correctly. Second, <code class="docutils literal notranslate"><span class="pre">id_line</span></code> is assigned to words, but also to gaps and horizontal drawings on the tablet. The field <code class="docutils literal notranslate"><span class="pre">id_line</span></code> will allow us to keep all these elements in their proper order.</p>
+<p>The field “id_line” is created by splitting the field “id_word” into (two or) three elements. The format of “id_word” is IDtext.line.word. The middle part, id_line, is selected and its data type is changed from string to integer. Rows that represent gaps in the text or horizontal drawings have an “id_word” in the format IDtext.line (consisting of only two elements), but are treated in exactly the same way.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words_df</span><span class="p">[</span><span class="s1">&#39;id_line&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">wordid</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">wordid</span> <span class="ow">in</span> <span class="n">words_df</span><span class="p">[</span><span class="s1">&#39;id_word&#39;</span><span class="p">]]</span>
+<span class="n">words_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>lang</th>
+      <th>form</th>
+      <th>delim</th>
+      <th>gdl</th>
+      <th>pos</th>
+      <th>ftype</th>
+      <th>id_word</th>
+      <th>label</th>
+      <th>id_text</th>
+      <th>date</th>
+      <th>dates_references</th>
+      <th>publication</th>
+      <th>collection</th>
+      <th>museum_no</th>
+      <th>metadata_source</th>
+      <th>cf</th>
+      <th>gw</th>
+      <th>sense</th>
+      <th>norm0</th>
+      <th>epos</th>
+      <th>base</th>
+      <th>morph</th>
+      <th>extent</th>
+      <th>scope</th>
+      <th>state</th>
+      <th>cont</th>
+      <th>aform</th>
+      <th>id_line</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>sux</td>
+      <td>6(diš)</td>
+      <td></td>
+      <td>[{'n': 'n', 'form': '6(diš)', 'id': 'P100041.3...</td>
+      <td>n</td>
+      <td></td>
+      <td>P100041.3.1</td>
+      <td>o 1</td>
+      <td>epsd2/admin/ur3/P100041</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td>BDTNS</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>sux</td>
+      <td>udu</td>
+      <td></td>
+      <td>[{'v': 'udu', 'id': 'P100041.3.2.0'}]</td>
+      <td>N</td>
+      <td></td>
+      <td>P100041.3.2</td>
+      <td>o 1</td>
+      <td>epsd2/admin/ur3/P100041</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td>BDTNS</td>
+      <td>udu</td>
+      <td>sheep</td>
+      <td>sheep</td>
+      <td>udu</td>
+      <td>N</td>
+      <td>udu</td>
+      <td>~</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>sux</td>
+      <td>kišib₃</td>
+      <td></td>
+      <td>[{'v': 'kišib₃', 'id': 'P100041.4.1.0'}]</td>
+      <td>N</td>
+      <td></td>
+      <td>P100041.4.1</td>
+      <td>o 2</td>
+      <td>epsd2/admin/ur3/P100041</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td>BDTNS</td>
+      <td>kišib</td>
+      <td>seal</td>
+      <td>cylinder-seal</td>
+      <td>kišib</td>
+      <td>N</td>
+      <td>kišib₃</td>
+      <td>~</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>sux</td>
+      <td>lu₂-{d}suen</td>
+      <td></td>
+      <td>[{'v': 'lu₂', 'id': 'P100041.4.2.0', 'delim': ...</td>
+      <td>PN</td>
+      <td></td>
+      <td>P100041.4.2</td>
+      <td>o 2</td>
+      <td>epsd2/admin/ur3/P100041</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td>BDTNS</td>
+      <td>Lusuen</td>
+      <td>0</td>
+      <td>0</td>
+      <td>Lusuen</td>
+      <td>PN</td>
+      <td>lu₂-{d}suen</td>
+      <td>~</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>sux</td>
+      <td>ki</td>
+      <td></td>
+      <td>[{'v': 'ki', 'id': 'P100041.5.1.0'}]</td>
+      <td>N</td>
+      <td></td>
+      <td>P100041.5.1</td>
+      <td>o 3</td>
+      <td>epsd2/admin/ur3/P100041</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td>BDTNS</td>
+      <td>ki</td>
+      <td>place</td>
+      <td>place</td>
+      <td>ki</td>
+      <td>N</td>
+      <td>ki</td>
+      <td>~</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>sux</td>
+      <td>ab-ba-kal-la-ta</td>
+      <td></td>
+      <td>[{'v': 'ab', 'id': 'P100041.5.2.0', 'delim': '...</td>
+      <td>PN</td>
+      <td></td>
+      <td>P100041.5.2</td>
+      <td>o 3</td>
+      <td>epsd2/admin/ur3/P100041</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td>BDTNS</td>
+      <td>Abbakala</td>
+      <td>0</td>
+      <td>0</td>
+      <td>Abbakala,ta</td>
+      <td>PN</td>
+      <td>ab-ba-kal-la</td>
+      <td>~,ta</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>sux</td>
+      <td>ba-zi</td>
+      <td></td>
+      <td>[{'v': 'ba', 'id': 'P100041.6.1.0', 'delim': '...</td>
+      <td>V/i</td>
+      <td></td>
+      <td>P100041.6.1</td>
+      <td>o 4</td>
+      <td>epsd2/admin/ur3/P100041</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td>BDTNS</td>
+      <td>zig</td>
+      <td>rise</td>
+      <td>to-rise</td>
+      <td>ba:zig</td>
+      <td>V/i</td>
+      <td>zig₃</td>
+      <td>ba:~</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>P100041.8</td>
+      <td></td>
+      <td>epsd2/admin/ur3/P100041</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td>BDTNS</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>n</td>
+      <td>space</td>
+      <td>blank</td>
+      <td></td>
+      <td></td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>P100041.9</td>
+      <td></td>
+      <td>epsd2/admin/ur3/P100041</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td>BDTNS</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>1</td>
+      <td>impression</td>
+      <td>other</td>
+      <td></td>
+      <td></td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>sux</td>
+      <td>{d}šu-{d}suen</td>
+      <td></td>
+      <td>[{'det': 'semantic', 'pos': 'pre', 'seq': [{'v...</td>
+      <td>RN</td>
+      <td></td>
+      <td>P100041.12.1</td>
+      <td>seal 1 i 1</td>
+      <td>epsd2/admin/ur3/P100041</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td>BDTNS</td>
+      <td>Šusuen</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Šusuen</td>
+      <td>RN</td>
+      <td>{d}šu-{d}suen</td>
+      <td>~</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>12</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="create-lemma-column">
+<h2>5 Create Lemma Column<a class="headerlink" href="#create-lemma-column" title="Permalink to this headline">¶</a></h2>
+<p>A lemma, <a class="reference external" href="http://oracc.org">ORACC</a> style, combines Citation Form, GuideWord and POS into a unique reference to one particular lemma in a standard dictionary, as in <code class="docutils literal notranslate"><span class="pre">lugal[king]N</span></code> (Sumerian) or <code class="docutils literal notranslate"><span class="pre">šarru[king]N</span></code>.</p>
+<p>Proper Nouns (proper names, geographical names, etc.) are a special case, because they currently receive a Part of Speech, but not a Citation Form or Guide Word.</p>
+<p>Usually, not all words in a text are lemmatized, because a word may be (partly) broken and/or unknown. Unlemmatized and unlemmatizable words will receive a place-holder lemmatization that consists of the transliteration of the word (instead of the Citation Form), with <code class="docutils literal notranslate"><span class="pre">NA</span></code> as GuideWord and <code class="docutils literal notranslate"><span class="pre">NA</span></code> as POS, as in <code class="docutils literal notranslate"><span class="pre">i-bu-x[NA]NA</span></code>. Note that <code class="docutils literal notranslate"><span class="pre">NA</span></code> is a string.</p>
+<p>Finally, rows representing horizontal rulings, blank lines, or broken lines have data in the fields ‘state’, ‘scope’, and ‘extent’ (for instance ‘state’ = broken, ‘scope’ = line, and ‘extent’ = 3, to indicate three broken lines). We can use this to prevent scripts to ‘jump over’ such breaks when looking for key words after (or before) a proper noun. We distinguish between physical breaks and logical breaks (such as horizontal rulings or seal impressions).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">proper_nouns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;FN&#39;</span><span class="p">,</span> <span class="s1">&#39;PN&#39;</span><span class="p">,</span> <span class="s1">&#39;DN&#39;</span><span class="p">,</span> <span class="s1">&#39;AN&#39;</span><span class="p">,</span> <span class="s1">&#39;WN&#39;</span><span class="p">,</span> <span class="s1">&#39;ON&#39;</span><span class="p">,</span> <span class="s1">&#39;TN&#39;</span><span class="p">,</span> <span class="s1">&#39;MN&#39;</span><span class="p">,</span> <span class="s1">&#39;CN&#39;</span><span class="p">,</span> <span class="s1">&#39;GN&#39;</span><span class="p">]</span>
+<span class="n">physical_break</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;illegible&#39;</span><span class="p">,</span> <span class="s1">&#39;traces&#39;</span><span class="p">,</span> <span class="s1">&#39;missing&#39;</span><span class="p">,</span> <span class="s1">&#39;effaced&#39;</span><span class="p">]</span>
+<span class="n">logical_break</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;other&#39;</span><span class="p">,</span> <span class="s1">&#39;blank&#39;</span><span class="p">,</span> <span class="s1">&#39;ruling&#39;</span><span class="p">]</span>
+<span class="n">words_df</span><span class="p">[</span><span class="s1">&#39;lemma&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">words_df</span><span class="p">[</span><span class="s2">&quot;cf&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;[&#39;</span> <span class="o">+</span> <span class="n">words_df</span><span class="p">[</span><span class="s2">&quot;gw&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;]&#39;</span> <span class="o">+</span> <span class="n">words_df</span><span class="p">[</span><span class="s2">&quot;pos&quot;</span><span class="p">]</span>
+<span class="n">words_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">words_df</span><span class="p">[</span><span class="s2">&quot;cf&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="p">,</span> <span class="s1">&#39;lemma&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">words_df</span><span class="p">[</span><span class="s1">&#39;form&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;[NA]NA&#39;</span>
+<span class="n">words_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">words_df</span><span class="p">[</span><span class="s2">&quot;pos&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;n&quot;</span> <span class="p">,</span> <span class="s1">&#39;lemma&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">words_df</span><span class="p">[</span><span class="s1">&#39;form&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;[]NU&#39;</span> 
+<span class="c1">#words_df.loc[words_df[&quot;pos&quot;].isin(proper_nouns) , &#39;lemma&#39;] = words_df[&#39;form&#39;] + &#39;[]&#39; + words_df[&#39;pos&#39;]</span>
+<span class="n">words_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">words_df</span><span class="p">[</span><span class="s2">&quot;state&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">logical_break</span><span class="p">),</span> <span class="s1">&#39;lemma&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;break_logical&quot;</span>
+<span class="n">words_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">words_df</span><span class="p">[</span><span class="s2">&quot;state&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">physical_break</span><span class="p">),</span> <span class="s1">&#39;lemma&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;break_physical&quot;</span>
+<span class="n">words_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>lang</th>
+      <th>form</th>
+      <th>delim</th>
+      <th>gdl</th>
+      <th>pos</th>
+      <th>ftype</th>
+      <th>id_word</th>
+      <th>label</th>
+      <th>id_text</th>
+      <th>date</th>
+      <th>dates_references</th>
+      <th>publication</th>
+      <th>collection</th>
+      <th>museum_no</th>
+      <th>metadata_source</th>
+      <th>cf</th>
+      <th>gw</th>
+      <th>sense</th>
+      <th>norm0</th>
+      <th>epos</th>
+      <th>base</th>
+      <th>morph</th>
+      <th>extent</th>
+      <th>scope</th>
+      <th>state</th>
+      <th>cont</th>
+      <th>aform</th>
+      <th>id_line</th>
+      <th>lemma</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>sux</td>
+      <td>6(diš)</td>
+      <td></td>
+      <td>[{'n': 'n', 'form': '6(diš)', 'id': 'P100041.3...</td>
+      <td>n</td>
+      <td></td>
+      <td>P100041.3.1</td>
+      <td>o 1</td>
+      <td>epsd2/admin/ur3/P100041</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td>BDTNS</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>3</td>
+      <td>6(diš)[]NU</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>sux</td>
+      <td>udu</td>
+      <td></td>
+      <td>[{'v': 'udu', 'id': 'P100041.3.2.0'}]</td>
+      <td>N</td>
+      <td></td>
+      <td>P100041.3.2</td>
+      <td>o 1</td>
+      <td>epsd2/admin/ur3/P100041</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td>BDTNS</td>
+      <td>udu</td>
+      <td>sheep</td>
+      <td>sheep</td>
+      <td>udu</td>
+      <td>N</td>
+      <td>udu</td>
+      <td>~</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>3</td>
+      <td>udu[sheep]N</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>sux</td>
+      <td>kišib₃</td>
+      <td></td>
+      <td>[{'v': 'kišib₃', 'id': 'P100041.4.1.0'}]</td>
+      <td>N</td>
+      <td></td>
+      <td>P100041.4.1</td>
+      <td>o 2</td>
+      <td>epsd2/admin/ur3/P100041</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td>BDTNS</td>
+      <td>kišib</td>
+      <td>seal</td>
+      <td>cylinder-seal</td>
+      <td>kišib</td>
+      <td>N</td>
+      <td>kišib₃</td>
+      <td>~</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>4</td>
+      <td>kišib[seal]N</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>sux</td>
+      <td>lu₂-{d}suen</td>
+      <td></td>
+      <td>[{'v': 'lu₂', 'id': 'P100041.4.2.0', 'delim': ...</td>
+      <td>PN</td>
+      <td></td>
+      <td>P100041.4.2</td>
+      <td>o 2</td>
+      <td>epsd2/admin/ur3/P100041</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td>BDTNS</td>
+      <td>Lusuen</td>
+      <td>0</td>
+      <td>0</td>
+      <td>Lusuen</td>
+      <td>PN</td>
+      <td>lu₂-{d}suen</td>
+      <td>~</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>4</td>
+      <td>Lusuen[0]PN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>sux</td>
+      <td>ki</td>
+      <td></td>
+      <td>[{'v': 'ki', 'id': 'P100041.5.1.0'}]</td>
+      <td>N</td>
+      <td></td>
+      <td>P100041.5.1</td>
+      <td>o 3</td>
+      <td>epsd2/admin/ur3/P100041</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td>BDTNS</td>
+      <td>ki</td>
+      <td>place</td>
+      <td>place</td>
+      <td>ki</td>
+      <td>N</td>
+      <td>ki</td>
+      <td>~</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>5</td>
+      <td>ki[place]N</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>sux</td>
+      <td>ab-ba-kal-la-ta</td>
+      <td></td>
+      <td>[{'v': 'ab', 'id': 'P100041.5.2.0', 'delim': '...</td>
+      <td>PN</td>
+      <td></td>
+      <td>P100041.5.2</td>
+      <td>o 3</td>
+      <td>epsd2/admin/ur3/P100041</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td>BDTNS</td>
+      <td>Abbakala</td>
+      <td>0</td>
+      <td>0</td>
+      <td>Abbakala,ta</td>
+      <td>PN</td>
+      <td>ab-ba-kal-la</td>
+      <td>~,ta</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>5</td>
+      <td>Abbakala[0]PN</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>sux</td>
+      <td>ba-zi</td>
+      <td></td>
+      <td>[{'v': 'ba', 'id': 'P100041.6.1.0', 'delim': '...</td>
+      <td>V/i</td>
+      <td></td>
+      <td>P100041.6.1</td>
+      <td>o 4</td>
+      <td>epsd2/admin/ur3/P100041</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td>BDTNS</td>
+      <td>zig</td>
+      <td>rise</td>
+      <td>to-rise</td>
+      <td>ba:zig</td>
+      <td>V/i</td>
+      <td>zig₃</td>
+      <td>ba:~</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>6</td>
+      <td>zig[rise]V/i</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>P100041.8</td>
+      <td></td>
+      <td>epsd2/admin/ur3/P100041</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td>BDTNS</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>n</td>
+      <td>space</td>
+      <td>blank</td>
+      <td></td>
+      <td></td>
+      <td>8</td>
+      <td>break_logical</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>P100041.9</td>
+      <td></td>
+      <td>epsd2/admin/ur3/P100041</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td>BDTNS</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>1</td>
+      <td>impression</td>
+      <td>other</td>
+      <td></td>
+      <td></td>
+      <td>9</td>
+      <td>break_logical</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>sux</td>
+      <td>{d}šu-{d}suen</td>
+      <td></td>
+      <td>[{'det': 'semantic', 'pos': 'pre', 'seq': [{'v...</td>
+      <td>RN</td>
+      <td></td>
+      <td>P100041.12.1</td>
+      <td>seal 1 i 1</td>
+      <td>epsd2/admin/ur3/P100041</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td>BDTNS</td>
+      <td>Šusuen</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Šusuen</td>
+      <td>RN</td>
+      <td>{d}šu-{d}suen</td>
+      <td>~</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>12</td>
+      <td>Šusuen[1]RN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="select-relevant-columns">
+<h2>6 Select Relevant Columns<a class="headerlink" href="#select-relevant-columns" title="Permalink to this headline">¶</a></h2>
+<p>Now we can select only the field ‘lemma’ and the fields that indicate the ID of the word, the line, or the document, plus the metadata, and the field ‘label’, which indicates the physical position of the line on the document.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;lemma&#39;</span><span class="p">,</span> <span class="s1">&#39;id_text&#39;</span><span class="p">,</span> <span class="s1">&#39;id_line&#39;</span><span class="p">,</span> <span class="s1">&#39;id_word&#39;</span><span class="p">,</span> <span class="s1">&#39;label&#39;</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;dates_references&#39;</span><span class="p">,</span> <span class="s1">&#39;publication&#39;</span><span class="p">,</span> <span class="s1">&#39;collection&#39;</span><span class="p">,</span> <span class="s1">&#39;museum_no&#39;</span><span class="p">,</span> <span class="s1">&#39;ftype&#39;</span><span class="p">,</span> <span class="s1">&#39;metadata_source&#39;</span><span class="p">]</span>
+<span class="n">words_df</span> <span class="o">=</span> <span class="n">words_df</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">words_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>lemma</th>
+      <th>id_text</th>
+      <th>id_line</th>
+      <th>id_word</th>
+      <th>label</th>
+      <th>date</th>
+      <th>dates_references</th>
+      <th>publication</th>
+      <th>collection</th>
+      <th>museum_no</th>
+      <th>ftype</th>
+      <th>metadata_source</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>6(diš)[]NU</td>
+      <td>epsd2/admin/ur3/P100041</td>
+      <td>3</td>
+      <td>P100041.3.1</td>
+      <td>o 1</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td></td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>udu[sheep]N</td>
+      <td>epsd2/admin/ur3/P100041</td>
+      <td>3</td>
+      <td>P100041.3.2</td>
+      <td>o 1</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td></td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>kišib[seal]N</td>
+      <td>epsd2/admin/ur3/P100041</td>
+      <td>4</td>
+      <td>P100041.4.1</td>
+      <td>o 2</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td></td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Lusuen[0]PN</td>
+      <td>epsd2/admin/ur3/P100041</td>
+      <td>4</td>
+      <td>P100041.4.2</td>
+      <td>o 2</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td></td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>ki[place]N</td>
+      <td>epsd2/admin/ur3/P100041</td>
+      <td>5</td>
+      <td>P100041.5.1</td>
+      <td>o 3</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td></td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>95</th>
+      <td>1(diš)[]NU</td>
+      <td>epsd2/admin/ur3/P100211</td>
+      <td>3</td>
+      <td>P100211.3.1</td>
+      <td>o 1</td>
+      <td>AS01 - 12 - 11</td>
+      <td>AS01 - 12 - 11</td>
+      <td>ActSocHun Or 5-12, 156 2</td>
+      <td>Museum of Fine Arts, Budapest, Hungary</td>
+      <td>MHBA 51.2400</td>
+      <td></td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>96</th>
+      <td>udu[sheep]N</td>
+      <td>epsd2/admin/ur3/P100211</td>
+      <td>3</td>
+      <td>P100211.3.2</td>
+      <td>o 1</td>
+      <td>AS01 - 12 - 11</td>
+      <td>AS01 - 12 - 11</td>
+      <td>ActSocHun Or 5-12, 156 2</td>
+      <td>Museum of Fine Arts, Budapest, Hungary</td>
+      <td>MHBA 51.2400</td>
+      <td></td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>97</th>
+      <td>a[water]N</td>
+      <td>epsd2/admin/ur3/P100211</td>
+      <td>3</td>
+      <td>P100211.3.3</td>
+      <td>o 1</td>
+      <td>AS01 - 12 - 11</td>
+      <td>AS01 - 12 - 11</td>
+      <td>ActSocHun Or 5-12, 156 2</td>
+      <td>Museum of Fine Arts, Budapest, Hungary</td>
+      <td>MHBA 51.2400</td>
+      <td></td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>98</th>
+      <td>x[NA]NA</td>
+      <td>epsd2/admin/ur3/P100211</td>
+      <td>3</td>
+      <td>P100211.3.4</td>
+      <td>o 1</td>
+      <td>AS01 - 12 - 11</td>
+      <td>AS01 - 12 - 11</td>
+      <td>ActSocHun Or 5-12, 156 2</td>
+      <td>Museum of Fine Arts, Budapest, Hungary</td>
+      <td>MHBA 51.2400</td>
+      <td></td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>99</th>
+      <td>sag[rare]V/i</td>
+      <td>epsd2/admin/ur3/P100211</td>
+      <td>3</td>
+      <td>P100211.3.5</td>
+      <td>o 1</td>
+      <td>AS01 - 12 - 11</td>
+      <td>AS01 - 12 - 11</td>
+      <td>ActSocHun Or 5-12, 156 2</td>
+      <td>Museum of Fine Arts, Budapest, Hungary</td>
+      <td>MHBA 51.2400</td>
+      <td></td>
+      <td>BDTNS</td>
+    </tr>
+  </tbody>
+</table>
+<p>100 rows × 12 columns</p>
+</div></div></div>
+</div>
+<p>We can simplify the ‘id_text’ column, because all documents derive from the same project (epsd2/admin/u3adm).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words_df</span><span class="p">[</span><span class="s1">&#39;id_text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">tid</span><span class="p">[</span><span class="o">-</span><span class="mi">7</span><span class="p">:]</span> <span class="k">for</span> <span class="n">tid</span> <span class="ow">in</span> <span class="n">words_df</span><span class="p">[</span><span class="s1">&#39;id_text&#39;</span><span class="p">]]</span>
+<span class="n">words_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>lemma</th>
+      <th>id_text</th>
+      <th>id_line</th>
+      <th>id_word</th>
+      <th>label</th>
+      <th>date</th>
+      <th>dates_references</th>
+      <th>publication</th>
+      <th>collection</th>
+      <th>museum_no</th>
+      <th>ftype</th>
+      <th>metadata_source</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>6(diš)[]NU</td>
+      <td>P100041</td>
+      <td>3</td>
+      <td>P100041.3.1</td>
+      <td>o 1</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td></td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>udu[sheep]N</td>
+      <td>P100041</td>
+      <td>3</td>
+      <td>P100041.3.2</td>
+      <td>o 1</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td></td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>kišib[seal]N</td>
+      <td>P100041</td>
+      <td>4</td>
+      <td>P100041.4.1</td>
+      <td>o 2</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td></td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Lusuen[0]PN</td>
+      <td>P100041</td>
+      <td>4</td>
+      <td>P100041.4.2</td>
+      <td>o 2</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td></td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>ki[place]N</td>
+      <td>P100041</td>
+      <td>5</td>
+      <td>P100041.5.1</td>
+      <td>o 3</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td></td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Abbakala[0]PN</td>
+      <td>P100041</td>
+      <td>5</td>
+      <td>P100041.5.2</td>
+      <td>o 3</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td></td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>zig[rise]V/i</td>
+      <td>P100041</td>
+      <td>6</td>
+      <td>P100041.6.1</td>
+      <td>o 4</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td></td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>break_logical</td>
+      <td>P100041</td>
+      <td>8</td>
+      <td>P100041.8</td>
+      <td></td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td></td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>break_logical</td>
+      <td>P100041</td>
+      <td>9</td>
+      <td>P100041.9</td>
+      <td></td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td></td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Šusuen[1]RN</td>
+      <td>P100041</td>
+      <td>12</td>
+      <td>P100041.12.1</td>
+      <td>seal 1 i 1</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td></td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>lugal[king]N</td>
+      <td>P100041</td>
+      <td>13</td>
+      <td>P100041.13.1</td>
+      <td>seal 1 i 2</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td></td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>kalag[strong]V/i</td>
+      <td>P100041</td>
+      <td>13</td>
+      <td>P100041.13.2</td>
+      <td>seal 1 i 2</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td></td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>lugal[king]N</td>
+      <td>P100041</td>
+      <td>14</td>
+      <td>P100041.14.1</td>
+      <td>seal 1 i 3</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td></td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Urim[1]SN</td>
+      <td>P100041</td>
+      <td>14</td>
+      <td>P100041.14.2</td>
+      <td>seal 1 i 3</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td></td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>lugal[king]N</td>
+      <td>P100041</td>
+      <td>15</td>
+      <td>P100041.15.1</td>
+      <td>seal 1 i 4</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td></td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>an[sky]N</td>
+      <td>P100041</td>
+      <td>15</td>
+      <td>P100041.15.2</td>
+      <td>seal 1 i 4</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td></td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>anubda[quarter]N</td>
+      <td>P100041</td>
+      <td>15</td>
+      <td>P100041.15.3</td>
+      <td>seal 1 i 4</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td></td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>limmu[four]NU</td>
+      <td>P100041</td>
+      <td>15</td>
+      <td>P100041.15.4</td>
+      <td>seal 1 i 4</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td></td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>UrKugnunak[0]PN</td>
+      <td>P100041</td>
+      <td>17</td>
+      <td>P100041.17.1</td>
+      <td>seal 1 ii 1</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td></td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>dubsar[scribe]N</td>
+      <td>P100041</td>
+      <td>18</td>
+      <td>P100041.18.1</td>
+      <td>seal 1 ii 2</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td></td>
+      <td>BDTNS</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test</span> <span class="o">=</span> <span class="n">words_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">4000</span><span class="p">)</span>
+<span class="n">test</span><span class="p">[</span><span class="n">test</span><span class="p">[</span><span class="s1">&#39;lemma&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>lemma</th>
+      <th>id_text</th>
+      <th>id_line</th>
+      <th>id_word</th>
+      <th>label</th>
+      <th>date</th>
+      <th>dates_references</th>
+      <th>publication</th>
+      <th>collection</th>
+      <th>museum_no</th>
+      <th>ftype</th>
+      <th>metadata_source</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>6(diš)[]NU</td>
+      <td>P100041</td>
+      <td>3</td>
+      <td>P100041.3.1</td>
+      <td>o 1</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td></td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>udu[sheep]N</td>
+      <td>P100041</td>
+      <td>3</td>
+      <td>P100041.3.2</td>
+      <td>o 1</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td></td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>kišib[seal]N</td>
+      <td>P100041</td>
+      <td>4</td>
+      <td>P100041.4.1</td>
+      <td>o 2</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td></td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Lusuen[0]PN</td>
+      <td>P100041</td>
+      <td>4</td>
+      <td>P100041.4.2</td>
+      <td>o 2</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td></td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>ki[place]N</td>
+      <td>P100041</td>
+      <td>5</td>
+      <td>P100041.5.1</td>
+      <td>o 3</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>AAS 053</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AO 20313</td>
+      <td></td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>3995</th>
+      <td>Inabanum[0]PN</td>
+      <td>P100981</td>
+      <td>4</td>
+      <td>P100981.4.1</td>
+      <td>o 2</td>
+      <td>AS05 - 04 - 20</td>
+      <td>AS05 - 04 - 20</td>
+      <td>Amorites 16</td>
+      <td>Oriental Institute, University of Chicago, Chi...</td>
+      <td>OIM A02868</td>
+      <td></td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>3996</th>
+      <td>MAR.TU[westerner]N</td>
+      <td>P100981</td>
+      <td>4</td>
+      <td>P100981.4.2</td>
+      <td>o 2</td>
+      <td>AS05 - 04 - 20</td>
+      <td>AS05 - 04 - 20</td>
+      <td>Amorites 16</td>
+      <td>Oriental Institute, University of Chicago, Chi...</td>
+      <td>OIM A02868</td>
+      <td></td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>3997</th>
+      <td>1(diš)[]NU</td>
+      <td>P100981</td>
+      <td>5</td>
+      <td>P100981.5.1</td>
+      <td>o 3</td>
+      <td>AS05 - 04 - 20</td>
+      <td>AS05 - 04 - 20</td>
+      <td>Amorites 16</td>
+      <td>Oriental Institute, University of Chicago, Chi...</td>
+      <td>OIM A02868</td>
+      <td></td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>3998</th>
+      <td>sila[lamb]N</td>
+      <td>P100981</td>
+      <td>5</td>
+      <td>P100981.5.2</td>
+      <td>o 3</td>
+      <td>AS05 - 04 - 20</td>
+      <td>AS05 - 04 - 20</td>
+      <td>Amorites 16</td>
+      <td>Oriental Institute, University of Chicago, Chi...</td>
+      <td>OIM A02868</td>
+      <td></td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>3999</th>
+      <td>Urištaran[0]PN</td>
+      <td>P100981</td>
+      <td>6</td>
+      <td>P100981.6.1</td>
+      <td>o 4</td>
+      <td>AS05 - 04 - 20</td>
+      <td>AS05 - 04 - 20</td>
+      <td>Amorites 16</td>
+      <td>Oriental Institute, University of Chicago, Chi...</td>
+      <td>OIM A02868</td>
+      <td></td>
+      <td>BDTNS</td>
+    </tr>
+  </tbody>
+</table>
+<p>3465 rows × 12 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="save-results-in-csv-file-pickle">
+<h2>7 Save Results in CSV file &amp; Pickle<a class="headerlink" href="#save-results-in-csv-file-pickle" title="Permalink to this headline">¶</a></h2>
+<p>The output file is called <code class="docutils literal notranslate"><span class="pre">part_1_output.csv</span></code> and is placed in the directory <code class="docutils literal notranslate"><span class="pre">output</span></code>. In most computers, <code class="docutils literal notranslate"><span class="pre">csv</span></code> files open automatically in Excel. This program does not deal well with <code class="docutils literal notranslate"><span class="pre">utf-8</span></code> encoding (files in <code class="docutils literal notranslate"><span class="pre">utf-8</span></code> need to be imported; see the instructions <a class="reference external" href="https://www.itg.ias.edu/content/how-import-csv-file-uses-utf-8-character-encoding-0">here</a>. If you intend to use the file in Excel, change <code class="docutils literal notranslate"><span class="pre">encoding</span> <span class="pre">='utf-8'</span></code> to <code class="docutils literal notranslate"><span class="pre">encoding='utf-16'</span></code>. For usage in computational text analysis applications <code class="docutils literal notranslate"><span class="pre">utf-8</span></code> is usually preferred.</p>
+<p>The Pandas function <code class="docutils literal notranslate"><span class="pre">to_pickle()</span></code> writes a binary file that can be opened in a later phase of the project with the <code class="docutils literal notranslate"><span class="pre">read_pickle()</span></code> command and will reproduce exactly the same DataFrame with the same data structure. The resulting file can only be used by pandas.</p>
+<p>You can skip Part I by importing the Part I output as a pandas dataframe at the beginning of Part II. Similarly, in the next parts, after you save the output, you will be able to import that output later on instead of rerunning the sections before.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">catalogue_data</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>index</th>
+      <th>date_of_origin</th>
+      <th>dates_referenced</th>
+      <th>collection</th>
+      <th>primary_publication</th>
+      <th>museum_no</th>
+      <th>provenience</th>
+      <th>metadata_source</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>P100041</td>
+      <td>SSXX - 00 - 00</td>
+      <td>SSXX - 00 - 00</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AAS 053</td>
+      <td>AO 20313</td>
+      <td>Puzriš-Dagān</td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>P100189</td>
+      <td>SH46 - 08 - 05</td>
+      <td>SH46 - 08 - 05</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AAS 211</td>
+      <td>AO 20039</td>
+      <td>Puzriš-Dagān</td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>P100190</td>
+      <td>SH47 - 07 - 29</td>
+      <td>SH47 - 07 - 29</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AAS 212</td>
+      <td>AO 20051</td>
+      <td>Puzriš-Dagān</td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>P100191</td>
+      <td>AS01 - 03 - 24</td>
+      <td>AS01 - 03 - 24</td>
+      <td>Louvre Museum, Paris, France</td>
+      <td>AAS 213</td>
+      <td>AO 20074</td>
+      <td>Puzriš-Dagān</td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>P100211</td>
+      <td>AS01 - 12 - 11</td>
+      <td>AS01 - 12 - 11</td>
+      <td>Museum of Fine Arts, Budapest, Hungary</td>
+      <td>ActSocHun Or 5-12, 156 2</td>
+      <td>MHBA 51.2400</td>
+      <td>Puzriš-Dagān</td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>15666</th>
+      <td>P456164</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>CDLI Seals 003454 (composite)</td>
+      <td>NaN</td>
+      <td>Puzriš-Dagan (mod. Drehem)</td>
+      <td>ORACC</td>
+    </tr>
+    <tr>
+      <th>15667</th>
+      <td>P459158</td>
+      <td>Ibbi-Suen.00.00.00</td>
+      <td>Ibbi-Suen.00.00.00</td>
+      <td>private: anonymous, unlocated</td>
+      <td>CDLI Seals 006338 (physical)</td>
+      <td>Anonymous 459158</td>
+      <td>Puzriš-Dagan (mod. Drehem)</td>
+      <td>ORACC</td>
+    </tr>
+    <tr>
+      <th>15668</th>
+      <td>P481391</td>
+      <td>SH46 - 02 - 24</td>
+      <td>SH46 - 02 - 24</td>
+      <td>Department of Classics, University of Cincinna...</td>
+      <td>unpublished unassigned ?</td>
+      <td>UC CSC 1950</td>
+      <td>Puzriš-Dagān</td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>15669</th>
+      <td>P481395</td>
+      <td>SS02 - 02 - 00</td>
+      <td>SS02 - 02 - 00</td>
+      <td>Department of Classics, University of Cincinna...</td>
+      <td>unpublished unassigned ?</td>
+      <td>UC CSC 1954</td>
+      <td>Puzriš-Dagān</td>
+      <td>BDTNS</td>
+    </tr>
+    <tr>
+      <th>15670</th>
+      <td>P517012</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>CDLI Seals 013964 (composite)</td>
+      <td>NaN</td>
+      <td>Puzriš-Dagan (mod. Drehem)</td>
+      <td>ORACC</td>
+    </tr>
+  </tbody>
+</table>
+<p>15671 rows × 8 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;output/part_1_output.csv&#39;</span><span class="p">)</span>
+<span class="n">words_df</span><span class="o">.</span><span class="n">to_pickle</span><span class="p">(</span><span class="s1">&#39;output/part_1_output.p&#39;</span><span class="p">)</span>
+
+<span class="n">catalogue_data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;output/part_1_catalogue.csv&#39;</span><span class="p">)</span>
+<span class="n">catalogue_data</span><span class="o">.</span><span class="n">to_pickle</span><span class="p">(</span><span class="s1">&#39;output/part_1_catalogue.p&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="welcome.html" title="previous page">Sumerian Networks JupyterBook</a>
+    <a class='right-next' id="next-link" href="PartII-N-gramNeighborsoftheProperNames%28PN%29.html" title="next page">II. N-gram Neighbors of the Proper Names (PN)</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
